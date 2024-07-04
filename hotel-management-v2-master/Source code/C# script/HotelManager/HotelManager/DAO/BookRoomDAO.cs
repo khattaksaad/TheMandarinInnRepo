@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static log4net.Appender.RollingFileAppender;
 
 namespace HotelManager.DAO
 {
@@ -12,16 +13,21 @@ namespace HotelManager.DAO
     {
         private static BookRoomDAO instance;
         private BookRoomDAO() { }
-        public bool InsertBookRoom(int roomId, int idCustomer, int idRoomType, string roomName,DateTime datecheckin,DateTime datecheckout, DateTime datebookroom, string userName)
+        public bool InsertBookRoom(int roomId, int idCustomer, int idRoomType, int bookingType, string roomName,DateTime datecheckin,DateTime datecheckout, DateTime datebookroom, string userName)
         {
-            string query = "USP_InsertBookRoom @roomId , @idCustomer , @idRoomType , @roomName , @datecheckin , @datecheckout , @datebookroom , @userName";
-            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { roomId, idCustomer, idRoomType, roomName, datecheckin, datecheckout, datebookroom, userName }) > 0;
+            string query = "USP_InsertBookRoom @roomId , @idCustomer , @idRoomType , @bookingType , @roomName , @datecheckin , @datecheckout , @datebookroom , @userName";
+            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { roomId, idCustomer, idRoomType, bookingType, roomName, datecheckin, datecheckout, datebookroom, userName }) > 0;
         }
         public DataTable LoadListBookRoom(DateTime dateTime)
         {
             string query = "USP_LoadBookRoomsByDate @date";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { dateTime });
 
+        }
+        public DataTable LoadListAllBookedRooms()
+        {
+            string query = "USP_LoadAllBookedRooms";
+            return DataProvider.Instance.ExecuteQuery(query);
         }
         public int GetCurrentIDBookRoom(DateTime dateTime)
         {

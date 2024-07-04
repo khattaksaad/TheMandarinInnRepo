@@ -45,6 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.titleBookRoom = new MetroFramework.Controls.MetroTile();
+            this.metroTileShowAllBookedRooms = new MetroFramework.Controls.MetroTile();
             this.panelLeft = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.btnNavigationPanel = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAccountProfile = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -80,10 +81,11 @@
             this.panelRight.Controls.Add(this.label2);
             this.panelRight.Controls.Add(this.btnClose);
             this.panelRight.Controls.Add(this.titleBookRoom);
+            this.panelRight.Controls.Add(this.metroTileShowAllBookedRooms);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRight.Location = new System.Drawing.Point(177, 0);
+            this.panelRight.Location = new System.Drawing.Point(171, 0);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(939, 583);
+            this.panelRight.Size = new System.Drawing.Size(942, 670);
             this.panelRight.TabIndex = 1;
             this.panelRight.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRight_Paint);
             // 
@@ -94,7 +96,7 @@
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(29, 42);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(879, 10);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(886, 19);
             this.bunifuSeparator1.TabIndex = 54;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -104,7 +106,7 @@
             this.metroTileCustomerManagement.ActiveControl = null;
             this.metroTileCustomerManagement.BackColor = System.Drawing.Color.SeaGreen;
             this.metroTileCustomerManagement.ForeColor = System.Drawing.Color.White;
-            this.metroTileCustomerManagement.Location = new System.Drawing.Point(330, 377);
+            this.metroTileCustomerManagement.Location = new System.Drawing.Point(328, 377);
             this.metroTileCustomerManagement.Name = "metroTile17";
             this.metroTileCustomerManagement.Size = new System.Drawing.Size(276, 135);
             this.metroTileCustomerManagement.TabIndex = 47;
@@ -124,7 +126,7 @@
             this.metroTileBillManagement.ActiveControl = null;
             this.metroTileBillManagement.BackColor = System.Drawing.Color.SeaGreen;
             this.metroTileBillManagement.ForeColor = System.Drawing.Color.White;
-            this.metroTileBillManagement.Location = new System.Drawing.Point(632, 73);
+            this.metroTileBillManagement.Location = new System.Drawing.Point(627, 74);
             this.metroTileBillManagement.Name = "metroTile16";
             this.metroTileBillManagement.Size = new System.Drawing.Size(135, 276);
             this.metroTileBillManagement.TabIndex = 44;
@@ -144,7 +146,7 @@
             this.metroTileRegulations.ActiveControl = null;
             this.metroTileRegulations.BackColor = System.Drawing.Color.SeaGreen;
             this.metroTileRegulations.ForeColor = System.Drawing.Color.White;
-            this.metroTileRegulations.Location = new System.Drawing.Point(632, 377);
+            this.metroTileRegulations.Location = new System.Drawing.Point(627, 377);
             this.metroTileRegulations.Name = "metroTile13";
             this.metroTileRegulations.Size = new System.Drawing.Size(276, 135);
             this.metroTileRegulations.TabIndex = 41;
@@ -204,7 +206,7 @@
             this.metroTileServiceManagement.ActiveControl = null;
             this.metroTileServiceManagement.BackColor = System.Drawing.Color.SeaGreen;
             this.metroTileServiceManagement.ForeColor = System.Drawing.Color.White;
-            this.metroTileServiceManagement.Location = new System.Drawing.Point(773, 73);
+            this.metroTileServiceManagement.Location = new System.Drawing.Point(776, 74);
             this.metroTileServiceManagement.Name = "metroTile2";
             this.metroTileServiceManagement.Size = new System.Drawing.Size(135, 276);
             this.metroTileServiceManagement.TabIndex = 32;
@@ -284,11 +286,12 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label2.Location = new System.Drawing.Point(21, 7);
+            this.label2.Location = new System.Drawing.Point(23, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(195, 37);
             this.label2.TabIndex = 21;
             this.label2.Text = "Hotel Manager";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnClose
             // 
@@ -296,7 +299,7 @@
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageActive = null;
-            this.btnClose.Location = new System.Drawing.Point(916, 7);
+            this.btnClose.Location = new System.Drawing.Point(919, 7);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(16, 16);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -325,6 +328,27 @@
             this.titleBookRoom.UseVisualStyleBackColor = false;
             this.titleBookRoom.Click += new System.EventHandler(this.titleSignUpRoom_Click);
             // 
+            // metroTileShowAllBookedRooms
+            // 
+            this.metroTileShowAllBookedRooms.ActiveControl = null;
+            this.metroTileShowAllBookedRooms.BackColor = System.Drawing.Color.SeaGreen;
+            this.metroTileShowAllBookedRooms.ForeColor = System.Drawing.Color.White;
+            this.metroTileShowAllBookedRooms.Location = new System.Drawing.Point(30, 520);
+            this.metroTileShowAllBookedRooms.Name = "titleShowAllBookedRooms";
+            this.metroTileShowAllBookedRooms.Size = new System.Drawing.Size(276, 135);
+            this.metroTileShowAllBookedRooms.TabIndex = 0;
+            this.metroTileShowAllBookedRooms.Text = "Show all booked rooms";
+            this.metroTileShowAllBookedRooms.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTileShowAllBookedRooms.TileImage")));
+            this.metroTileShowAllBookedRooms.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileShowAllBookedRooms.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
+            this.metroTileShowAllBookedRooms.UseCustomBackColor = true;
+            this.metroTileShowAllBookedRooms.UseCustomForeColor = true;
+            this.metroTileShowAllBookedRooms.UseSelectable = true;
+            this.metroTileShowAllBookedRooms.UseStyleColors = true;
+            this.metroTileShowAllBookedRooms.UseTileImage = true;
+            this.metroTileShowAllBookedRooms.UseVisualStyleBackColor = false;
+            this.metroTileShowAllBookedRooms.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
             // panelLeft
             // 
             this.panelLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelLeft.BackgroundImage")));
@@ -343,7 +367,7 @@
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Quality = 10;
-            this.panelLeft.Size = new System.Drawing.Size(177, 583);
+            this.panelLeft.Size = new System.Drawing.Size(171, 670);
             this.panelLeft.TabIndex = 0;
             // 
             // btnNavigationPanel
@@ -404,7 +428,7 @@
             this.btnAccountProfile.IconVisible = true;
             this.btnAccountProfile.IconZoom = 50D;
             this.btnAccountProfile.IsTab = false;
-            this.btnAccountProfile.Location = new System.Drawing.Point(0, 405);
+            this.btnAccountProfile.Location = new System.Drawing.Point(0, 492);
             this.btnAccountProfile.Name = "btnAccountProfile";
             this.btnAccountProfile.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btnAccountProfile.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -441,7 +465,7 @@
             this.btnLogOut.IconVisible = true;
             this.btnLogOut.IconZoom = 50D;
             this.btnLogOut.IsTab = false;
-            this.btnLogOut.Location = new System.Drawing.Point(0, 451);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 538);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btnLogOut.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -478,7 +502,7 @@
             this.btnHelp.IconVisible = true;
             this.btnHelp.IconZoom = 50D;
             this.btnHelp.IsTab = false;
-            this.btnHelp.Location = new System.Drawing.Point(0, 497);
+            this.btnHelp.Location = new System.Drawing.Point(0, 584);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btnHelp.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -514,7 +538,7 @@
             this.btnIntroduce.IconVisible = true;
             this.btnIntroduce.IconZoom = 50D;
             this.btnIntroduce.IsTab = false;
-            this.btnIntroduce.Location = new System.Drawing.Point(0, 543);
+            this.btnIntroduce.Location = new System.Drawing.Point(0, 630);
             this.btnIntroduce.Name = "btnIntroduce";
             this.btnIntroduce.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(139)))), ((int)(((byte)(87)))));
             this.btnIntroduce.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(129)))), ((int)(((byte)(77)))));
@@ -569,7 +593,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1116, 583);
+            this.ClientSize = new System.Drawing.Size(1113, 670);
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -609,5 +633,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnIntroduce;
         private Bunifu.Framework.UI.BunifuFlatButton btnNavigationPanel;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
+        private MetroFramework.Controls.MetroTile metroTileShowAllBookedRooms;
     }
 }

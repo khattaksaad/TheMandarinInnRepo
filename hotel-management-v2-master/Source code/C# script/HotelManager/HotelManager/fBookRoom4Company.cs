@@ -2,6 +2,7 @@
 using HotelManager.DTO;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Globalization;
 using System.Linq;
@@ -18,7 +19,6 @@ namespace HotelManager
             int roomTypeId;
             decimal price4Booking;
             string roomName;
-
             public string RoomId { get => roomId; set => roomId = value; }
             public string RoomType { get => roomTypeTitle; set => roomTypeTitle = value; }
             public decimal Price4Booking { get => price4Booking; set => price4Booking = value; }
@@ -92,9 +92,9 @@ namespace HotelManager
             txbAddress.Text = customer.Address;
             txbPhoneNumber.Text = customer.PhoneNumber.ToString();
         }
-        public void InsertBookRoom(int roomId, int idCustomer, int idRoomType, string roomName, DateTime datecheckin, DateTime datecheckout, DateTime datebookroom, string userId)
+        public void InsertBookRoom(int roomId, int idCustomer, int idRoomType, int bookingType, string roomName, DateTime datecheckin, DateTime datecheckout, DateTime datebookroom, string userId)
         {
-            BookRoomDAO.Instance.InsertBookRoom(roomId, idCustomer, idRoomType, roomName, datecheckin, datecheckout, datebookroom, this.userName);
+            BookRoomDAO.Instance.InsertBookRoom(roomId, idCustomer, idRoomType, bookingType, roomName, datecheckin, datecheckout, datebookroom, this.userName);
         }
         public int GetCurrentIDBookRoom(DateTime dateTime)
         {
@@ -184,15 +184,24 @@ namespace HotelManager
             {
                 if (txbIDCard.Text != String.Empty && txbFullName.Text != String.Empty && txbAddress.Text != String.Empty && txbPhoneNumber.Text != String.Empty )
                 {
-                      CompanyDAO.Instance.InsertCompany(txbFullName.Text, txbPhoneNumber.Text, txbAddress.Text, txbEmail.Text, txBrepName.Text,txbIDCard.Text, txbRepPhoneNumber.Text);
+                    //if its a new company, save it first; else just used the loaded id
+                    DataRow row = GetCompanyByName(txbFullName.Text.Trim());
+                    int companyId = -1;
+                    if (row == null)
+                    {
+                        companyId = CompanyDAO.Instance.InsertCompany(txbFullName.Text, txbPhoneNumber.Text, txbAddress.Text, txbEmail.Text, txBrepName.Text, txbIDCard.Text, txbRepPhoneNumber.Text);
+                    }
+                    else
+                    {
+                        companyId = Convert.ToInt32(row["id"]);
+                    }
                     //now add all bookings
-
                     foreach (var item in roomBooking4GridBindingSource.List)
                     {
                         RoomBooking4Grid room = item as RoomBooking4Grid;
-                        //InsertBookRoom(Convert.ToInt32(room.RoomId), CustomerDAO.Instance.GetInfoByIdCard(txbIDCard.Text).Id, room.RoomTypeId, room.RoomName, dpkDateCheckIn.Value, dpkDateCheckOut.Value, DateTime.Now, this.userName);
+                        InsertBookRoom(Convert.ToInt32(room.RoomId), companyId, room.RoomTypeId, bookingType:1, room.RoomName, dpkDateCheckIn.Value, dpkDateCheckOut.Value, DateTime.Now, this.userName);
                     }
-                    MessageBox.Show("Booking successfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Booking Successfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
                 }
                 else
@@ -202,19 +211,7 @@ namespace HotelManager
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //ClearData();
-            RoomBooking4Grid room = new RoomBooking4Grid()
-            {
-                RoomName = mcbRoomNumbers.Text,
-                RoomId = txbRoomID.Text,
-                RoomType = cbRoomType.Text,
-                RoomTypeId = (int)cbRoomType.SelectedValue,
-                Price4Booking = Convert.ToDecimal(txbPrice.Text)
-            };
-            roomBooking4GridBindingSource.Add(room);
-            roomBooking4GridBindingSource.ResetBindings(false);
-            dataGridView4Bookings.Refresh();
-            ClearRoomBookingInformation();
+
         }
 
         private void btnClose__Click(object sender, EventArgs e)
@@ -328,6 +325,30 @@ namespace HotelManager
         private void txbAddress_OnValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddAnotherRoom_Click(object sender, EventArgs e)
+        {
+            //ClearData();
+            RoomBooking4Grid room = new RoomBooking4Grid()
+            {
+                RoomName = mcbRoomNumbers.Text,
+                RoomId = txbRoomID.Text,
+                RoomType = cbRoomType.Text,
+                RoomTypeId = (int)cbRoomType.SelectedValue,
+                Price4Booking = Convert.ToDecimal(txbPrice.Text)
+            };
+            roomBooking4GridBindingSource.Add(room);
+            roomBooking4GridBindingSource.ResetBindings(false);
+            dataGridView4Bookings.Refresh();
+            ClearRoomBookingInformation();
+        }
+
+        private void btnAddGuests2Company_Click(object sender, EventArgs e)
+        {
+            DataRow row = GetCompanyByName(txbFullName.Text.Trim());
+            fAddGuests4Company fAddGuests4Company = new fAddGuests4Company((int)row["id"]);
+            fAddGuests4Company.ShowDialog();
         }
     }
 }

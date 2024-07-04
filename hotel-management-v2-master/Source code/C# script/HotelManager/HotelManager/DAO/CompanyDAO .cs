@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static log4net.Appender.RollingFileAppender;
 
 namespace HotelManager.DAO
 {
@@ -19,10 +20,12 @@ namespace HotelManager.DAO
 
         private CompanyDAO() { }
         #region Method
-        public bool InsertCompany(string name, string phone, string address, string email ,string companyRepName, string companyRepId, string companyRepContact)
+        public int InsertCompany(string name, string phone, string address, string email ,string companyRepName, string companyRepId, string companyRepContact)
         {
             string query = "USP_InsertCompany  @name , @phone , @address , @email , @repName , @repId , @repContactNumber";
-            return DataProvider.Instance.ExecuteNoneQuery(query,new object[] { name, phone, address, email, companyRepName, companyRepId, companyRepContact })>0;
+
+            DataRow dataRow = DataProvider.Instance.ExecuteQuery(query, new object[] { name, phone, address, email, companyRepName, companyRepId, companyRepContact }).Rows[0];
+            return (int)dataRow[0];
         }
         public Customer GetInfoByIdCard(string idCard)
         {

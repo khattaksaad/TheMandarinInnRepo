@@ -212,10 +212,8 @@ namespace HotelManager
         {
             if(IsExistsBill(idRoom))
             {
-                //Đã tồn tại Bill
                 if(!IsExistsBillDetails(idRoom,idService))
                 {
-                    //Chưa tồn tại BillDetails
                     if (count > 0)
                     {
                         int idBill = BillDAO.Instance.GetIdBillFromIdRoom(idRoom);
@@ -226,14 +224,12 @@ namespace HotelManager
                 }
                 else
                 {
-                    //ĐÃ tồn tại BillDetails
                     int idBill = BillDAO.Instance.GetIdBillFromIdRoom(idRoom);
                     UpdateBillDetails(idBill, idService, count);
                 }
             }
             else
             {
-                //Chưa tồn tại Bill
                 if (count > 0)
                 {
                     int idReceiveRoom = ReceiveRoomDAO.Instance.GetIdReceiveRoomFromIdRoom(idRoom);

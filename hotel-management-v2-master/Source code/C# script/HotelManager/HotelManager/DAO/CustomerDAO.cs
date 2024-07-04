@@ -19,10 +19,10 @@ namespace HotelManager.DAO
             int count = DataProvider.Instance.ExecuteQuery(query, new object[] { idCard }).Rows.Count;
             return count > 0;
         }
-        public bool InsertCustomer(string idCard, string name,int idCustomerType,DateTime dateofBirth,string address,string phonenumber, string email, string city,string sex,string nationality)
+        public bool InsertCustomer(string idCard, string name,int idCustomerType,DateTime dateofBirth,string address,string phonenumber, string email, string city,string sex,string nationality, int refCompany = -1)
         {
-            string query = "USP_InsertCustomer_ @idCard , @name , @idCustomerType , @dateOfBirth , @address , @phoneNumber , @email , @city , @sex , @nationality";
-            return DataProvider.Instance.ExecuteNoneQuery(query,new object[] { idCard, name, idCustomerType, dateofBirth, address, phonenumber, email, city, sex, nationality })>0;
+            string query = "USP_InsertCustomer_ @idCard , @name , @idCustomerType , @dateOfBirth , @address , @phoneNumber , @email , @city , @sex , @nationality , @refCompany";
+            return DataProvider.Instance.ExecuteNoneQuery(query,new object[] { idCard, name, idCustomerType, dateofBirth, address, phonenumber, email, city, sex, nationality, refCompany })>0;
         }
         public Customer GetInfoByIdCard(string idCard)
         {
@@ -32,16 +32,16 @@ namespace HotelManager.DAO
 
         }
 
-        internal bool InsertCustomer(string customerName, int idCustomerType, string idCard, string address, DateTime dateOfBirth, string phoneNumber, string email, string city, string sex, string nationality)
+        internal bool InsertCustomer(string customerName, int idCustomerType, string idCard, string address, DateTime dateOfBirth, string phoneNumber, string email, string city, string sex, string nationality, int refCompany = -1)
         {
-            string query = "exec USP_InsertCustomer @customerName , @idCustomerType , @idCard , @address , @dateOfBirth , @phoneNumber , @email , @city , @sex , @nationality";
-            int count = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { customerName, idCustomerType, idCard, address, dateOfBirth, phoneNumber, email, city, sex, nationality });
+            string query = "exec USP_InsertCustomer @customerName , @idCustomerType , @idCard , @address , @dateOfBirth , @phoneNumber , @email , @city , @sex , @nationality , @refCompany";
+            int count = DataProvider.Instance.ExecuteNoneQuery(query, new object[] { customerName, idCustomerType, idCard, address, dateOfBirth, phoneNumber, email, city, sex, nationality, refCompany });
             return count > 0;
         }
-        internal bool InsertCustomer(Customer customer)
+        internal bool InsertCustomer(Customer customer, int refCompany = -1)
         {
             return InsertCustomer(customer.Name, customer.IdCustomerType, customer.IdCard, customer.Address,
-                customer.DateOfBirth, customer.PhoneNumber, customer.City, customer.Email, customer.Sex, customer.Nationality);
+                customer.DateOfBirth, customer.PhoneNumber, customer.City, customer.Email, customer.Sex, customer.Nationality, refCompany);
         }
 
 
@@ -55,7 +55,7 @@ namespace HotelManager.DAO
                                     customerNow.Sex, customerNow.Nationality, customerPre.IdCard};
             return DataProvider.Instance.ExecuteNoneQuery(query, parameter) > 0;
         }
-        public bool UpdateCustomer(int id,string name,string idCard,int idCustomerType, string phoneNumber, string email, string city,DateTime dateOfBirth,string address,string sex,string nationality)
+        public bool UpdateCustomer(int id,string name,string idCard,int idCustomerType, string phoneNumber, string email, string city,DateTime dateOfBirth,string address,string sex,string nationality, int refCompany = -1)
         {
             string query = "USP_UpdateCustomer_ @id , @name , @idCard , @idCustomerType , @phoneNumber , @email , @city, @dateOfBirth , @address , @sex , @nationality";
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { id,name,idCard,idCustomerType,phoneNumber, email, city,dateOfBirth,address,sex,nationality})>0;

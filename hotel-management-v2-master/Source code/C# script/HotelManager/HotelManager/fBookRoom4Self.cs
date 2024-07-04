@@ -103,9 +103,9 @@ namespace HotelManager
             cbNationality.Text = customer.Nationality;
             cbCustomerType.Text = CustomerTypeDAO.Instance.GetNameByIdCard(idCard);
         }
-        public void InsertBookRoom(int roomId, int idCustomer, int idRoomType, string roomName, DateTime datecheckin, DateTime datecheckout, DateTime datebookroom, string userId)
+        public void InsertBookRoom(int roomId, int idCustomer, int idRoomType, int bookingType, string roomName, DateTime datecheckin, DateTime datecheckout, DateTime datebookroom, string userId)
         {
-            BookRoomDAO.Instance.InsertBookRoom(roomId, idCustomer, idRoomType, roomName, datecheckin, datecheckout, datebookroom, this.userName);
+            BookRoomDAO.Instance.InsertBookRoom(roomId, idCustomer, idRoomType, bookingType, roomName, datecheckin, datecheckout, datebookroom, this.userName);
         }
         public int GetCurrentIDBookRoom(DateTime dateTime)
         {
@@ -205,7 +205,7 @@ namespace HotelManager
                     foreach (var item in roomBooking4GridBindingSource.List)
                     {
                         RoomBooking4Grid room = item as RoomBooking4Grid;
-                        InsertBookRoom(Convert.ToInt32(room.RoomId), CustomerDAO.Instance.GetInfoByIdCard(txbIDCard.Text).Id, room.RoomTypeId, room.RoomName, dpkDateCheckIn.Value, dpkDateCheckOut.Value, DateTime.Now, this.userName);
+                        InsertBookRoom(Convert.ToInt32(room.RoomId), CustomerDAO.Instance.GetInfoByIdCard(txbIDCard.Text).Id, room.RoomTypeId, bookingType:0, room.RoomName, dpkDateCheckIn.Value, dpkDateCheckOut.Value, DateTime.Now, this.userName);
                     }
                     MessageBox.Show("Booking successfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
@@ -326,8 +326,10 @@ namespace HotelManager
 
         private void bunifuThinButtonCompanyBooking_Click(object sender, EventArgs e)
         {
+            this.Hide();
             fBookRoom4Company fBookRoomDetails = new fBookRoom4Company(this.userName);
             fBookRoomDetails.ShowDialog();
+            this.Close();
         }
     }
 }

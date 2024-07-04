@@ -141,7 +141,7 @@ namespace HotelManager
 
         private void bunifuThinButton23_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Deleting a customer will result in the booking being also deleted!\nDo you want to continue?", "Cảnh báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK)
+            if(MessageBox.Show("Deleting a customer will result in the booking being also deleted!\nDo you want to continue?", "Question",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK)
             {
                 if (BookRoomDAO.Instance.IsIDBookRoomExists(idBookRoom))
                 {

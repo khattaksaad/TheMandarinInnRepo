@@ -67,13 +67,8 @@ namespace HotelManager
             DataRow dataRow = BookRoomDAO.Instance.ShowBookRoomInfo(idBookRoom);
             txbFullName.Text = dataRow["FullName"].ToString();
             txbIDCard.Text = dataRow["IDCard"].ToString();
-            txbRoomTypeName.Text = dataRow["RoomTypeName"].ToString();
             cbRoomType.Text= dataRow["RoomTypeName"].ToString();//*
-            txbDateCheckIn.Text = dataRow["DateCheckIn"].ToString().Split(' ')[0];
             dateCheckIn = (DateTime)dataRow["DateCheckIn"];
-            txbDateCheckOut.Text = dataRow["DateCheckOut"].ToString().Split(' ')[0];
-            txbAmountPeople.Text= dataRow["LimitPerson"].ToString();
-            txbPrice.Text= dataRow["Price"].ToString();
         }
         public bool InsertReceiveRoom(int idBookRoom, int idRoom)
         {
@@ -94,13 +89,11 @@ namespace HotelManager
 
         private void cbRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txbRoomTypeName.Text = (cbRoomType.SelectedItem as RoomType).Name;
             LoadFullRooms((cbRoomType.SelectedItem as RoomType).Id);
         }
 
         private void cbRoom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txbRoomName.Text = cbRoom.Text;
         }
 
         private void txbIDBookRoom_KeyPress(object sender, KeyPressEventArgs e)
@@ -128,7 +121,7 @@ namespace HotelManager
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            if (txbRoomName.Text != string.Empty && txbRoomTypeName.Text != string.Empty && txbFullName.Text != string.Empty && txbIDCard.Text != string.Empty && txbDateCheckIn.Text != string.Empty && txbDateCheckOut.Text != string.Empty && txbAmountPeople.Text != string.Empty && txbPrice.Text != string.Empty)
+            if ( txbFullName.Text != string.Empty && txbIDCard.Text != string.Empty)
             {
                 fAddCustomerInfo fAddCustomerInfo = new fAddCustomerInfo();
                 fAddCustomerInfo.ShowDialog();
@@ -142,7 +135,7 @@ namespace HotelManager
         {
             if (MessageBox.Show("Would you like to check out?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (txbRoomName.Text != string.Empty && txbRoomTypeName.Text != string.Empty && txbFullName.Text != string.Empty && txbIDCard.Text != string.Empty && txbDateCheckIn.Text != string.Empty && txbDateCheckOut.Text != string.Empty && txbAmountPeople.Text != string.Empty && txbPrice.Text != string.Empty)
+                if ( txbFullName.Text != string.Empty && txbIDCard.Text != string.Empty)
                 {
                     if (dateCheckIn == DateTime.Now.Date)
                     {
@@ -177,7 +170,7 @@ namespace HotelManager
         }
         public void ClearData()
         {
-            txbFullName.Text = txbIDCard.Text = txbRoomTypeName.Text = txbDateCheckIn.Text = txbDateCheckOut.Text = txbAmountPeople.Text = txbPrice.Text = string.Empty;
+            txbFullName.Text = txbIDCard.Text = string.Empty;
 
         }
         private void btnCancel_Click(object sender, EventArgs e)
@@ -196,6 +189,11 @@ namespace HotelManager
             f.ShowDialog();
             Show();
             LoadReceiveRoomInfo();
+        }
+
+        private void btnSearchForCustomer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

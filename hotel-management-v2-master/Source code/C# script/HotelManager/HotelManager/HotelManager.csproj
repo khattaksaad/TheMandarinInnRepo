@@ -219,11 +219,23 @@
     <Compile Include="fAbout.Designer.cs">
       <DependentUpon>fAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="fShowAllCurrentBookings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fShowAllCurrentBookings.Designer.cs">
+      <DependentUpon>fShowAllCurrentBookings.cs</DependentUpon>
+    </Compile>
     <Compile Include="fAccess.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="fAccess.Designer.cs">
       <DependentUpon>fAccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAddGuests4Company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAddGuests4Company.Designer.cs">
+      <DependentUpon>fAddGuests4Company.cs</DependentUpon>
     </Compile>
     <Compile Include="fAddCustomer.cs">
       <SubType>Form</SubType>
@@ -399,8 +411,14 @@
     <EmbeddedResource Include="fAbout.resx">
       <DependentUpon>fAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fShowAllCurrentBookings.resx">
+      <DependentUpon>fShowAllCurrentBookings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fAccess.resx">
       <DependentUpon>fAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAddGuests4Company.resx">
+      <DependentUpon>fAddGuests4Company.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fAddCustomer.resx">
       <DependentUpon>fAddCustomer.cs</DependentUpon>
@@ -498,6 +516,9 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\fBookRoom4Self.RoomBooking4Grid.datasource" />
+    <None Include="Properties\DataSources\fShowAllCurrentBookings.RoomBooking4View.datasource" />
+    <None Include="Properties\DataSources\HotelManager.DTO.BookRoom.datasource" />
+    <None Include="Properties\DataSources\HotelManager.DTO.Customer.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

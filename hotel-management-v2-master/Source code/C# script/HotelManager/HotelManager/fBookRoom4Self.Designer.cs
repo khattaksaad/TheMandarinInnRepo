@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBookRoom4Self));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -77,6 +77,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.bunifuThinButtonCompanyBooking = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dpkDateCheckOut = new Bunifu.Framework.UI.BunifuDatepicker();
             this.label23 = new System.Windows.Forms.Label();
             this.txbDays = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -92,7 +93,6 @@
             this.roomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price4BookingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bunifuThinButtonCompanyBooking = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -821,6 +821,32 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Registration information:";
             // 
+            // bunifuThinButtonCompanyBooking
+            // 
+            this.bunifuThinButtonCompanyBooking.ActiveBorderThickness = 1;
+            this.bunifuThinButtonCompanyBooking.ActiveCornerRadius = 20;
+            this.bunifuThinButtonCompanyBooking.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButtonCompanyBooking.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButtonCompanyBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButtonCompanyBooking.BackgroundImage")));
+            this.bunifuThinButtonCompanyBooking.ButtonText = "Book for a company";
+            this.bunifuThinButtonCompanyBooking.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButtonCompanyBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButtonCompanyBooking.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.IdleBorderThickness = 1;
+            this.bunifuThinButtonCompanyBooking.IdleCornerRadius = 20;
+            this.bunifuThinButtonCompanyBooking.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButtonCompanyBooking.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.Location = new System.Drawing.Point(241, 86);
+            this.bunifuThinButtonCompanyBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButtonCompanyBooking.Name = "bunifuThinButtonCompanyBooking";
+            this.bunifuThinButtonCompanyBooking.Size = new System.Drawing.Size(203, 51);
+            this.bunifuThinButtonCompanyBooking.TabIndex = 48;
+            this.bunifuThinButtonCompanyBooking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButtonCompanyBooking.Click += new System.EventHandler(this.bunifuThinButtonCompanyBooking_Click);
+            // 
             // dpkDateCheckOut
             // 
             this.dpkDateCheckOut.BackColor = System.Drawing.Color.SeaGreen;
@@ -939,7 +965,7 @@
             // 
             this.textBoxTotal.BackColor = System.Drawing.Color.White;
             this.textBoxTotal.Font = new System.Drawing.Font("Segoe UI", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.textBoxTotal.ForeColor = System.Drawing.Color.Black;
             this.textBoxTotal.Location = new System.Drawing.Point(300, 466);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.Size = new System.Drawing.Size(148, 29);
@@ -967,14 +993,14 @@
             this.roomIdDataGridViewTextBoxColumn,
             this.price4BookingDataGridViewTextBoxColumn});
             this.dataGridView4Bookings.DataSource = this.roomBooking4GridBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView4Bookings.Location = new System.Drawing.Point(6, 21);
             this.dataGridView4Bookings.Name = "dataGridView4Bookings";
             this.dataGridView4Bookings.RowHeadersWidth = 50;
@@ -1013,32 +1039,6 @@
             // roomBooking4GridBindingSource
             // 
             this.roomBooking4GridBindingSource.DataSource = typeof(HotelManager.fBookRoom4Self.RoomBooking4Grid);
-            // 
-            // bunifuThinButtonCompanyBooking
-            // 
-            this.bunifuThinButtonCompanyBooking.ActiveBorderThickness = 1;
-            this.bunifuThinButtonCompanyBooking.ActiveCornerRadius = 20;
-            this.bunifuThinButtonCompanyBooking.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButtonCompanyBooking.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButtonCompanyBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButtonCompanyBooking.BackgroundImage")));
-            this.bunifuThinButtonCompanyBooking.ButtonText = "Book for a company";
-            this.bunifuThinButtonCompanyBooking.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButtonCompanyBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButtonCompanyBooking.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.IdleBorderThickness = 1;
-            this.bunifuThinButtonCompanyBooking.IdleCornerRadius = 20;
-            this.bunifuThinButtonCompanyBooking.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButtonCompanyBooking.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.Location = new System.Drawing.Point(241, 86);
-            this.bunifuThinButtonCompanyBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuThinButtonCompanyBooking.Name = "bunifuThinButtonCompanyBooking";
-            this.bunifuThinButtonCompanyBooking.Size = new System.Drawing.Size(203, 51);
-            this.bunifuThinButtonCompanyBooking.TabIndex = 48;
-            this.bunifuThinButtonCompanyBooking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButtonCompanyBooking.Click += new System.EventHandler(this.bunifuThinButtonCompanyBooking_Click);
             // 
             // fBookRoom4Self
             // 

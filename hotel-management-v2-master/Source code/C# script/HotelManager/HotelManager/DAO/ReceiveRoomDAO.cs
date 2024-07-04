@@ -32,6 +32,7 @@ namespace HotelManager.DAO
         {
             string query = "USP_GetIdReceiRoomFromIdRoom @idRoom";
             DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { idRoom });
+            
             ReceiveRoom receiveRoom = new ReceiveRoom(dataTable.Rows[0]);
             return receiveRoom.Id;
         }

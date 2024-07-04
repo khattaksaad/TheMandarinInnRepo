@@ -89,7 +89,7 @@ namespace HotelManager
                             break;
                     }
                     if (check)
-                        MessageBox.Show("Updated Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Exported Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
                         MessageBox.Show("Unknown error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -138,12 +138,12 @@ namespace HotelManager
         {
             if(comboboxID.Text == string.Empty)
             {
-                MessageBox.Show( "Phòng này chưa tồn tại\n", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show( "Room Id cannot be empty\n", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else
             if (!fCustomer.CheckFillInText(new Control[] { txbNameRoom, comboBoxStatusRoom, comboBoxRoomType }))
             {
-                MessageBox.Show( "Không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show( "Please provide all details, first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -154,14 +154,14 @@ namespace HotelManager
                     Room roomNow = GetRoomNow();
                     if (roomNow.Equals(roomPre))
                     {
-                        MessageBox.Show( "Bạn chưa thay đổi dữ liệu", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show( "Room already exists", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
                         bool check = RoomDAO.Instance.UpdateCustomer(roomNow);
                         if (check)
                         {
-                            MessageBox.Show( "Cập Nhật Thành Công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show( "Updated successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             groupRoom.Tag = roomNow;
                             if (btnCancel.Visible == false)
                             {
@@ -172,12 +172,12 @@ namespace HotelManager
                             else BtnCancel_Click(null, null);
                         }
                         else
-                            MessageBox.Show( "Phòng này chưa tồn tại\n", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            MessageBox.Show( "Cannot save it right now\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
                 catch
                 {
-                    MessageBox.Show( "Lỗi cập nhật phòng này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show( "An unexpected error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
