@@ -48,6 +48,17 @@ namespace HotelManager.DAO
             }
             return rooms;
         }
+        public DataTable LoadListAllBookedRooms()
+        {
+            string query = "USP_LoadAllBookedRooms";
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        public DataTable LoadListFullRoomAsDataTable()
+        {
+            string query = "USP_LoadListFullRoom @getToday";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { DateTime.Now.Date });
+        }
         public List<Room> LoadListFullRoom()
         {
             string query = "USP_LoadListFullRoom @getToday";

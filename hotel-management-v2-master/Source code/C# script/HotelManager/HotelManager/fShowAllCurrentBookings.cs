@@ -104,5 +104,10 @@ namespace HotelManager
             this.Close();
 
         }
+
+        private void btnClose__Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

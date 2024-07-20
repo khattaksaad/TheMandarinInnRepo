@@ -13,10 +13,10 @@ namespace HotelManager.DAO
     {
         private static BookRoomDAO instance;
         private BookRoomDAO() { }
-        public bool InsertBookRoom(int roomId, int idCustomer, int idRoomType, int bookingType, string roomName,DateTime datecheckin,DateTime datecheckout, DateTime datebookroom, string userName)
+        public bool InsertBookRoom(int roomId, int idCustomer, int idRoomType, int bookingType, string roomName,DateTime datecheckin,DateTime datecheckout, DateTime datebookroom, int pricePerNight, string userName)
         {
-            string query = "USP_InsertBookRoom @roomId , @idCustomer , @idRoomType , @bookingType , @roomName , @datecheckin , @datecheckout , @datebookroom , @userName";
-            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { roomId, idCustomer, idRoomType, bookingType, roomName, datecheckin, datecheckout, datebookroom, userName }) > 0;
+            string query = "USP_InsertBookRoom @roomId , @idCustomer , @idRoomType , @bookingType , @roomName , @datecheckin , @datecheckout , @datebookroom , @pricePerNight , @userName";
+            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { roomId, idCustomer, idRoomType, bookingType, roomName, datecheckin, datecheckout, datebookroom, pricePerNight, userName }) > 0;
         }
         public DataTable LoadListBookRoom(DateTime dateTime)
         {
@@ -37,14 +37,14 @@ namespace HotelManager.DAO
         }
         public bool IsIDBookRoomExists(int idBookRoom)
         {
-            string query = "USP_IsIDBookRoomExists @idBookRoom , @dateNow";
-            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { idBookRoom,DateTime.Now.Date});
+            string query = "USP_IsIDBookRoomExists @idBookRoom";
+            DataTable dataTable = DataProvider.Instance.ExecuteQuery(query, new object[] { idBookRoom});
             return dataTable.Rows.Count > 0;
         }
-        public DataRow ShowBookRoomInfo(int idBookRoom)
+        public DataTable ShowBookRoomInfo(int idBookRoom)
         {
             string query = "ShowBookRoomInfo @idBookRoom";
-            return DataProvider.Instance.ExecuteQuery(query, new object[] { idBookRoom }).Rows[0];
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { idBookRoom });
         }
         public bool UpdateBookRoom(int id,int idRoomType,DateTime datecheckin,DateTime datecheckout)
         {

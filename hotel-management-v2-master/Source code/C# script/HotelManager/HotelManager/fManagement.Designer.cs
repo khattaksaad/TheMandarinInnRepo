@@ -150,7 +150,7 @@
             this.metroTileRegulations.Name = "metroTile13";
             this.metroTileRegulations.Size = new System.Drawing.Size(276, 135);
             this.metroTileRegulations.TabIndex = 41;
-            this.metroTileRegulations.Text = "Regulations";
+            this.metroTileRegulations.Text = "Payment";
             this.metroTileRegulations.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTileRegulations.TileImage")));
             this.metroTileRegulations.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileRegulations.UseCustomBackColor = true;
@@ -206,7 +206,7 @@
             this.metroTileServiceManagement.ActiveControl = null;
             this.metroTileServiceManagement.BackColor = System.Drawing.Color.SeaGreen;
             this.metroTileServiceManagement.ForeColor = System.Drawing.Color.White;
-            this.metroTileServiceManagement.Location = new System.Drawing.Point(776, 74);
+            this.metroTileServiceManagement.Location = new System.Drawing.Point(769, 74);
             this.metroTileServiceManagement.Name = "metroTile2";
             this.metroTileServiceManagement.Size = new System.Drawing.Size(135, 276);
             this.metroTileServiceManagement.TabIndex = 32;
@@ -250,7 +250,7 @@
             this.titlePay.Name = "titlePay";
             this.titlePay.Size = new System.Drawing.Size(276, 135);
             this.titlePay.TabIndex = 27;
-            this.titlePay.Text = "Payment";
+            this.titlePay.Text = "Room service";
             this.titlePay.TileImage = ((System.Drawing.Image)(resources.GetObject("titlePay.TileImage")));
             this.titlePay.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.titlePay.UseCustomBackColor = true;
@@ -288,9 +288,9 @@
             this.label2.ForeColor = System.Drawing.Color.SeaGreen;
             this.label2.Location = new System.Drawing.Point(23, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(195, 37);
+            this.label2.Size = new System.Drawing.Size(428, 37);
             this.label2.TabIndex = 21;
-            this.label2.Text = "Hotel Manager";
+            this.label2.Text = "The Mandarin Inn - Hotel Manager";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnClose
@@ -337,7 +337,7 @@
             this.metroTileShowAllBookedRooms.Name = "titleShowAllBookedRooms";
             this.metroTileShowAllBookedRooms.Size = new System.Drawing.Size(276, 135);
             this.metroTileShowAllBookedRooms.TabIndex = 0;
-            this.metroTileShowAllBookedRooms.Text = "Show all booked rooms";
+            this.metroTileShowAllBookedRooms.Text = "Open Bookings";
             this.metroTileShowAllBookedRooms.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTileShowAllBookedRooms.TileImage")));
             this.metroTileShowAllBookedRooms.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileShowAllBookedRooms.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;
@@ -600,7 +600,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Quản lí khách sạn";
+            this.Text = "Hotel Manager";
             this.panelRight.ResumeLayout(false);
             this.panelRight.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();

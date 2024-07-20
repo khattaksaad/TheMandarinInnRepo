@@ -177,6 +177,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\ChargeService2RoomDAO.cs" />
     <Compile Include="DAO\AccessDAO.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
     <Compile Include="DAO\BillDAO.cs" />
@@ -218,6 +219,12 @@
     </Compile>
     <Compile Include="fAbout.Designer.cs">
       <DependentUpon>fAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fMethodOfPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fMethodOfPayment.Designer.cs">
+      <DependentUpon>fMethodOfPayment.cs</DependentUpon>
     </Compile>
     <Compile Include="fShowAllCurrentBookings.cs">
       <SubType>Form</SubType>
@@ -399,6 +406,12 @@
     <Compile Include="fUpdateCustomerInfo.Designer.cs">
       <DependentUpon>fUpdateCustomerInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="fPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPayment.Designer.cs">
+      <DependentUpon>fPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="fUseService.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,6 +423,9 @@
     <Compile Include="Utils\CountryHelper.cs" />
     <EmbeddedResource Include="fAbout.resx">
       <DependentUpon>fAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fMethodOfPayment.resx">
+      <DependentUpon>fMethodOfPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fShowAllCurrentBookings.resx">
       <DependentUpon>fShowAllCurrentBookings.cs</DependentUpon>
@@ -501,6 +517,9 @@
     <EmbeddedResource Include="fUpdateCustomerInfo.resx">
       <DependentUpon>fUpdateCustomerInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fPayment.resx">
+      <DependentUpon>fPayment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fUseService.resx">
       <DependentUpon>fUseService.cs</DependentUpon>
     </EmbeddedResource>
@@ -516,6 +535,7 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\fBookRoom4Self.RoomBooking4Grid.datasource" />
+    <None Include="Properties\DataSources\fReceiveRoom.BookedForCustomersUI.datasource" />
     <None Include="Properties\DataSources\fShowAllCurrentBookings.RoomBooking4View.datasource" />
     <None Include="Properties\DataSources\HotelManager.DTO.BookRoom.datasource" />
     <None Include="Properties\DataSources\HotelManager.DTO.Customer.datasource" />

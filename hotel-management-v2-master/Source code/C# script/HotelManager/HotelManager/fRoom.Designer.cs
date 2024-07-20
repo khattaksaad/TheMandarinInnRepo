@@ -542,7 +542,6 @@
             this.bindingRoom.AutoSize = false;
             this.bindingRoom.BackColor = System.Drawing.Color.Transparent;
             this.bindingRoom.CountItem = this.bindingNavigatorCountItem;
-            this.bindingRoom.CountItemFormat = "of {0}";
             this.bindingRoom.DeleteItem = null;
             this.bindingRoom.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bindingRoom.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;

@@ -35,13 +35,13 @@ namespace HotelManager
         }
         public void LoadData()
         {
-            DataRow data = BookRoomDAO.Instance.ShowBookRoomInfo(idBookRoom);
-            dpkDateCheckIn.Value = (DateTime)data["DateCheckIn"];
-            dpkDateCheckOut.Value = (DateTime)data["DateCheckOut"];
+            //DataRow data = BookRoomDAO.Instance.ShowBookRoomInfo(idBookRoom);
+            //dpkDateCheckIn.Value = (DateTime)data["DateCheckIn"];
+            //dpkDateCheckOut.Value = (DateTime)data["DateCheckOut"];
 
-            cbRoomType.Text = RoomTypeDAO.Instance.GetRoomTypeByIdBookRoom(idBookRoom).Name;
+            //cbRoomType.Text = RoomTypeDAO.Instance.GetRoomTypeByIdBookRoom(idBookRoom).Name;
 
-            GetInfoByIdCard(idCard);
+            //GetInfoByIdCard(idCard);
         }
         public void GetInfoByIdCard(string idCard)
         {

@@ -32,7 +32,6 @@ namespace HotelManager
         private void LoadFullBill(DataTable table)
         {
             BindingSource source = new BindingSource();
-            ChangePrice(table);
             source.DataSource = table;
             dataGridViewBill.DataSource = source;
             bindingBill.BindingSource = source;
@@ -45,34 +44,29 @@ namespace HotelManager
             txbUser.DataBindings.Clear();
             txbDiscount.DataBindings.Clear();
             txbFinalPrice.DataBindings.Clear();
+            foreach (DataRow row in table.Rows) {
+                if ((int)row["BookingType"] == 0)
+                {
+                    row["customername"] = "saad";
+                }
+                else
+                {
+                    row["customername"] = "company";
+
+                }
+            }
 
             txbDateCreate.DataBindings.Add("Text", source, "DateOfCreate");
             txbName.DataBindings.Add("Text", source, "roomName");
             txbPrice.DataBindings.Add("Text", source, "totalPrice");
             txbStatusRoom.DataBindings.Add("Text", source, "Name");
             txbUser.DataBindings.Add("Text", source, "StaffSetUp");
-            txbDiscount.DataBindings.Add("Text", source, "discount");
-            txbFinalPrice.DataBindings.Add("Text", source, "finalprice");
+            txbDiscount.DataBindings.Add("Text", source, "AmountPaid");
         }
 
         #endregion
 
         #region Change Text
-        private void ChangePrice(DataTable table)
-        {
-            table.Columns.Add("totalPrice_New", typeof(string));
-            table.Columns.Add("finalprice_New", typeof(string));
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                table.Rows[i]["finalprice_New"] = ((int)table.Rows[i]["finalprice"]).ToString();
-                table.Rows[i]["totalPrice_New"] = ((int)table.Rows[i]["totalPrice"]).ToString();
-            }
-            table.Columns.Remove("finalprice");
-            table.Columns.Remove("totalPrice");
-            table.Columns["totalPrice_New"].ColumnName = "totalPrice";
-            table.Columns["finalprice_New"].ColumnName = "finalprice";
-
-        }
         private void BtnSeenBill_Click(object sender, EventArgs e)
         {
             if (comboboxID.Text != string.Empty)

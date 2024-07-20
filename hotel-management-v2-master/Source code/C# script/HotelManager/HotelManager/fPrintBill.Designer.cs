@@ -89,11 +89,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnPrint = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -323,7 +323,7 @@
             this.bunifuSeparator3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.bunifuSeparator3.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuSeparator3.LineThickness = 3;
+            this.bunifuSeparator3.LineThickness = 5;
             this.bunifuSeparator3.Location = new System.Drawing.Point(18, 574);
             this.bunifuSeparator3.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
             this.bunifuSeparator3.Name = "bunifuSeparator3";
@@ -382,7 +382,7 @@
             // 
             this.bunifuSeparator2.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuSeparator2.LineThickness = 3;
+            this.bunifuSeparator2.LineThickness = 5;
             this.bunifuSeparator2.Location = new System.Drawing.Point(18, 356);
             this.bunifuSeparator2.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.bunifuSeparator2.Name = "bunifuSeparator2";
@@ -647,7 +647,7 @@
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
             this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuSeparator1.LineThickness = 3;
+            this.bunifuSeparator1.LineThickness = 5;
             this.bunifuSeparator1.Location = new System.Drawing.Point(18, 167);
             this.bunifuSeparator1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
@@ -772,6 +772,17 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "THE MANDARIN INN";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::HotelManager.Properties.Resources.image_123650291;
+            this.pictureBox2.Location = new System.Drawing.Point(31, 28);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(150, 106);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 15;
+            this.pictureBox2.TabStop = false;
+            // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
@@ -791,7 +802,7 @@
             this.btnClose_.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClose_.BackColor = System.Drawing.Color.White;
             this.btnClose_.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose_.BackgroundImage")));
-            this.btnClose_.ButtonText = "Đóng";
+            this.btnClose_.ButtonText = "Close";
             this.btnClose_.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose_.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose_.ForeColor = System.Drawing.Color.SeaGreen;
@@ -818,7 +829,7 @@
             this.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnPrint.BackColor = System.Drawing.Color.White;
             this.btnPrint.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrint.BackgroundImage")));
-            this.btnPrint.ButtonText = "In Hóa Đơn";
+            this.btnPrint.ButtonText = "Print";
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.ForeColor = System.Drawing.Color.SeaGreen;
@@ -834,17 +845,6 @@
             this.btnPrint.TabIndex = 65;
             this.btnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::HotelManager.Properties.Resources.image_123650291;
-            this.pictureBox2.Location = new System.Drawing.Point(18, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(162, 106);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
             // 
             // btnClose
             // 

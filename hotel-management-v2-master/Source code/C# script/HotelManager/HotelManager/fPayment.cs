@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,39 +11,68 @@ using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 using System.Windows.Forms;
 
 namespace HotelManager
 {
-    public partial class fUseService : Form
+    public partial class fPayment : Form
     {
         string staffSetUp;
-        List<Service> services;
+        List<Company> companyList;
+        List<Customer> customers;
+        List<Room4GUI> roomsDisplayed;
         private class Room4GUI
         {
             Room room;
             int bookingId;
+            int total4Room;
+            int customerId;
+            DateTime checkInDate;
+            DateTime checkOutDate;
+            int pricePerNight;
+            int bookingType;
             public Room4GUI()
             {
                 
             }
             public Room Room { get => room; set => room = value; }
             public int BookingId { get => bookingId; set => bookingId = value; }
+            public int Total4Room { get => total4Room; set => total4Room = value; }
+            public int CustomerId { get => customerId; set => customerId = value; }
+            public DateTime CheckInDate { get => checkInDate; set => checkInDate = value; }
+            public DateTime CheckOutDate { get => checkOutDate; set => checkOutDate = value; }
+            public int PricePerNight { get => pricePerNight; set => pricePerNight = value; }
+            public int BookingType { get => bookingType; set => bookingType = value; }
         }
-        public fUseService(string userName)
+        public fPayment(string userName)
         {
             staffSetUp = userName;         
             InitializeComponent();
             LoadData();
-            cbService.SelectedIndexChanged += cbService_SelectedIndexChanged;
-            cbService.DropDownStyle = ComboBoxStyle.DropDown;
+            System.Data.DataTable dtCustomers = CustomerDAO.Instance.LoadFullCustomer();
+            System.Data.DataTable dtCompany = CompanyDAO.Instance.LoadFullCompany();
+            customers = new List<Customer>();
+            companyList = new List<Company>();
+            foreach (DataRow dr in dtCustomers.Rows)
+            {
+                Customer customer = new Customer(dr);
+                customers.Add(customer);
+            }
+            foreach(DataRow dr in dtCompany.Rows)
+            {
+                Company company = new Company(dr);
+                companyList.Add(company);
+            }
+            cbCustomers.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCustomers.DataSource = companyList;
+            cbCustomers.ValueMember = "Id";
+            cbCustomers.DisplayMember = "CompanyName";
+            cbCustomers.SelectedValue = companyList.FirstOrDefault();
         }
         private void LoadData()
         {
-            LoadListServiceType();
-            LoadListRoomType();
-            LoadListFullRoom();
-            //ShowSurcharge();
+            LoadCheckedOutOpenBillRooms();
         }
         public void Pay(int idBill, int discount)
         {
@@ -94,21 +124,21 @@ namespace HotelManager
                     }
             }
         }
-        public void LoadListServiceType()
-        {
-            List<ServiceType> serviceTypes = ServiceTypeDAO.Instance.GetServiceTypes();
-            cbServiceType.DataSource = serviceTypes;
-            cbServiceType.DisplayMember = "Name";
-            cbServiceType.ValueMember = "Id";
-            cbServiceType.SelectedItem = serviceTypes.FirstOrDefault();
-        }
-        public void LoadListService(int idServiceType)
-        {
-            services = ServiceDAO.Instance.GetServices(idServiceType);
-            cbService.DataSource = services;
-            cbService.DisplayMember = "Name";
-            cbService.ValueMember = "Id";
-        }
+        //public void LoadListServiceType()
+        //{
+        //    List<ServiceType> serviceTypes = ServiceTypeDAO.Instance.GetServiceTypes();
+        //    cbServiceType.DataSource = serviceTypes;
+        //    cbServiceType.DisplayMember = "Name";
+        //    cbServiceType.ValueMember = "Id";
+        //    cbServiceType.SelectedItem = serviceTypes.FirstOrDefault();
+        //}
+        //public void LoadListService(int idServiceType)
+        //{
+        //    services = ServiceDAO.Instance.GetServices(idServiceType);
+        //    cbService.DataSource = services;
+        //    cbService.DisplayMember = "Name";
+        //    cbService.ValueMember = "Id";
+        //}
         public void DrawControl(Room room, Bunifu.Framework.UI.BunifuTileButton button)
         {
             int idRoomTypeName = RoomTypeDAO.Instance.GetRoomTypeByIdRoom(room.Id).Id;
@@ -151,23 +181,16 @@ namespace HotelManager
                     }
             }
         }
-        public void LoadListFullRoom()
+        public void LoadCheckedOutOpenBillRooms()
         {
             flowLayoutRooms.Controls.Clear();
             listViewBillRoom.Items.Clear();
             listViewUseService.Items.Clear();
-            DataTable dataTable = RoomDAO.Instance.LoadListFullRoomAsDataTable();
-            List<Room4GUI> rooms = new List<Room4GUI>();
-            foreach (DataRow item in dataTable.Rows)
-            {
-                Room4GUI room4GUI = new Room4GUI();
-                room4GUI.Room = new Room(item);
+            System.Data.DataTable dataTable = BillDAO.Instance.GetCheckedOutRoomsOpenForBilling();
+            //            Select r.Name, br.ID as [BookingId], cr.CheckOutDate as CheckedOutDate, br.IDCustomer as CustomerId, b.RoomPrice as [RoomTotal]
+            roomsDisplayed = GetRoom4GUIs(dataTable);
 
-                room4GUI.BookingId = Convert.ToInt32(item["BookingId"]);
-                rooms.Add(room4GUI);
-            }
-            
-            foreach (Room4GUI item in rooms)
+            foreach (Room4GUI item in roomsDisplayed)
             {
                 Bunifu.Framework.UI.BunifuTileButton button = new Bunifu.Framework.UI.BunifuTileButton();
                 button.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -206,13 +229,8 @@ namespace HotelManager
                     DrawControl(((item as Bunifu.Framework.UI.BunifuTileButton).Tag as Room4GUI).Room, item as Bunifu.Framework.UI.BunifuTileButton);
             }
             Room4GUI room = button.Tag as Room4GUI;
+            roomsDisplayed = new List<Room4GUI>() { room };
             ShowBill(room.BookingId);
-            //if (!BillDAO.Instance.IsExistsBill(room.Room.Id))
-            //{
-            //    int idReceiveRoom = ReceiveRoomDAO.Instance.GetIdReceiveRoomFromIdRoom(room.Room.Id);
-            //    InsertBill(idReceiveRoom, staffSetUp);
-            //}
-            //BillDAO.Instance.UpdateRoomPrice(BillDAO.Instance.GetIdBillFromIdRoom(room.Room.Id));
             ShowBillRoom(room.Room.Id);
 
             txbTotalPrice.Text = totalPrice.ToString();
@@ -276,7 +294,7 @@ namespace HotelManager
         public void ShowSurcharge()
         {
             string query = "select * from Parameter";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+            System.Data.DataTable data = DataProvider.Instance.ExecuteQuery(query);
             foreach (DataRow item in data.Rows)
             {
                 ListViewItem listViewItem = new ListViewItem(id.ToString());
@@ -297,7 +315,7 @@ namespace HotelManager
         public void ShowBill(int bookingId)
         {
             listViewUseService.Items.Clear();
-            DataTable dataTable = ChargeService2RoomDAO.Instance.GetAllServiceChargesForARoom(bookingId);
+            System.Data.DataTable dataTable = ChargeService2RoomDAO.Instance.GetAllServiceChargesForARoom(bookingId);
             int _totalPrice = 0;
             foreach (DataRow item in dataTable.Rows)
             {
@@ -335,26 +353,19 @@ namespace HotelManager
         public void ShowBillRoom(int idRoom)
         {
             listViewBillRoom.Items.Clear();
-
-            DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
+               Room4GUI room = flowLayoutRooms.Tag as Room4GUI;
+             if (room == null || room.BookingId <= 0) return;
+            //DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
             //	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
+            
+            ListViewItem listViewItem = new ListViewItem(room.Room.Name);
 
-            ListViewItem listViewItem = new ListViewItem(data["RoomName"].ToString());
-
-            ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, ((int)data["Actual Price Per Night"]).ToString());
-            ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, ((DateTime)data["Check-in Date"]).ToString().Split(' ')[0]);
-            ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, ((DateTime)data["Check-out Date"]).ToString().Split(' ')[0]);
-            //
-            ListViewItem.ListViewSubItem subItem4 = new ListViewItem.ListViewSubItem(listViewItem, ((int)data["Price charged per night"]).ToString());
-            // Calculate the difference
-            TimeSpan difference = (DateTime)data["Check-out Date"] - ((DateTime)data["Check-in Date"]);
-
-            // Get the number of days
-            int numberOfDays = difference.Days;
-            int roomPrice = (int)data["Price charged per night"] * numberOfDays;
-            ListViewItem.ListViewSubItem subItem6 = new ListViewItem.ListViewSubItem(listViewItem, roomPrice.ToString());
-
-            totalPrice += roomPrice;
+            ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, (room.Total4Room).ToString());
+            ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, (room.CheckInDate).ToString().Split(' ')[0]);
+            ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, (room.CheckOutDate).ToString().Split(' ')[0]);
+            ListViewItem.ListViewSubItem subItem4 = new ListViewItem.ListViewSubItem(listViewItem, (room.PricePerNight).ToString());
+            ListViewItem.ListViewSubItem subItem6 = new ListViewItem.ListViewSubItem(listViewItem, room.Total4Room.ToString());
+            totalPrice += room.Total4Room;
 
             listViewItem.SubItems.Add(subItem1);
             listViewItem.SubItems.Add(subItem2);
@@ -369,15 +380,6 @@ namespace HotelManager
             this.Close();
         }
 
-        private void cbServiceType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadListService((cbServiceType.SelectedItem as ServiceType).Id);
-        }
-        private void cbService_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbService.SelectedItem != null)
-                txbPrice.Text = (cbService.SelectedItem as Service).Price.ToString();
-        }
 
         private void btnClose__Click(object sender, EventArgs e)
         {
@@ -392,33 +394,29 @@ namespace HotelManager
       
         private void btnAddService2Room_Click(object sender, EventArgs e)
         {
-            try
+            this.Hide();
+            int totalDue = 0;
+            string bookingId = "";
+            string customerName = string.Empty;
+            foreach (var item in roomsDisplayed)
             {
-                Room4GUI room = flowLayoutRooms.Tag as Room4GUI;
-                if (room == null || room.BookingId <= 0) return;
-                //int service = services.FirstOrDefault(f => f.Name.Equals(cbService.Text))?.Id ?? 0;
-                //its a new service; save the service first.
-                int o = Convert.ToInt32(cbServiceType.SelectedValue);
-                object ok = cbService.SelectedValue;
-                if(ok == null && cbService.Text.Trim().Length > 0)
+                //totalDue += item.Total4Room;
+                bookingId += "," + item.BookingId;
+                if(customerName == string.Empty)
                 {
-                    ServiceDAO.Instance.InsertService(cbService.Text.Trim(), o, int.Parse(txbPrice.Text));
-                    string st = cbService.Text.Trim();
-                    services = ServiceDAO.Instance.GetServices(o);
-                    cbService.DataSource = services;
-                    cbService.SelectedItem = services.First(p=>p.Name.Equals(st));
+                    if (item.BookingType == 0)
+                    {
+                        customerName = customers.FirstOrDefault(f => f.Id == item.CustomerId)?.Name ?? string.Empty;
+                    }
+                    else
+                    {
+                        customerName = companyList.FirstOrDefault(f => f.Id == item.CustomerId)?.CompanyName ?? string.Empty;
+                    }
                 }
-
-                ChargeService2RoomDAO.Instance.Insert(room.BookingId, (int)cbService.SelectedValue, staffSetUp, int.Parse(txbPrice.Text), (int)numericUpDownCount.Value);
-                //refresh the list
-                ShowBill(room.BookingId);
-                txbTotalPrice.Text = totalPrice.ToString();
-
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            fMethodOfPayment fMethodOfPayment = new fMethodOfPayment(Convert.ToInt32(txbTotalPrice.Text), customerName: customerName, bookingId.TrimStart(','));
+            fMethodOfPayment.ShowDialog();
+            this.Show();
         }
 
         private void listViewBillRoom_SelectedIndexChanged(object sender, EventArgs e)
@@ -426,5 +424,82 @@ namespace HotelManager
 
         }
 
+        private void cbService_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            //if (cbService.SelectedItem != null)
+            //    txbPrice.Text = (cbService.SelectedItem as Service).Price.ToString();
+        }
+
+
+        private List<Room4GUI> GetRoom4GUIs(System.Data.DataTable dataTable)
+        {
+            List<Room4GUI> rooms = new List<Room4GUI>();
+            foreach (DataRow item in dataTable.Rows)
+            {
+                Room4GUI room4GUI = new Room4GUI();
+                room4GUI.Room = new Room(item);
+
+                room4GUI.BookingId = Convert.ToInt32(item["BookingId"]);
+                room4GUI.CustomerId = Convert.ToInt32(item["CustomerId"]);
+                //
+                room4GUI.Total4Room = Convert.ToInt32(item["RoomTotal"]);
+                room4GUI.CheckInDate = Convert.ToDateTime(item["Check-in Date"]);
+                room4GUI.CheckOutDate = Convert.ToDateTime(item["Checked out Date"]);
+                room4GUI.PricePerNight = Convert.ToInt32(item["PriceChargedPerNight"]);
+                room4GUI.BookingType = Convert.ToInt32(item["BookingType"]);
+                rooms.Add(room4GUI);
+            }
+            return rooms;
+        }
+        private void LoadRoomData()
+        {
+            listViewBillRoom.Items.Clear();
+            totalPrice = 0;
+            //
+ 
+            //ShowBill(room.BookingId);
+            //ShowBillRoom(room.Room.Id);
+
+            txbTotalPrice.Text = totalPrice.ToString();
+
+        }
+        private void btnSearch4Customers_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(cbCustomers.Text)) return;
+
+                //is a company selected
+           roomsDisplayed =   GetRoom4GUIs(BillDAO.Instance.GetCheckedOutRoomByCompanyOpenForBilling((int)cbCustomers.SelectedValue));
+            
+            foreach(Room4GUI room in roomsDisplayed)
+            {
+
+                if (room == null || room.BookingId <= 0) return;
+                //DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
+                //	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
+
+                ListViewItem listViewItem = new ListViewItem(room.Room.Name);
+                ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, (room.CheckInDate).ToString().Split(' ')[0]);
+                ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, (room.CheckOutDate).ToString().Split(' ')[0]);
+                ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, (room.PricePerNight).ToString());
+
+                ListViewItem.ListViewSubItem subItem4 = new ListViewItem.ListViewSubItem(listViewItem, (room.Total4Room).ToString());
+                //ListViewItem.ListViewSubItem subItem5 = new ListViewItem.ListViewSubItem(listViewItem, room.Total4Room.ToString());
+                totalPrice += room.Total4Room;
+
+                listViewItem.SubItems.Add(subItem1);
+                listViewItem.SubItems.Add(subItem2);
+                listViewItem.SubItems.Add(subItem3);
+                listViewItem.SubItems.Add(subItem4);
+                //listViewItem.SubItems.Add(subItem5);
+                txbTotalPrice.Text = totalPrice.ToString();
+                listViewBillRoom.Items.Add(listViewItem);
+            }
+            int i = 0;
+        }
+
+        private void checkBoxPayment4Company_CheckedChanged(object sender, EventArgs e)
+        {
+            cbCustomers.Enabled = checkBoxPayment4Company.Checked;           
+        }
     }
 }

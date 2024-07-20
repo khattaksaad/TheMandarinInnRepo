@@ -92,9 +92,9 @@ namespace HotelManager
             txbAddress.Text = customer.Address;
             txbPhoneNumber.Text = customer.PhoneNumber.ToString();
         }
-        public void InsertBookRoom(int roomId, int idCustomer, int idRoomType, int bookingType, string roomName, DateTime datecheckin, DateTime datecheckout, DateTime datebookroom, string userId)
+        public void InsertBookRoom(int roomId, int idCustomer, int idRoomType, int bookingType, string roomName, DateTime datecheckin, DateTime datecheckout, DateTime datebookroom, int pricePerNight, string userId)
         {
-            BookRoomDAO.Instance.InsertBookRoom(roomId, idCustomer, idRoomType, bookingType, roomName, datecheckin, datecheckout, datebookroom, this.userName);
+            BookRoomDAO.Instance.InsertBookRoom(roomId, idCustomer, idRoomType, bookingType, roomName, datecheckin, datecheckout, datebookroom, pricePerNight, this.userName);
         }
         public int GetCurrentIDBookRoom(DateTime dateTime)
         {
@@ -199,7 +199,8 @@ namespace HotelManager
                     foreach (var item in roomBooking4GridBindingSource.List)
                     {
                         RoomBooking4Grid room = item as RoomBooking4Grid;
-                        InsertBookRoom(Convert.ToInt32(room.RoomId), companyId, room.RoomTypeId, bookingType:1, room.RoomName, dpkDateCheckIn.Value, dpkDateCheckOut.Value, DateTime.Now, this.userName);
+                        if (room == null || room.RoomId == null) continue;
+                        InsertBookRoom(Convert.ToInt32(room.RoomId), companyId, room.RoomTypeId, bookingType:1, room.RoomName, dpkDateCheckIn.Value, dpkDateCheckOut.Value, DateTime.Now, (int)room.Price4Booking, this.userName);
                     }
                     MessageBox.Show("Booking Successfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();

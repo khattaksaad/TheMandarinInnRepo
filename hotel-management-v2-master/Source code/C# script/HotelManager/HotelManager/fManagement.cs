@@ -152,14 +152,14 @@ namespace HotelManager
 
         private void metroTile13_Click(object sender, EventArgs e)
         {
-            if (CheckAccess("fparameter"))
-            {
+            //if (CheckAccess("fPayment"))
+            //{
                 this.Hide();
-                fParameter parameter = new fParameter();
+                fPayment parameter = new fPayment(userName);
                 parameter.ShowDialog();
                 this.Show();
-            }
-            else MessageBox.Show("You do not have access.", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //else MessageBox.Show("You do not have access.", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void metroTile8_Click(object sender, EventArgs e)

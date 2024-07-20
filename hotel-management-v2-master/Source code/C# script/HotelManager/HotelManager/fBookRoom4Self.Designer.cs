@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBookRoom4Self));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -89,10 +89,10 @@
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.dataGridView4Bookings = new System.Windows.Forms.DataGridView();
+            this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price4BookingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -571,9 +571,9 @@
             this.labelCustomerId.ForeColor = System.Drawing.Color.SeaGreen;
             this.labelCustomerId.Location = new System.Drawing.Point(7, 237);
             this.labelCustomerId.Name = "labelCustomerId";
-            this.labelCustomerId.Size = new System.Drawing.Size(121, 20);
+            this.labelCustomerId.Size = new System.Drawing.Size(45, 20);
             this.labelCustomerId.TabIndex = 24;
-            this.labelCustomerId.Text = "CNIC/ID number:";
+            this.labelCustomerId.Text = "CNIC:";
             // 
             // txbFullName
             // 
@@ -993,14 +993,14 @@
             this.roomIdDataGridViewTextBoxColumn,
             this.price4BookingDataGridViewTextBoxColumn});
             this.dataGridView4Bookings.DataSource = this.roomBooking4GridBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView4Bookings.Location = new System.Drawing.Point(6, 21);
             this.dataGridView4Bookings.Name = "dataGridView4Bookings";
             this.dataGridView4Bookings.RowHeadersWidth = 50;
@@ -1011,34 +1011,33 @@
             this.dataGridView4Bookings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4Bookings_CellValueChanged);
             this.dataGridView4Bookings.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView4Bookings_RowsAdded);
             // 
+            // roomBooking4GridBindingSource
+            // 
+            this.roomBooking4GridBindingSource.DataSource = typeof(HotelManager.fBookRoom4Self.RoomBooking4Grid);
+            // 
             // roomTypeDataGridViewTextBoxColumn
             // 
+            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.Frozen = true;
             this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
             this.roomTypeDataGridViewTextBoxColumn.MinimumWidth = 15;
             this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
-            this.roomTypeDataGridViewTextBoxColumn.Width = 81;
             // 
             // roomIdDataGridViewTextBoxColumn
             // 
+            this.roomIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.roomIdDataGridViewTextBoxColumn.DataPropertyName = "RoomId";
             this.roomIdDataGridViewTextBoxColumn.HeaderText = "Room Number";
             this.roomIdDataGridViewTextBoxColumn.MinimumWidth = 15;
             this.roomIdDataGridViewTextBoxColumn.Name = "roomIdDataGridViewTextBoxColumn";
-            this.roomIdDataGridViewTextBoxColumn.Width = 97;
             // 
             // price4BookingDataGridViewTextBoxColumn
             // 
+            this.price4BookingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.price4BookingDataGridViewTextBoxColumn.DataPropertyName = "Price4Booking";
             this.price4BookingDataGridViewTextBoxColumn.HeaderText = "Price Per night";
             this.price4BookingDataGridViewTextBoxColumn.MinimumWidth = 15;
             this.price4BookingDataGridViewTextBoxColumn.Name = "price4BookingDataGridViewTextBoxColumn";
-            this.price4BookingDataGridViewTextBoxColumn.Width = 97;
-            // 
-            // roomBooking4GridBindingSource
-            // 
-            this.roomBooking4GridBindingSource.DataSource = typeof(HotelManager.fBookRoom4Self.RoomBooking4Grid);
             // 
             // fBookRoom4Self
             // 
@@ -1139,9 +1138,9 @@
         private System.Windows.Forms.Label labelCity;
         private System.Windows.Forms.TextBox textBoxTotal;
         private System.Windows.Forms.Label labelTotal;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButtonCompanyBooking;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn price4BookingDataGridViewTextBoxColumn;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButtonCompanyBooking;
     }
 }

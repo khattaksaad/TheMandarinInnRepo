@@ -31,7 +31,7 @@ namespace HotelManager
         }
         public void ShowCustomers(int idReceiveRoom)
         {
-            dataGridView.DataSource = ReceiveRoomDAO.Instance.ShowCusomers(idReceiveRoom);
+            dataGridView.DataSource = ReceiveRoomDAO.Instance.ShowCustomers(idReceiveRoom);
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
