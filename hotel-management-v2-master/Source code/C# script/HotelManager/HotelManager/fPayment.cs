@@ -466,9 +466,10 @@ namespace HotelManager
         private void btnSearch4Customers_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbCustomers.Text)) return;
+            listViewBillRoom.Items.Clear();
 
-                //is a company selected
-           roomsDisplayed =   GetRoom4GUIs(BillDAO.Instance.GetCheckedOutRoomByCompanyOpenForBilling((int)cbCustomers.SelectedValue));
+            //is a company selected
+            roomsDisplayed =   GetRoom4GUIs(BillDAO.Instance.GetCheckedOutRoomByCompanyOpenForBilling((int)cbCustomers.SelectedValue));
             
             foreach(Room4GUI room in roomsDisplayed)
             {

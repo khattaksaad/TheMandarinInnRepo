@@ -38,7 +38,7 @@ namespace HotelManager
             }
             else
             {
-                MessageBox.Show( "Tên Đăng Nhập không tồn tại hoặc Mật Khẩu không đúng.\nVui lòng nhập lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show( "Incorrect credentials, cannot grant access!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -29,18 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBill));
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bindingBill = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSeenBill = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnCLose1 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label6 = new System.Windows.Forms.Label();
             this.saveBill = new System.Windows.Forms.SaveFileDialog();
             this.groupService = new System.Windows.Forms.GroupBox();
@@ -64,20 +70,13 @@
             this.cbBillSearch = new MetroFramework.Controls.MetroComboBox();
             this.txbSearch = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnSearch = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewBill = new System.Windows.Forms.DataGridView();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnSeenBill = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnCLose1 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnSearch = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIdReciveRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaffsetUp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coldDateOfCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -148,6 +147,26 @@
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.AutoSize = false;
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(40, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.AutoSize = false;
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(40, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
@@ -168,6 +187,26 @@
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 43);
             // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.AutoSize = false;
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(40, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.AutoSize = false;
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(40, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnSeenBill);
@@ -180,6 +219,62 @@
             this.groupBox2.Size = new System.Drawing.Size(408, 83);
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
+            // 
+            // btnSeenBill
+            // 
+            this.btnSeenBill.ActiveBorderThickness = 1;
+            this.btnSeenBill.ActiveCornerRadius = 20;
+            this.btnSeenBill.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnSeenBill.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSeenBill.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSeenBill.BackColor = System.Drawing.Color.White;
+            this.btnSeenBill.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSeenBill.BackgroundImage")));
+            this.btnSeenBill.ButtonText = "Invoice details";
+            this.btnSeenBill.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSeenBill.Enabled = false;
+            this.btnSeenBill.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeenBill.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnSeenBill.IdleBorderThickness = 1;
+            this.btnSeenBill.IdleCornerRadius = 20;
+            this.btnSeenBill.IdleFillColor = System.Drawing.Color.White;
+            this.btnSeenBill.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnSeenBill.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSeenBill.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSeenBill.Location = new System.Drawing.Point(11, 27);
+            this.btnSeenBill.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSeenBill.Name = "btnSeenBill";
+            this.btnSeenBill.Size = new System.Drawing.Size(175, 40);
+            this.btnSeenBill.TabIndex = 50;
+            this.btnSeenBill.TabStop = false;
+            this.btnSeenBill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSeenBill.Click += new System.EventHandler(this.BtnSeenBill_Click);
+            // 
+            // btnCLose1
+            // 
+            this.btnCLose1.ActiveBorderThickness = 1;
+            this.btnCLose1.ActiveCornerRadius = 20;
+            this.btnCLose1.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnCLose1.ActiveForecolor = System.Drawing.Color.White;
+            this.btnCLose1.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnCLose1.BackColor = System.Drawing.Color.White;
+            this.btnCLose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCLose1.BackgroundImage")));
+            this.btnCLose1.ButtonText = "Close";
+            this.btnCLose1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCLose1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCLose1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnCLose1.IdleBorderThickness = 1;
+            this.btnCLose1.IdleCornerRadius = 20;
+            this.btnCLose1.IdleFillColor = System.Drawing.Color.White;
+            this.btnCLose1.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnCLose1.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnCLose1.Location = new System.Drawing.Point(210, 27);
+            this.btnCLose1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCLose1.Name = "btnCLose1";
+            this.btnCLose1.Size = new System.Drawing.Size(175, 40);
+            this.btnCLose1.TabIndex = 52;
+            this.btnCLose1.TabStop = false;
+            this.btnCLose1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCLose1.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // label6
             // 
@@ -489,10 +584,9 @@
             this.cbBillSearch.FormattingEnabled = true;
             this.cbBillSearch.ItemHeight = 23;
             this.cbBillSearch.Items.AddRange(new object[] {
-            "Mã hoá đơn",
-            "Tên khách hàng",
-            "Số CMND",
-            "Số điện thoại"});
+            "By name",
+            "By ID/CNIC",
+            "By reservation code"});
             this.cbBillSearch.Location = new System.Drawing.Point(11, 57);
             this.cbBillSearch.Name = "cbBillSearch";
             this.cbBillSearch.Size = new System.Drawing.Size(175, 29);
@@ -530,143 +624,6 @@
             this.label5.Size = new System.Drawing.Size(76, 20);
             this.label5.TabIndex = 28;
             this.label5.Text = "Search by:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dataGridViewBill);
-            this.groupBox1.Controls.Add(this.bindingBill);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox1.Location = new System.Drawing.Point(418, 52);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 461);
-            this.groupBox1.TabIndex = 59;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Invoice list";
-            // 
-            // dataGridViewBill
-            // 
-            this.dataGridViewBill.AllowUserToAddRows = false;
-            this.dataGridViewBill.AllowUserToDeleteRows = false;
-            this.dataGridViewBill.AllowUserToResizeRows = false;
-            this.dataGridViewBill.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewBill.ColumnHeadersHeight = 29;
-            this.dataGridViewBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridViewBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
-            this.colIdReciveRoom,
-            this.colCustomerName,
-            this.colStaffsetUp,
-            this.coldDateOfCreate,
-            this.colStatus,
-            this.colPrice,
-            this.Column2});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewBill.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewBill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewBill.GridColor = System.Drawing.Color.White;
-            this.dataGridViewBill.Location = new System.Drawing.Point(3, 68);
-            this.dataGridViewBill.Name = "dataGridViewBill";
-            this.dataGridViewBill.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBill.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewBill.RowHeadersVisible = false;
-            this.dataGridViewBill.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewBill.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.dataGridViewBill.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.dataGridViewBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBill.Size = new System.Drawing.Size(769, 390);
-            this.dataGridViewBill.TabIndex = 28;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImageActive = null;
-            this.btnClose.Location = new System.Drawing.Point(1177, 5);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(16, 16);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnClose.TabIndex = 56;
-            this.btnClose.TabStop = false;
-            this.btnClose.Zoom = 10;
-            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
-            // btnSeenBill
-            // 
-            this.btnSeenBill.ActiveBorderThickness = 1;
-            this.btnSeenBill.ActiveCornerRadius = 20;
-            this.btnSeenBill.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnSeenBill.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSeenBill.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSeenBill.BackColor = System.Drawing.Color.White;
-            this.btnSeenBill.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSeenBill.BackgroundImage")));
-            this.btnSeenBill.ButtonText = "Invoice details";
-            this.btnSeenBill.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSeenBill.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeenBill.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSeenBill.IdleBorderThickness = 1;
-            this.btnSeenBill.IdleCornerRadius = 20;
-            this.btnSeenBill.IdleFillColor = System.Drawing.Color.White;
-            this.btnSeenBill.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnSeenBill.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSeenBill.Location = new System.Drawing.Point(11, 27);
-            this.btnSeenBill.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSeenBill.Name = "btnSeenBill";
-            this.btnSeenBill.Size = new System.Drawing.Size(175, 40);
-            this.btnSeenBill.TabIndex = 50;
-            this.btnSeenBill.TabStop = false;
-            this.btnSeenBill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSeenBill.Click += new System.EventHandler(this.BtnSeenBill_Click);
-            // 
-            // btnCLose1
-            // 
-            this.btnCLose1.ActiveBorderThickness = 1;
-            this.btnCLose1.ActiveCornerRadius = 20;
-            this.btnCLose1.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnCLose1.ActiveForecolor = System.Drawing.Color.White;
-            this.btnCLose1.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnCLose1.BackColor = System.Drawing.Color.White;
-            this.btnCLose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCLose1.BackgroundImage")));
-            this.btnCLose1.ButtonText = "Close";
-            this.btnCLose1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCLose1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCLose1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnCLose1.IdleBorderThickness = 1;
-            this.btnCLose1.IdleCornerRadius = 20;
-            this.btnCLose1.IdleFillColor = System.Drawing.Color.White;
-            this.btnCLose1.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnCLose1.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnCLose1.Location = new System.Drawing.Point(210, 27);
-            this.btnCLose1.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCLose1.Name = "btnCLose1";
-            this.btnCLose1.Size = new System.Drawing.Size(175, 40);
-            this.btnCLose1.TabIndex = 52;
-            this.btnCLose1.TabStop = false;
-            this.btnCLose1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCLose1.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // btnSearch
             // 
@@ -721,88 +678,119 @@
             this.btnCancel.Visible = false;
             this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // bindingNavigatorMoveFirstItem
+            // groupBox1
             // 
-            this.bindingNavigatorMoveFirstItem.AutoSize = false;
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(40, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.groupBox1.Controls.Add(this.dataGridViewBill);
+            this.groupBox1.Controls.Add(this.bindingBill);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox1.Location = new System.Drawing.Point(418, 52);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(775, 461);
+            this.groupBox1.TabIndex = 59;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Invoice list";
             // 
-            // bindingNavigatorMovePreviousItem
+            // dataGridViewBill
             // 
-            this.bindingNavigatorMovePreviousItem.AutoSize = false;
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(40, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.dataGridViewBill.AllowUserToAddRows = false;
+            this.dataGridViewBill.AllowUserToDeleteRows = false;
+            this.dataGridViewBill.AllowUserToResizeRows = false;
+            this.dataGridViewBill.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewBill.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBill.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewBill.ColumnHeadersHeight = 29;
+            this.dataGridViewBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridViewBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colID,
+            this.colIdReciveRoom,
+            this.colStaffsetUp,
+            this.coldDateOfCreate,
+            this.colStatus,
+            this.colPrice,
+            this.Column2});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewBill.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewBill.GridColor = System.Drawing.Color.White;
+            this.dataGridViewBill.Location = new System.Drawing.Point(3, 68);
+            this.dataGridViewBill.Name = "dataGridViewBill";
+            this.dataGridViewBill.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBill.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridViewBill.RowHeadersVisible = false;
+            this.dataGridViewBill.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewBill.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.dataGridViewBill.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridViewBill.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewBill.Size = new System.Drawing.Size(769, 390);
+            this.dataGridViewBill.TabIndex = 28;
             // 
-            // bindingNavigatorMoveNextItem
+            // btnClose
             // 
-            this.bindingNavigatorMoveNextItem.AutoSize = false;
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(40, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.AutoSize = false;
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(40, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageActive = null;
+            this.btnClose.Location = new System.Drawing.Point(1177, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(16, 16);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnClose.TabIndex = 56;
+            this.btnClose.TabStop = false;
+            this.btnClose.Zoom = 10;
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // colID
             // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colID.DataPropertyName = "id";
             this.colID.FillWeight = 30F;
             this.colID.HeaderText = "Code";
             this.colID.Name = "colID";
             this.colID.ReadOnly = true;
-            this.colID.Width = 71;
             // 
             // colIdReciveRoom
             // 
-            this.colIdReciveRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colIdReciveRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colIdReciveRoom.DataPropertyName = "roomName";
             this.colIdReciveRoom.FillWeight = 30F;
             this.colIdReciveRoom.HeaderText = "Room name";
             this.colIdReciveRoom.Name = "colIdReciveRoom";
             this.colIdReciveRoom.ReadOnly = true;
-            this.colIdReciveRoom.Width = 120;
-            // 
-            // colCustomerName
-            // 
-            this.colCustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colCustomerName.DataPropertyName = "customername";
-            this.colCustomerName.HeaderText = "Customer name";
-            this.colCustomerName.Name = "colCustomerName";
-            this.colCustomerName.ReadOnly = true;
-            this.colCustomerName.Width = 146;
             // 
             // colStaffsetUp
             // 
-            this.colStaffsetUp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colStaffsetUp.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colStaffsetUp.DataPropertyName = "StaffSetUp";
             this.colStaffsetUp.FillWeight = 30F;
             this.colStaffsetUp.HeaderText = "Staff";
             this.colStaffsetUp.Name = "colStaffsetUp";
             this.colStaffsetUp.ReadOnly = true;
             this.colStaffsetUp.Visible = false;
-            this.colStaffsetUp.Width = 66;
             // 
             // coldDateOfCreate
             // 
+            this.coldDateOfCreate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.coldDateOfCreate.DataPropertyName = "DateOfCreate";
             this.coldDateOfCreate.FillWeight = 30F;
             this.coldDateOfCreate.HeaderText = "Creation date";
@@ -811,22 +799,20 @@
             // 
             // colStatus
             // 
-            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colStatus.DataPropertyName = "name";
             this.colStatus.HeaderText = "Status";
             this.colStatus.Name = "colStatus";
             this.colStatus.ReadOnly = true;
-            this.colStatus.Width = 77;
             // 
             // colPrice
             // 
-            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colPrice.DataPropertyName = "TotalPrice";
             this.colPrice.FillWeight = 30F;
             this.colPrice.HeaderText = "Total Amount";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 127;
             // 
             // Column2
             // 
@@ -918,7 +904,6 @@
         private MetroFramework.Controls.MetroComboBox cbBillSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdReciveRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCustomerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaffsetUp;
         private System.Windows.Forms.DataGridViewTextBoxColumn coldDateOfCreate;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;

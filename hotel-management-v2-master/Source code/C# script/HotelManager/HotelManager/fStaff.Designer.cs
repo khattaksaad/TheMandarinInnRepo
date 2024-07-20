@@ -172,7 +172,7 @@
             this.btnSearch.IdleFillColor = System.Drawing.Color.White;
             this.btnSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.Location = new System.Drawing.Point(23, 108);
+            this.btnSearch.Location = new System.Drawing.Point(15, 95);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(175, 40);
@@ -198,7 +198,7 @@
             this.btnCancel.IdleFillColor = System.Drawing.Color.White;
             this.btnCancel.IdleForecolor = System.Drawing.Color.Red;
             this.btnCancel.IdleLineColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(23, 108);
+            this.btnCancel.Location = new System.Drawing.Point(15, 95);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(175, 40);
@@ -375,7 +375,6 @@
             // 
             this.bindingStaff.AddNewItem = null;
             this.bindingStaff.CountItem = this.bindingNavigatorCountItem;
-            this.bindingStaff.CountItemFormat = "of {0}";
             this.bindingStaff.DeleteItem = null;
             this.bindingStaff.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
@@ -505,7 +504,7 @@
             this.datePickerStartDay.ForeColor = System.Drawing.Color.White;
             this.datePickerStartDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datePickerStartDay.FormatCustom = null;
-            this.datePickerStartDay.Location = new System.Drawing.Point(23, 160);
+            this.datePickerStartDay.Location = new System.Drawing.Point(10, 162);
             this.datePickerStartDay.Margin = new System.Windows.Forms.Padding(151, 445, 151, 403);
             this.datePickerStartDay.Name = "datePickerStartDay";
             this.datePickerStartDay.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -548,7 +547,7 @@
             this.txbUserName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbUserName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbUserName.isPassword = false;
-            this.txbUserName.Location = new System.Drawing.Point(23, 48);
+            this.txbUserName.Location = new System.Drawing.Point(10, 49);
             this.txbUserName.Margin = new System.Windows.Forms.Padding(0);
             this.txbUserName.MaxLength = 32767;
             this.txbUserName.Name = "txbUserName";
@@ -566,7 +565,7 @@
             this.comboBoxStaffType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.comboBoxStaffType.FormattingEnabled = true;
             this.comboBoxStaffType.ItemHeight = 23;
-            this.comboBoxStaffType.Location = new System.Drawing.Point(23, 104);
+            this.comboBoxStaffType.Location = new System.Drawing.Point(10, 104);
             this.comboBoxStaffType.Name = "comboBoxStaffType";
             this.comboBoxStaffType.Size = new System.Drawing.Size(175, 29);
             this.comboBoxStaffType.Style = MetroFramework.MetroColorStyle.Green;
@@ -622,7 +621,7 @@
             this.txbAddress.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbAddress.isPassword = false;
-            this.txbAddress.Location = new System.Drawing.Point(19, 322);
+            this.txbAddress.Location = new System.Drawing.Point(10, 322);
             this.txbAddress.Margin = new System.Windows.Forms.Padding(0);
             this.txbAddress.MaxLength = 32767;
             this.txbAddress.Name = "txbAddress";
@@ -643,7 +642,7 @@
             this.txbPhoneNumber.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPhoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbPhoneNumber.isPassword = false;
-            this.txbPhoneNumber.Location = new System.Drawing.Point(19, 266);
+            this.txbPhoneNumber.Location = new System.Drawing.Point(10, 264);
             this.txbPhoneNumber.Margin = new System.Windows.Forms.Padding(0);
             this.txbPhoneNumber.MaxLength = 32767;
             this.txbPhoneNumber.Name = "txbPhoneNumber";
@@ -684,7 +683,7 @@
             this.datepickerDateOfBirth.ForeColor = System.Drawing.Color.White;
             this.datepickerDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datepickerDateOfBirth.FormatCustom = null;
-            this.datepickerDateOfBirth.Location = new System.Drawing.Point(19, 209);
+            this.datepickerDateOfBirth.Location = new System.Drawing.Point(10, 209);
             this.datepickerDateOfBirth.Margin = new System.Windows.Forms.Padding(113, 289, 113, 262);
             this.datepickerDateOfBirth.Name = "datepickerDateOfBirth";
             this.datepickerDateOfBirth.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -722,10 +721,9 @@
             this.comboBoxSex.FormattingEnabled = true;
             this.comboBoxSex.ItemHeight = 23;
             this.comboBoxSex.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
-            this.comboBoxSex.Location = new System.Drawing.Point(19, 154);
+            "Male",
+            "Female"});
+            this.comboBoxSex.Location = new System.Drawing.Point(10, 154);
             this.comboBoxSex.Name = "comboBoxSex";
             this.comboBoxSex.Size = new System.Drawing.Size(175, 29);
             this.comboBoxSex.Style = MetroFramework.MetroColorStyle.Green;
@@ -746,7 +744,7 @@
             this.txbName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbName.isPassword = false;
-            this.txbName.Location = new System.Drawing.Point(19, 42);
+            this.txbName.Location = new System.Drawing.Point(10, 46);
             this.txbName.Margin = new System.Windows.Forms.Padding(0);
             this.txbName.MaxLength = 32767;
             this.txbName.Name = "txbName";
@@ -789,7 +787,7 @@
             this.txbIDcard.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbIDcard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbIDcard.isPassword = false;
-            this.txbIDcard.Location = new System.Drawing.Point(19, 98);
+            this.txbIDcard.Location = new System.Drawing.Point(10, 95);
             this.txbIDcard.Margin = new System.Windows.Forms.Padding(0);
             this.txbIDcard.MaxLength = 32767;
             this.txbIDcard.Name = "txbIDcard";

@@ -421,6 +421,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\CountryHelper.cs" />
+    <Compile Include="Utils\Helper.cs" />
     <EmbeddedResource Include="fAbout.resx">
       <DependentUpon>fAbout.cs</DependentUpon>
     </EmbeddedResource>

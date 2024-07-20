@@ -42,14 +42,14 @@ namespace HotelManager
         }
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có muốn thêm khách hàng mới?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            DialogResult result = MessageBox.Show("Do you want to add customer?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (result == DialogResult.OK)
                 if (CheckDate())
                 {
                     InsertCustomer();
                 }
                 else
-                    MessageBox.Show("Ngày sinh phải nhỏ hơn ngày hiện tại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Cannot add at the moment", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private bool CheckDate()
         {
@@ -61,7 +61,7 @@ namespace HotelManager
         {
             if (!CheckFillInText(new Control[] { txbPhoneNumber, txbFullName, txbID, cbNationality, txbAddress, comboBoxCustomerType }))
             {
-                MessageBox.Show("Không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please provide all details first", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
@@ -69,15 +69,15 @@ namespace HotelManager
                 Customer customer = GetCustomerNow();
                 if (CustomerDAO.Instance.InsertCustomer(customer))
                 {
-                    MessageBox.Show("Thêm thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Customer added successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Clean();
                 }
                 else
-                    MessageBox.Show("Khách Hàng đã tồn tại\nTrùng số chứng minh nhân dân", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("Unknown issue occurred", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             catch
             {
-                MessageBox.Show("Lỗi thêm khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Unknown issue occurred", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public static bool CheckFillInText(Control[] controls)

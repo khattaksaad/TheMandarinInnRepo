@@ -168,11 +168,11 @@ namespace HotelManager
         private void UpdateService()
         {
             if (comboboxID.Text == string.Empty)
-                MessageBox.Show("Service does not exist", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Service does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             else
             if (!fCustomer.CheckFillInText(new Control[] { txbName, comboBoxServiceType, txbPrice }))
             {
-                MessageBox.Show("Cannot be left blank", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot be left blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else

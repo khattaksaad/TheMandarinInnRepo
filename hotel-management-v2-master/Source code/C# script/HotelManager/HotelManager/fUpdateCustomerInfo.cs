@@ -79,19 +79,18 @@ namespace HotelManager
         {
             if (txbFullName.Text != string.Empty && txbID.Text != string.Empty && txbAddress.Text != string.Empty && cbNationality.Text != string.Empty && txbPhoneNumber.Text != string.Empty)
             {
-                //Kiểm tra IDCard có trùng không
                 if (!IsIdCardExists(txbID.Text)|| txbID.Text==idCard)
                 {
                     UpdateCustomer();
-                    MessageBox.Show("Cập nhật thông tin khách hàng thành công.", "Thông báo.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Updated customer information successfully.", "Info.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
                     LoadCustomerInfo(idCard);
                 }
                 else
-                    MessageBox.Show("Thẻ căn cước/ CMND không hợp lệ.\nVui lòng nhập lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("ID card/ID card is invalid.\nPlease re-enter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                MessageBox.Show("Vui lòng nhập đầy đủ thông tin.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please enter complete information.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void cbNationality_SelectedIndexChanged(object sender, EventArgs e)

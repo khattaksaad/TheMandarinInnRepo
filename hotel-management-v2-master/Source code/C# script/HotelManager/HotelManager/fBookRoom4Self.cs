@@ -208,7 +208,7 @@ namespace HotelManager
                         if(room == null || room.RoomId == null) continue;
                         InsertBookRoom(Convert.ToInt32(room.RoomId), CustomerDAO.Instance.GetInfoByIdCard(txbIDCard.Text).Id, room.RoomTypeId, bookingType:0, room.RoomName, dpkDateCheckIn.Value, dpkDateCheckOut.Value, DateTime.Now,(int)room.Price4Booking, this.userName);
                     }
-                    MessageBox.Show("Booking successfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Booking successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
                     //LoadListBookRoom();
                     //if (bunifuCheckbox1.Checked)

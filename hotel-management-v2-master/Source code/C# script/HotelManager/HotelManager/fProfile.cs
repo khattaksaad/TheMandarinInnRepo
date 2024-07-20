@@ -56,11 +56,11 @@ namespace HotelManager
             if(txbDisplayName.Text!=String.Empty)
             {
                 UpdateDisplayName(txbUserName.Text, txbDisplayName.Text);
-                MessageBox.Show( "Cập nhật thông tin tài khoản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Updated account information successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadProfile(txbUserName.Text);
             }
             else
-                MessageBox.Show( "Tên hiển thị không hợp lệ.\nVui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid display name.\nPlease re-enter.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void bunifuThinButton22_Click(object sender, EventArgs e)
@@ -70,19 +70,19 @@ namespace HotelManager
                 if(txbNewPass.Text==txbReNewPass.Text)
                 {
                     UpdatePassword(txbUserName.Text, txbNewPass.Text);
-                    MessageBox.Show( "Cập nhật mật khẩu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show( "Password updated.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txbPass.Text = txbNewPass.Text = txbReNewPass.Text = String.Empty;
                     LoadProfile(txbUserName.Text);
                 }
                 else
                 {
-                    MessageBox.Show( "Mật khẩu mới không hợp lệ.\nVui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("The new password is not valid.\nPlease re-enter.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txbNewPass.Text = txbReNewPass.Text = String.Empty;
                 }
             }
             else
             {
-                MessageBox.Show( "Mật khẩu không hợp lệ.\nVui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Password is invalid.\nPlease re-enter.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txbPass.Text=txbNewPass.Text = txbReNewPass.Text = String.Empty;
             }   
         }
@@ -94,14 +94,14 @@ namespace HotelManager
                 if (AccountDAO.Instance.IsIdCardExists(txbIDCard.Text))
                 {
                     UpdateInfo(txbUserName.Text, txbAddress.Text, int.Parse(txbPhoneNumber.Text), txbIDCard.Text, dpkDateOfBirth.Value, cbSex.Text);
-                    MessageBox.Show( "Cập nhật thông tin cơ bản thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Updated basic information successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadProfile(txbUserName.Text);
                 }
                 else
-                    MessageBox.Show( "Thẻ căn cước/ CMND không tồn tại.\nVui lòng nhập lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("ID card/ID card does not exist.\nPlease re-enter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                MessageBox.Show( "Thông tin cơ bản không hợp lệ.\nVui lòng nhập lại.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Basic information is invalid.\nPlease re-enter.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void txbPhoneNumber_KeyPress(object sender, KeyPressEventArgs e)

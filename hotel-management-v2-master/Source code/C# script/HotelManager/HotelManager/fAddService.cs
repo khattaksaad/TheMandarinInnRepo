@@ -19,7 +19,7 @@ namespace HotelManager
         {
             InitializeComponent();
             LoadFullServiceType();
-            txbPrice.Text = IntToString("100000");
+            txbPrice.Text = IntToString("100");
         }
         private void LoadFullServiceType()
         {
@@ -110,7 +110,7 @@ namespace HotelManager
                 {
                     MessageBox.Show("Saved Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txbName.Text = string.Empty;
-                    txbPrice.Text = IntToString("100000");                
+                    txbPrice.Text = IntToString("100");                
                 }
                 else
                     MessageBox.Show("Error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);

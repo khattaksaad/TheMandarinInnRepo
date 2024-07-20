@@ -59,7 +59,7 @@ namespace HotelManager
                 if (RoomDAO.Instance.InsertRoom(roomNow))
                 {
                     txbNameRoom.Text = string.Empty;
-                    MessageBox.Show("Saved Successfuly", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Saved Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("This room already exists (Duplicate room code)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);

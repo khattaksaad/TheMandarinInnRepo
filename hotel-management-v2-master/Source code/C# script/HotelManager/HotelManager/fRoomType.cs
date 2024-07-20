@@ -69,7 +69,7 @@ namespace HotelManager
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show( "Bạn có muốn cập nhật loại phòng này không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            DialogResult result = MessageBox.Show("Do you want to update this room type?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (result == DialogResult.OK)
                 UpdateRoomType();
             comboboxID.Focus();
@@ -100,13 +100,13 @@ namespace HotelManager
                             break;
                     }
                     if (check)
-                        MessageBox.Show( "Xuất thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Exported successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show( "Lỗi xuất thất bại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Export failed error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch
                 {
-                    MessageBox.Show( "Lỗi (Cần cài đặt Office)", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please make sure MS Office is installed", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

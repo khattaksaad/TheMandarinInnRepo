@@ -102,7 +102,7 @@ namespace HotelManager
             }
             catch
             {
-                MessageBox.Show("Cannot export, (Please install MS Office)", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Cannot export, (Please install MS Office)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void BtnSearch_Click(object sender, EventArgs e)

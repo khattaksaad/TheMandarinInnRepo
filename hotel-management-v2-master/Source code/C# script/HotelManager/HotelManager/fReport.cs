@@ -44,7 +44,7 @@ namespace HotelManager
         }
         private void ToolStripLabel1_Click(object sender, EventArgs e)
         {
-            saveReport.FileName = "Doanh thu tháng " + month + '-' + year;
+            saveReport.FileName = "Monthly Revenue " + month + '-' + year;
             if (saveReport.ShowDialog() == DialogResult.Cancel)
                 return;
             else
@@ -65,13 +65,13 @@ namespace HotelManager
                             break;
                     }
                     if (check)
-                        MessageBox.Show( "Xuất thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Exported successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show( "Lỗi xuất thất bại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Export failed error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch
                 {
-                    MessageBox.Show( "Lỗi (Cần cài đặt Office)", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show( "Please make sure MS Office is installed", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

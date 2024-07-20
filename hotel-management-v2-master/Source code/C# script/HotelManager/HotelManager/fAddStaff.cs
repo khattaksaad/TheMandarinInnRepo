@@ -72,8 +72,8 @@ namespace HotelManager
                     accountNow.PassWord = fStaff.HassPass;
                     if (AccountDAO.Instance.InsertAccount(accountNow))
                     {
-                        MessageBox.Show("Thêm Thành Công\n Mật khẩu mặc đinh cho tài khảon " + txbName.Text +
-                            ": 123456", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Add Successfully \n Default password for the account " + txbName.Text +
+                            ": 123456", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                         MessageBox.Show("Existing Employee (Same login name or ID card number)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);

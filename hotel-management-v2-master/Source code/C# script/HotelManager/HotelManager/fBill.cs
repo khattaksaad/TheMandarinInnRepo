@@ -1,4 +1,5 @@
 ﻿using HotelManager.DAO;
+using HotelManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,10 +33,14 @@ namespace HotelManager
         private void LoadFullBill(DataTable table)
         {
             BindingSource source = new BindingSource();
+            table.Columns.Add("customerName");
             source.DataSource = table;
             dataGridViewBill.DataSource = source;
             bindingBill.BindingSource = source;
             comboboxID.DataSource = source;
+            dataGridViewBill.Columns["BookingType"].Visible = false;
+            dataGridViewBill.Columns["CustomerName"].Visible = false;
+            dataGridViewBill.Columns["customerID"].Visible = false;
 
             txbDateCreate.DataBindings.Clear();
             txbName.DataBindings.Clear();
@@ -44,16 +49,10 @@ namespace HotelManager
             txbUser.DataBindings.Clear();
             txbDiscount.DataBindings.Clear();
             txbFinalPrice.DataBindings.Clear();
-            foreach (DataRow row in table.Rows) {
-                if ((int)row["BookingType"] == 0)
-                {
-                    row["customername"] = "saad";
-                }
-                else
-                {
-                    row["customername"] = "company";
 
-                }
+            foreach (DataRow row in table.Rows) {
+
+                row["customerName"] = Helper.GetCustomerName((int)row["CustomerID"], (int)row["BookingType"]);
             }
 
             txbDateCreate.DataBindings.Add("Text", source, "DateOfCreate");
@@ -115,7 +114,7 @@ namespace HotelManager
 
         private void Search()
         {
-            LoadFullBill(GetSearchBill(txbSearch.Text, cbBillSearch.SelectedIndex));
+            //LoadFullBill(GetSearchBill(txbSearch.Text, cbBillSearch.SelectedIndex));
         }
         #endregion
 

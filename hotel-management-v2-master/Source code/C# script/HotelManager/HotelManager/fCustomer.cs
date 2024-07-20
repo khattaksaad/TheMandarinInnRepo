@@ -70,9 +70,9 @@ namespace HotelManager
                     break;
             }
             if (check)
-                MessageBox.Show( "Xuất file thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Export file successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                MessageBox.Show("Lỗi (Cần cài đặt Office)", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please make sure MS Office is installed on the system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         private void BtnAddCustomer_Click(object sender, EventArgs e)
         {
@@ -96,7 +96,7 @@ namespace HotelManager
         }
         private void BtnUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult result =MessageBox.Show( "Bạn có muốn cập nhật khách hàng này không?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            DialogResult result =MessageBox.Show( "Do you want to update information?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (result == DialogResult.OK)
                 if (CheckDate())
                 {
@@ -104,7 +104,7 @@ namespace HotelManager
                     comboboxID.Focus();
                 }
                 else
-                   MessageBox.Show( "Ngày sinh phải nhỏ hơn ngày hiện tại", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   MessageBox.Show( "Unknown error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -145,7 +145,7 @@ namespace HotelManager
         {
             if (!CheckFillInText(new Control[] { txbPhoneNumber, txbFullName, txbIDCard, txbNationality, txbAddress, comboBoxCustomerType}))
             {
-                MessageBox.Show( "Không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show( "Please fill in all details first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
@@ -153,7 +153,7 @@ namespace HotelManager
                 Customer customer = GetCustomerNow();
                 if (CustomerDAO.Instance.InsertCustomer(customer))
                 {
-                    MessageBox.Show( "Thêm thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show( "Added successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (btnCancel.Visible == false)
                         LoadFullCustomer(GetFullCustomer());
                     else
@@ -161,23 +161,23 @@ namespace HotelManager
                     comboboxID.SelectedIndex = dataGridViewCustomer.RowCount - 1;
                 }
                 else
-                    MessageBox.Show( "Khách Hàng đã tồn tại\nTrùng số chứng minh nhân dân", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show( "Cannot add right now, please try later", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             catch
             {
-                MessageBox.Show( "Lỗi thêm khách hàng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show( "Stop, unknown error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void UpdateCustomer()
         {
             if(comboboxID.Text == string.Empty)
             {
-                MessageBox.Show( "Khách hàng này chưa tồn tại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show( "Please provide all details first", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else
             if (!CheckFillInText(new Control[] { txbPhoneNumber, txbFullName, txbIDCard, txbNationality, txbAddress, comboBoxCustomerType }))
             {
-                MessageBox.Show( "Không được để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please provide all details first", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else
@@ -187,25 +187,25 @@ namespace HotelManager
                 {
                     Customer customerNow = GetCustomerNow();
                     if (customerNow.Equals(customerPre))
-                        MessageBox.Show( "Bạn chưa thay đổi dữ liệu", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show( "Similar customer already exists", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     else
                     {
                         bool check = CustomerDAO.Instance.UpdateCustomer(customerNow, customerPre);
                         if (check)
                         {
-                            MessageBox.Show( "Cập nhật thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show( "Customer updated successfully", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             groupCustomer.Tag = customerNow;
                             int index = dataGridViewCustomer.SelectedRows[0].Index;
                             LoadFullCustomer(GetFullCustomer());
                             comboboxID.SelectedIndex = index;
                         }
                         else
-                            MessageBox.Show( "Khách hàng này đã tồn tại(Trùng số chứng minh nhân dân)", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            MessageBox.Show( "Something happened in the background, please try later", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
                 catch
                 {
-                    MessageBox.Show( "Lỗi câp nhật", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Something happened in the background, please try later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

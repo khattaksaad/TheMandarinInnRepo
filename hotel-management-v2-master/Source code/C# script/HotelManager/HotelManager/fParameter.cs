@@ -129,7 +129,7 @@ namespace HotelManager
                         bool check = ParameterDAO.Instance.UpdateParameter(surchargeNow);
                         if (check)
                         {
-                            MessageBox.Show( "Update Successfull", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show( "Update Successful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             groupParameter.Tag = surchargeNow;
                             if (btnCancel.Visible == false)
                             {

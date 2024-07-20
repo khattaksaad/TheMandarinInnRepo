@@ -80,18 +80,18 @@ namespace HotelManager
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (cbbStaffType.SelectedIndex == -1) return;
-            DialogResult result = MessageBox.Show("Bạn có muốn xoá loại nhân viên này không", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
-            {
-                if (AccountTypeDAO.Instance.Delete(idStaffType))
-                {
-                    MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                    MessageBox.Show("Xoá thất bại, đã tồn tại nhân viên loại này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //if (cbbStaffType.SelectedIndex == -1) return;
+            //DialogResult result = MessageBox.Show("Bạn có muốn xoá loại nhân viên này không", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            //if (result == DialogResult.OK)
+            //{
+            //    if (AccountTypeDAO.Instance.Delete(idStaffType))
+            //    {
+            //        MessageBox.Show("Xoá thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    }
+            //    else
+            //        MessageBox.Show("Xoá thất bại, đã tồn tại nhân viên loại này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
+            //}
             LoadFullStaffType();
         }
         private void btnUpdate_Click(object sender, EventArgs e)

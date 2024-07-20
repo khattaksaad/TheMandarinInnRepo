@@ -55,6 +55,16 @@
             this.txbIDCard = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label16 = new System.Windows.Forms.Label();
             this.dataGridViewCustomer = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNameCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNameCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.bindingCustomer = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -80,16 +90,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNameCustomer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNameCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNationality = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdCustomerType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCustomer)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -230,9 +230,8 @@
             this.comboBoxSex.FormattingEnabled = true;
             this.comboBoxSex.ItemHeight = 23;
             this.comboBoxSex.Items.AddRange(new object[] {
-            "Nam",
-            "Nữ",
-            "Khác"});
+            "Male",
+            "Female"});
             this.comboBoxSex.Location = new System.Drawing.Point(12, 267);
             this.comboBoxSex.Name = "comboBoxSex";
             this.comboBoxSex.Size = new System.Drawing.Size(175, 29);
@@ -455,6 +454,94 @@
             this.dataGridViewCustomer.TabIndex = 3;
             this.dataGridViewCustomer.SelectionChanged += new System.EventHandler(this.DataGridViewCustomer_SelectionChanged);
             // 
+            // colID
+            // 
+            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colID.DataPropertyName = "id";
+            this.colID.HeaderText = "Id";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Width = 48;
+            // 
+            // colNameCustomer
+            // 
+            this.colNameCustomer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNameCustomer.DataPropertyName = "Name";
+            this.colNameCustomer.HeaderText = "Name";
+            this.colNameCustomer.Name = "colNameCustomer";
+            this.colNameCustomer.ReadOnly = true;
+            this.colNameCustomer.Width = 77;
+            // 
+            // colIDCard
+            // 
+            this.colIDCard.DataPropertyName = "idcard";
+            this.colIDCard.FillWeight = 90F;
+            this.colIDCard.HeaderText = "CNIC";
+            this.colIDCard.Name = "colIDCard";
+            this.colIDCard.ReadOnly = true;
+            this.colIDCard.Width = 90;
+            // 
+            // colNameCustomerType
+            // 
+            this.colNameCustomerType.DataPropertyName = "NameCustomerType";
+            this.colNameCustomerType.FillWeight = 70F;
+            this.colNameCustomerType.HeaderText = "Customer type";
+            this.colNameCustomerType.Name = "colNameCustomerType";
+            this.colNameCustomerType.ReadOnly = true;
+            this.colNameCustomerType.Width = 70;
+            // 
+            // colSex
+            // 
+            this.colSex.DataPropertyName = "sex";
+            this.colSex.FillWeight = 85F;
+            this.colSex.HeaderText = "Gender";
+            this.colSex.Name = "colSex";
+            this.colSex.ReadOnly = true;
+            this.colSex.Visible = false;
+            this.colSex.Width = 85;
+            // 
+            // colDateOfBirth
+            // 
+            this.colDateOfBirth.DataPropertyName = "dateofbirth";
+            this.colDateOfBirth.FillWeight = 90F;
+            this.colDateOfBirth.HeaderText = "DOB";
+            this.colDateOfBirth.Name = "colDateOfBirth";
+            this.colDateOfBirth.ReadOnly = true;
+            this.colDateOfBirth.Visible = false;
+            this.colDateOfBirth.Width = 90;
+            // 
+            // colPhone
+            // 
+            this.colPhone.DataPropertyName = "phoneNumber";
+            this.colPhone.HeaderText = "Phone";
+            this.colPhone.Name = "colPhone";
+            this.colPhone.ReadOnly = true;
+            // 
+            // colAddress
+            // 
+            this.colAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colAddress.DataPropertyName = "address";
+            this.colAddress.HeaderText = "Address";
+            this.colAddress.Name = "colAddress";
+            this.colAddress.ReadOnly = true;
+            // 
+            // colNationality
+            // 
+            this.colNationality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNationality.DataPropertyName = "nationality";
+            this.colNationality.HeaderText = "Nationality";
+            this.colNationality.Name = "colNationality";
+            this.colNationality.ReadOnly = true;
+            this.colNationality.Width = 111;
+            // 
+            // colIdCustomerType
+            // 
+            this.colIdCustomerType.DataPropertyName = "idCustomerType";
+            this.colIdCustomerType.HeaderText = "";
+            this.colIdCustomerType.Name = "colIdCustomerType";
+            this.colIdCustomerType.ReadOnly = true;
+            this.colIdCustomerType.Visible = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridViewCustomer);
@@ -474,7 +561,6 @@
             this.bindingCustomer.AutoSize = false;
             this.bindingCustomer.BackColor = System.Drawing.Color.Transparent;
             this.bindingCustomer.CountItem = this.bindingNavigatorCountItem;
-            this.bindingCustomer.CountItemFormat = "of {0}";
             this.bindingCustomer.DeleteItem = null;
             this.bindingCustomer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bindingCustomer.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -836,94 +922,6 @@
             this.btnClose.TabStop = false;
             this.btnClose.Zoom = 10;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
-            // 
-            // colID
-            // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colID.DataPropertyName = "id";
-            this.colID.HeaderText = "Id";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 48;
-            // 
-            // colNameCustomer
-            // 
-            this.colNameCustomer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colNameCustomer.DataPropertyName = "Name";
-            this.colNameCustomer.HeaderText = "Name";
-            this.colNameCustomer.Name = "colNameCustomer";
-            this.colNameCustomer.ReadOnly = true;
-            this.colNameCustomer.Width = 77;
-            // 
-            // colIDCard
-            // 
-            this.colIDCard.DataPropertyName = "idcard";
-            this.colIDCard.FillWeight = 90F;
-            this.colIDCard.HeaderText = "CNIC";
-            this.colIDCard.Name = "colIDCard";
-            this.colIDCard.ReadOnly = true;
-            this.colIDCard.Width = 90;
-            // 
-            // colNameCustomerType
-            // 
-            this.colNameCustomerType.DataPropertyName = "NameCustomerType";
-            this.colNameCustomerType.FillWeight = 70F;
-            this.colNameCustomerType.HeaderText = "Customer type";
-            this.colNameCustomerType.Name = "colNameCustomerType";
-            this.colNameCustomerType.ReadOnly = true;
-            this.colNameCustomerType.Width = 70;
-            // 
-            // colSex
-            // 
-            this.colSex.DataPropertyName = "sex";
-            this.colSex.FillWeight = 85F;
-            this.colSex.HeaderText = "Gender";
-            this.colSex.Name = "colSex";
-            this.colSex.ReadOnly = true;
-            this.colSex.Visible = false;
-            this.colSex.Width = 85;
-            // 
-            // colDateOfBirth
-            // 
-            this.colDateOfBirth.DataPropertyName = "dateofbirth";
-            this.colDateOfBirth.FillWeight = 90F;
-            this.colDateOfBirth.HeaderText = "DOB";
-            this.colDateOfBirth.Name = "colDateOfBirth";
-            this.colDateOfBirth.ReadOnly = true;
-            this.colDateOfBirth.Visible = false;
-            this.colDateOfBirth.Width = 90;
-            // 
-            // colPhone
-            // 
-            this.colPhone.DataPropertyName = "phoneNumber";
-            this.colPhone.HeaderText = "Phone";
-            this.colPhone.Name = "colPhone";
-            this.colPhone.ReadOnly = true;
-            // 
-            // colAddress
-            // 
-            this.colAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colAddress.DataPropertyName = "address";
-            this.colAddress.HeaderText = "Address";
-            this.colAddress.Name = "colAddress";
-            this.colAddress.ReadOnly = true;
-            // 
-            // colNationality
-            // 
-            this.colNationality.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colNationality.DataPropertyName = "nationality";
-            this.colNationality.HeaderText = "Nationality";
-            this.colNationality.Name = "colNationality";
-            this.colNationality.ReadOnly = true;
-            this.colNationality.Width = 111;
-            // 
-            // colIdCustomerType
-            // 
-            this.colIdCustomerType.DataPropertyName = "idCustomerType";
-            this.colIdCustomerType.HeaderText = "";
-            this.colIdCustomerType.Name = "colIdCustomerType";
-            this.colIdCustomerType.ReadOnly = true;
-            this.colIdCustomerType.Visible = false;
             // 
             // fCustomer
             // 
