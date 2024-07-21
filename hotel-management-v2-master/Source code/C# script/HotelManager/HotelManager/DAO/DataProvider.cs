@@ -11,7 +11,7 @@ namespace HotelManager.DAO
     public class DataProvider
     {
         private static DataProvider instance;
-        private string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\DATA\hotel-management-v2-master\Source code\SQL script\HotelManagement.mdf"";Integrated Security=True;";
+        private string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Application\Database\HotelManagement.mdf"";Integrated Security=True;";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
