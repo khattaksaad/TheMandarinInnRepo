@@ -51,8 +51,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txbIDcard = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label15 = new System.Windows.Forms.Label();
-            this.txbFullName = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnAddStaff = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -111,8 +109,6 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.txbIDcard);
             this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.txbFullName);
-            this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
@@ -161,7 +157,7 @@
             this.datePickerStartDay.ForeColor = System.Drawing.Color.White;
             this.datePickerStartDay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datePickerStartDay.FormatCustom = null;
-            this.datePickerStartDay.Location = new System.Drawing.Point(240, 207);
+            this.datePickerStartDay.Location = new System.Drawing.Point(240, 153);
             this.datePickerStartDay.Margin = new System.Windows.Forms.Padding(226, 719, 226, 651);
             this.datePickerStartDay.Name = "datePickerStartDay";
             this.datePickerStartDay.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -189,7 +185,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label7.Location = new System.Drawing.Point(238, 187);
+            this.label7.Location = new System.Drawing.Point(238, 133);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(150, 20);
             this.label7.TabIndex = 62;
@@ -254,7 +250,7 @@
             this.txbAddress.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txbAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbAddress.isPassword = false;
-            this.txbAddress.Location = new System.Drawing.Point(240, 101);
+            this.txbAddress.Location = new System.Drawing.Point(12, 98);
             this.txbAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txbAddress.MaxLength = 32767;
             this.txbAddress.Name = "txbAddress";
@@ -267,7 +263,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label11.Location = new System.Drawing.Point(238, 80);
+            this.label11.Location = new System.Drawing.Point(10, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 20);
             this.label11.TabIndex = 35;
@@ -282,7 +278,7 @@
             this.comboBoxSex.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.comboBoxSex.Location = new System.Drawing.Point(240, 152);
+            this.comboBoxSex.Location = new System.Drawing.Point(240, 98);
             this.comboBoxSex.Name = "comboBoxSex";
             this.comboBoxSex.Size = new System.Drawing.Size(203, 29);
             this.comboBoxSex.Style = MetroFramework.MetroColorStyle.Green;
@@ -297,7 +293,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label13.Location = new System.Drawing.Point(238, 131);
+            this.label13.Location = new System.Drawing.Point(238, 77);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 20);
             this.label13.TabIndex = 28;
@@ -363,36 +359,6 @@
             this.label15.Size = new System.Drawing.Size(45, 20);
             this.label15.TabIndex = 24;
             this.label15.Text = "CNIC:";
-            // 
-            // txbFullName
-            // 
-            this.txbFullName.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.txbFullName.BorderColorIdle = System.Drawing.Color.SeaGreen;
-            this.txbFullName.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.txbFullName.BorderThickness = 1;
-            this.txbFullName.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txbFullName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txbFullName.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txbFullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txbFullName.isPassword = false;
-            this.txbFullName.Location = new System.Drawing.Point(12, 101);
-            this.txbFullName.Margin = new System.Windows.Forms.Padding(4);
-            this.txbFullName.MaxLength = 32767;
-            this.txbFullName.Name = "txbFullName";
-            this.txbFullName.Size = new System.Drawing.Size(203, 29);
-            this.txbFullName.TabIndex = 1;
-            this.txbFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label16.Location = new System.Drawing.Point(10, 77);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(52, 20);
-            this.label16.TabIndex = 22;
-            this.label16.Text = "Name:";
             // 
             // groupBox1
             // 
@@ -519,8 +485,6 @@
         private System.Windows.Forms.Label label14;
         private Bunifu.Framework.UI.BunifuMetroTextbox txbIDcard;
         private System.Windows.Forms.Label label15;
-        private Bunifu.Framework.UI.BunifuMetroTextbox txbFullName;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.GroupBox groupBox1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose_;
         private Bunifu.Framework.UI.BunifuImageButton btnClose;

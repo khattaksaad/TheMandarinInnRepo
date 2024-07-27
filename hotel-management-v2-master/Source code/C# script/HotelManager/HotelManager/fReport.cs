@@ -4,17 +4,39 @@ using System.Data;
 using System.Globalization;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-
+using System.Collections.Generic;
+using System.Web.UI.WebControls;
 namespace HotelManager
 {
     public partial class fReport : Form
     {
+        private class Payment
+        {
+            int billId;
+            string paymentMode;
+            DateTime paymentDate;
+            int amountPaid;
+
+            public int BillId { get => billId; set => billId = value; }
+            public string PaymentMode { get => paymentMode; set => paymentMode = value; }
+            public DateTime PaymentDate { get => paymentDate; set => paymentDate = value; }
+            public int AmountPaid { get => amountPaid; set => amountPaid = value; }
+            public Payment(DataRow dataRow)
+            {
+                billId = Convert.ToInt32(dataRow["billId"]);
+                paymentMode = dataRow["paymentMode"].ToString();
+                paymentDate = Convert.ToDateTime(dataRow["paymentDate"]);
+                amountPaid = Convert.ToInt32(dataRow["amountPaid"]);
+
+            }
+        }
         private int month = 1;
         private int year = 1990;
+        DataTable data;
         public fReport()
         {
             InitializeComponent();
-            dataGridReport.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            data = PaymentsDAO.Instance.GetAllPayments();
         }
 
         #region Load
@@ -40,7 +62,7 @@ namespace HotelManager
         }
         private void BtnSearch_Click(object sender, EventArgs e)
         {
-            LoadFullReport(int.Parse(comboBoxMonth.Text), (int)(numericYear.Value));
+            //LoadFullReport(int.Parse(comboBoxMonth.Text), (int)(numericYear.Value));
         }
         private void ToolStripLabel1_Click(object sender, EventArgs e)
         {
@@ -89,15 +111,15 @@ namespace HotelManager
         #region Chart
         private void DrawChart(BindingSource source)
         {   
-            chartReport.DataSource = source;
-            chartReport.DataBind();
-            foreach (DataPoint item in chartReport.Series[0].Points)
-            {
-                if(item.YValues[0] == 0)
-                {
-                    item.Label = " ";
-                }
-            }
+            //chartReport.DataSource = source;
+            //chartReport.DataBind();
+            //foreach (DataPoint item in chartReport.Series[0].Points)
+            //{
+            //    if(item.YValues[0] == 0)
+            //    {
+            //        item.Label = " ";
+            //    }
+            //}
         }
         #endregion
 
@@ -126,15 +148,37 @@ namespace HotelManager
         #region Form
         private void FReport_Load(object sender, EventArgs e)
         {
-            LoadFullReport(DateTime.Now.Month, DateTime.Now.Year);
-            comboBoxMonth.Text = DateTime.Now.Month.ToString();
-            numericYear.Value = DateTime.Now.Year;
+            //LoadFullReport(DateTime.Now.Month, DateTime.Now.Year);
+           // comboBoxMonth.Text = DateTime.Now.Month.ToString();
+            //numericYear.Value = DateTime.Now.Year;
         }
         #endregion
 
         private void bunifuThinButton21_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnLoadReport_Click(object sender, EventArgs e)
+        {
+            BindingSource source = new BindingSource();
+            DateTime from = dateTimePickerFrom.Value;
+            DateTime till = dateTimePickerTill.Value;
+            string filterExpression = $"PaymentDate >= #{from:yyyy-MM-dd}# AND PaymentDate <= #{till:yyyy-MM-dd}#";
+            DataRow[] filteredRows = data.Select(filterExpression);
+
+            // Create a new DataTable to store the filtered rows
+            DataTable filteredTable = data.Clone(); // Clone the structure of the original table
+
+            // Import the filtered rows into the new DataTable
+            foreach (DataRow row in filteredRows)
+            {
+                filteredTable.ImportRow(row);
+            }
+            source.DataSource = filteredTable;
+            dataGridReport.DataSource = source;
+            dataGridReport.Refresh();
+
         }
     }
 }

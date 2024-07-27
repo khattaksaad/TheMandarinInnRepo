@@ -30,49 +30,47 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReceiveRoom));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.bookedForCustomersUIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.txbIDBookRoom = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txbIDCard = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label15 = new System.Windows.Forms.Label();
             this.txbFullName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSearch4RoomBooking = new Bunifu.Framework.UI.BunifuThinButton2();
             this.cbRoom = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbRoomType = new MetroFramework.Controls.MetroComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnSearchForCustomer = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnReceiveRoom = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnSearchForCustomer = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnSearch4RoomBooking = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bookedForCustomersUIBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnSearch = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.ColumnCheckItem = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.customerIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckInDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckOutDate1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BookingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookedForCustomersUIBindingSource)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookedForCustomersUIBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,14 +135,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnCheckItem,
-            this.customerIdDataGridViewTextBoxColumn,
             this.customerNameDataGridViewTextBoxColumn,
             this.roomNameDataGridViewTextBoxColumn,
             this.roomTypeNameDataGridViewTextBoxColumn,
             this.CheckInDate,
             this.CheckOutDate1,
-            this.BookingDate,
-            this.priceDataGridViewTextBoxColumn});
+            this.BookingDate});
             this.dataGridView1.DataSource = this.bookedForCustomersUIBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -153,6 +149,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(735, 517);
             this.dataGridView1.TabIndex = 49;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // bookedForCustomersUIBindingSource
+            // 
+            this.bookedForCustomersUIBindingSource.DataSource = typeof(HotelManager.fReceiveRoom.BookedForCustomersUI);
             // 
             // label5
             // 
@@ -180,7 +180,7 @@
             this.txbIDBookRoom.Margin = new System.Windows.Forms.Padding(4);
             this.txbIDBookRoom.MaxLength = 32767;
             this.txbIDBookRoom.Name = "txbIDBookRoom";
-            this.txbIDBookRoom.Size = new System.Drawing.Size(199, 29);
+            this.txbIDBookRoom.Size = new System.Drawing.Size(203, 29);
             this.txbIDBookRoom.TabIndex = 27;
             this.txbIDBookRoom.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txbIDBookRoom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbIDBookRoom_KeyPress);
@@ -199,6 +199,32 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search Res. Code";
             // 
+            // btnSearch
+            // 
+            this.btnSearch.ActiveBorderThickness = 1;
+            this.btnSearch.ActiveCornerRadius = 20;
+            this.btnSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
+            this.btnSearch.ButtonText = "Search";
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.IdleBorderThickness = 1;
+            this.btnSearch.IdleCornerRadius = 20;
+            this.btnSearch.IdleFillColor = System.Drawing.Color.White;
+            this.btnSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.Location = new System.Drawing.Point(10, 90);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(203, 40);
+            this.btnSearch.TabIndex = 46;
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // txbIDCard
             // 
             this.txbIDCard.BorderColorFocused = System.Drawing.Color.SeaGreen;
@@ -214,7 +240,7 @@
             this.txbIDCard.Margin = new System.Windows.Forms.Padding(4);
             this.txbIDCard.MaxLength = 32767;
             this.txbIDCard.Name = "txbIDCard";
-            this.txbIDCard.Size = new System.Drawing.Size(203, 29);
+            this.txbIDCard.Size = new System.Drawing.Size(207, 29);
             this.txbIDCard.TabIndex = 50;
             this.txbIDCard.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -244,7 +270,7 @@
             this.txbFullName.Margin = new System.Windows.Forms.Padding(4);
             this.txbFullName.MaxLength = 32767;
             this.txbFullName.Name = "txbFullName";
-            this.txbFullName.Size = new System.Drawing.Size(203, 29);
+            this.txbFullName.Size = new System.Drawing.Size(207, 29);
             this.txbFullName.TabIndex = 49;
             this.txbFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
@@ -274,6 +300,32 @@
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search by room";
+            // 
+            // btnSearch4RoomBooking
+            // 
+            this.btnSearch4RoomBooking.ActiveBorderThickness = 1;
+            this.btnSearch4RoomBooking.ActiveCornerRadius = 20;
+            this.btnSearch4RoomBooking.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch4RoomBooking.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSearch4RoomBooking.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch4RoomBooking.BackColor = System.Drawing.Color.White;
+            this.btnSearch4RoomBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch4RoomBooking.BackgroundImage")));
+            this.btnSearch4RoomBooking.ButtonText = "Search";
+            this.btnSearch4RoomBooking.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch4RoomBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch4RoomBooking.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch4RoomBooking.IdleBorderThickness = 1;
+            this.btnSearch4RoomBooking.IdleCornerRadius = 20;
+            this.btnSearch4RoomBooking.IdleFillColor = System.Drawing.Color.White;
+            this.btnSearch4RoomBooking.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnSearch4RoomBooking.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch4RoomBooking.Location = new System.Drawing.Point(8, 138);
+            this.btnSearch4RoomBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSearch4RoomBooking.Name = "btnSearch4RoomBooking";
+            this.btnSearch4RoomBooking.Size = new System.Drawing.Size(205, 40);
+            this.btnSearch4RoomBooking.TabIndex = 47;
+            this.btnSearch4RoomBooking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSearch4RoomBooking.Click += new System.EventHandler(this.btnSearch4RoomBooking_Click);
             // 
             // cbRoom
             // 
@@ -348,6 +400,32 @@
             this.groupBox6.Text = "Search for customer";
             this.groupBox6.Enter += new System.EventHandler(this.groupBox6_Enter);
             // 
+            // btnSearchForCustomer
+            // 
+            this.btnSearchForCustomer.ActiveBorderThickness = 1;
+            this.btnSearchForCustomer.ActiveCornerRadius = 20;
+            this.btnSearchForCustomer.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnSearchForCustomer.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSearchForCustomer.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSearchForCustomer.BackColor = System.Drawing.Color.White;
+            this.btnSearchForCustomer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchForCustomer.BackgroundImage")));
+            this.btnSearchForCustomer.ButtonText = "Search";
+            this.btnSearchForCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchForCustomer.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchForCustomer.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnSearchForCustomer.IdleBorderThickness = 1;
+            this.btnSearchForCustomer.IdleCornerRadius = 20;
+            this.btnSearchForCustomer.IdleFillColor = System.Drawing.Color.White;
+            this.btnSearchForCustomer.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnSearchForCustomer.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSearchForCustomer.Location = new System.Drawing.Point(8, 150);
+            this.btnSearchForCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnSearchForCustomer.Name = "btnSearchForCustomer";
+            this.btnSearchForCustomer.Size = new System.Drawing.Size(205, 40);
+            this.btnSearchForCustomer.TabIndex = 47;
+            this.btnSearchForCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSearchForCustomer.Click += new System.EventHandler(this.btnSearchForCustomer_Click);
+            // 
             // btnClose_
             // 
             this.btnClose_.ActiveBorderThickness = 1;
@@ -400,88 +478,6 @@
             this.btnReceiveRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnReceiveRoom.Click += new System.EventHandler(this.btnReceiveRoom_Click);
             // 
-            // btnSearchForCustomer
-            // 
-            this.btnSearchForCustomer.ActiveBorderThickness = 1;
-            this.btnSearchForCustomer.ActiveCornerRadius = 20;
-            this.btnSearchForCustomer.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnSearchForCustomer.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSearchForCustomer.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearchForCustomer.BackColor = System.Drawing.Color.White;
-            this.btnSearchForCustomer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearchForCustomer.BackgroundImage")));
-            this.btnSearchForCustomer.ButtonText = "Search";
-            this.btnSearchForCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearchForCustomer.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchForCustomer.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSearchForCustomer.IdleBorderThickness = 1;
-            this.btnSearchForCustomer.IdleCornerRadius = 20;
-            this.btnSearchForCustomer.IdleFillColor = System.Drawing.Color.White;
-            this.btnSearchForCustomer.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnSearchForCustomer.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearchForCustomer.Location = new System.Drawing.Point(8, 150);
-            this.btnSearchForCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSearchForCustomer.Name = "btnSearchForCustomer";
-            this.btnSearchForCustomer.Size = new System.Drawing.Size(162, 40);
-            this.btnSearchForCustomer.TabIndex = 47;
-            this.btnSearchForCustomer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearchForCustomer.Click += new System.EventHandler(this.btnSearchForCustomer_Click);
-            // 
-            // btnSearch4RoomBooking
-            // 
-            this.btnSearch4RoomBooking.ActiveBorderThickness = 1;
-            this.btnSearch4RoomBooking.ActiveCornerRadius = 20;
-            this.btnSearch4RoomBooking.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch4RoomBooking.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSearch4RoomBooking.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch4RoomBooking.BackColor = System.Drawing.Color.White;
-            this.btnSearch4RoomBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch4RoomBooking.BackgroundImage")));
-            this.btnSearch4RoomBooking.ButtonText = "Search";
-            this.btnSearch4RoomBooking.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch4RoomBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch4RoomBooking.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch4RoomBooking.IdleBorderThickness = 1;
-            this.btnSearch4RoomBooking.IdleCornerRadius = 20;
-            this.btnSearch4RoomBooking.IdleFillColor = System.Drawing.Color.White;
-            this.btnSearch4RoomBooking.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnSearch4RoomBooking.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch4RoomBooking.Location = new System.Drawing.Point(8, 138);
-            this.btnSearch4RoomBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSearch4RoomBooking.Name = "btnSearch4RoomBooking";
-            this.btnSearch4RoomBooking.Size = new System.Drawing.Size(162, 40);
-            this.btnSearch4RoomBooking.TabIndex = 47;
-            this.btnSearch4RoomBooking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearch4RoomBooking.Click += new System.EventHandler(this.btnSearch4RoomBooking_Click);
-            // 
-            // bookedForCustomersUIBindingSource
-            // 
-            this.bookedForCustomersUIBindingSource.DataSource = typeof(HotelManager.fReceiveRoom.BookedForCustomersUI);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.ActiveBorderThickness = 1;
-            this.btnSearch.ActiveCornerRadius = 20;
-            this.btnSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.ButtonText = "Search";
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.IdleBorderThickness = 1;
-            this.btnSearch.IdleCornerRadius = 20;
-            this.btnSearch.IdleFillColor = System.Drawing.Color.White;
-            this.btnSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.Location = new System.Drawing.Point(10, 90);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(160, 40);
-            this.btnSearch.TabIndex = 46;
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -504,12 +500,6 @@
             this.ColumnCheckItem.HeaderText = "";
             this.ColumnCheckItem.MinimumWidth = 25;
             this.ColumnCheckItem.Name = "ColumnCheckItem";
-            // 
-            // customerIdDataGridViewTextBoxColumn
-            // 
-            this.customerIdDataGridViewTextBoxColumn.DataPropertyName = "CustomerId";
-            this.customerIdDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.customerIdDataGridViewTextBoxColumn.Name = "customerIdDataGridViewTextBoxColumn";
             // 
             // customerNameDataGridViewTextBoxColumn
             // 
@@ -538,9 +528,9 @@
             // CheckOutDate1
             // 
             this.CheckOutDate1.DataPropertyName = "CheckOutDate1";
-            dataGridViewCellStyle1.Format = "dd.MM.yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.CheckOutDate1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "dd.MM.yyyy";
+            dataGridViewCellStyle3.NullValue = null;
+            this.CheckOutDate1.DefaultCellStyle = dataGridViewCellStyle3;
             this.CheckOutDate1.HeaderText = "CheckOut Date";
             this.CheckOutDate1.Name = "CheckOutDate1";
             // 
@@ -549,12 +539,6 @@
             this.BookingDate.DataPropertyName = "BookingDate";
             this.BookingDate.HeaderText = "Booking Date";
             this.BookingDate.Name = "BookingDate";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             // 
             // fReceiveRoom
             // 
@@ -579,13 +563,13 @@
             this.groupBox4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bookedForCustomersUIBindingSource)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bookedForCustomersUIBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -621,13 +605,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSearch4RoomBooking;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ColumnCheckItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckInDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckOutDate1;
         private System.Windows.Forms.DataGridViewTextBoxColumn BookingDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
     }
 }

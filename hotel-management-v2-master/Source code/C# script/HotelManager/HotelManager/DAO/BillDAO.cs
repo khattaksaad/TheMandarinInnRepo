@@ -99,11 +99,17 @@ namespace HotelManager.DAO
             string query = "USP_InsertPayment @BookingID , @PaymentDate , @PaymentMode , @AmountPaid";
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { bookingId, DateTime.Now, paymentMode, amountPaid  }) > 0;
         }
-
+        //GetBillByCheckOutRoom
         internal DataTable LoaddFullBill()
         {
             string query = "USP_LoadFullBill";
             return DataProvider.Instance.ExecuteQuery(query);
+        }
+
+        internal DataTable GetBillsByBookingRoomId(int bookingId)
+        {
+            string query = "GetBillsByBookingRoomId @BookingRoomId";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { bookingId });
         }
 
         internal DataTable SearchBill(string text, int mode)

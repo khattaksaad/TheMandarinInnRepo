@@ -19,7 +19,7 @@ namespace HotelManager
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new fAccess());
             //check for updates first
-            CheckForUpdatesAsync();
+            //CheckForUpdatesAsync();
             //Application.Run(new fPrintBill(1,19));
             Application.Run(new fLogin());
         }

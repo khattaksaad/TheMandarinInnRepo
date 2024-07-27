@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,9 @@ namespace HotelManager.DAO
     public class DataProvider
     {
         private static DataProvider instance;
-        private string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Application\Database\HotelManagement.mdf"";Integrated Security=True;";
+        //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Application\Database\HotelManagement.mdf"";Integrated Security=True;"
+        //private static string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;initial catalog=""C:\Database\HotelManagement.mdf"";Integrated Security=True;";
+        private static string connectionStr = "";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
@@ -70,7 +74,32 @@ namespace HotelManager.DAO
         }
         public static DataProvider Instance
         {
-            get { if (instance == null) instance = new DataProvider(); return instance; }
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new DataProvider();
+                    //init connection string 
+
+                    // Path to the file containing the connection string
+                    string fileName = "connectionString.txt";
+                    string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+
+                    try
+                    {
+                        // Read the connection string from the file
+                        string connectionStringFromFile = File.ReadAllText(filePath);
+                        connectionStr = ConfigurationManager.ConnectionStrings["YourConnectionStringName"].ConnectionString;
+
+                        // Remove any leading or trailing white spaces
+                        //connectionStr = connectionStringFromFile.Trim();
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+                return instance;
+            }
             private set => instance = value;
         }
         private DataProvider() { }

@@ -49,7 +49,6 @@ namespace HotelManager
         {
             staffSetUp = userName;         
             InitializeComponent();
-            LoadData();
             System.Data.DataTable dtCustomers = CustomerDAO.Instance.LoadFullCustomer();
             System.Data.DataTable dtCompany = CompanyDAO.Instance.LoadFullCompany();
             customers = new List<Customer>();
@@ -64,6 +63,8 @@ namespace HotelManager
                 Company company = new Company(dr);
                 companyList.Add(company);
             }
+            LoadData();
+
             cbCustomers.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCustomers.DataSource = companyList;
             cbCustomers.ValueMember = "Id";
@@ -198,12 +199,12 @@ namespace HotelManager
                 button.Image = global::HotelManager.Properties.Resources.Room;
                 button.ImagePosition = 14;
                 button.ImageZoom =36;
-                button.LabelPosition = 29;
-                button.Size = new System.Drawing.Size(110,95);
+                button.LabelPosition = 38;
+                button.Size = new System.Drawing.Size(110,110);
                 button.Margin= new System.Windows.Forms.Padding(1,1,1,1);
-
+                string customerName = customers.FirstOrDefault(f => f.Id == item.CustomerId).Name ?? string.Empty;
                 button.Tag = item;
-                button.LabelText =item.Room.Name;
+                button.LabelText =item.Room.Name + "\r\n"+customerName;
                 button.Click += Button_Click;
 
                 DrawControl(item.Room, button);
@@ -218,6 +219,7 @@ namespace HotelManager
         {
             listViewBillRoom.Items.Clear();
             totalPrice = 0;
+            totalPaid = 0;
             Bunifu.Framework.UI.BunifuTileButton button = sender as Bunifu.Framework.UI.BunifuTileButton;
             flowLayoutRooms.Tag = button.Tag;
             button.BackColor = System.Drawing.Color.SeaGreen;
@@ -232,8 +234,17 @@ namespace HotelManager
             roomsDisplayed = new List<Room4GUI>() { room };
             ShowBill(room.BookingId);
             ShowBillRoom(room.Room.Id);
+            System.Data.DataTable data = BillDAO.Instance.GetBillsByBookingRoomId(room.BookingId);
+            if (data == null || data.Rows.Count == 0)
+            {
+                //didnt find a bill?
+                totalPaid = 0;
+            }
 
-            txbTotalPrice.Text = totalPrice.ToString();
+            else
+                totalPaid = Convert.ToInt32(data.Rows[0]["AmountPaid"]);
+            txbPaid.Text = totalPaid.ToString();
+            txbTotalPrice.Text = (Convert.ToInt32(data.Rows[0]["TotalPrice"]) - totalPaid).ToString();
         }
 
         public bool IsExistsBill(int idRoom)
@@ -291,6 +302,7 @@ namespace HotelManager
         }
         int id = 1;
         int totalPrice = 0;
+        int totalPaid = 0;
         public void ShowSurcharge()
         {
             string query = "select * from Parameter";
@@ -454,12 +466,7 @@ namespace HotelManager
         private void LoadRoomData()
         {
             listViewBillRoom.Items.Clear();
-            totalPrice = 0;
-            //
- 
-            //ShowBill(room.BookingId);
-            //ShowBillRoom(room.Room.Id);
-
+            totalPrice = totalPaid = 0;
             txbTotalPrice.Text = totalPrice.ToString();
 
         }

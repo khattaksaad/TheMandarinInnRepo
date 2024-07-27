@@ -54,7 +54,7 @@ namespace HotelManager.DAO
             return DataProvider.Instance.ExecuteQuery(query);
         }
 
-        public DataTable LoadListFullRoomAsDataTable()
+        public DataTable LoadListFullRoomsNotCheckedOutYetAsDataTable()
         {
             string query = "USP_LoadListFullRoom @getToday";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { DateTime.Now.Date });

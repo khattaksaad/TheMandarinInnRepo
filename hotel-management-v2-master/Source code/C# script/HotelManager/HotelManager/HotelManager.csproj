@@ -248,6 +248,7 @@
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\CustomerTypeDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\PaymentsDAO.cs" />
     <Compile Include="DAO\ParameterDAO.cs" />
     <Compile Include="DAO\ReceiveRoomDAO.cs" />
     <Compile Include="DAO\ReceiveRoomDetailsDAO.cs" />
@@ -651,6 +652,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hotel.ico" />
+    <Content Include="HotelManagement.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HotelManagement_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>HotelManagement.mdf</DependentUpon>
+    </Content>
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\image_123650291.JPG" />
   </ItemGroup>

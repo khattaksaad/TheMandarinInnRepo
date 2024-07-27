@@ -53,6 +53,7 @@ namespace HotelManager
             foreach (DataRow row in table.Rows) {
 
                 row["customerName"] = Helper.GetCustomerName((int)row["CustomerID"], (int)row["BookingType"]);
+            
             }
 
             txbDateCreate.DataBindings.Add("Text", source, "DateOfCreate");

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +20,17 @@ namespace HotelManager
         }
         public bool Login()
         {
-            return AccountDAO.Instance.Login(txbUserName.Text, txbPassWord.Text);
+            bool ret = false;
+            try
+            {
+                ret = AccountDAO.Instance.Login(txbUserName.Text, txbPassWord.Text);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                File.WriteAllText("error_log.txt", ex.ToString());
+            }
+            return ret; 
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -38,7 +49,7 @@ namespace HotelManager
             }
             else
             {
-                MessageBox.Show( "Incorrect credentials, cannot grant access!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show( "Incorrect credentials, cannot grant access!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

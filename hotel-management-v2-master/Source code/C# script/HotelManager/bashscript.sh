@@ -1,0 +1,1 @@
+https://github.com/khattaksaad/TheMandarinInnRepo/releases/latest/TheMandarinInn.zip

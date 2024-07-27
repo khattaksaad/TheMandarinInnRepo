@@ -29,28 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReport));
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericYear = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxMonth = new MetroFramework.Controls.MetroComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.chartReport = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingReport = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.dataGridReport = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,15 +55,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.saveReport = new System.Windows.Forms.SaveFileDialog();
             this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnSearch = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericYear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartReport)).BeginInit();
+            this.dateTimePickerFrom = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTill = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnLoadReport = new Bunifu.Framework.UI.BunifuThinButton2();
             ((System.ComponentModel.ISupportInitialize)(this.bindingReport)).BeginInit();
             this.bindingReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridReport)).BeginInit();
@@ -83,98 +74,6 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this;
             this.bunifuDragControl1.Vertical = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.btnSearch);
-            this.groupBox3.Controls.Add(this.numericYear);
-            this.groupBox3.Controls.Add(this.comboBoxMonth);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox3.Location = new System.Drawing.Point(5, 59);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(840, 69);
-            this.groupBox3.TabIndex = 74;
-            this.groupBox3.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(8, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 20);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Month:";
-            // 
-            // numericYear
-            // 
-            this.numericYear.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numericYear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.numericYear.Location = new System.Drawing.Point(356, 28);
-            this.numericYear.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.numericYear.Minimum = new decimal(new int[] {
-            1900,
-            0,
-            0,
-            0});
-            this.numericYear.Name = "numericYear";
-            this.numericYear.Size = new System.Drawing.Size(200, 29);
-            this.numericYear.TabIndex = 67;
-            this.numericYear.Value = new decimal(new int[] {
-            2018,
-            0,
-            0,
-            0});
-            // 
-            // comboBoxMonth
-            // 
-            this.comboBoxMonth.BackColor = System.Drawing.Color.White;
-            this.comboBoxMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxMonth.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.comboBoxMonth.FormattingEnabled = true;
-            this.comboBoxMonth.ItemHeight = 23;
-            this.comboBoxMonth.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.comboBoxMonth.Location = new System.Drawing.Point(67, 26);
-            this.comboBoxMonth.Name = "comboBoxMonth";
-            this.comboBoxMonth.Size = new System.Drawing.Size(175, 29);
-            this.comboBoxMonth.Style = MetroFramework.MetroColorStyle.Green;
-            this.comboBoxMonth.TabIndex = 63;
-            this.comboBoxMonth.UseCustomBackColor = true;
-            this.comboBoxMonth.UseCustomForeColor = true;
-            this.comboBoxMonth.UseSelectable = true;
-            this.comboBoxMonth.UseStyleColors = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label2.Location = new System.Drawing.Point(307, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 20);
-            this.label2.TabIndex = 66;
-            this.label2.Text = "Year";
             // 
             // toolStripLabel1
             // 
@@ -192,38 +91,6 @@
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 43);
-            // 
-            // chartReport
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chartReport.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chartReport.Legends.Add(legend1);
-            this.chartReport.Location = new System.Drawing.Point(5, 134);
-            this.chartReport.Name = "chartReport";
-            this.chartReport.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chartReport.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.Tomato,
-        System.Drawing.Color.Violet,
-        System.Drawing.Color.DeepSkyBlue,
-        System.Drawing.Color.LimeGreen};
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.IsValueShownAsLabel = true;
-            series1.LabelFormat = "{0:0.##}%";
-            series1.Legend = "Legend1";
-            series1.Name = "s1";
-            series1.XValueMember = "name";
-            series1.YValueMembers = "rate";
-            this.chartReport.Series.Add(series1);
-            this.chartReport.Size = new System.Drawing.Size(386, 317);
-            this.chartReport.TabIndex = 75;
-            this.chartReport.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            title1.Name = "Title1";
-            title1.Text = "Revenue rate by room type";
-            this.chartReport.Titles.Add(title1);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -247,7 +114,6 @@
             // 
             this.bindingReport.AddNewItem = null;
             this.bindingReport.CountItem = this.bindingNavigatorCountItem;
-            this.bindingReport.CountItemFormat = "of {0}";
             this.bindingReport.DeleteItem = null;
             this.bindingReport.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
@@ -268,14 +134,54 @@
             this.bindingReport.Name = "bindingReport";
             this.bindingReport.PositionItem = this.bindingNavigatorPositionItem;
             this.bindingReport.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.bindingReport.Size = new System.Drawing.Size(442, 43);
+            this.bindingReport.Size = new System.Drawing.Size(834, 43);
             this.bindingReport.TabIndex = 29;
             this.bindingReport.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.AutoSize = false;
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(40, 40);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.AutoSize = false;
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(40, 40);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
             this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 43);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.AutoSize = false;
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(40, 40);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.AutoSize = false;
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(40, 40);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // dataGridReport
             // 
@@ -326,34 +232,34 @@
             this.dataGridReport.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridReport.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridReport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridReport.Size = new System.Drawing.Size(442, 260);
+            this.dataGridReport.Size = new System.Drawing.Size(834, 282);
             this.dataGridReport.TabIndex = 28;
             this.dataGridReport.VirtualMode = true;
             // 
             // colId
             // 
             this.colId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colId.DataPropertyName = "name";
-            this.colId.HeaderText = "Name";
+            this.colId.DataPropertyName = "BillId";
+            this.colId.HeaderText = "Bill Number";
             this.colId.Name = "colId";
             this.colId.ReadOnly = true;
-            this.colId.Width = 122;
+            this.colId.Width = 101;
             // 
             // col
             // 
             this.col.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.col.DataPropertyName = "rate_new";
-            this.col.HeaderText = "Rate";
+            this.col.DataPropertyName = "PaymentDate";
+            this.col.HeaderText = "Payment Date";
             this.col.Name = "col";
             this.col.ReadOnly = true;
             this.col.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col.Width = 41;
+            this.col.Width = 94;
             // 
             // colRevenue
             // 
             this.colRevenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRevenue.DataPropertyName = "value";
-            this.colRevenue.HeaderText = "Revenue";
+            this.colRevenue.DataPropertyName = "PaymentMode";
+            this.colRevenue.HeaderText = "Payment Mode";
             this.colRevenue.Name = "colRevenue";
             this.colRevenue.ReadOnly = true;
             this.colRevenue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -361,11 +267,10 @@
             // colRate
             // 
             this.colRate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colRate.DataPropertyName = "rate";
-            this.colRate.HeaderText = "";
+            this.colRate.DataPropertyName = "AmountPaid";
+            this.colRate.HeaderText = "Amount";
             this.colRate.Name = "colRate";
             this.colRate.ReadOnly = true;
-            this.colRate.Visible = false;
             // 
             // groupBox1
             // 
@@ -373,9 +278,9 @@
             this.groupBox1.Controls.Add(this.bindingReport);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox1.Location = new System.Drawing.Point(397, 124);
+            this.groupBox1.Location = new System.Drawing.Point(5, 102);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(448, 327);
+            this.groupBox1.Size = new System.Drawing.Size(840, 349);
             this.groupBox1.TabIndex = 73;
             this.groupBox1.TabStop = false;
             // 
@@ -435,72 +340,6 @@
             this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.ActiveBorderThickness = 1;
-            this.btnSearch.ActiveCornerRadius = 20;
-            this.btnSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.ButtonText = "View Report";
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.IdleBorderThickness = 1;
-            this.btnSearch.IdleCornerRadius = 20;
-            this.btnSearch.IdleFillColor = System.Drawing.Color.White;
-            this.btnSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.Location = new System.Drawing.Point(642, 21);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(175, 40);
-            this.btnSearch.TabIndex = 64;
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.AutoSize = false;
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(40, 40);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.AutoSize = false;
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(40, 40);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.AutoSize = false;
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(40, 40);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.AutoSize = false;
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(40, 40);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -516,15 +355,76 @@
             this.btnClose.Zoom = 10;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
+            // dateTimePickerFrom
+            // 
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(51, 64);
+            this.dateTimePickerFrom.Name = "dateTimePickerFrom";
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerFrom.TabIndex = 77;
+            // 
+            // dateTimePickerTill
+            // 
+            this.dateTimePickerTill.Location = new System.Drawing.Point(366, 62);
+            this.dateTimePickerTill.Name = "dateTimePickerTill";
+            this.dateTimePickerTill.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerTill.TabIndex = 78;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 68);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 79;
+            this.label1.Text = "From:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(337, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 13);
+            this.label2.TabIndex = 80;
+            this.label2.Text = "Till:";
+            // 
+            // btnLoadReport
+            // 
+            this.btnLoadReport.ActiveBorderThickness = 1;
+            this.btnLoadReport.ActiveCornerRadius = 20;
+            this.btnLoadReport.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnLoadReport.ActiveForecolor = System.Drawing.Color.White;
+            this.btnLoadReport.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnLoadReport.BackColor = System.Drawing.Color.White;
+            this.btnLoadReport.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLoadReport.BackgroundImage")));
+            this.btnLoadReport.ButtonText = "Load Report";
+            this.btnLoadReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLoadReport.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLoadReport.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnLoadReport.IdleBorderThickness = 1;
+            this.btnLoadReport.IdleCornerRadius = 20;
+            this.btnLoadReport.IdleFillColor = System.Drawing.Color.White;
+            this.btnLoadReport.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnLoadReport.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnLoadReport.Location = new System.Drawing.Point(663, 67);
+            this.btnLoadReport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLoadReport.Name = "btnLoadReport";
+            this.btnLoadReport.Size = new System.Drawing.Size(175, 40);
+            this.btnLoadReport.TabIndex = 81;
+            this.btnLoadReport.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnLoadReport.Click += new System.EventHandler(this.btnLoadReport_Click);
+            // 
             // fReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(851, 507);
+            this.Controls.Add(this.btnLoadReport);
+            this.Controls.Add(this.dateTimePickerTill);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dateTimePickerFrom);
             this.Controls.Add(this.bunifuThinButton21);
-            this.Controls.Add(this.chartReport);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.label6);
@@ -537,10 +437,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fReport";
             this.Load += new System.EventHandler(this.FReport_Load);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericYear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartReport)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingReport)).EndInit();
             this.bindingReport.ResumeLayout(false);
             this.bindingReport.PerformLayout();
@@ -556,13 +452,6 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label1;
-        private Bunifu.Framework.UI.BunifuThinButton2 btnSearch;
-        private System.Windows.Forms.NumericUpDown numericYear;
-        private MetroFramework.Controls.MetroComboBox comboBoxMonth;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartReport;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridReport;
         private System.Windows.Forms.BindingNavigator bindingReport;
@@ -580,10 +469,15 @@
         private System.Windows.Forms.Label label6;
         private Bunifu.Framework.UI.BunifuImageButton btnClose;
         private System.Windows.Forms.SaveFileDialog saveReport;
+        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
         private System.Windows.Forms.DataGridViewTextBoxColumn colId;
         private System.Windows.Forms.DataGridViewTextBoxColumn col;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRevenue;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRate;
-        private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButton21;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnLoadReport;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTill;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFrom;
     }
 }

@@ -156,7 +156,7 @@ namespace HotelManager
             flowLayoutRooms.Controls.Clear();
             listViewBillRoom.Items.Clear();
             listViewUseService.Items.Clear();
-            DataTable dataTable = RoomDAO.Instance.LoadListFullRoomAsDataTable();
+            DataTable dataTable = RoomDAO.Instance.LoadListFullRoomsNotCheckedOutYetAsDataTable();
             List<Room4GUI> rooms = new List<Room4GUI>();
             foreach (DataRow item in dataTable.Rows)
             {
@@ -338,7 +338,7 @@ namespace HotelManager
 
             DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
             //	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
-
+            //select A.Name RoomName,C.Price [Actual Price Per Night] ,B.DateCheckIn [Check-in Date],B.DateCheckOut as [Check-out Date], B.PriceChargedPerNight as [Price charged per night]
             ListViewItem listViewItem = new ListViewItem(data["RoomName"].ToString());
 
             ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, ((int)data["Actual Price Per Night"]).ToString());

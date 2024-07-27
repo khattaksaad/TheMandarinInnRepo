@@ -29,22 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fUseService));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fUseService));
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblRoomType3 = new System.Windows.Forms.Label();
+            this.color3 = new System.Windows.Forms.PictureBox();
             this.lblRoomType1 = new System.Windows.Forms.Label();
             this.lblRoomType4 = new System.Windows.Forms.Label();
+            this.color1 = new System.Windows.Forms.PictureBox();
+            this.color4 = new System.Windows.Forms.PictureBox();
             this.flowLayoutRooms = new System.Windows.Forms.FlowLayoutPanel();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txbTotalPrice = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxBill = new System.Windows.Forms.GroupBox();
@@ -73,14 +78,13 @@
             this.txbPrice = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.cbService = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnAddService2Room = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.color3 = new System.Windows.Forms.PictureBox();
-            this.color1 = new System.Windows.Forms.PictureBox();
-            this.color4 = new System.Windows.Forms.PictureBox();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.color3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.color1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.color4)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBoxBill.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -88,10 +92,6 @@
             this.groupBillRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCount)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.color3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.color1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.color4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +133,15 @@
             this.label13.Text = "Room currently selected";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.SeaGreen;
+            this.pictureBox6.Location = new System.Drawing.Point(14, 30);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(97, 15);
+            this.pictureBox6.TabIndex = 62;
+            this.pictureBox6.TabStop = false;
+            // 
             // lblRoomType3
             // 
             this.lblRoomType3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,6 +152,15 @@
             this.lblRoomType3.TabIndex = 59;
             this.lblRoomType3.Text = "Premium";
             this.lblRoomType3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // color3
+            // 
+            this.color3.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.color3.Location = new System.Drawing.Point(15, 94);
+            this.color3.Name = "color3";
+            this.color3.Size = new System.Drawing.Size(97, 15);
+            this.color3.TabIndex = 58;
+            this.color3.TabStop = false;
             // 
             // lblRoomType1
             // 
@@ -165,6 +183,24 @@
             this.lblRoomType4.TabIndex = 53;
             this.lblRoomType4.Text = "Executive";
             this.lblRoomType4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // color1
+            // 
+            this.color1.BackColor = System.Drawing.Color.Tomato;
+            this.color1.Location = new System.Drawing.Point(130, 30);
+            this.color1.Name = "color1";
+            this.color1.Size = new System.Drawing.Size(97, 15);
+            this.color1.TabIndex = 54;
+            this.color1.TabStop = false;
+            // 
+            // color4
+            // 
+            this.color4.BackColor = System.Drawing.Color.LimeGreen;
+            this.color4.Location = new System.Drawing.Point(247, 30);
+            this.color4.Name = "color4";
+            this.color4.Size = new System.Drawing.Size(97, 15);
+            this.color4.TabIndex = 52;
+            this.color4.TabStop = false;
             // 
             // flowLayoutRooms
             // 
@@ -208,6 +244,32 @@
             this.groupBox5.Size = new System.Drawing.Size(236, 66);
             this.groupBox5.TabIndex = 50;
             this.groupBox5.TabStop = false;
+            // 
+            // btnClose_
+            // 
+            this.btnClose_.ActiveBorderThickness = 1;
+            this.btnClose_.ActiveCornerRadius = 20;
+            this.btnClose_.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.ActiveForecolor = System.Drawing.Color.White;
+            this.btnClose_.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.BackColor = System.Drawing.Color.White;
+            this.btnClose_.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose_.BackgroundImage")));
+            this.btnClose_.ButtonText = "Close";
+            this.btnClose_.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose_.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose_.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.IdleBorderThickness = 1;
+            this.btnClose_.IdleCornerRadius = 20;
+            this.btnClose_.IdleFillColor = System.Drawing.Color.White;
+            this.btnClose_.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.Location = new System.Drawing.Point(17, 20);
+            this.btnClose_.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose_.Name = "btnClose_";
+            this.btnClose_.Size = new System.Drawing.Size(203, 40);
+            this.btnClose_.TabIndex = 60;
+            this.btnClose_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose_.Click += new System.EventHandler(this.btnClose__Click);
             // 
             // txbTotalPrice
             // 
@@ -381,10 +443,10 @@
             this.listViewBillRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listViewBillRoom.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6,
+            this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10,
-            this.columnHeader7,
             this.columnHeader14});
             this.listViewBillRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewBillRoom.Font = new System.Drawing.Font("Segoe UI", 8.25F);
@@ -407,28 +469,24 @@
             // 
             // columnHeader8
             // 
-            this.columnHeader8.DisplayIndex = 2;
             this.columnHeader8.Text = "Check-in date";
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 100;
             // 
             // columnHeader9
             // 
-            this.columnHeader9.DisplayIndex = 3;
             this.columnHeader9.Text = "Check out date";
             this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader9.Width = 111;
             // 
             // columnHeader10
             // 
-            this.columnHeader10.DisplayIndex = 4;
             this.columnHeader10.Text = "Price charged per night";
             this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader10.Width = 183;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.DisplayIndex = 1;
             this.columnHeader7.Text = "Actual price per night";
             this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader7.Width = 132;
@@ -569,32 +627,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "List of services";
             // 
-            // btnClose_
-            // 
-            this.btnClose_.ActiveBorderThickness = 1;
-            this.btnClose_.ActiveCornerRadius = 20;
-            this.btnClose_.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.ActiveForecolor = System.Drawing.Color.White;
-            this.btnClose_.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.BackColor = System.Drawing.Color.White;
-            this.btnClose_.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose_.BackgroundImage")));
-            this.btnClose_.ButtonText = "Close";
-            this.btnClose_.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose_.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose_.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.IdleBorderThickness = 1;
-            this.btnClose_.IdleCornerRadius = 20;
-            this.btnClose_.IdleFillColor = System.Drawing.Color.White;
-            this.btnClose_.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.Location = new System.Drawing.Point(17, 20);
-            this.btnClose_.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnClose_.Name = "btnClose_";
-            this.btnClose_.Size = new System.Drawing.Size(203, 40);
-            this.btnClose_.TabIndex = 60;
-            this.btnClose_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose_.Click += new System.EventHandler(this.btnClose__Click);
-            // 
             // btnAddService2Room
             // 
             this.btnAddService2Room.ActiveBorderThickness = 1;
@@ -620,42 +652,6 @@
             this.btnAddService2Room.TabIndex = 55;
             this.btnAddService2Room.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAddService2Room.Click += new System.EventHandler(this.btnAddService2Room_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.SeaGreen;
-            this.pictureBox6.Location = new System.Drawing.Point(14, 30);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(97, 15);
-            this.pictureBox6.TabIndex = 62;
-            this.pictureBox6.TabStop = false;
-            // 
-            // color3
-            // 
-            this.color3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.color3.Location = new System.Drawing.Point(15, 94);
-            this.color3.Name = "color3";
-            this.color3.Size = new System.Drawing.Size(97, 15);
-            this.color3.TabIndex = 58;
-            this.color3.TabStop = false;
-            // 
-            // color1
-            // 
-            this.color1.BackColor = System.Drawing.Color.Tomato;
-            this.color1.Location = new System.Drawing.Point(130, 30);
-            this.color1.Name = "color1";
-            this.color1.Size = new System.Drawing.Size(97, 15);
-            this.color1.TabIndex = 54;
-            this.color1.TabStop = false;
-            // 
-            // color4
-            // 
-            this.color4.BackColor = System.Drawing.Color.LimeGreen;
-            this.color4.Location = new System.Drawing.Point(247, 30);
-            this.color4.Name = "color4";
-            this.color4.Size = new System.Drawing.Size(97, 15);
-            this.color4.TabIndex = 52;
-            this.color4.TabStop = false;
             // 
             // btnClose
             // 
@@ -694,6 +690,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fUseService";
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.color3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.color1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.color4)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBoxBill.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -702,10 +702,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCount)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.color3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.color1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.color4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
