@@ -33,6 +33,7 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panelRight = new System.Windows.Forms.Panel();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.label2 = new System.Windows.Forms.Label();
             this.metroTileCustomerManagement = new MetroFramework.Controls.MetroTile();
             this.metroTileBillManagement = new MetroFramework.Controls.MetroTile();
             this.metroTileRegulations = new MetroFramework.Controls.MetroTile();
@@ -42,9 +43,9 @@
             this.metroTileManageProfile = new MetroFramework.Controls.MetroTile();
             this.titlePay = new MetroFramework.Controls.MetroTile();
             this.titleRecieveRoom = new MetroFramework.Controls.MetroTile();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.titleBookRoom = new MetroFramework.Controls.MetroTile();
+            this.metroTileAdvanceBooking = new MetroFramework.Controls.MetroTile();
             this.metroTileShowAllBookedRooms = new MetroFramework.Controls.MetroTile();
             this.panelLeft = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.btnNavigationPanel = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -81,6 +82,7 @@
             this.panelRight.Controls.Add(this.label2);
             this.panelRight.Controls.Add(this.btnClose);
             this.panelRight.Controls.Add(this.titleBookRoom);
+            this.panelRight.Controls.Add(this.metroTileAdvanceBooking);
             this.panelRight.Controls.Add(this.metroTileShowAllBookedRooms);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRight.Location = new System.Drawing.Point(171, 0);
@@ -100,6 +102,18 @@
             this.bunifuSeparator1.TabIndex = 54;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label2.Location = new System.Drawing.Point(23, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(428, 37);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "The Mandarin Inn - Hotel Manager";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // metroTileCustomerManagement
             // 
@@ -230,7 +244,7 @@
             this.metroTileManageProfile.Name = "metroTile8";
             this.metroTileManageProfile.Size = new System.Drawing.Size(135, 135);
             this.metroTileManageProfile.TabIndex = 29;
-            this.metroTileManageProfile.Text = "Manager profile";
+            this.metroTileManageProfile.Text = "User Management";
             this.metroTileManageProfile.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTileManageProfile.TileImage")));
             this.metroTileManageProfile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileManageProfile.UseCustomBackColor = true;
@@ -281,18 +295,6 @@
             this.titleRecieveRoom.UseVisualStyleBackColor = false;
             this.titleRecieveRoom.Click += new System.EventHandler(this.titleRecieveRoom_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label2.Location = new System.Drawing.Point(23, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(428, 37);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "The Mandarin Inn - Hotel Manager";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -315,7 +317,7 @@
             this.titleBookRoom.ForeColor = System.Drawing.Color.White;
             this.titleBookRoom.Location = new System.Drawing.Point(29, 73);
             this.titleBookRoom.Name = "titleBookRoom";
-            this.titleBookRoom.Size = new System.Drawing.Size(135, 276);
+            this.titleBookRoom.Size = new System.Drawing.Size(135, 150);
             this.titleBookRoom.TabIndex = 17;
             this.titleBookRoom.Text = "Book room";
             this.titleBookRoom.TileImage = ((System.Drawing.Image)(resources.GetObject("titleBookRoom.TileImage")));
@@ -327,6 +329,26 @@
             this.titleBookRoom.UseTileImage = true;
             this.titleBookRoom.UseVisualStyleBackColor = false;
             this.titleBookRoom.Click += new System.EventHandler(this.titleSignUpRoom_Click);
+            // 
+            // metroTileAdvanceBooking
+            // 
+            this.metroTileAdvanceBooking.ActiveControl = null;
+            this.metroTileAdvanceBooking.BackColor = System.Drawing.Color.SeaGreen;
+            this.metroTileAdvanceBooking.ForeColor = System.Drawing.Color.White;
+            this.metroTileAdvanceBooking.Location = new System.Drawing.Point(29, 229);
+            this.metroTileAdvanceBooking.Name = "titleBookRoom";
+            this.metroTileAdvanceBooking.Size = new System.Drawing.Size(135, 120);
+            this.metroTileAdvanceBooking.TabIndex = 17;
+            this.metroTileAdvanceBooking.Text = "Advance booking";
+            this.metroTileAdvanceBooking.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTileAdvanceBooking.TileImage")));
+            this.metroTileAdvanceBooking.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTileAdvanceBooking.UseCustomBackColor = true;
+            this.metroTileAdvanceBooking.UseCustomForeColor = true;
+            this.metroTileAdvanceBooking.UseSelectable = true;
+            this.metroTileAdvanceBooking.UseStyleColors = true;
+            this.metroTileAdvanceBooking.UseTileImage = true;
+            this.metroTileAdvanceBooking.UseVisualStyleBackColor = false;
+            this.metroTileAdvanceBooking.Click += new System.EventHandler(this.metroTileAdvanceBooking_Click);
             // 
             // metroTileShowAllBookedRooms
             // 
@@ -634,5 +656,6 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnNavigationPanel;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private MetroFramework.Controls.MetroTile metroTileShowAllBookedRooms;
+        private MetroFramework.Controls.MetroTile metroTileAdvanceBooking;
     }
 }

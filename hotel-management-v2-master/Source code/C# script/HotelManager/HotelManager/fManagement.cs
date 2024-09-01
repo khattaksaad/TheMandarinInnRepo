@@ -241,5 +241,20 @@ namespace HotelManager
             }
             else MessageBox.Show("You do not have access.", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-    }
+
+        private void metroTileAdvanceBooking_Click(object sender, EventArgs e)
+        {
+            if (CheckAccess("fAdvanceBooking"))
+            {
+                this.Hide();
+                fAdvanceBooking fShow = new fAdvanceBooking(this.userName);
+                fShow.ShowDialog();
+                this.Show();
+
+            }
+
+            else MessageBox.Show("You do not have access.", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
+}
 }

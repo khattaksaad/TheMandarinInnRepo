@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fBookRoom4Company));
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.label2 = new System.Windows.Forms.Label();
@@ -80,6 +80,9 @@
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.dataGridView4Bookings = new System.Windows.Forms.DataGridView();
+            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.price4BookingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSearchCompany = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -87,9 +90,6 @@
             this.txbCompanyName4Searching = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
-            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.price4BookingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -559,7 +559,7 @@
             this.btnAddAnotherRoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.btnAddAnotherRoom.BackColor = System.Drawing.Color.White;
             this.btnAddAnotherRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddAnotherRoom.BackgroundImage")));
-            this.btnAddAnotherRoom.ButtonText = "Add another room";
+            this.btnAddAnotherRoom.ButtonText = "Add room";
             this.btnAddAnotherRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddAnotherRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAnotherRoom.ForeColor = System.Drawing.Color.SeaGreen;
@@ -864,14 +864,14 @@
             this.roomIdDataGridViewTextBoxColumn,
             this.price4BookingDataGridViewTextBoxColumn});
             this.dataGridView4Bookings.DataSource = this.roomBooking4GridBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView4Bookings.Location = new System.Drawing.Point(6, 21);
             this.dataGridView4Bookings.Name = "dataGridView4Bookings";
             this.dataGridView4Bookings.RowHeadersWidth = 50;
@@ -881,6 +881,30 @@
             this.dataGridView4Bookings.DataMemberChanged += new System.EventHandler(this.dataGridView4Bookings_DataMemberChanged);
             this.dataGridView4Bookings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4Bookings_CellValueChanged);
             this.dataGridView4Bookings.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView4Bookings_RowsAdded);
+            // 
+            // roomTypeDataGridViewTextBoxColumn
+            // 
+            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
+            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
+            this.roomTypeDataGridViewTextBoxColumn.MinimumWidth = 15;
+            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
+            // 
+            // roomIdDataGridViewTextBoxColumn
+            // 
+            this.roomIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.roomIdDataGridViewTextBoxColumn.DataPropertyName = "RoomId";
+            this.roomIdDataGridViewTextBoxColumn.HeaderText = "Room Number";
+            this.roomIdDataGridViewTextBoxColumn.MinimumWidth = 15;
+            this.roomIdDataGridViewTextBoxColumn.Name = "roomIdDataGridViewTextBoxColumn";
+            // 
+            // price4BookingDataGridViewTextBoxColumn
+            // 
+            this.price4BookingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.price4BookingDataGridViewTextBoxColumn.DataPropertyName = "Price4Booking";
+            this.price4BookingDataGridViewTextBoxColumn.HeaderText = "Price Per night";
+            this.price4BookingDataGridViewTextBoxColumn.MinimumWidth = 15;
+            this.price4BookingDataGridViewTextBoxColumn.Name = "price4BookingDataGridViewTextBoxColumn";
             // 
             // roomBooking4GridBindingSource
             // 
@@ -986,30 +1010,6 @@
             this.btnClose.TabStop = false;
             this.btnClose.Zoom = 10;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // roomTypeDataGridViewTextBoxColumn
-            // 
-            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
-            this.roomTypeDataGridViewTextBoxColumn.MinimumWidth = 15;
-            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
-            // 
-            // roomIdDataGridViewTextBoxColumn
-            // 
-            this.roomIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.roomIdDataGridViewTextBoxColumn.DataPropertyName = "RoomId";
-            this.roomIdDataGridViewTextBoxColumn.HeaderText = "Room Number";
-            this.roomIdDataGridViewTextBoxColumn.MinimumWidth = 15;
-            this.roomIdDataGridViewTextBoxColumn.Name = "roomIdDataGridViewTextBoxColumn";
-            // 
-            // price4BookingDataGridViewTextBoxColumn
-            // 
-            this.price4BookingDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.price4BookingDataGridViewTextBoxColumn.DataPropertyName = "Price4Booking";
-            this.price4BookingDataGridViewTextBoxColumn.HeaderText = "Price Per night";
-            this.price4BookingDataGridViewTextBoxColumn.MinimumWidth = 15;
-            this.price4BookingDataGridViewTextBoxColumn.Name = "price4BookingDataGridViewTextBoxColumn";
             // 
             // fBookRoom4Company
             // 

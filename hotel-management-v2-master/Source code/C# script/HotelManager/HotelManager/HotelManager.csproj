@@ -238,6 +238,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\AdvanceBookingDAO.cs" />
     <Compile Include="DAO\ChargeService2RoomDAO.cs" />
     <Compile Include="DAO\AccessDAO.cs" />
     <Compile Include="DAO\AccountDAO.cs" />
@@ -281,6 +282,12 @@
     </Compile>
     <Compile Include="fAbout.Designer.cs">
       <DependentUpon>fAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fAdvanceBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdvanceBooking.Designer.cs">
+      <DependentUpon>fAdvanceBooking.cs</DependentUpon>
     </Compile>
     <Compile Include="fMethodOfPayment.cs">
       <SubType>Form</SubType>
@@ -488,6 +495,9 @@
     <Compile Include="Utils\UpdateChecker.cs" />
     <EmbeddedResource Include="fAbout.resx">
       <DependentUpon>fAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fAdvanceBooking.resx">
+      <DependentUpon>fAdvanceBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fMethodOfPayment.resx">
       <DependentUpon>fMethodOfPayment.cs</DependentUpon>

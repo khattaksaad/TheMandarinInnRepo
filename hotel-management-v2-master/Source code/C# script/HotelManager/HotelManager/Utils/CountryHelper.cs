@@ -19,11 +19,22 @@ namespace HotelManager.Utils
             foreach (CultureInfo culture in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
             {
                 RegionInfo country = new RegionInfo(culture.LCID);
-                if (countries.Where(p => p.Name == country.Name).Count() == 0)
+                if (!countries.Any(p => p.Name == country.Name))
                     countries.Add(country);
             }
 
-            return countries.OrderBy(p => p.EnglishName).Select(p=>p.EnglishName).ToList();
+            var sortedCountries = countries.OrderBy(p => p.EnglishName).ToList();
+            var pakistan = sortedCountries.FirstOrDefault(p => p.EnglishName == "Pakistan");
+
+            if (pakistan != null)
+            {
+                sortedCountries.Remove(pakistan);
+                sortedCountries.Insert(0, pakistan);
+            }
+
+            return sortedCountries.Select(p => p.EnglishName).ToList();
+
+
         }
     }
 }

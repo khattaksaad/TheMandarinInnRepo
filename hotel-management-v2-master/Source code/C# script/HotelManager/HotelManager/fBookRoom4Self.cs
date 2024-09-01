@@ -137,8 +137,8 @@ namespace HotelManager
 
         private void dpkDateCheckOut_onValueChanged(object sender, EventArgs e)
         {
-            if (dpkDateCheckOut.Value < DateTime.Now)
-                LoadDate();
+            //if (dpkDateCheckOut.Value < DateTime.Now)
+            //    LoadDate();
             if (dpkDateCheckOut.Value <= dpkDateCheckIn.Value)
                 LoadDate();
             LoadDays();
