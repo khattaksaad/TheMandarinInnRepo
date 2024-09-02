@@ -339,6 +339,7 @@ namespace HotelManager
             if (e.ColumnIndex == dataGridView4Bookings.Columns["colDelete"].Index  && !dataGridView4Bookings.Rows[e.RowIndex].IsNewRow)
             {
                 dataGridView4Bookings.Rows.RemoveAt(e.RowIndex);
+                UpdateSum();
             }
         }
 

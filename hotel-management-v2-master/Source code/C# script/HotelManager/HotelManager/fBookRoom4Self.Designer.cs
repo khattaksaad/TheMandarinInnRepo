@@ -971,6 +971,7 @@
             this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView4Bookings.Location = new System.Drawing.Point(6, 21);
             this.dataGridView4Bookings.Name = "dataGridView4Bookings";
+            this.dataGridView4Bookings.RowHeadersVisible = false;
             this.dataGridView4Bookings.RowHeadersWidth = 50;
             this.dataGridView4Bookings.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView4Bookings.Size = new System.Drawing.Size(442, 425);

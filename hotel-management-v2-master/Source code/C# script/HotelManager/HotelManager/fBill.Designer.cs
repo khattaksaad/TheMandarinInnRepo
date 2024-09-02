@@ -74,14 +74,13 @@
             this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewBill = new System.Windows.Forms.DataGridView();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.colIdReciveRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStaffsetUp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coldDateOfCreate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.bindingBill)).BeginInit();
             this.bindingBill.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -710,11 +709,10 @@
             this.dataGridViewBill.ColumnHeadersHeight = 29;
             this.dataGridViewBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewBill.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colID,
             this.colIdReciveRoom,
+            this.colStatus,
             this.colStaffsetUp,
             this.coldDateOfCreate,
-            this.colStatus,
             this.colPrice,
             this.Column2});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -746,14 +744,20 @@
             this.dataGridViewBill.Size = new System.Drawing.Size(769, 390);
             this.dataGridViewBill.TabIndex = 28;
             // 
-            // colID
+            // btnClose
             // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colID.DataPropertyName = "id";
-            this.colID.FillWeight = 30F;
-            this.colID.HeaderText = "Code";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.ImageActive = null;
+            this.btnClose.Location = new System.Drawing.Point(1177, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(16, 16);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnClose.TabIndex = 56;
+            this.btnClose.TabStop = false;
+            this.btnClose.Zoom = 10;
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // colIdReciveRoom
             // 
@@ -763,6 +767,15 @@
             this.colIdReciveRoom.HeaderText = "Room name";
             this.colIdReciveRoom.Name = "colIdReciveRoom";
             this.colIdReciveRoom.ReadOnly = true;
+            // 
+            // colStatus
+            // 
+            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colStatus.DataPropertyName = "name";
+            this.colStatus.FillWeight = 20F;
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
             // 
             // colStaffsetUp
             // 
@@ -783,20 +796,12 @@
             this.coldDateOfCreate.Name = "coldDateOfCreate";
             this.coldDateOfCreate.ReadOnly = true;
             // 
-            // colStatus
-            // 
-            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colStatus.DataPropertyName = "name";
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            // 
             // colPrice
             // 
             this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colPrice.DataPropertyName = "TotalPrice";
             this.colPrice.FillWeight = 30F;
-            this.colPrice.HeaderText = "Total Amount";
+            this.colPrice.HeaderText = "Total";
             this.colPrice.Name = "colPrice";
             this.colPrice.ReadOnly = true;
             // 
@@ -804,24 +809,10 @@
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.DataPropertyName = "AmountPaid";
+            this.Column2.FillWeight = 30F;
             this.Column2.HeaderText = "Total Amount Paid";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.ImageActive = null;
-            this.btnClose.Location = new System.Drawing.Point(1177, 5);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(16, 16);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnClose.TabIndex = 56;
-            this.btnClose.TabStop = false;
-            this.btnClose.Zoom = 10;
-            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // fBill
             // 
@@ -903,11 +894,10 @@
         private Bunifu.Framework.UI.BunifuMetroTextbox txbDiscount;
         private System.Windows.Forms.Label label2;
         private MetroFramework.Controls.MetroComboBox cbBillSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdReciveRoom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStaffsetUp;
         private System.Windows.Forms.DataGridViewTextBoxColumn coldDateOfCreate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }

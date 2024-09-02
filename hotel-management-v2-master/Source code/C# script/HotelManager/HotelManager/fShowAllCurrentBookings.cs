@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HotelManager.fShowAllCurrentBookings;
 
 namespace HotelManager
 {
@@ -35,6 +36,7 @@ namespace HotelManager
             private DateTime dateBookRoom;
             private int reservationId;
             private string customerName;
+            private string roomTypeName;
             private Room room;
 
             public DateTime DateCheckIn { get => dateCheckIn; set => dateCheckIn = value; }
@@ -43,6 +45,7 @@ namespace HotelManager
             public int ReservationId { get => reservationId; set => reservationId = value; }
             public string CustomerName { get => customerName; set => customerName = value; }
             public Room Room { get => room; set => room = value; }
+            public string RoomTypeName { get => roomTypeName; set => roomTypeName = value; }
         }
         private int idStaffType = -1;
         List<Room> rooms = new List<Room>();
@@ -85,8 +88,20 @@ namespace HotelManager
                 roomBooking.DateCheckIn = (DateTime)dataRow["Check-In date"];
                 roomBooking.DateCheckOut = (DateTime)dataRow["Check out date"];
                 roomBooking.DateBookRoom = (DateTime)dataRow["DateBookRoom"];
-                roomBooking.CustomerName = dataRow["Customer Name"].ToString();
+
+                if (Convert.ToInt32(dataRow["Booking Type"]) == 0)
+                {
+                    //load customer else company
+                    roomBooking.CustomerName = customers.FirstOrDefault(p => p.Id == Convert.ToInt32(dataRow["CustomerID"])).Name ?? string.Empty;
+                }
+                else
+                {
+                    roomBooking.CustomerName = companies.FirstOrDefault(p => p.Id == Convert.ToInt32(dataRow["CustomerID"])).CompanyName ?? string.Empty;
+
+                }
+
                 roomBooking.ReservationId = (int)dataRow["Id"];
+                roomBooking.RoomTypeName = dataRow["Room Type Name"].ToString();
                 roomBooking.Room = new Room()
                 {
                     Id = (int)dataRow["RoomNo"],
@@ -143,7 +158,7 @@ namespace HotelManager
             else
             if(dataGridViewRoom.Columns[e.ColumnIndex].Name == "RoomType")
             {
-                e.Value = list[e.RowIndex].Room.IdRoomType;
+                e.Value = list[e.RowIndex].RoomTypeName;
             }
             else
             if(dataGridViewRoom.Columns[e.ColumnIndex].Name == "RoomNumber")

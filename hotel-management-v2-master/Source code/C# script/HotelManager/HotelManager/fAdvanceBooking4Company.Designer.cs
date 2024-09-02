@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdvanceBooking4Company));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -53,8 +53,6 @@
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView4Bookings = new System.Windows.Forms.DataGridView();
-            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSearchCompany = new Bunifu.Framework.UI.BunifuThinButton2();
@@ -77,6 +75,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txbFullName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label16 = new System.Windows.Forms.Label();
+            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -417,6 +417,7 @@
             this.dataGridView4Bookings.Location = new System.Drawing.Point(6, 12);
             this.dataGridView4Bookings.Name = "dataGridView4Bookings";
             this.dataGridView4Bookings.ReadOnly = true;
+            this.dataGridView4Bookings.RowHeadersVisible = false;
             this.dataGridView4Bookings.RowHeadersWidth = 50;
             this.dataGridView4Bookings.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView4Bookings.Size = new System.Drawing.Size(442, 535);
@@ -425,27 +426,6 @@
             this.dataGridView4Bookings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4Bookings_CellClick);
             this.dataGridView4Bookings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4Bookings_CellValueChanged);
             this.dataGridView4Bookings.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView4Bookings_RowsAdded);
-            // 
-            // roomTypeDataGridViewTextBoxColumn
-            // 
-            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.Frozen = true;
-            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
-            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
-            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roomTypeDataGridViewTextBoxColumn.Width = 88;
-            // 
-            // colDelete
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "X";
-            this.colDelete.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colDelete.Frozen = true;
-            this.colDelete.HeaderText = "Remove";
-            this.colDelete.Name = "colDelete";
-            this.colDelete.ReadOnly = true;
-            this.colDelete.Text = "X";
-            this.colDelete.Width = 53;
             // 
             // roomBooking4GridBindingSource
             // 
@@ -788,6 +768,26 @@
             this.label16.TabIndex = 22;
             this.label16.Text = "Company Name:";
             // 
+            // roomTypeDataGridViewTextBoxColumn
+            // 
+            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
+            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
+            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
+            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // colDelete
+            // 
+            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "X";
+            this.colDelete.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colDelete.FillWeight = 25F;
+            this.colDelete.HeaderText = "Remove";
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            this.colDelete.Text = "X";
+            // 
             // fAdvanceBooking4Company
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -850,8 +850,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView4Bookings;
         private System.Windows.Forms.BindingSource roomBooking4GridBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
         private System.Windows.Forms.GroupBox groupBox3;
         private Bunifu.Framework.UI.BunifuThinButton2 btnSearchCompany;
         private Bunifu.Framework.UI.BunifuDatepicker bunifuDatepicker1;
@@ -873,5 +871,7 @@
         private System.Windows.Forms.Label label14;
         private Bunifu.Framework.UI.BunifuMetroTextbox txbFullName;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
     }
 }

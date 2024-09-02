@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Windows.Forms;
+using static HotelManager.fUseService;
 
 namespace HotelManager
 {
@@ -185,7 +186,7 @@ namespace HotelManager
         public void LoadCheckedOutOpenBillRooms()
         {
             flowLayoutRooms.Controls.Clear();
-            listViewBillRoom.Items.Clear();
+            bindingSourceRoomBill.DataSource = null;
             listViewUseService.Items.Clear();
             System.Data.DataTable dataTable = BillDAO.Instance.GetCheckedOutRoomsOpenForBilling();
             //            Select r.Name, br.ID as [BookingId], cr.CheckOutDate as CheckedOutDate, br.IDCustomer as CustomerId, b.RoomPrice as [RoomTotal]
@@ -217,7 +218,7 @@ namespace HotelManager
 
         private void Button_Click(object sender, EventArgs e)
         {
-            listViewBillRoom.Items.Clear();
+            bindingSourceRoomBill.DataSource = null;
             totalPrice = 0;
             totalPaid = 0;
             Bunifu.Framework.UI.BunifuTileButton button = sender as Bunifu.Framework.UI.BunifuTileButton;
@@ -364,28 +365,28 @@ namespace HotelManager
         }
         public void ShowBillRoom(int idRoom)
         {
-            listViewBillRoom.Items.Clear();
-               Room4GUI room = flowLayoutRooms.Tag as Room4GUI;
-             if (room == null || room.BookingId <= 0) return;
+            bindingSourceRoomBill.DataSource = null;
+            Room4GUI room = flowLayoutRooms.Tag as Room4GUI;
+            if (room == null || room.BookingId <= 0) return;
             //DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
             //	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
-            
-            ListViewItem listViewItem = new ListViewItem(room.Room.Name);
 
-            ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, (room.Total4Room).ToString());
-            ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, (room.CheckInDate).ToString().Split(' ')[0]);
-            ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, (room.CheckOutDate).ToString().Split(' ')[0]);
-            ListViewItem.ListViewSubItem subItem4 = new ListViewItem.ListViewSubItem(listViewItem, (room.PricePerNight).ToString());
-            ListViewItem.ListViewSubItem subItem6 = new ListViewItem.ListViewSubItem(listViewItem, room.Total4Room.ToString());
+
+            ShowBillRoonInView showBillRoonInView = new ShowBillRoonInView()
+            {
+                RoomName = room.Room.Name.ToString(),
+                //ActualPricePerNight = (int)data["Actual Price Per Night"],
+                CheckInDate1 = room.CheckInDate,
+                CheckOutDate1 = room.CheckOutDate,
+                PriceChargedPerNight = room.PricePerNight
+            };
+
+            showBillRoonInView.TotalStayCharges4Room = room.Total4Room;
             totalPrice += room.Total4Room;
+            bindingSourceRoomBill.DataSource = showBillRoonInView;
+            bindingSourceRoomBill.ResetBindings(false);
+            dataGridView1.Refresh();
 
-            listViewItem.SubItems.Add(subItem1);
-            listViewItem.SubItems.Add(subItem2);
-            listViewItem.SubItems.Add(subItem3);
-            listViewItem.SubItems.Add(subItem4);
-            listViewItem.SubItems.Add(subItem6);
-
-            listViewBillRoom.Items.Add(listViewItem);
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -465,7 +466,7 @@ namespace HotelManager
         }
         private void LoadRoomData()
         {
-            listViewBillRoom.Items.Clear();
+            bindingSourceRoomBill.DataSource = null;
             totalPrice = totalPaid = 0;
             txbTotalPrice.Text = totalPrice.ToString();
 
@@ -473,7 +474,7 @@ namespace HotelManager
         private void btnSearch4Customers_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cbCustomers.Text)) return;
-            listViewBillRoom.Items.Clear();
+            bindingSourceRoomBill.DataSource = null;
 
             //is a company selected
             roomsDisplayed =   GetRoom4GUIs(BillDAO.Instance.GetCheckedOutRoomByCompanyOpenForBilling((int)cbCustomers.SelectedValue));
@@ -500,7 +501,7 @@ namespace HotelManager
                 listViewItem.SubItems.Add(subItem4);
                 //listViewItem.SubItems.Add(subItem5);
                 txbTotalPrice.Text = totalPrice.ToString();
-                listViewBillRoom.Items.Add(listViewItem);
+                bindingSourceRoomBill.DataSource = null;
             }
             int i = 0;
         }

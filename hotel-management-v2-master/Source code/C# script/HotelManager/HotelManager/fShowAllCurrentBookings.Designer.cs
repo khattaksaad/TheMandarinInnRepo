@@ -36,26 +36,25 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.dataGridViewRoom = new System.Windows.Forms.DataGridView();
-            this.reservationIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateCheckInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateCheckOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateBookRoomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomBooking4ViewBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageCurrentBookings = new System.Windows.Forms.TabPage();
             this.tabPageAdvanceBookings = new System.Windows.Forms.TabPage();
             this.dataGridViewAdvanceBookings = new System.Windows.Forms.DataGridView();
-            this.advanceBookingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateBookRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.advanceBookingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.reservationIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCheckInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateCheckOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateBookRoomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomBooking4ViewBindingSource)).BeginInit();
@@ -107,10 +106,9 @@
             this.dataGridViewRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewRoom.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.reservationIdDataGridViewTextBoxColumn,
+            this.customerNameDataGridViewTextBoxColumn,
             this.roomDataGridViewTextBoxColumn,
             this.RoomType,
-            this.RoomNumber,
-            this.customerNameDataGridViewTextBoxColumn,
             this.dateCheckInDataGridViewTextBoxColumn,
             this.dateCheckOutDataGridViewTextBoxColumn,
             this.dateBookRoomDataGridViewTextBoxColumn});
@@ -144,68 +142,6 @@
             this.dataGridViewRoom.Size = new System.Drawing.Size(919, 371);
             this.dataGridViewRoom.TabIndex = 65;
             this.dataGridViewRoom.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewRoom_CellFormatting);
-            // 
-            // reservationIdDataGridViewTextBoxColumn
-            // 
-            this.reservationIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.reservationIdDataGridViewTextBoxColumn.DataPropertyName = "ReservationId";
-            this.reservationIdDataGridViewTextBoxColumn.HeaderText = "Reservation Id";
-            this.reservationIdDataGridViewTextBoxColumn.Name = "reservationIdDataGridViewTextBoxColumn";
-            this.reservationIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roomDataGridViewTextBoxColumn
-            // 
-            this.roomDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.roomDataGridViewTextBoxColumn.HeaderText = "Room Name";
-            this.roomDataGridViewTextBoxColumn.Name = "roomDataGridViewTextBoxColumn";
-            this.roomDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // RoomType
-            // 
-            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomType.HeaderText = "Room Type";
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            // 
-            // RoomNumber
-            // 
-            this.RoomNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.RoomNumber.HeaderText = "Room No.";
-            this.RoomNumber.Name = "RoomNumber";
-            this.RoomNumber.ReadOnly = true;
-            // 
-            // customerNameDataGridViewTextBoxColumn
-            // 
-            this.customerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Customer Name";
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateCheckInDataGridViewTextBoxColumn
-            // 
-            this.dateCheckInDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dateCheckInDataGridViewTextBoxColumn.DataPropertyName = "DateCheckIn";
-            this.dateCheckInDataGridViewTextBoxColumn.HeaderText = "Check in date";
-            this.dateCheckInDataGridViewTextBoxColumn.MinimumWidth = 60;
-            this.dateCheckInDataGridViewTextBoxColumn.Name = "dateCheckInDataGridViewTextBoxColumn";
-            this.dateCheckInDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateCheckOutDataGridViewTextBoxColumn
-            // 
-            this.dateCheckOutDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dateCheckOutDataGridViewTextBoxColumn.DataPropertyName = "DateCheckOut";
-            this.dateCheckOutDataGridViewTextBoxColumn.HeaderText = "Check out date";
-            this.dateCheckOutDataGridViewTextBoxColumn.Name = "dateCheckOutDataGridViewTextBoxColumn";
-            this.dateCheckOutDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dateBookRoomDataGridViewTextBoxColumn
-            // 
-            this.dateBookRoomDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dateBookRoomDataGridViewTextBoxColumn.DataPropertyName = "DateBookRoom";
-            this.dateBookRoomDataGridViewTextBoxColumn.HeaderText = "Room booked on";
-            this.dateBookRoomDataGridViewTextBoxColumn.Name = "dateBookRoomDataGridViewTextBoxColumn";
-            this.dateBookRoomDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // roomBooking4ViewBindingSource
             // 
@@ -278,11 +214,11 @@
             this.dataGridViewAdvanceBookings.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewAdvanceBookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAdvanceBookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DateIn,
             this.CustomerName,
+            this.roomTypeDataGridViewTextBoxColumn,
+            this.DateIn,
             this.DateOut,
-            this.DateBookRoom,
-            this.roomTypeDataGridViewTextBoxColumn});
+            this.DateBookRoom});
             this.dataGridViewAdvanceBookings.DataSource = this.advanceBookingsBindingSource;
             this.dataGridViewAdvanceBookings.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewAdvanceBookings.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -299,18 +235,6 @@
             this.dataGridViewAdvanceBookings.Size = new System.Drawing.Size(919, 371);
             this.dataGridViewAdvanceBookings.TabIndex = 0;
             // 
-            // advanceBookingsBindingSource
-            // 
-            this.advanceBookingsBindingSource.DataSource = typeof(HotelManager.fAdvanceBooking.AdvanceRoomBooking4Grid);
-            // 
-            // DateIn
-            // 
-            this.DateIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateIn.DataPropertyName = "DateIn";
-            this.DateIn.HeaderText = "DateIn";
-            this.DateIn.Name = "DateIn";
-            this.DateIn.ReadOnly = true;
-            // 
             // CustomerName
             // 
             this.CustomerName.DataPropertyName = "CustomerName";
@@ -318,11 +242,27 @@
             this.CustomerName.Name = "CustomerName";
             this.CustomerName.ReadOnly = true;
             // 
+            // roomTypeDataGridViewTextBoxColumn
+            // 
+            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
+            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
+            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DateIn
+            // 
+            this.DateIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateIn.DataPropertyName = "DateIn";
+            this.DateIn.HeaderText = "Check-In";
+            this.DateIn.Name = "DateIn";
+            this.DateIn.ReadOnly = true;
+            // 
             // DateOut
             // 
             this.DateOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DateOut.DataPropertyName = "DateOut";
-            this.DateOut.HeaderText = "DateOut";
+            this.DateOut.HeaderText = "Check Out";
             this.DateOut.Name = "DateOut";
             this.DateOut.ReadOnly = true;
             // 
@@ -330,17 +270,69 @@
             // 
             this.DateBookRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DateBookRoom.DataPropertyName = "DateBookRoom";
-            this.DateBookRoom.HeaderText = "DateBookRoom";
+            this.DateBookRoom.HeaderText = "Booked on";
             this.DateBookRoom.Name = "DateBookRoom";
             this.DateBookRoom.ReadOnly = true;
             // 
-            // roomTypeDataGridViewTextBoxColumn
+            // advanceBookingsBindingSource
             // 
-            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
-            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.advanceBookingsBindingSource.DataSource = typeof(HotelManager.fAdvanceBooking.AdvanceRoomBooking4Grid);
+            // 
+            // reservationIdDataGridViewTextBoxColumn
+            // 
+            this.reservationIdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.reservationIdDataGridViewTextBoxColumn.DataPropertyName = "ReservationId";
+            this.reservationIdDataGridViewTextBoxColumn.HeaderText = "Reservation Id";
+            this.reservationIdDataGridViewTextBoxColumn.Name = "reservationIdDataGridViewTextBoxColumn";
+            this.reservationIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Customer Name";
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            this.customerNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // roomDataGridViewTextBoxColumn
+            // 
+            this.roomDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.roomDataGridViewTextBoxColumn.HeaderText = "Room";
+            this.roomDataGridViewTextBoxColumn.Name = "roomDataGridViewTextBoxColumn";
+            this.roomDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // RoomType
+            // 
+            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.RoomType.DataPropertyName = "RoomTypeName";
+            this.RoomType.HeaderText = "Room Type";
+            this.RoomType.Name = "RoomType";
+            this.RoomType.ReadOnly = true;
+            // 
+            // dateCheckInDataGridViewTextBoxColumn
+            // 
+            this.dateCheckInDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateCheckInDataGridViewTextBoxColumn.DataPropertyName = "DateCheckIn";
+            this.dateCheckInDataGridViewTextBoxColumn.HeaderText = "Check-In";
+            this.dateCheckInDataGridViewTextBoxColumn.MinimumWidth = 60;
+            this.dateCheckInDataGridViewTextBoxColumn.Name = "dateCheckInDataGridViewTextBoxColumn";
+            this.dateCheckInDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateCheckOutDataGridViewTextBoxColumn
+            // 
+            this.dateCheckOutDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateCheckOutDataGridViewTextBoxColumn.DataPropertyName = "DateCheckOut";
+            this.dateCheckOutDataGridViewTextBoxColumn.HeaderText = "Check Out";
+            this.dateCheckOutDataGridViewTextBoxColumn.Name = "dateCheckOutDataGridViewTextBoxColumn";
+            this.dateCheckOutDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dateBookRoomDataGridViewTextBoxColumn
+            // 
+            this.dateBookRoomDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dateBookRoomDataGridViewTextBoxColumn.DataPropertyName = "DateBookRoom";
+            this.dateBookRoomDataGridViewTextBoxColumn.HeaderText = "Booked on";
+            this.dateBookRoomDataGridViewTextBoxColumn.Name = "dateBookRoomDataGridViewTextBoxColumn";
+            this.dateBookRoomDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fShowAllCurrentBookings
             // 
@@ -377,23 +369,22 @@
         private System.Windows.Forms.DataGridView dataGridViewRoom;
         private System.Windows.Forms.BindingSource roomBooking4ViewBindingSource;
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose_;
-        private System.Windows.Forms.DataGridViewTextBoxColumn reservationIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roomDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateCheckInDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateCheckOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateBookRoomDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPageCurrentBookings;
         private System.Windows.Forms.TabPage tabPageAdvanceBookings;
         private System.Windows.Forms.DataGridView dataGridViewAdvanceBookings;
         private System.Windows.Forms.BindingSource advanceBookingsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOut;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateBookRoom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reservationIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateCheckInDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateCheckOutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateBookRoomDataGridViewTextBoxColumn;
     }
 }

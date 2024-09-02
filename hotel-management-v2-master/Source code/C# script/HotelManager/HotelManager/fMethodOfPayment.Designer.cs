@@ -189,6 +189,7 @@
             this.txtAmountPaid.Size = new System.Drawing.Size(399, 29);
             this.txtAmountPaid.TabIndex = 51;
             this.txtAmountPaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtAmountPaid.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAmountPaid_KeyPress);
             // 
             // label4
             // 

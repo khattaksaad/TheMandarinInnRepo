@@ -11,6 +11,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelManager
 {
@@ -18,6 +19,19 @@ namespace HotelManager
     {
         string staffSetUp;
         List<Service> services;
+        public class ServicesUsed4GUI
+        {
+            private int serviceID;
+            private int price;
+            private string serviceName;
+            private int quantity;
+            private int chargeServiceId;
+            public int Quantity { get => quantity; set => quantity = value; }
+            public string ServiceName { get => serviceName; set => serviceName = value; }
+            public int Price { get => price; set => price = value; }
+            public int ServiceID { get => serviceID; set => serviceID = value; }
+            public int ChargeServiceId { get => chargeServiceId; set => chargeServiceId = value; }
+        }
         public class ShowBillRoonInView
         {
             string roomName;
@@ -41,14 +55,14 @@ namespace HotelManager
             int bookingId;
             public Room4GUI()
             {
-                
+
             }
             public Room Room { get => room; set => room = value; }
             public int BookingId { get => bookingId; set => bookingId = value; }
         }
         public fUseService(string userName)
         {
-            staffSetUp = userName;         
+            staffSetUp = userName;
             InitializeComponent();
             LoadData();
             cbService.SelectedIndexChanged += cbService_SelectedIndexChanged;
@@ -71,27 +85,27 @@ namespace HotelManager
         public void LoadListRoomType()
         {
             List<RoomType> roomTypes = RoomTypeDAO.Instance.LoadListRoomType();
-            switch(roomTypes.Count)
+            switch (roomTypes.Count)
             {
                 case 0:
                     {
-                        color1.Visible = color3.Visible = color4.Visible =  false;
-                        lblRoomType1.Visible = lblRoomType3.Visible = lblRoomType4.Visible =  false;
+                        color1.Visible = color3.Visible = color4.Visible = false;
+                        lblRoomType1.Visible = lblRoomType3.Visible = lblRoomType4.Visible = false;
                         break;
                     }
                 case 1:
                     {
                         lblRoomType1.Text = roomTypes[0].Name;
-                          color3.Visible = color4.Visible = false;
-                         lblRoomType3.Visible = lblRoomType4.Visible =  false;
+                        color3.Visible = color4.Visible = false;
+                        lblRoomType3.Visible = lblRoomType4.Visible = false;
                         break;
                     }
                 case 2:
                     {
                         lblRoomType1.Text = roomTypes[0].Name;
-                        
+
                         color3.Visible = color4.Visible = false;
-                        lblRoomType3.Visible = lblRoomType4.Visible  = false;
+                        lblRoomType3.Visible = lblRoomType4.Visible = false;
                         break;
                     }
                 case 3:
@@ -172,7 +186,7 @@ namespace HotelManager
         {
             flowLayoutRooms.Controls.Clear();
             //listViewBillRoom.Items.Clear();
-            listViewUseService.Items.Clear();
+            bindingSourceServicesUsed.Clear();
             DataTable dataTable = RoomDAO.Instance.LoadListFullRoomsNotCheckedOutYetAsDataTable();
             List<Room4GUI> rooms = new List<Room4GUI>();
             foreach (DataRow item in dataTable.Rows)
@@ -183,7 +197,7 @@ namespace HotelManager
                 room4GUI.BookingId = Convert.ToInt32(item["BookingId"]);
                 rooms.Add(room4GUI);
             }
-            
+
             foreach (Room4GUI item in rooms)
             {
                 Bunifu.Framework.UI.BunifuTileButton button = new Bunifu.Framework.UI.BunifuTileButton();
@@ -191,17 +205,17 @@ namespace HotelManager
                 button.ForeColor = System.Drawing.Color.White;
                 button.Image = global::HotelManager.Properties.Resources.Room;
                 button.ImagePosition = 14;
-                button.ImageZoom =36;
+                button.ImageZoom = 36;
                 button.LabelPosition = 29;
-                button.Size = new System.Drawing.Size(110,95);
-                button.Margin= new System.Windows.Forms.Padding(1,1,1,1);
+                button.Size = new System.Drawing.Size(110, 95);
+                button.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
 
                 button.Tag = item;
-                button.LabelText =item.Room.Name;
+                button.LabelText = item.Room.Name;
                 button.Click += Button_Click;
 
                 DrawControl(item.Room, button);
-                
+
                 flowLayoutRooms.Controls.Add(button);
 
                 //BillDAO.Instance.UpdateRoomPrice(item.Id);
@@ -255,7 +269,7 @@ namespace HotelManager
         {
             return BillDetailsDAO.Instance.UpdateBillDetails(idBill, idService, _count);
         }
-        public void AddBill(int idRoom,int idService,int count)
+        public void AddBill(int idRoom, int idService, int count)
         {
             //if(IsExistsBill(idRoom))
             //{
@@ -313,41 +327,29 @@ namespace HotelManager
         }
         public void ShowBill(int bookingId)
         {
-            listViewUseService.Items.Clear();
+            bindingSourceServicesUsed.Clear();
             DataTable dataTable = ChargeService2RoomDAO.Instance.GetAllServiceChargesForARoom(bookingId);
             int _totalPrice = 0;
+            List<ServicesUsed4GUI> servicesUsed = new List<ServicesUsed4GUI>();
+            int total4Services = 0;
             foreach (DataRow item in dataTable.Rows)
             {
-                ListViewItem listViewItem = new ListViewItem(id.ToString());
-                id++;
+                ServicesUsed4GUI servicesUsed4GUI = new ServicesUsed4GUI();
+                servicesUsed4GUI.ServiceName = item["Service Name"].ToString();
+                servicesUsed4GUI.ServiceID = (int)item["ServiceId"];
+                servicesUsed4GUI.Price = (int)item["Price"];
+                servicesUsed4GUI.Quantity = (int)item["Quantity"];
+                servicesUsed4GUI.ChargeServiceId = (int)item["ChargeId"];
+                servicesUsed.Add(servicesUsed4GUI);
 
-                ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, item["Service Name"].ToString());
-                ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, ((int)item["Price"]).ToString());
-                ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, ((int)item["Quantity"]).ToString());
-
-
-                _totalPrice += (int)item["Price"] * (int)item["Quantity"];
-
-                listViewItem.SubItems.Add(subItem1);
-                listViewItem.SubItems.Add(subItem2);
-                listViewItem.SubItems.Add(subItem3);
-
-                listViewUseService.Items.Add(listViewItem);
+                total4Services += servicesUsed4GUI.Price * servicesUsed4GUI.Quantity;
+                _totalPrice += servicesUsed4GUI.Price * servicesUsed4GUI.Quantity;
             }
+            bindingSourceServicesUsed.DataSource = servicesUsed;
+            bindingSourceServicesUsed.ResetBindings(false);
+            dataGridViewServicesUsed.Refresh();
+            txtbTotalServices.Text = total4Services.ToString();
             totalPrice += _totalPrice;
-
-            ListViewItem listViewItemTotalPrice = new ListViewItem();
-            ListViewItem.ListViewSubItem subItemTotalPrice = new ListViewItem.ListViewSubItem(listViewItemTotalPrice, _totalPrice.ToString());
-            ListViewItem.ListViewSubItem _subItem1 = new ListViewItem.ListViewSubItem(listViewItemTotalPrice, "");
-            ListViewItem.ListViewSubItem _subItem2 = new ListViewItem.ListViewSubItem(listViewItemTotalPrice, "");
-            ListViewItem.ListViewSubItem _subItem3 = new ListViewItem.ListViewSubItem(listViewItemTotalPrice, "");
-            listViewItemTotalPrice.SubItems.Add(_subItem1);
-            listViewItemTotalPrice.SubItems.Add(_subItem2);
-            listViewItemTotalPrice.SubItems.Add(_subItem3);
-            listViewItemTotalPrice.SubItems.Add(subItemTotalPrice);
-            listViewUseService.Items.Add(listViewItemTotalPrice);
-
-            id = 1;
         }
         public void ShowBillRoom(int idRoom)
         {
@@ -400,7 +402,7 @@ namespace HotelManager
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
-      
+
         private void btnAddService2Room_Click(object sender, EventArgs e)
         {
             try
@@ -411,13 +413,13 @@ namespace HotelManager
                 //its a new service; save the service first.
                 int o = Convert.ToInt32(cbServiceType.SelectedValue);
                 object ok = cbService.SelectedValue;
-                if(ok == null && cbService.Text.Trim().Length > 0)
+                if (ok == null && cbService.Text.Trim().Length > 0)
                 {
                     ServiceDAO.Instance.InsertService(cbService.Text.Trim(), o, int.Parse(txbPrice.Text));
                     string st = cbService.Text.Trim();
                     services = ServiceDAO.Instance.GetServices(o);
                     cbService.DataSource = services;
-                    cbService.SelectedItem = services.First(p=>p.Name.Equals(st));
+                    cbService.SelectedItem = services.First(p => p.Name.Equals(st));
                 }
 
                 ChargeService2RoomDAO.Instance.Insert(room.BookingId, (int)cbService.SelectedValue, staffSetUp, int.Parse(txbPrice.Text), (int)numericUpDownCount.Value);
@@ -437,5 +439,28 @@ namespace HotelManager
 
         }
 
+        private void btnRemoveServices_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewServicesUsed_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewServicesUsed.Columns["colDelete"].Index && !dataGridViewServicesUsed.Rows[e.RowIndex].IsNewRow)
+            {
+                ServicesUsed4GUI selectedRow = dataGridViewServicesUsed.Rows[e.RowIndex].DataBoundItem as ServicesUsed4GUI;
+                Room4GUI room = flowLayoutRooms.Tag as Room4GUI;
+                if (room == null || room.BookingId <= 0) return;
+                ChargeService2RoomDAO.Instance.Delete(room.BookingId, selectedRow.ChargeServiceId);
+                dataGridViewServicesUsed.Rows.RemoveAt(e.RowIndex);
+                ShowBill(room.BookingId);
+            }
+        }
+
+        private void txbPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
     }
 }

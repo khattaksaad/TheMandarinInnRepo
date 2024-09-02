@@ -624,9 +624,11 @@
     <None Include="Properties\DataSources\fReceiveRoom.BookedForCustomersUI.datasource" />
     <None Include="Properties\DataSources\fShowAllCurrentBookings.AdvanceBooking4View.datasource" />
     <None Include="Properties\DataSources\fShowAllCurrentBookings.RoomBooking4View.datasource" />
+    <None Include="Properties\DataSources\fUseService.ServicesUsed4GUI.datasource" />
     <None Include="Properties\DataSources\fUseService.ShowBillRoonInView.datasource" />
     <None Include="Properties\DataSources\HotelManager.DTO.BookRoom.datasource" />
     <None Include="Properties\DataSources\HotelManager.DTO.Customer.datasource" />
+    <None Include="Properties\DataSources\HotelManager.DTO.Service.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -674,13 +676,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hotel.ico" />
-    <Content Include="HotelManagement.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="HotelManagement_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>HotelManagement.mdf</DependentUpon>
-    </Content>
     <Content Include="MetroFramework.txt" />
     <None Include="Resources\image_123650291.JPG" />
   </ItemGroup>

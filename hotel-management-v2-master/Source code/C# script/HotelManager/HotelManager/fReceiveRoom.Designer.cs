@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReceiveRoom));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -145,6 +145,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(735, 517);
             this.dataGridView1.TabIndex = 49;
@@ -504,7 +505,7 @@
             // customerNameDataGridViewTextBoxColumn
             // 
             this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Customer Name";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Customer";
             this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
             // 
             // roomNameDataGridViewTextBoxColumn
@@ -522,16 +523,16 @@
             // CheckInDate
             // 
             this.CheckInDate.DataPropertyName = "CheckInDate";
-            this.CheckInDate.HeaderText = "Check-in Date";
+            this.CheckInDate.HeaderText = "Check-In";
             this.CheckInDate.Name = "CheckInDate";
             // 
             // CheckOutDate1
             // 
             this.CheckOutDate1.DataPropertyName = "CheckOutDate1";
-            dataGridViewCellStyle3.Format = "dd.MM.yyyy";
-            dataGridViewCellStyle3.NullValue = null;
-            this.CheckOutDate1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.CheckOutDate1.HeaderText = "CheckOut Date";
+            dataGridViewCellStyle1.Format = "dd.MM.yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.CheckOutDate1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CheckOutDate1.HeaderText = "Check Out";
             this.CheckOutDate1.Name = "CheckOutDate1";
             // 
             // BookingDate

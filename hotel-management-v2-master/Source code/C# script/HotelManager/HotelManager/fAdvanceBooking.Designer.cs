@@ -29,17 +29,20 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdvanceBooking));
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnBookRoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtBxCNIC = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbRoomType = new MetroFramework.Controls.MetroComboBox();
+            this.btnAddAnotherRoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label17 = new System.Windows.Forms.Label();
             this.checkBoxReceiveRoom = new Bunifu.Framework.UI.BunifuCheckbox();
             this.dpkDateOfBirth = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -54,6 +57,7 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dpkDateCheckOut = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.bunifuThinButtonCompanyBooking = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label23 = new System.Windows.Forms.Label();
             this.txbDays = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label19 = new System.Windows.Forms.Label();
@@ -61,13 +65,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView4Bookings = new System.Windows.Forms.DataGridView();
-            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnBookRoom = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.bunifuThinButtonCompanyBooking = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnAddAnotherRoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,6 +108,58 @@
             this.groupBox5.Size = new System.Drawing.Size(442, 66);
             this.groupBox5.TabIndex = 45;
             this.groupBox5.TabStop = false;
+            // 
+            // btnClose_
+            // 
+            this.btnClose_.ActiveBorderThickness = 1;
+            this.btnClose_.ActiveCornerRadius = 20;
+            this.btnClose_.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.ActiveForecolor = System.Drawing.Color.White;
+            this.btnClose_.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.BackColor = System.Drawing.Color.White;
+            this.btnClose_.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose_.BackgroundImage")));
+            this.btnClose_.ButtonText = "Close";
+            this.btnClose_.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose_.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose_.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.IdleBorderThickness = 1;
+            this.btnClose_.IdleCornerRadius = 20;
+            this.btnClose_.IdleFillColor = System.Drawing.Color.White;
+            this.btnClose_.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnClose_.Location = new System.Drawing.Point(232, 20);
+            this.btnClose_.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnClose_.Name = "btnClose_";
+            this.btnClose_.Size = new System.Drawing.Size(203, 40);
+            this.btnClose_.TabIndex = 47;
+            this.btnClose_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnClose_.Click += new System.EventHandler(this.btnClose__Click);
+            // 
+            // btnBookRoom
+            // 
+            this.btnBookRoom.ActiveBorderThickness = 1;
+            this.btnBookRoom.ActiveCornerRadius = 20;
+            this.btnBookRoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.ActiveForecolor = System.Drawing.Color.White;
+            this.btnBookRoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.BackColor = System.Drawing.Color.White;
+            this.btnBookRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBookRoom.BackgroundImage")));
+            this.btnBookRoom.ButtonText = "Create Advance Booking";
+            this.btnBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBookRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookRoom.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.IdleBorderThickness = 1;
+            this.btnBookRoom.IdleCornerRadius = 20;
+            this.btnBookRoom.IdleFillColor = System.Drawing.Color.White;
+            this.btnBookRoom.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.Location = new System.Drawing.Point(7, 20);
+            this.btnBookRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBookRoom.Name = "btnBookRoom";
+            this.btnBookRoom.Size = new System.Drawing.Size(203, 40);
+            this.btnBookRoom.TabIndex = 45;
+            this.btnBookRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnBookRoom.Click += new System.EventHandler(this.btnBookRoom_Click);
             // 
             // groupBox2
             // 
@@ -196,6 +248,32 @@
             this.cbRoomType.UseStyleColors = true;
             this.cbRoomType.SelectedIndexChanged += new System.EventHandler(this.cbRoomType_SelectedIndexChanged);
             // 
+            // btnAddAnotherRoom
+            // 
+            this.btnAddAnotherRoom.ActiveBorderThickness = 1;
+            this.btnAddAnotherRoom.ActiveCornerRadius = 20;
+            this.btnAddAnotherRoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnAddAnotherRoom.ActiveForecolor = System.Drawing.Color.White;
+            this.btnAddAnotherRoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnAddAnotherRoom.BackColor = System.Drawing.Color.White;
+            this.btnAddAnotherRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddAnotherRoom.BackgroundImage")));
+            this.btnAddAnotherRoom.ButtonText = "Add another room";
+            this.btnAddAnotherRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddAnotherRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAnotherRoom.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnAddAnotherRoom.IdleBorderThickness = 1;
+            this.btnAddAnotherRoom.IdleCornerRadius = 20;
+            this.btnAddAnotherRoom.IdleFillColor = System.Drawing.Color.White;
+            this.btnAddAnotherRoom.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnAddAnotherRoom.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnAddAnotherRoom.Location = new System.Drawing.Point(231, 39);
+            this.btnAddAnotherRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddAnotherRoom.Name = "btnAddAnotherRoom";
+            this.btnAddAnotherRoom.Size = new System.Drawing.Size(203, 40);
+            this.btnAddAnotherRoom.TabIndex = 46;
+            this.btnAddAnotherRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAddAnotherRoom.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -209,7 +287,7 @@
             // 
             // checkBoxReceiveRoom
             // 
-            this.checkBoxReceiveRoom.BackColor = System.Drawing.Color.SeaGreen;
+            this.checkBoxReceiveRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.checkBoxReceiveRoom.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.checkBoxReceiveRoom.Checked = false;
             this.checkBoxReceiveRoom.CheckedOnColor = System.Drawing.Color.SeaGreen;
@@ -397,6 +475,32 @@
             this.dpkDateCheckOut.Value = new System.DateTime(2018, 2, 23, 23, 29, 57, 962);
             this.dpkDateCheckOut.onValueChanged += new System.EventHandler(this.dpkDateCheckOut_onValueChanged);
             // 
+            // bunifuThinButtonCompanyBooking
+            // 
+            this.bunifuThinButtonCompanyBooking.ActiveBorderThickness = 1;
+            this.bunifuThinButtonCompanyBooking.ActiveCornerRadius = 20;
+            this.bunifuThinButtonCompanyBooking.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButtonCompanyBooking.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButtonCompanyBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButtonCompanyBooking.BackgroundImage")));
+            this.bunifuThinButtonCompanyBooking.ButtonText = "Book for a company";
+            this.bunifuThinButtonCompanyBooking.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButtonCompanyBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButtonCompanyBooking.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.IdleBorderThickness = 1;
+            this.bunifuThinButtonCompanyBooking.IdleCornerRadius = 20;
+            this.bunifuThinButtonCompanyBooking.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButtonCompanyBooking.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButtonCompanyBooking.Location = new System.Drawing.Point(241, 86);
+            this.bunifuThinButtonCompanyBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButtonCompanyBooking.Name = "bunifuThinButtonCompanyBooking";
+            this.bunifuThinButtonCompanyBooking.Size = new System.Drawing.Size(203, 51);
+            this.bunifuThinButtonCompanyBooking.TabIndex = 48;
+            this.bunifuThinButtonCompanyBooking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButtonCompanyBooking.Click += new System.EventHandler(this.bunifuThinButtonCompanyBooking_Click);
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -477,7 +581,7 @@
             this.groupBox4.Size = new System.Drawing.Size(454, 473);
             this.groupBox4.TabIndex = 49;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Rooms";
+            this.groupBox4.Text = "Added Rooms to the booking";
             // 
             // dataGridView4Bookings
             // 
@@ -490,17 +594,18 @@
             this.roomTypeDataGridViewTextBoxColumn,
             this.colDelete});
             this.dataGridView4Bookings.DataSource = this.roomBooking4GridBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView4Bookings.Location = new System.Drawing.Point(6, 12);
             this.dataGridView4Bookings.Name = "dataGridView4Bookings";
             this.dataGridView4Bookings.ReadOnly = true;
+            this.dataGridView4Bookings.RowHeadersVisible = false;
             this.dataGridView4Bookings.RowHeadersWidth = 50;
             this.dataGridView4Bookings.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView4Bookings.Size = new System.Drawing.Size(442, 379);
@@ -510,134 +615,29 @@
             this.dataGridView4Bookings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4Bookings_CellValueChanged);
             this.dataGridView4Bookings.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView4Bookings_RowsAdded);
             // 
+            // roomTypeDataGridViewTextBoxColumn
+            // 
+            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
+            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
+            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
+            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // colDelete
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.NullValue = "X";
-            this.colDelete.DefaultCellStyle = dataGridViewCellStyle1;
-            this.colDelete.Frozen = true;
+            this.colDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.NullValue = "X";
+            this.colDelete.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colDelete.FillWeight = 25F;
             this.colDelete.HeaderText = "Remove";
             this.colDelete.Name = "colDelete";
             this.colDelete.ReadOnly = true;
             this.colDelete.Text = "X";
-            this.colDelete.Width = 53;
-            // 
-            // roomTypeDataGridViewTextBoxColumn
-            // 
-            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.Frozen = true;
-            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
-            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
-            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            this.roomTypeDataGridViewTextBoxColumn.Width = 88;
             // 
             // roomBooking4GridBindingSource
             // 
             this.roomBooking4GridBindingSource.DataSource = typeof(HotelManager.fAdvanceBooking.AdvanceRoomBooking4Grid);
-            // 
-            // btnClose_
-            // 
-            this.btnClose_.ActiveBorderThickness = 1;
-            this.btnClose_.ActiveCornerRadius = 20;
-            this.btnClose_.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.ActiveForecolor = System.Drawing.Color.White;
-            this.btnClose_.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.BackColor = System.Drawing.Color.White;
-            this.btnClose_.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnClose_.BackgroundImage")));
-            this.btnClose_.ButtonText = "Close";
-            this.btnClose_.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose_.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose_.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.IdleBorderThickness = 1;
-            this.btnClose_.IdleCornerRadius = 20;
-            this.btnClose_.IdleFillColor = System.Drawing.Color.White;
-            this.btnClose_.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.Location = new System.Drawing.Point(232, 20);
-            this.btnClose_.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnClose_.Name = "btnClose_";
-            this.btnClose_.Size = new System.Drawing.Size(203, 40);
-            this.btnClose_.TabIndex = 47;
-            this.btnClose_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClose_.Click += new System.EventHandler(this.btnClose__Click);
-            // 
-            // btnBookRoom
-            // 
-            this.btnBookRoom.ActiveBorderThickness = 1;
-            this.btnBookRoom.ActiveCornerRadius = 20;
-            this.btnBookRoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.ActiveForecolor = System.Drawing.Color.White;
-            this.btnBookRoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.BackColor = System.Drawing.Color.White;
-            this.btnBookRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBookRoom.BackgroundImage")));
-            this.btnBookRoom.ButtonText = "Create Advance Booking";
-            this.btnBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBookRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookRoom.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.IdleBorderThickness = 1;
-            this.btnBookRoom.IdleCornerRadius = 20;
-            this.btnBookRoom.IdleFillColor = System.Drawing.Color.White;
-            this.btnBookRoom.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.Location = new System.Drawing.Point(7, 20);
-            this.btnBookRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBookRoom.Name = "btnBookRoom";
-            this.btnBookRoom.Size = new System.Drawing.Size(203, 40);
-            this.btnBookRoom.TabIndex = 45;
-            this.btnBookRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBookRoom.Click += new System.EventHandler(this.btnBookRoom_Click);
-            // 
-            // bunifuThinButtonCompanyBooking
-            // 
-            this.bunifuThinButtonCompanyBooking.ActiveBorderThickness = 1;
-            this.bunifuThinButtonCompanyBooking.ActiveCornerRadius = 20;
-            this.bunifuThinButtonCompanyBooking.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButtonCompanyBooking.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButtonCompanyBooking.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButtonCompanyBooking.BackgroundImage")));
-            this.bunifuThinButtonCompanyBooking.ButtonText = "Book for a company";
-            this.bunifuThinButtonCompanyBooking.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButtonCompanyBooking.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButtonCompanyBooking.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.IdleBorderThickness = 1;
-            this.bunifuThinButtonCompanyBooking.IdleCornerRadius = 20;
-            this.bunifuThinButtonCompanyBooking.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButtonCompanyBooking.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButtonCompanyBooking.Location = new System.Drawing.Point(241, 86);
-            this.bunifuThinButtonCompanyBooking.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuThinButtonCompanyBooking.Name = "bunifuThinButtonCompanyBooking";
-            this.bunifuThinButtonCompanyBooking.Size = new System.Drawing.Size(203, 51);
-            this.bunifuThinButtonCompanyBooking.TabIndex = 48;
-            this.bunifuThinButtonCompanyBooking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButtonCompanyBooking.Click += new System.EventHandler(this.bunifuThinButtonCompanyBooking_Click);
-            // 
-            // btnAddAnotherRoom
-            // 
-            this.btnAddAnotherRoom.ActiveBorderThickness = 1;
-            this.btnAddAnotherRoom.ActiveCornerRadius = 20;
-            this.btnAddAnotherRoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnAddAnotherRoom.ActiveForecolor = System.Drawing.Color.White;
-            this.btnAddAnotherRoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnAddAnotherRoom.BackColor = System.Drawing.Color.White;
-            this.btnAddAnotherRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddAnotherRoom.BackgroundImage")));
-            this.btnAddAnotherRoom.ButtonText = "Add another room";
-            this.btnAddAnotherRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddAnotherRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAnotherRoom.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnAddAnotherRoom.IdleBorderThickness = 1;
-            this.btnAddAnotherRoom.IdleCornerRadius = 20;
-            this.btnAddAnotherRoom.IdleFillColor = System.Drawing.Color.White;
-            this.btnAddAnotherRoom.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnAddAnotherRoom.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnAddAnotherRoom.Location = new System.Drawing.Point(231, 39);
-            this.btnAddAnotherRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAddAnotherRoom.Name = "btnAddAnotherRoom";
-            this.btnAddAnotherRoom.Size = new System.Drawing.Size(203, 40);
-            this.btnAddAnotherRoom.TabIndex = 46;
-            this.btnAddAnotherRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAddAnotherRoom.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnClose
             // 
