@@ -29,21 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fRoomType));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fRoomType));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txbSearch = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnSearch = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRoomType = new System.Windows.Forms.DataGridView();
             this.bindingCustomerType = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
@@ -57,18 +63,12 @@
             this.comboboxID = new MetroFramework.Controls.MetroComboBox();
             this.txbLimitPerson = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnUpdate = new Bunifu.Framework.UI.BunifuThinButton2();
             this.labelName = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.saveRoomType = new System.Windows.Forms.SaveFileDialog();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.btnClose = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnUpdate = new Bunifu.Framework.UI.BunifuThinButton2();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.btnSearch = new Bunifu.Framework.UI.BunifuThinButton2();
-            this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLimitPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -129,6 +129,59 @@
             this.label5.Size = new System.Drawing.Size(135, 20);
             this.label5.TabIndex = 28;
             this.label5.Text = "Room code/Name:";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.ActiveBorderThickness = 1;
+            this.btnSearch.ActiveCornerRadius = 20;
+            this.btnSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.ActiveForecolor = System.Drawing.Color.White;
+            this.btnSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.BackColor = System.Drawing.Color.White;
+            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
+            this.btnSearch.ButtonText = "Search";
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.IdleBorderThickness = 1;
+            this.btnSearch.IdleCornerRadius = 20;
+            this.btnSearch.IdleFillColor = System.Drawing.Color.White;
+            this.btnSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnSearch.Location = new System.Drawing.Point(23, 91);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(175, 40);
+            this.btnSearch.TabIndex = 46;
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.ActiveBorderThickness = 1;
+            this.btnCancel.ActiveCornerRadius = 20;
+            this.btnCancel.ActiveFillColor = System.Drawing.Color.Red;
+            this.btnCancel.ActiveForecolor = System.Drawing.Color.White;
+            this.btnCancel.ActiveLineColor = System.Drawing.Color.Red;
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancel.BackgroundImage")));
+            this.btnCancel.ButtonText = "Huỷ Tìm";
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnCancel.IdleBorderThickness = 1;
+            this.btnCancel.IdleCornerRadius = 20;
+            this.btnCancel.IdleFillColor = System.Drawing.Color.White;
+            this.btnCancel.IdleForecolor = System.Drawing.Color.Red;
+            this.btnCancel.IdleLineColor = System.Drawing.Color.Red;
+            this.btnCancel.Location = new System.Drawing.Point(23, 90);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(175, 40);
+            this.btnCancel.TabIndex = 48;
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancel.Visible = false;
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // groupBox1
             // 
@@ -202,7 +255,6 @@
             // 
             this.bindingCustomerType.AddNewItem = null;
             this.bindingCustomerType.CountItem = this.bindingNavigatorCountItem;
-            this.bindingCustomerType.CountItemFormat = "of {0}";
             this.bindingCustomerType.DeleteItem = null;
             this.bindingCustomerType.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
@@ -233,6 +285,26 @@
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.AutoSize = false;
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(30, 22);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.AutoSize = false;
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(30, 22);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
@@ -252,6 +324,26 @@
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.AutoSize = false;
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(30, 22);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.AutoSize = false;
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(30, 22);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
@@ -326,7 +418,7 @@
             this.txbPrice.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbPrice.isPassword = false;
-            this.txbPrice.Location = new System.Drawing.Point(19, 220);
+            this.txbPrice.Location = new System.Drawing.Point(19, 168);
             this.txbPrice.Margin = new System.Windows.Forms.Padding(0);
             this.txbPrice.MaxLength = 32767;
             this.txbPrice.Name = "txbPrice";
@@ -342,7 +434,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.label3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label3.Location = new System.Drawing.Point(19, 197);
+            this.label3.Location = new System.Drawing.Point(19, 139);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 20);
             this.label3.TabIndex = 26;
@@ -353,7 +445,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F);
             this.label2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label2.Location = new System.Drawing.Point(19, 139);
+            this.label2.Location = new System.Drawing.Point(531, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(202, 20);
             this.label2.TabIndex = 28;
@@ -362,8 +454,6 @@
             // groupRoomType
             // 
             this.groupRoomType.Controls.Add(this.comboboxID);
-            this.groupRoomType.Controls.Add(this.txbLimitPerson);
-            this.groupRoomType.Controls.Add(this.label2);
             this.groupRoomType.Controls.Add(this.label3);
             this.groupRoomType.Controls.Add(this.txbPrice);
             this.groupRoomType.Controls.Add(this.label1);
@@ -374,7 +464,7 @@
             this.groupRoomType.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupRoomType.Location = new System.Drawing.Point(5, 201);
             this.groupRoomType.Name = "groupRoomType";
-            this.groupRoomType.Size = new System.Drawing.Size(220, 265);
+            this.groupRoomType.Size = new System.Drawing.Size(220, 211);
             this.groupRoomType.TabIndex = 1;
             this.groupRoomType.TabStop = false;
             this.groupRoomType.Text = "Room type information:";
@@ -403,7 +493,7 @@
             this.txbLimitPerson.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbLimitPerson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbLimitPerson.isPassword = false;
-            this.txbLimitPerson.Location = new System.Drawing.Point(19, 161);
+            this.txbLimitPerson.Location = new System.Drawing.Point(531, 42);
             this.txbLimitPerson.Margin = new System.Windows.Forms.Padding(0);
             this.txbLimitPerson.MaxLength = 32767;
             this.txbLimitPerson.Name = "txbLimitPerson";
@@ -423,76 +513,6 @@
             this.groupBox2.Size = new System.Drawing.Size(220, 129);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
-            // 
-            // labelName
-            // 
-            this.labelName.AutoSize = true;
-            this.labelName.BackColor = System.Drawing.Color.Transparent;
-            this.labelName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName.ForeColor = System.Drawing.Color.SeaGreen;
-            this.labelName.Location = new System.Drawing.Point(9, 6);
-            this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(315, 37);
-            this.labelName.TabIndex = 49;
-            this.labelName.Text = "Room Type Management";
-            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(5, 43);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(771, 16);
-            this.bunifuSeparator1.TabIndex = 58;
-            this.bunifuSeparator1.Transparency = 255;
-            this.bunifuSeparator1.Vertical = false;
-            // 
-            // saveRoomType
-            // 
-            this.saveRoomType.FileName = "Danh sách loại phòng";
-            this.saveRoomType.Filter = "Excel File(*.xls)|*.xls|Excel File (*.xlsx) |.xlsx|PDF File(*.pdf)|*.pdf";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.AutoSize = false;
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(30, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.AutoSize = false;
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(30, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.AutoSize = false;
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(30, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.AutoSize = false;
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(30, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // btnClose
             // 
@@ -548,6 +568,36 @@
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.BackColor = System.Drawing.Color.Transparent;
+            this.labelName.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.ForeColor = System.Drawing.Color.SeaGreen;
+            this.labelName.Location = new System.Drawing.Point(9, 6);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(315, 37);
+            this.labelName.TabIndex = 49;
+            this.labelName.Text = "Room Type Management";
+            this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(5, 43);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(771, 16);
+            this.bunifuSeparator1.TabIndex = 58;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
+            // 
+            // saveRoomType
+            // 
+            this.saveRoomType.FileName = "Danh sách loại phòng";
+            this.saveRoomType.Filter = "Excel File(*.xls)|*.xls|Excel File (*.xlsx) |.xlsx|PDF File(*.pdf)|*.pdf";
+            // 
             // bunifuImageButton1
             // 
             this.bunifuImageButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -562,59 +612,6 @@
             this.bunifuImageButton1.TabStop = false;
             this.bunifuImageButton1.Zoom = 10;
             this.bunifuImageButton1.Click += new System.EventHandler(this.BunifuImageButton1_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.ActiveBorderThickness = 1;
-            this.btnSearch.ActiveCornerRadius = 20;
-            this.btnSearch.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.ActiveForecolor = System.Drawing.Color.White;
-            this.btnSearch.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.BackColor = System.Drawing.Color.White;
-            this.btnSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.BackgroundImage")));
-            this.btnSearch.ButtonText = "Search";
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.IdleBorderThickness = 1;
-            this.btnSearch.IdleCornerRadius = 20;
-            this.btnSearch.IdleFillColor = System.Drawing.Color.White;
-            this.btnSearch.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnSearch.Location = new System.Drawing.Point(23, 91);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(175, 40);
-            this.btnSearch.TabIndex = 46;
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.ActiveBorderThickness = 1;
-            this.btnCancel.ActiveCornerRadius = 20;
-            this.btnCancel.ActiveFillColor = System.Drawing.Color.Red;
-            this.btnCancel.ActiveForecolor = System.Drawing.Color.White;
-            this.btnCancel.ActiveLineColor = System.Drawing.Color.Red;
-            this.btnCancel.BackColor = System.Drawing.Color.White;
-            this.btnCancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCancel.BackgroundImage")));
-            this.btnCancel.ButtonText = "Huỷ Tìm";
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnCancel.IdleBorderThickness = 1;
-            this.btnCancel.IdleCornerRadius = 20;
-            this.btnCancel.IdleFillColor = System.Drawing.Color.White;
-            this.btnCancel.IdleForecolor = System.Drawing.Color.Red;
-            this.btnCancel.IdleLineColor = System.Drawing.Color.Red;
-            this.btnCancel.Location = new System.Drawing.Point(23, 90);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(175, 40);
-            this.btnCancel.TabIndex = 48;
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancel.Visible = false;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // colID
             // 
@@ -642,6 +639,7 @@
             this.colLimitPerson.HeaderText = "Total capacity";
             this.colLimitPerson.Name = "colLimitPerson";
             this.colLimitPerson.ReadOnly = true;
+            this.colLimitPerson.Visible = false;
             this.colLimitPerson.Width = 127;
             // 
             // colPrice
@@ -666,7 +664,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(781, 602);
+            this.Controls.Add(this.txbLimitPerson);
             this.Controls.Add(this.labelName);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);

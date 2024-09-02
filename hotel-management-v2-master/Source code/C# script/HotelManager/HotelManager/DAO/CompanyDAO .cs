@@ -27,12 +27,11 @@ namespace HotelManager.DAO
             DataRow dataRow = DataProvider.Instance.ExecuteQuery(query, new object[] { name, phone, address, email, companyRepName, companyRepId, companyRepContact }).Rows[0];
             return (int)dataRow[0];
         }
-        public Customer GetInfoByIdCard(string idCard)
+        public Company GetInfoByFullName(string companyName)
         {
-            //string query = "USP_IsIdCardExists @idCard";
-            //Customer customer =new Customer(DataProvider.Instance.ExecuteQuery(query, new object[] { idCard }).Rows[0]);
-            //return customer;
-            return null;
+            string query = "USP_IsASavedCompany @companyName";
+            Company company = new Company(DataProvider.Instance.ExecuteQuery(query, new object[] { companyName }).Rows[0]);
+            return company;
         }
 
 

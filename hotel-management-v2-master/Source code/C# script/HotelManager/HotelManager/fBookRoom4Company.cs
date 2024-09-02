@@ -53,7 +53,6 @@ namespace HotelManager
             //txbRoomID.Text = roomType.Id.ToString();
             //txbRoomTypeName.Text = roomType.Name;
             txbPrice.Text = roomType.Price.ToString();
-            txbAmountPeople.Text = roomType.LimitPerson.ToString();
         }
         public void LoadEmptyRooms(int id)
         {
@@ -168,7 +167,7 @@ namespace HotelManager
         }
         private void ClearRoomBookingInformation()
         {
-            mcbRoomNumbers.Text = txbRoomID.Text = txbAmountPeople.Text = txbPrice.Text = string.Empty;
+            mcbRoomNumbers.Text = txbRoomID.Text =  txbPrice.Text = string.Empty;
         }
         public void ClearData()
         {

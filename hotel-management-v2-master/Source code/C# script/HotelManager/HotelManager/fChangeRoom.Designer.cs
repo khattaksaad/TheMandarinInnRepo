@@ -240,8 +240,6 @@
             this.groupBox2.Controls.Add(this.checkBoxReceiveRoom);
             this.groupBox2.Controls.Add(this.txbPrice);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.txbLimitPerson);
-            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txbRoomTypeName);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txbRoomName);
@@ -281,7 +279,7 @@
             this.txbPrice.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbPrice.isPassword = false;
-            this.txbPrice.Location = new System.Drawing.Point(26, 206);
+            this.txbPrice.Location = new System.Drawing.Point(26, 155);
             this.txbPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txbPrice.MaxLength = 32767;
             this.txbPrice.Name = "txbPrice";
@@ -294,7 +292,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label10.Location = new System.Drawing.Point(22, 183);
+            this.label10.Location = new System.Drawing.Point(22, 132);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(161, 20);
             this.label10.TabIndex = 36;
@@ -312,24 +310,26 @@
             this.txbLimitPerson.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txbLimitPerson.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbLimitPerson.isPassword = false;
-            this.txbLimitPerson.Location = new System.Drawing.Point(26, 152);
+            this.txbLimitPerson.Location = new System.Drawing.Point(212, 25);
             this.txbLimitPerson.Margin = new System.Windows.Forms.Padding(4);
             this.txbLimitPerson.MaxLength = 32767;
             this.txbLimitPerson.Name = "txbLimitPerson";
             this.txbLimitPerson.Size = new System.Drawing.Size(203, 29);
             this.txbLimitPerson.TabIndex = 30;
             this.txbLimitPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbLimitPerson.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label8.Location = new System.Drawing.Point(22, 131);
+            this.label8.Location = new System.Drawing.Point(208, 4);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(191, 20);
             this.label8.TabIndex = 31;
             this.label8.Text = "Allowed number of people:";
+            this.label8.Visible = false;
             // 
             // txbRoomTypeName
             // 
@@ -402,7 +402,9 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.txbLimitPerson);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

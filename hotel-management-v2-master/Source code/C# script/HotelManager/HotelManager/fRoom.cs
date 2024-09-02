@@ -195,7 +195,7 @@ namespace HotelManager
                 bindingNavigatorMovePreviousItem.Enabled = true;
                 txbNameRoom.Text = row.Cells["colName"].Value.ToString();
                 comboBoxRoomType.SelectedIndex = (int)row.Cells["colIdRoomType"].Value - 1;
-                comboBoxStatusRoom.SelectedIndex = (int)row.Cells["colIdStatus"].Value - 1;
+                //.SelectedIndex = (int)row.Cells["colIdStatus"].Value - 1;
                 Room room = new Room(((DataRowView)row.DataBoundItem).Row);
                 groupRoom.Tag = room;
             }

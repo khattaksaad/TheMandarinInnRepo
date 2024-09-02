@@ -9,7 +9,7 @@ namespace HotelManager
     public partial class fStaff : Form
     {
         #region Properties
-        public static readonly string HassPass = "e10adc3949ba59abbe56e057f20f883e"; // password default
+        public static readonly string HassPass = "12345"; // password default
         #endregion
 
         #region Constructor
@@ -20,6 +20,7 @@ namespace HotelManager
             LoadFullStaff(GetFullStaff());
             txbSearch.KeyPress += TxbSearch_KeyPress;
             KeyPress += FStaff_KeyPress;
+
             dataGridStaff.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
         }
 

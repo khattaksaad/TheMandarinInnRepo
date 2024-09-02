@@ -273,8 +273,8 @@ namespace HotelManager
         private void bunifuThinButtonCompanyBooking_Click(object sender, EventArgs e)
         {
             this.Hide();
-            fBookRoom4Company fBookRoomDetails = new fBookRoom4Company(this.userName);
-            fBookRoomDetails.ShowDialog();
+            fAdvanceBooking4Company fAdvanceBooking4Company = new fAdvanceBooking4Company(this.userName);
+            fAdvanceBooking4Company.ShowDialog();
             this.Close();
         }
 

@@ -18,6 +18,23 @@ namespace HotelManager
     {
         string staffSetUp;
         List<Service> services;
+        public class ShowBillRoonInView
+        {
+            string roomName;
+            int actualPricePerNight;
+            DateTime CheckInDate;
+            DateTime CheckOutDate;
+            int priceChargedPerNight;
+            int totalStayCharges4Room;
+
+            public string RoomName { get => roomName; set => roomName = value; }
+            public int ActualPricePerNight { get => actualPricePerNight; set => actualPricePerNight = value; }
+            public DateTime CheckInDate1 { get => CheckInDate; set => CheckInDate = value; }
+            public DateTime CheckOutDate1 { get => CheckOutDate; set => CheckOutDate = value; }
+            public int PriceChargedPerNight { get => priceChargedPerNight; set => priceChargedPerNight = value; }
+            public int TotalStayCharges4Room { get => totalStayCharges4Room; set => totalStayCharges4Room = value; }
+        }
+
         private class Room4GUI
         {
             Room room;
@@ -154,7 +171,7 @@ namespace HotelManager
         public void LoadListFullRoom()
         {
             flowLayoutRooms.Controls.Clear();
-            listViewBillRoom.Items.Clear();
+            //listViewBillRoom.Items.Clear();
             listViewUseService.Items.Clear();
             DataTable dataTable = RoomDAO.Instance.LoadListFullRoomsNotCheckedOutYetAsDataTable();
             List<Room4GUI> rooms = new List<Room4GUI>();
@@ -193,7 +210,7 @@ namespace HotelManager
 
         private void Button_Click(object sender, EventArgs e)
         {
-            listViewBillRoom.Items.Clear();
+            //slistViewBillRoom.Items.Clear();
             totalPrice = 0;
             Bunifu.Framework.UI.BunifuTileButton button = sender as Bunifu.Framework.UI.BunifuTileButton;
             flowLayoutRooms.Tag = button.Tag;
@@ -334,35 +351,29 @@ namespace HotelManager
         }
         public void ShowBillRoom(int idRoom)
         {
-            listViewBillRoom.Items.Clear();
-
             DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
-            //	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
-            //select A.Name RoomName,C.Price [Actual Price Per Night] ,B.DateCheckIn [Check-in Date],B.DateCheckOut as [Check-out Date], B.PriceChargedPerNight as [Price charged per night]
-            ListViewItem listViewItem = new ListViewItem(data["RoomName"].ToString());
+            if (data != null)
+            {
+                ShowBillRoonInView showBillRoonInView = new ShowBillRoonInView()
+                {
+                    RoomName = data["RoomName"].ToString(),
+                    ActualPricePerNight = (int)data["Actual Price Per Night"],
+                    CheckInDate1 = (DateTime)data["Check-in Date"],
+                    CheckOutDate1 = (DateTime)data["Check-out Date"],
+                    PriceChargedPerNight = (int)data["Price charged per night"]
+                };
+                TimeSpan difference = (DateTime)data["Check-out Date"] - ((DateTime)data["Check-in Date"]);
 
-            ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, ((int)data["Actual Price Per Night"]).ToString());
-            ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, ((DateTime)data["Check-in Date"]).ToString().Split(' ')[0]);
-            ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, ((DateTime)data["Check-out Date"]).ToString().Split(' ')[0]);
-            //
-            ListViewItem.ListViewSubItem subItem4 = new ListViewItem.ListViewSubItem(listViewItem, ((int)data["Price charged per night"]).ToString());
-            // Calculate the difference
-            TimeSpan difference = (DateTime)data["Check-out Date"] - ((DateTime)data["Check-in Date"]);
+                // Get the number of days
+                int numberOfDays = difference.Days;
+                int roomPrice = (int)data["Price charged per night"] * numberOfDays;
+                showBillRoonInView.TotalStayCharges4Room = roomPrice;
+                totalPrice += roomPrice;
+                bindingSourceRoomBill.DataSource = showBillRoonInView;
+                bindingSourceRoomBill.ResetBindings(false);
+                dataGridView1.Refresh();
+            }
 
-            // Get the number of days
-            int numberOfDays = difference.Days;
-            int roomPrice = (int)data["Price charged per night"] * numberOfDays;
-            ListViewItem.ListViewSubItem subItem6 = new ListViewItem.ListViewSubItem(listViewItem, roomPrice.ToString());
-
-            totalPrice += roomPrice;
-
-            listViewItem.SubItems.Add(subItem1);
-            listViewItem.SubItems.Add(subItem2);
-            listViewItem.SubItems.Add(subItem3);
-            listViewItem.SubItems.Add(subItem4);
-            listViewItem.SubItems.Add(subItem6);
-
-            listViewBillRoom.Items.Add(listViewItem);
         }
         private void btnClose_Click(object sender, EventArgs e)
         {

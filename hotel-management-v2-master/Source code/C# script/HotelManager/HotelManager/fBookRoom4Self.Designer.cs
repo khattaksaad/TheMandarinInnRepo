@@ -72,8 +72,6 @@
             this.labelRoom = new System.Windows.Forms.Label();
             this.txbPrice = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txbAmountPeople = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txbRoomID = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label3 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
@@ -90,11 +88,11 @@
             this.textBoxTotal = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.dataGridView4Bookings = new System.Windows.Forms.DataGridView();
-            this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.roomIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.price4BookingDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -196,7 +194,7 @@
             this.btnAddAnotherRoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.btnAddAnotherRoom.BackColor = System.Drawing.Color.White;
             this.btnAddAnotherRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddAnotherRoom.BackgroundImage")));
-            this.btnAddAnotherRoom.ButtonText = "Add room";
+            this.btnAddAnotherRoom.ButtonText = "Add another room";
             this.btnAddAnotherRoom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddAnotherRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAnotherRoom.ForeColor = System.Drawing.Color.SeaGreen;
@@ -205,7 +203,7 @@
             this.btnAddAnotherRoom.IdleFillColor = System.Drawing.Color.White;
             this.btnAddAnotherRoom.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnAddAnotherRoom.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnAddAnotherRoom.Location = new System.Drawing.Point(21, 313);
+            this.btnAddAnotherRoom.Location = new System.Drawing.Point(21, 276);
             this.btnAddAnotherRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddAnotherRoom.Name = "btnAddAnotherRoom";
             this.btnAddAnotherRoom.Size = new System.Drawing.Size(203, 40);
@@ -617,8 +615,6 @@
             this.groupBox1.Controls.Add(this.labelRoom);
             this.groupBox1.Controls.Add(this.txbPrice);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txbAmountPeople);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txbRoomID);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -626,7 +622,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox1.Location = new System.Drawing.Point(465, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(252, 361);
+            this.groupBox1.Size = new System.Drawing.Size(252, 337);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Room information:";
@@ -712,7 +708,7 @@
             this.txbPrice.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txbPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbPrice.isPassword = false;
-            this.txbPrice.Location = new System.Drawing.Point(21, 278);
+            this.txbPrice.Location = new System.Drawing.Point(21, 225);
             this.txbPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txbPrice.MaxLength = 32767;
             this.txbPrice.Name = "txbPrice";
@@ -725,42 +721,11 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label10.Location = new System.Drawing.Point(17, 254);
+            this.label10.Location = new System.Drawing.Point(17, 201);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(161, 20);
             this.label10.TabIndex = 36;
             this.label10.Text = "Price per night (in PKR)";
-            // 
-            // txbAmountPeople
-            // 
-            this.txbAmountPeople.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.txbAmountPeople.BorderColorIdle = System.Drawing.Color.SeaGreen;
-            this.txbAmountPeople.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.txbAmountPeople.BorderThickness = 1;
-            this.txbAmountPeople.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txbAmountPeople.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txbAmountPeople.Enabled = false;
-            this.txbAmountPeople.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txbAmountPeople.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txbAmountPeople.isPassword = false;
-            this.txbAmountPeople.Location = new System.Drawing.Point(21, 224);
-            this.txbAmountPeople.Margin = new System.Windows.Forms.Padding(4);
-            this.txbAmountPeople.MaxLength = 32767;
-            this.txbAmountPeople.Name = "txbAmountPeople";
-            this.txbAmountPeople.Size = new System.Drawing.Size(203, 29);
-            this.txbAmountPeople.TabIndex = 30;
-            this.txbAmountPeople.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label8.Location = new System.Drawing.Point(17, 201);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(215, 20);
-            this.label8.TabIndex = 31;
-            this.label8.Text = "Maxmimum number of people:";
             // 
             // txbRoomID
             // 
@@ -1015,10 +980,6 @@
             this.dataGridView4Bookings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4Bookings_CellValueChanged);
             this.dataGridView4Bookings.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView4Bookings_RowsAdded);
             // 
-            // roomBooking4GridBindingSource
-            // 
-            this.roomBooking4GridBindingSource.DataSource = typeof(HotelManager.fBookRoom4Self.RoomBooking4Grid);
-            // 
             // roomTypeDataGridViewTextBoxColumn
             // 
             this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1055,6 +1016,10 @@
             this.colDelete.ReadOnly = true;
             this.colDelete.Text = "X";
             this.colDelete.Width = 53;
+            // 
+            // roomBooking4GridBindingSource
+            // 
+            this.roomBooking4GridBindingSource.DataSource = typeof(HotelManager.fBookRoom4Self.RoomBooking4Grid);
             // 
             // fBookRoom4Self
             // 
@@ -1110,8 +1075,6 @@
         private System.Windows.Forms.Label labelCustomerId;
         private Bunifu.Framework.UI.BunifuMetroTextbox txbFullName;
         private System.Windows.Forms.Label label16;
-        private Bunifu.Framework.UI.BunifuMetroTextbox txbAmountPeople;
-        private System.Windows.Forms.Label label8;
         private Bunifu.Framework.UI.BunifuMetroTextbox txbRoomID;
         private System.Windows.Forms.Label label3;
         private MetroFramework.Controls.MetroComboBox cbSex;

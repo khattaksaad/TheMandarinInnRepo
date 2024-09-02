@@ -41,16 +41,6 @@
             this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridStaff = new System.Windows.Forms.DataGridView();
-            this.colUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNameStaffType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStartDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIDStaffType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingStaff = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -92,6 +82,16 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.saveStaff = new System.Windows.Forms.SaveFileDialog();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
+            this.colUserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNameStaffType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIDCard = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStartDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIDStaffType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStaff)).BeginInit();
@@ -279,97 +279,6 @@
             this.dataGridStaff.TabIndex = 28;
             this.dataGridStaff.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridStaff_CellContentClick);
             this.dataGridStaff.SelectionChanged += new System.EventHandler(this.DataGridStaffType_SelectionChanged);
-            // 
-            // colUserName
-            // 
-            this.colUserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colUserName.DataPropertyName = "userName";
-            this.colUserName.HeaderText = "Name";
-            this.colUserName.Name = "colUserName";
-            this.colUserName.ReadOnly = true;
-            this.colUserName.Width = 77;
-            // 
-            // colname
-            // 
-            this.colname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colname.DataPropertyName = "displayName";
-            this.colname.HeaderText = "Name";
-            this.colname.Name = "colname";
-            this.colname.ReadOnly = true;
-            this.colname.Width = 77;
-            // 
-            // colNameStaffType
-            // 
-            this.colNameStaffType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colNameStaffType.DataPropertyName = "name";
-            this.colNameStaffType.HeaderText = "Name";
-            this.colNameStaffType.Name = "colNameStaffType";
-            this.colNameStaffType.ReadOnly = true;
-            this.colNameStaffType.Width = 77;
-            // 
-            // colIDCard
-            // 
-            this.colIDCard.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colIDCard.DataPropertyName = "idCard";
-            this.colIDCard.HeaderText = "CNIC";
-            this.colIDCard.Name = "colIDCard";
-            this.colIDCard.ReadOnly = true;
-            this.colIDCard.Width = 71;
-            // 
-            // colDateOfBirth
-            // 
-            this.colDateOfBirth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colDateOfBirth.DataPropertyName = "dateOfBirth";
-            this.colDateOfBirth.HeaderText = "DOB";
-            this.colDateOfBirth.Name = "colDateOfBirth";
-            this.colDateOfBirth.ReadOnly = true;
-            this.colDateOfBirth.Visible = false;
-            this.colDateOfBirth.Width = 67;
-            // 
-            // colSex
-            // 
-            this.colSex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colSex.DataPropertyName = "sex";
-            this.colSex.HeaderText = "Gender";
-            this.colSex.Name = "colSex";
-            this.colSex.ReadOnly = true;
-            this.colSex.Visible = false;
-            this.colSex.Width = 86;
-            // 
-            // colPhone
-            // 
-            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPhone.DataPropertyName = "phoneNumber";
-            this.colPhone.HeaderText = "Phone";
-            this.colPhone.Name = "colPhone";
-            this.colPhone.ReadOnly = true;
-            this.colPhone.Width = 79;
-            // 
-            // colStartDay
-            // 
-            this.colStartDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colStartDay.DataPropertyName = "startDay";
-            this.colStartDay.HeaderText = "Date of Employment";
-            this.colStartDay.Name = "colStartDay";
-            this.colStartDay.ReadOnly = true;
-            this.colStartDay.Visible = false;
-            this.colStartDay.Width = 177;
-            // 
-            // colAddress
-            // 
-            this.colAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colAddress.DataPropertyName = "address";
-            this.colAddress.HeaderText = "Address";
-            this.colAddress.Name = "colAddress";
-            this.colAddress.ReadOnly = true;
-            // 
-            // colIDStaffType
-            // 
-            this.colIDStaffType.DataPropertyName = "IDStaffType";
-            this.colIDStaffType.HeaderText = "";
-            this.colIDStaffType.Name = "colIDStaffType";
-            this.colIDStaffType.ReadOnly = true;
-            this.colIDStaffType.Visible = false;
             // 
             // bindingStaff
             // 
@@ -993,6 +902,88 @@
             this.btnClose.TabStop = false;
             this.btnClose.Zoom = 10;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // colUserName
+            // 
+            this.colUserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colUserName.DataPropertyName = "userName";
+            this.colUserName.HeaderText = "user name";
+            this.colUserName.Name = "colUserName";
+            this.colUserName.ReadOnly = true;
+            // 
+            // colname
+            // 
+            this.colname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colname.DataPropertyName = "displayName";
+            this.colname.HeaderText = "Name";
+            this.colname.Name = "colname";
+            this.colname.ReadOnly = true;
+            // 
+            // colNameStaffType
+            // 
+            this.colNameStaffType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNameStaffType.DataPropertyName = "name";
+            this.colNameStaffType.HeaderText = "Type";
+            this.colNameStaffType.Name = "colNameStaffType";
+            this.colNameStaffType.ReadOnly = true;
+            // 
+            // colIDCard
+            // 
+            this.colIDCard.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colIDCard.DataPropertyName = "idCard";
+            this.colIDCard.HeaderText = "CNIC";
+            this.colIDCard.Name = "colIDCard";
+            this.colIDCard.ReadOnly = true;
+            // 
+            // colDateOfBirth
+            // 
+            this.colDateOfBirth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colDateOfBirth.DataPropertyName = "dateOfBirth";
+            this.colDateOfBirth.HeaderText = "DOB";
+            this.colDateOfBirth.Name = "colDateOfBirth";
+            this.colDateOfBirth.ReadOnly = true;
+            this.colDateOfBirth.Visible = false;
+            // 
+            // colSex
+            // 
+            this.colSex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colSex.DataPropertyName = "sex";
+            this.colSex.HeaderText = "Gender";
+            this.colSex.Name = "colSex";
+            this.colSex.ReadOnly = true;
+            this.colSex.Visible = false;
+            // 
+            // colPhone
+            // 
+            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPhone.DataPropertyName = "phoneNumber";
+            this.colPhone.HeaderText = "Phone";
+            this.colPhone.Name = "colPhone";
+            this.colPhone.ReadOnly = true;
+            // 
+            // colStartDay
+            // 
+            this.colStartDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colStartDay.DataPropertyName = "startDay";
+            this.colStartDay.HeaderText = "Date of Employment";
+            this.colStartDay.Name = "colStartDay";
+            this.colStartDay.ReadOnly = true;
+            // 
+            // colAddress
+            // 
+            this.colAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colAddress.DataPropertyName = "address";
+            this.colAddress.HeaderText = "Address";
+            this.colAddress.Name = "colAddress";
+            this.colAddress.ReadOnly = true;
+            // 
+            // colIDStaffType
+            // 
+            this.colIDStaffType.DataPropertyName = "IDStaffType";
+            this.colIDStaffType.HeaderText = "";
+            this.colIDStaffType.Name = "colIDStaffType";
+            this.colIDStaffType.ReadOnly = true;
+            this.colIDStaffType.Visible = false;
             // 
             // fStaff
             // 

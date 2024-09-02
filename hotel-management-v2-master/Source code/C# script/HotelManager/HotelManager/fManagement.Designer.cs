@@ -33,7 +33,6 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panelRight = new System.Windows.Forms.Panel();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.label2 = new System.Windows.Forms.Label();
             this.metroTileCustomerManagement = new MetroFramework.Controls.MetroTile();
             this.metroTileBillManagement = new MetroFramework.Controls.MetroTile();
             this.metroTileRegulations = new MetroFramework.Controls.MetroTile();
@@ -43,6 +42,7 @@
             this.metroTileManageProfile = new MetroFramework.Controls.MetroTile();
             this.titlePay = new MetroFramework.Controls.MetroTile();
             this.titleRecieveRoom = new MetroFramework.Controls.MetroTile();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.titleBookRoom = new MetroFramework.Controls.MetroTile();
             this.metroTileAdvanceBooking = new MetroFramework.Controls.MetroTile();
@@ -102,18 +102,6 @@
             this.bunifuSeparator1.TabIndex = 54;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label2.Location = new System.Drawing.Point(23, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(428, 37);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "The Mandarin Inn - Hotel Manager";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // metroTileCustomerManagement
             // 
@@ -244,7 +232,7 @@
             this.metroTileManageProfile.Name = "metroTile8";
             this.metroTileManageProfile.Size = new System.Drawing.Size(135, 135);
             this.metroTileManageProfile.TabIndex = 29;
-            this.metroTileManageProfile.Text = "User Management";
+            this.metroTileManageProfile.Text = "Manage Employees";
             this.metroTileManageProfile.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTileManageProfile.TileImage")));
             this.metroTileManageProfile.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileManageProfile.UseCustomBackColor = true;
@@ -294,6 +282,18 @@
             this.titleRecieveRoom.UseTileImage = true;
             this.titleRecieveRoom.UseVisualStyleBackColor = false;
             this.titleRecieveRoom.Click += new System.EventHandler(this.titleRecieveRoom_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label2.Location = new System.Drawing.Point(23, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(428, 37);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "The Mandarin Inn - Hotel Manager";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnClose
             // 
@@ -359,7 +359,7 @@
             this.metroTileShowAllBookedRooms.Name = "titleShowAllBookedRooms";
             this.metroTileShowAllBookedRooms.Size = new System.Drawing.Size(276, 135);
             this.metroTileShowAllBookedRooms.TabIndex = 0;
-            this.metroTileShowAllBookedRooms.Text = "Open Bookings";
+            this.metroTileShowAllBookedRooms.Text = "All Current && Advance Bookings";
             this.metroTileShowAllBookedRooms.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTileShowAllBookedRooms.TileImage")));
             this.metroTileShowAllBookedRooms.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTileShowAllBookedRooms.TileTextFontSize = MetroFramework.MetroTileTextSize.Small;

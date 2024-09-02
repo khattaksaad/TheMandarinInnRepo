@@ -54,14 +54,6 @@
             this.comboBoxRoomType = new MetroFramework.Controls.MetroComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRoom = new System.Windows.Forms.DataGridView();
-            this.colIDRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNameRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLimitPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingRoom = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -81,6 +73,14 @@
             this.btnRoomType = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnUpdate = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
+            this.colIDRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNameRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLimitPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdRoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupRoom.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -242,6 +242,7 @@
             this.label2.Size = new System.Drawing.Size(164, 20);
             this.label2.TabIndex = 45;
             this.label2.Text = "Max number of people:";
+            this.label2.Visible = false;
             // 
             // label16
             // 
@@ -285,6 +286,7 @@
             this.txbLimitPerson.Size = new System.Drawing.Size(175, 29);
             this.txbLimitPerson.TabIndex = 44;
             this.txbLimitPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbLimitPerson.Visible = false;
             // 
             // label13
             // 
@@ -465,76 +467,6 @@
             this.dataGridViewRoom.TabIndex = 28;
             this.dataGridViewRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRoom_CellContentClick);
             this.dataGridViewRoom.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewRoom_CellFormatting);
-            // 
-            // colIDRoom
-            // 
-            this.colIDRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colIDRoom.DataPropertyName = "id";
-            this.colIDRoom.FillWeight = 90F;
-            this.colIDRoom.HeaderText = "Id";
-            this.colIDRoom.Name = "colIDRoom";
-            this.colIDRoom.ReadOnly = true;
-            this.colIDRoom.Width = 48;
-            // 
-            // colName
-            // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colName.DataPropertyName = "name";
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 77;
-            // 
-            // colNameRoomType
-            // 
-            this.colNameRoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colNameRoomType.DataPropertyName = "nameRoomType";
-            this.colNameRoomType.HeaderText = "Room type";
-            this.colNameRoomType.Name = "colNameRoomType";
-            this.colNameRoomType.ReadOnly = true;
-            this.colNameRoomType.Width = 111;
-            // 
-            // colPrice
-            // 
-            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colPrice.DataPropertyName = "price_New";
-            this.colPrice.HeaderText = "Price";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 69;
-            // 
-            // colLimitPerson
-            // 
-            this.colLimitPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colLimitPerson.DataPropertyName = "limitPerson";
-            this.colLimitPerson.HeaderText = "Persons";
-            this.colLimitPerson.Name = "colLimitPerson";
-            this.colLimitPerson.ReadOnly = true;
-            this.colLimitPerson.Width = 89;
-            // 
-            // colStatus
-            // 
-            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colStatus.DataPropertyName = "nameStatusRoom";
-            this.colStatus.HeaderText = "Status";
-            this.colStatus.Name = "colStatus";
-            this.colStatus.ReadOnly = true;
-            // 
-            // colIdRoomType
-            // 
-            this.colIdRoomType.DataPropertyName = "idRoomType";
-            this.colIdRoomType.HeaderText = "";
-            this.colIdRoomType.Name = "colIdRoomType";
-            this.colIdRoomType.ReadOnly = true;
-            this.colIdRoomType.Visible = false;
-            // 
-            // colIdStatus
-            // 
-            this.colIdStatus.DataPropertyName = "idStatusRoom";
-            this.colIdStatus.HeaderText = "";
-            this.colIdStatus.Name = "colIdStatus";
-            this.colIdStatus.ReadOnly = true;
-            this.colIdStatus.Visible = false;
             // 
             // bindingRoom
             // 
@@ -807,6 +739,77 @@
             this.btnClose.TabStop = false;
             this.btnClose.Zoom = 10;
             this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // colIDRoom
+            // 
+            this.colIDRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colIDRoom.DataPropertyName = "id";
+            this.colIDRoom.FillWeight = 90F;
+            this.colIDRoom.HeaderText = "Id";
+            this.colIDRoom.Name = "colIDRoom";
+            this.colIDRoom.ReadOnly = true;
+            this.colIDRoom.Width = 48;
+            // 
+            // colName
+            // 
+            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colName.DataPropertyName = "name";
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 77;
+            // 
+            // colNameRoomType
+            // 
+            this.colNameRoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colNameRoomType.DataPropertyName = "nameRoomType";
+            this.colNameRoomType.HeaderText = "Room type";
+            this.colNameRoomType.Name = "colNameRoomType";
+            this.colNameRoomType.ReadOnly = true;
+            this.colNameRoomType.Width = 111;
+            // 
+            // colPrice
+            // 
+            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colPrice.DataPropertyName = "price_New";
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            this.colPrice.Width = 69;
+            // 
+            // colLimitPerson
+            // 
+            this.colLimitPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colLimitPerson.DataPropertyName = "limitPerson";
+            this.colLimitPerson.HeaderText = "Persons";
+            this.colLimitPerson.Name = "colLimitPerson";
+            this.colLimitPerson.ReadOnly = true;
+            this.colLimitPerson.Visible = false;
+            this.colLimitPerson.Width = 89;
+            // 
+            // colStatus
+            // 
+            this.colStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colStatus.DataPropertyName = "nameStatusRoom";
+            this.colStatus.HeaderText = "Status";
+            this.colStatus.Name = "colStatus";
+            this.colStatus.ReadOnly = true;
+            // 
+            // colIdRoomType
+            // 
+            this.colIdRoomType.DataPropertyName = "idRoomType";
+            this.colIdRoomType.HeaderText = "";
+            this.colIdRoomType.Name = "colIdRoomType";
+            this.colIdRoomType.ReadOnly = true;
+            this.colIdRoomType.Visible = false;
+            // 
+            // colIdStatus
+            // 
+            this.colIdStatus.DataPropertyName = "idStatusRoom";
+            this.colIdStatus.HeaderText = "";
+            this.colIdStatus.Name = "colIdStatus";
+            this.colIdStatus.ReadOnly = true;
+            this.colIdStatus.Visible = false;
             // 
             // fRoom
             // 

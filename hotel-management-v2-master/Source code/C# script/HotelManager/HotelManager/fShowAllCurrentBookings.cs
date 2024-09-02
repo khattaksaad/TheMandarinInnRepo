@@ -17,20 +17,16 @@ namespace HotelManager
         public class AdvanceBooking4View
         {
             private string roomType;
-            private string roomName;
             private string customerName;
-            private string customerCNIC;
-            private DateTime DateCheckIn;
-            private DateTime DateCheckOut;
-            private DateTime DateBookRoom;
+            private DateTime dateIn;
+            private DateTime dateOut;
+            private DateTime dateBookRoom;
 
             public string RoomType { get => roomType; set => roomType = value; }
-            public string RoomName { get => roomName; set => roomName = value; }
             public string CustomerName { get => customerName; set => customerName = value; }
-            public string CustomerCNIC { get => customerCNIC; set => customerCNIC = value; }
-            public DateTime DateCheckIn1 { get => DateCheckIn; set => DateCheckIn = value; }
-            public DateTime DateCheckOut1 { get => DateCheckOut; set => DateCheckOut = value; }
-            public DateTime DateBookRoom1 { get => DateBookRoom; set => DateBookRoom = value; }
+            public DateTime DateIn { get => dateIn; set => dateIn = value; }
+            public DateTime DateOut { get => dateOut; set => dateOut = value; }
+            public DateTime DateBookRoom { get => dateBookRoom; set => dateBookRoom = value; }
         }
         public class RoomBooking4View
         {
@@ -63,8 +59,6 @@ namespace HotelManager
         #region Load
         public void InitData()
         {
-            DataTable dtRoomsBooked = BookRoomDAO.Instance.LoadListAllBookedRooms();
-            DataTable dtAdvanceBookings = AdvanceBookingDAO.Instance.LoadListAllAdvanceBookings();
             DataTable dtCustomers = CustomerDAO.Instance.LoadFullCustomer();
             DataTable dtCompanies = CompanyDAO.Instance.LoadFullCompany();
             foreach (DataRow dr in dtCustomers.Rows)
@@ -72,12 +66,21 @@ namespace HotelManager
                 Customer customer = new Customer(dr);
                 customers.Add(customer);
             }
-            foreach(DataRow dr in dtCompanies.Rows)
+            foreach (DataRow dr in dtCompanies.Rows)
             {
                 companies.Add(new Company(dr));
             }
+            RefreshCurrentBookingsView();
+
+            RefreshAdvanceBookingView();
+
+        }
+        void RefreshCurrentBookingsView()
+        {
+            DataTable dtRoomsBooked = BookRoomDAO.Instance.LoadListAllBookedRooms();
             List<RoomBooking4View> roomBookings = new List<RoomBooking4View>();
-            foreach (DataRow dataRow in dtRoomsBooked.Rows) {
+            foreach (DataRow dataRow in dtRoomsBooked.Rows)
+            {
                 RoomBooking4View roomBooking = new RoomBooking4View();
                 roomBooking.DateCheckIn = (DateTime)dataRow["Check-In date"];
                 roomBooking.DateCheckOut = (DateTime)dataRow["Check out date"];
@@ -95,8 +98,15 @@ namespace HotelManager
             }
             roomBooking4ViewBindingSource.DataSource = roomBookings;
             roomBooking4ViewBindingSource.ResetBindings(false);
+            dataGridViewRoom.Refresh();
+        }
+
+        private void RefreshAdvanceBookingView()
+        {
+            DataTable dtAdvanceBookings = AdvanceBookingDAO.Instance.LoadListAllAdvanceBookings();
+
             List<AdvanceBooking4View> aBookings = new List<AdvanceBooking4View>();
-            foreach(DataRow dataRow in dtAdvanceBookings.Rows)
+            foreach (DataRow dataRow in dtAdvanceBookings.Rows)
             {
                 AdvanceBooking4View advanceBooking4View = new AdvanceBooking4View();
                 if (Convert.ToInt32(dataRow["BookingType"]) == 0)
@@ -109,15 +119,15 @@ namespace HotelManager
                     advanceBooking4View.CustomerName = companies.FirstOrDefault(p => p.Id == Convert.ToInt32(dataRow["CustomerID"])).CompanyName ?? string.Empty;
 
                 }
-                advanceBooking4View.DateCheckIn1 = (DateTime)dataRow["DateCheckIn"];
-                advanceBooking4View.DateCheckOut1 = (DateTime)dataRow["Check out date"];
-                advanceBooking4View.DateBookRoom1 = (DateTime)dataRow["DateBookRoom"];
-                aBookings.Add( advanceBooking4View );
+                advanceBooking4View.DateIn = (DateTime)dataRow["Check-in Date"];
+                advanceBooking4View.DateOut = (DateTime)dataRow["Check out date"];
+                advanceBooking4View.DateBookRoom = (DateTime)dataRow["DateBookRoom"];
+                advanceBooking4View.RoomType = dataRow["Room Type"].ToString();
+                aBookings.Add(advanceBooking4View);
             }
             advanceBookingsBindingSource.DataSource = aBookings;
             advanceBookingsBindingSource.ResetBindings(false);
-            
-            dataGridViewRoom.Refresh();
+            dataGridViewAdvanceBookings.Refresh();
         }
 
 

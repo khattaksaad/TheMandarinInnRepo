@@ -283,6 +283,12 @@
     <Compile Include="fAbout.Designer.cs">
       <DependentUpon>fAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="fAdvanceBooking4Company.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAdvanceBooking4Company.Designer.cs">
+      <DependentUpon>fAdvanceBooking4Company.cs</DependentUpon>
+    </Compile>
     <Compile Include="fAdvanceBooking.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -496,6 +502,9 @@
     <EmbeddedResource Include="fAbout.resx">
       <DependentUpon>fAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fAdvanceBooking4Company.resx">
+      <DependentUpon>fAdvanceBooking4Company.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fAdvanceBooking.resx">
       <DependentUpon>fAdvanceBooking.cs</DependentUpon>
     </EmbeddedResource>
@@ -615,6 +624,7 @@
     <None Include="Properties\DataSources\fReceiveRoom.BookedForCustomersUI.datasource" />
     <None Include="Properties\DataSources\fShowAllCurrentBookings.AdvanceBooking4View.datasource" />
     <None Include="Properties\DataSources\fShowAllCurrentBookings.RoomBooking4View.datasource" />
+    <None Include="Properties\DataSources\fUseService.ShowBillRoonInView.datasource" />
     <None Include="Properties\DataSources\HotelManager.DTO.BookRoom.datasource" />
     <None Include="Properties\DataSources\HotelManager.DTO.Customer.datasource" />
     <None Include="Properties\Settings.settings">
