@@ -24,9 +24,9 @@ namespace HotelManager.DAO
             return DataProvider.Instance.ExecuteQuery(query, new object[] { dateTime });
 
         }
-        public DataTable LoadListAllAdvanceBooking()
+        public DataTable LoadListAllAdvanceBookings()
         {
-            string query = "USP_LoadAllBookedRooms";
+            string query = "USP_LoadListAllAdvanceBookings";
             return DataProvider.Instance.ExecuteQuery(query);
         }
         public int GetCurrentIDBookRoom(DateTime dateTime)

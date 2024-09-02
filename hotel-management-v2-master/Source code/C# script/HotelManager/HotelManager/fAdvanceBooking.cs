@@ -115,8 +115,8 @@ namespace HotelManager
 
         private void dpkDateCheckIn_onValueChanged(object sender, EventArgs e)
         {
-            if (dpkDateCheckIn.Value <= DateTime.Now)
-                LoadDate();
+            //if (dpkDateCheckIn.Value <= DateTime.Now)
+            //    LoadDate();
             if (dpkDateCheckOut.Value <= dpkDateCheckIn.Value)
                 LoadDate();
             LoadDays();
@@ -178,13 +178,6 @@ namespace HotelManager
                     }
                     MessageBox.Show("Advance Booking successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
-                    //LoadListBookRoom();
-                    //if (bunifuCheckbox1.Checked)
-                    //{
-                    //    this.Hide();
-                    //    fReceiveRoom fReceiveRoom = new fReceiveRoom(GetCurrentIDBookRoom(DateTime.Now.Date));
-                    //    fReceiveRoom.ShowDialog();
-                    //}
                 }
                 else
                     MessageBox.Show("Please enter complete information.", "Incomplete information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -193,7 +186,7 @@ namespace HotelManager
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //ClearData();
+            //ClearData();            
             AdvanceRoomBooking4Grid room = new AdvanceRoomBooking4Grid()
             {
                 RoomType = cbRoomType.Text,
@@ -283,6 +276,14 @@ namespace HotelManager
             fBookRoom4Company fBookRoomDetails = new fBookRoom4Company(this.userName);
             fBookRoomDetails.ShowDialog();
             this.Close();
+        }
+
+        private void dataGridView4Bookings_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView4Bookings.Columns["colDelete"].Index && !dataGridView4Bookings.Rows[e.RowIndex].IsNewRow)
+            {
+                dataGridView4Bookings.Rows.RemoveAt(e.RowIndex);
+            }
         }
     }
 }

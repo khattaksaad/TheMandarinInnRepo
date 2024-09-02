@@ -135,8 +135,8 @@ namespace HotelManager
 
         private void dpkDateCheckIn_onValueChanged(object sender, EventArgs e)
         {
-            if (dpkDateCheckIn.Value <= DateTime.Now)
-                LoadDate();
+            //if (dpkDateCheckIn.Value <= DateTime.Now)
+            //    LoadDate();
             if (dpkDateCheckOut.Value <= dpkDateCheckIn.Value)
                 LoadDate();
             LoadDays();
@@ -331,6 +331,7 @@ namespace HotelManager
         private void btnAddAnotherRoom_Click(object sender, EventArgs e)
         {
             //ClearData();
+            if (string.IsNullOrEmpty(txbRoomID.Text) || string.IsNullOrEmpty(txbPrice.Text) || string.IsNullOrEmpty(mcbRoomNumbers.Text)) return;
             RoomBooking4Grid room = new RoomBooking4Grid()
             {
                 RoomName = mcbRoomNumbers.Text,
@@ -350,6 +351,14 @@ namespace HotelManager
             DataRow row = GetCompanyByName(txbFullName.Text.Trim());
             fAddGuests4Company fAddGuests4Company = new fAddGuests4Company((int)row["id"]);
             fAddGuests4Company.ShowDialog();
+        }
+
+        private void dataGridView4Bookings_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView4Bookings.Columns["colDelete"].Index && !dataGridView4Bookings.Rows[e.RowIndex].IsNewRow)
+            {
+                dataGridView4Bookings.Rows.RemoveAt(e.RowIndex);
+            }
         }
     }
 }

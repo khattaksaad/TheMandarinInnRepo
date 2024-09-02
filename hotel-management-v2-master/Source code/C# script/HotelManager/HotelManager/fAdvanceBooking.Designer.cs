@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAdvanceBooking));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.label2 = new System.Windows.Forms.Label();
@@ -38,6 +39,12 @@
             this.btnBookRoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnAddAnotherRoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtBxCNIC = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbRoomType = new MetroFramework.Controls.MetroComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.checkBoxReceiveRoom = new Bunifu.Framework.UI.BunifuCheckbox();
             this.dpkDateOfBirth = new Bunifu.Framework.UI.BunifuDatepicker();
             this.label6 = new System.Windows.Forms.Label();
             this.DatepickerDateOfReceive = new Bunifu.Framework.UI.BunifuDatepicker();
@@ -47,14 +54,10 @@
             this.label14 = new System.Windows.Forms.Label();
             this.txbFullName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label16 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbRoomType = new MetroFramework.Controls.MetroComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.checkBoxReceiveRoom = new Bunifu.Framework.UI.BunifuCheckbox();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.bunifuThinButtonCompanyBooking = new Bunifu.Framework.UI.BunifuThinButton2();
             this.dpkDateCheckOut = new Bunifu.Framework.UI.BunifuDatepicker();
+            this.bunifuThinButtonCompanyBooking = new Bunifu.Framework.UI.BunifuThinButton2();
             this.label23 = new System.Windows.Forms.Label();
             this.txbDays = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label19 = new System.Windows.Forms.Label();
@@ -64,8 +67,8 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView4Bookings = new System.Windows.Forms.DataGridView();
             this.roomBooking4GridBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtBxCNIC = new Bunifu.Framework.UI.BunifuMetroTextbox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -176,7 +179,7 @@
             this.btnAddAnotherRoom.IdleFillColor = System.Drawing.Color.White;
             this.btnAddAnotherRoom.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnAddAnotherRoom.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnAddAnotherRoom.Location = new System.Drawing.Point(230, 37);
+            this.btnAddAnotherRoom.Location = new System.Drawing.Point(231, 39);
             this.btnAddAnotherRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnAddAnotherRoom.Name = "btnAddAnotherRoom";
             this.btnAddAnotherRoom.Size = new System.Drawing.Size(203, 40);
@@ -207,6 +210,93 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Customer information";
+            // 
+            // txtBxCNIC
+            // 
+            this.txtBxCNIC.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.txtBxCNIC.BorderColorIdle = System.Drawing.Color.SeaGreen;
+            this.txtBxCNIC.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.txtBxCNIC.BorderThickness = 1;
+            this.txtBxCNIC.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtBxCNIC.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtBxCNIC.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txtBxCNIC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBxCNIC.isPassword = false;
+            this.txtBxCNIC.Location = new System.Drawing.Point(8, 156);
+            this.txtBxCNIC.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBxCNIC.MaxLength = 32767;
+            this.txtBxCNIC.Name = "txtBxCNIC";
+            this.txtBxCNIC.Size = new System.Drawing.Size(203, 29);
+            this.txtBxCNIC.TabIndex = 48;
+            this.txtBxCNIC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label1.Location = new System.Drawing.Point(6, 132);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 20);
+            this.label1.TabIndex = 49;
+            this.label1.Text = "CNIC:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbRoomType);
+            this.groupBox1.Controls.Add(this.btnAddAnotherRoom);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.checkBoxReceiveRoom);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
+            this.groupBox1.Location = new System.Drawing.Point(7, 192);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(441, 116);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Room information:";
+            // 
+            // cbRoomType
+            // 
+            this.cbRoomType.BackColor = System.Drawing.Color.White;
+            this.cbRoomType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbRoomType.FormattingEnabled = true;
+            this.cbRoomType.ItemHeight = 23;
+            this.cbRoomType.Location = new System.Drawing.Point(4, 48);
+            this.cbRoomType.Name = "cbRoomType";
+            this.cbRoomType.Size = new System.Drawing.Size(203, 29);
+            this.cbRoomType.Style = MetroFramework.MetroColorStyle.Green;
+            this.cbRoomType.TabIndex = 33;
+            this.cbRoomType.UseCustomBackColor = true;
+            this.cbRoomType.UseCustomForeColor = true;
+            this.cbRoomType.UseSelectable = true;
+            this.cbRoomType.UseStyleColors = true;
+            this.cbRoomType.SelectedIndexChanged += new System.EventHandler(this.cbRoomType_SelectedIndexChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label17.Location = new System.Drawing.Point(6, 24);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(85, 20);
+            this.label17.TabIndex = 32;
+            this.label17.Text = "Room type:";
+            // 
+            // checkBoxReceiveRoom
+            // 
+            this.checkBoxReceiveRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.checkBoxReceiveRoom.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.checkBoxReceiveRoom.Checked = false;
+            this.checkBoxReceiveRoom.CheckedOnColor = System.Drawing.Color.SeaGreen;
+            this.checkBoxReceiveRoom.ForeColor = System.Drawing.Color.White;
+            this.checkBoxReceiveRoom.Location = new System.Drawing.Point(58, 1213);
+            this.checkBoxReceiveRoom.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            this.checkBoxReceiveRoom.Name = "checkBoxReceiveRoom";
+            this.checkBoxReceiveRoom.Size = new System.Drawing.Size(20, 20);
+            this.checkBoxReceiveRoom.TabIndex = 38;
             // 
             // dpkDateOfBirth
             // 
@@ -339,63 +429,6 @@
             this.label16.TabIndex = 22;
             this.label16.Text = "Name:";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cbRoomType);
-            this.groupBox1.Controls.Add(this.btnAddAnotherRoom);
-            this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.checkBoxReceiveRoom);
-            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox1.Location = new System.Drawing.Point(7, 220);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(441, 88);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Room information:";
-            // 
-            // cbRoomType
-            // 
-            this.cbRoomType.BackColor = System.Drawing.Color.White;
-            this.cbRoomType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbRoomType.FormattingEnabled = true;
-            this.cbRoomType.ItemHeight = 23;
-            this.cbRoomType.Location = new System.Drawing.Point(4, 48);
-            this.cbRoomType.Name = "cbRoomType";
-            this.cbRoomType.Size = new System.Drawing.Size(203, 29);
-            this.cbRoomType.Style = MetroFramework.MetroColorStyle.Green;
-            this.cbRoomType.TabIndex = 33;
-            this.cbRoomType.UseCustomBackColor = true;
-            this.cbRoomType.UseCustomForeColor = true;
-            this.cbRoomType.UseSelectable = true;
-            this.cbRoomType.UseStyleColors = true;
-            this.cbRoomType.SelectedIndexChanged += new System.EventHandler(this.cbRoomType_SelectedIndexChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label17.Location = new System.Drawing.Point(6, 24);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(85, 20);
-            this.label17.TabIndex = 32;
-            this.label17.Text = "Room type:";
-            // 
-            // checkBoxReceiveRoom
-            // 
-            this.checkBoxReceiveRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.checkBoxReceiveRoom.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.checkBoxReceiveRoom.Checked = false;
-            this.checkBoxReceiveRoom.CheckedOnColor = System.Drawing.Color.SeaGreen;
-            this.checkBoxReceiveRoom.ForeColor = System.Drawing.Color.White;
-            this.checkBoxReceiveRoom.Location = new System.Drawing.Point(58, 1213);
-            this.checkBoxReceiveRoom.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
-            this.checkBoxReceiveRoom.Name = "checkBoxReceiveRoom";
-            this.checkBoxReceiveRoom.Size = new System.Drawing.Size(20, 20);
-            this.checkBoxReceiveRoom.TabIndex = 38;
-            // 
             // bunifuSeparator1
             // 
             this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
@@ -426,6 +459,22 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Registration information:";
             // 
+            // dpkDateCheckOut
+            // 
+            this.dpkDateCheckOut.BackColor = System.Drawing.Color.SeaGreen;
+            this.dpkDateCheckOut.BorderRadius = 0;
+            this.dpkDateCheckOut.ForeColor = System.Drawing.Color.White;
+            this.dpkDateCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpkDateCheckOut.FormatCustom = null;
+            this.dpkDateCheckOut.Location = new System.Drawing.Point(14, 101);
+            this.dpkDateCheckOut.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
+            this.dpkDateCheckOut.Name = "dpkDateCheckOut";
+            this.dpkDateCheckOut.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dpkDateCheckOut.Size = new System.Drawing.Size(202, 29);
+            this.dpkDateCheckOut.TabIndex = 41;
+            this.dpkDateCheckOut.Value = new System.DateTime(2018, 2, 23, 23, 29, 57, 962);
+            this.dpkDateCheckOut.onValueChanged += new System.EventHandler(this.dpkDateCheckOut_onValueChanged);
+            // 
             // bunifuThinButtonCompanyBooking
             // 
             this.bunifuThinButtonCompanyBooking.ActiveBorderThickness = 1;
@@ -451,22 +500,6 @@
             this.bunifuThinButtonCompanyBooking.TabIndex = 48;
             this.bunifuThinButtonCompanyBooking.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuThinButtonCompanyBooking.Click += new System.EventHandler(this.bunifuThinButtonCompanyBooking_Click);
-            // 
-            // dpkDateCheckOut
-            // 
-            this.dpkDateCheckOut.BackColor = System.Drawing.Color.SeaGreen;
-            this.dpkDateCheckOut.BorderRadius = 0;
-            this.dpkDateCheckOut.ForeColor = System.Drawing.Color.White;
-            this.dpkDateCheckOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpkDateCheckOut.FormatCustom = null;
-            this.dpkDateCheckOut.Location = new System.Drawing.Point(14, 101);
-            this.dpkDateCheckOut.Margin = new System.Windows.Forms.Padding(9, 13, 9, 13);
-            this.dpkDateCheckOut.Name = "dpkDateCheckOut";
-            this.dpkDateCheckOut.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dpkDateCheckOut.Size = new System.Drawing.Size(202, 29);
-            this.dpkDateCheckOut.TabIndex = 41;
-            this.dpkDateCheckOut.Value = new System.DateTime(2018, 2, 23, 23, 29, 57, 962);
-            this.dpkDateCheckOut.onValueChanged += new System.EventHandler(this.dpkDateCheckOut_onValueChanged);
             // 
             // label23
             // 
@@ -567,58 +600,59 @@
             // 
             // dataGridView4Bookings
             // 
+            this.dataGridView4Bookings.AllowUserToAddRows = false;
             this.dataGridView4Bookings.AutoGenerateColumns = false;
             this.dataGridView4Bookings.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dataGridView4Bookings.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView4Bookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView4Bookings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.roomTypeDataGridViewTextBoxColumn,
+            this.colDelete});
             this.dataGridView4Bookings.DataSource = this.roomBooking4GridBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4Bookings.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView4Bookings.Location = new System.Drawing.Point(6, 12);
             this.dataGridView4Bookings.Name = "dataGridView4Bookings";
+            this.dataGridView4Bookings.ReadOnly = true;
             this.dataGridView4Bookings.RowHeadersWidth = 50;
             this.dataGridView4Bookings.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView4Bookings.Size = new System.Drawing.Size(442, 379);
             this.dataGridView4Bookings.TabIndex = 0;
             this.dataGridView4Bookings.DataMemberChanged += new System.EventHandler(this.dataGridView4Bookings_DataMemberChanged);
+            this.dataGridView4Bookings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4Bookings_CellClick);
             this.dataGridView4Bookings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4Bookings_CellValueChanged);
             this.dataGridView4Bookings.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView4Bookings_RowsAdded);
             // 
-            // txtBxCNIC
+            // roomBooking4GridBindingSource
             // 
-            this.txtBxCNIC.BorderColorFocused = System.Drawing.Color.SeaGreen;
-            this.txtBxCNIC.BorderColorIdle = System.Drawing.Color.SeaGreen;
-            this.txtBxCNIC.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
-            this.txtBxCNIC.BorderThickness = 1;
-            this.txtBxCNIC.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtBxCNIC.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBxCNIC.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.txtBxCNIC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBxCNIC.isPassword = false;
-            this.txtBxCNIC.Location = new System.Drawing.Point(8, 156);
-            this.txtBxCNIC.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBxCNIC.MaxLength = 32767;
-            this.txtBxCNIC.Name = "txtBxCNIC";
-            this.txtBxCNIC.Size = new System.Drawing.Size(203, 29);
-            this.txtBxCNIC.TabIndex = 48;
-            this.txtBxCNIC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.roomBooking4GridBindingSource.DataSource = typeof(HotelManager.fAdvanceBooking.AdvanceRoomBooking4Grid);
             // 
-            // label1
+            // roomTypeDataGridViewTextBoxColumn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(6, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 20);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "CNIC:";
+            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
+            this.roomTypeDataGridViewTextBoxColumn.Frozen = true;
+            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Room Type";
+            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
+            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.roomTypeDataGridViewTextBoxColumn.Width = 88;
+            // 
+            // colDelete
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = "X";
+            this.colDelete.DefaultCellStyle = dataGridViewCellStyle1;
+            this.colDelete.Frozen = true;
+            this.colDelete.HeaderText = "Remove";
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            this.colDelete.Text = "X";
+            this.colDelete.Width = 53;
             // 
             // fAdvanceBooking
             // 
@@ -691,5 +725,7 @@
         private Bunifu.Framework.UI.BunifuThinButton2 bunifuThinButtonCompanyBooking;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtBxCNIC;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
     }
 }
