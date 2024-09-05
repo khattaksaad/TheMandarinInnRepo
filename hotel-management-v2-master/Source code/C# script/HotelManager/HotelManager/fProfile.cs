@@ -33,6 +33,7 @@ namespace HotelManager
             cbSex.Text = staff.Sex;
             txbStartDay.Text = staff.StartDay.ToShortDateString();
             Password = staff.PassWord;
+            txbPath.Text = staff.Path;
         }
         public void UpdateDisplayName(string username, string displayname)
         {
@@ -42,9 +43,9 @@ namespace HotelManager
         {
             AccountDAO.Instance.UpdatePassword(username, password);
         }
-        public void UpdateInfo(string username, string address, int phonenumber,string idCard, DateTime dateOfBirth, string sex)
+        public void UpdateInfo(string username, string address, int phonenumber,string idCard, DateTime dateOfBirth, string sex, string path)
         {
-            AccountDAO.Instance.UpdateInfo(username, address, phonenumber,idCard,dateOfBirth,sex);
+            AccountDAO.Instance.UpdateInfo(username, address, phonenumber,idCard,dateOfBirth,sex, path);
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -93,7 +94,7 @@ namespace HotelManager
             {
                 if (AccountDAO.Instance.IsIdCardExists(txbIDCard.Text))
                 {
-                    UpdateInfo(txbUserName.Text, txbAddress.Text, int.Parse(txbPhoneNumber.Text), txbIDCard.Text, dpkDateOfBirth.Value, cbSex.Text);
+                    UpdateInfo(txbUserName.Text, txbAddress.Text, int.Parse(txbPhoneNumber.Text), txbIDCard.Text, dpkDateOfBirth.Value, cbSex.Text, txbPath.Text);
                     MessageBox.Show("Updated basic information successfully.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadProfile(txbUserName.Text);
                 }

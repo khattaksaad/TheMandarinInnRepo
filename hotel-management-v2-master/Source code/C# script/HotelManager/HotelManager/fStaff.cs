@@ -192,7 +192,7 @@ namespace HotelManager
                 bool check = AccountDAO.Instance.ResetPassword(txbUserName.Text, HassPass );
                 if (check)
                 {
-                    MessageBox.Show("Password reset successful\nDefault password is: 123456", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Password reset successful\nDefault password is: 12345", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("Unable to reset password (Username does not exist)", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -226,7 +226,6 @@ namespace HotelManager
                 datepickerDateOfBirth.Text = row.Cells[colDateOfBirth.Name].Value as string;
                 datePickerStartDay.Text = row.Cells[colStartDay.Name].Value as string;
                 comboBoxSex.Text = row.Cells[colSex.Name].Value as string;
-                comboBoxStaffType.SelectedIndex = (int)row.Cells[colIDStaffType.Name].Value - 1;
 
 
                 Account staff = new Account();
@@ -238,7 +237,6 @@ namespace HotelManager
                 staff.DateOfBirth = datepickerDateOfBirth.Value;
                 staff.StartDay = datePickerStartDay.Value;
                 staff.Sex = comboBoxSex.Text;
-                staff.IdStaffType = (int)row.Cells[colIDStaffType.Name].Value;
                 groupStaff.Tag = staff;
                 //bindingNavigatorMoveFirstItem.Enabled = true;
                 //bindingNavigatorMovePreviousItem.Enabled = true;

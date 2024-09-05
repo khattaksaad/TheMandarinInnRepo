@@ -53,10 +53,10 @@ namespace HotelManager.DAO
             string query = "USP_UpdatePassword @username , @password";
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { username, HashPass(password) }) > 0;
         }
-        internal bool UpdateInfo(string username,string address, int phonenumber,string idCard, DateTime dateOfBirth,string sex)
+        internal bool UpdateInfo(string username,string address, int phonenumber,string idCard, DateTime dateOfBirth,string sex, string path)
         {
-            string query = "USP_UpdateInfo @username , @address , @phonenumber , @idcard , @dateOfBirth , @sex";
-            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { username, address, phonenumber,idCard,dateOfBirth,sex}) > 0;
+            string query = "USP_UpdateInfo @username , @address , @phonenumber , @idcard , @dateOfBirth , @sex , @path";
+            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { username, address, phonenumber,idCard,dateOfBirth,sex, path}) > 0;
         }
         internal Account GetStaffSetUp(int idBill)
         {

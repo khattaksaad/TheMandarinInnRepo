@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fProfile));
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txbReNewPass = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label14 = new System.Windows.Forms.Label();
             this.txbNewPass = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -46,7 +45,6 @@
             this.dpkDateOfBirth = new Bunifu.Framework.UI.BunifuDatepicker();
             this.txbIDCard = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label10 = new System.Windows.Forms.Label();
-            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txbStartDay = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label4 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -59,7 +57,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txbStaffType = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnBookRoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txbDisplayName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label1 = new System.Windows.Forms.Label();
             this.txbUserName = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -69,8 +66,12 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton22 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.bunifuThinButton21 = new Bunifu.Framework.UI.BunifuThinButton2();
+            this.btnBookRoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txbPath = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,32 +105,6 @@
             this.groupBox3.TabIndex = 58;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Access";
-            // 
-            // bunifuThinButton22
-            // 
-            this.bunifuThinButton22.ActiveBorderThickness = 1;
-            this.bunifuThinButton22.ActiveCornerRadius = 20;
-            this.bunifuThinButton22.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton22.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton22.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton22.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton22.BackgroundImage")));
-            this.bunifuThinButton22.ButtonText = "Save Changes";
-            this.bunifuThinButton22.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton22.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton22.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton22.IdleBorderThickness = 1;
-            this.bunifuThinButton22.IdleCornerRadius = 20;
-            this.bunifuThinButton22.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton22.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton22.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton22.Location = new System.Drawing.Point(27, 218);
-            this.bunifuThinButton22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuThinButton22.Name = "bunifuThinButton22";
-            this.bunifuThinButton22.Size = new System.Drawing.Size(203, 40);
-            this.bunifuThinButton22.TabIndex = 68;
-            this.bunifuThinButton22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton22.Click += new System.EventHandler(this.bunifuThinButton22_Click);
             // 
             // txbReNewPass
             // 
@@ -223,7 +198,7 @@
             // 
             // bunifuCheckbox2
             // 
-            this.bunifuCheckbox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.bunifuCheckbox2.BackColor = System.Drawing.Color.SeaGreen;
             this.bunifuCheckbox2.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.bunifuCheckbox2.Checked = false;
             this.bunifuCheckbox2.CheckedOnColor = System.Drawing.Color.SeaGreen;
@@ -247,6 +222,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txbPath);
             this.groupBox2.Controls.Add(this.cbSex);
             this.groupBox2.Controls.Add(this.dpkDateOfBirth);
             this.groupBox2.Controls.Add(this.txbIDCard);
@@ -334,32 +310,6 @@
             this.label10.Size = new System.Drawing.Size(45, 20);
             this.label10.TabIndex = 71;
             this.label10.Text = "CNIC:";
-            // 
-            // bunifuThinButton21
-            // 
-            this.bunifuThinButton21.ActiveBorderThickness = 1;
-            this.bunifuThinButton21.ActiveCornerRadius = 20;
-            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
-            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "Save changes";
-            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuThinButton21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleBorderThickness = 1;
-            this.bunifuThinButton21.IdleCornerRadius = 20;
-            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
-            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(495, 153);
-            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.bunifuThinButton21.Name = "bunifuThinButton21";
-            this.bunifuThinButton21.Size = new System.Drawing.Size(203, 40);
-            this.bunifuThinButton21.TabIndex = 69;
-            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click);
             // 
             // txbStartDay
             // 
@@ -476,7 +426,7 @@
             // 
             // bunifuCheckbox1
             // 
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.bunifuCheckbox1.BackColor = System.Drawing.Color.SeaGreen;
             this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.bunifuCheckbox1.Checked = false;
             this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.SeaGreen;
@@ -537,32 +487,6 @@
             this.label11.Size = new System.Drawing.Size(101, 20);
             this.label11.TabIndex = 70;
             this.label11.Text = "Account Type:";
-            // 
-            // btnBookRoom
-            // 
-            this.btnBookRoom.ActiveBorderThickness = 1;
-            this.btnBookRoom.ActiveCornerRadius = 20;
-            this.btnBookRoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.ActiveForecolor = System.Drawing.Color.White;
-            this.btnBookRoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.BackColor = System.Drawing.Color.White;
-            this.btnBookRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBookRoom.BackgroundImage")));
-            this.btnBookRoom.ButtonText = "Save Changes";
-            this.btnBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBookRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookRoom.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.IdleBorderThickness = 1;
-            this.btnBookRoom.IdleCornerRadius = 20;
-            this.btnBookRoom.IdleFillColor = System.Drawing.Color.White;
-            this.btnBookRoom.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnBookRoom.Location = new System.Drawing.Point(25, 218);
-            this.btnBookRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnBookRoom.Name = "btnBookRoom";
-            this.btnBookRoom.Size = new System.Drawing.Size(203, 40);
-            this.btnBookRoom.TabIndex = 68;
-            this.btnBookRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnBookRoom.Click += new System.EventHandler(this.btnBookRoom_Click);
             // 
             // txbDisplayName
             // 
@@ -627,7 +551,7 @@
             // 
             // checkBoxReceiveRoom
             // 
-            this.checkBoxReceiveRoom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
+            this.checkBoxReceiveRoom.BackColor = System.Drawing.Color.SeaGreen;
             this.checkBoxReceiveRoom.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
             this.checkBoxReceiveRoom.Checked = false;
             this.checkBoxReceiveRoom.CheckedOnColor = System.Drawing.Color.SeaGreen;
@@ -698,6 +622,84 @@
             this.btnClose_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnClose_.Click += new System.EventHandler(this.btnClose__Click);
             // 
+            // bunifuThinButton22
+            // 
+            this.bunifuThinButton22.ActiveBorderThickness = 1;
+            this.bunifuThinButton22.ActiveCornerRadius = 20;
+            this.bunifuThinButton22.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton22.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton22.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton22.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton22.BackgroundImage")));
+            this.bunifuThinButton22.ButtonText = "Save Changes";
+            this.bunifuThinButton22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton22.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton22.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton22.IdleBorderThickness = 1;
+            this.bunifuThinButton22.IdleCornerRadius = 20;
+            this.bunifuThinButton22.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton22.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton22.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton22.Location = new System.Drawing.Point(27, 218);
+            this.bunifuThinButton22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton22.Name = "bunifuThinButton22";
+            this.bunifuThinButton22.Size = new System.Drawing.Size(203, 40);
+            this.bunifuThinButton22.TabIndex = 68;
+            this.bunifuThinButton22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton22.Click += new System.EventHandler(this.bunifuThinButton22_Click);
+            // 
+            // bunifuThinButton21
+            // 
+            this.bunifuThinButton21.ActiveBorderThickness = 1;
+            this.bunifuThinButton21.ActiveCornerRadius = 20;
+            this.bunifuThinButton21.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.ActiveForecolor = System.Drawing.Color.White;
+            this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
+            this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
+            this.bunifuThinButton21.ButtonText = "Save changes";
+            this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuThinButton21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.IdleBorderThickness = 1;
+            this.bunifuThinButton21.IdleCornerRadius = 20;
+            this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
+            this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.bunifuThinButton21.Location = new System.Drawing.Point(495, 153);
+            this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.bunifuThinButton21.Name = "bunifuThinButton21";
+            this.bunifuThinButton21.Size = new System.Drawing.Size(203, 40);
+            this.bunifuThinButton21.TabIndex = 69;
+            this.bunifuThinButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuThinButton21.Click += new System.EventHandler(this.bunifuThinButton21_Click);
+            // 
+            // btnBookRoom
+            // 
+            this.btnBookRoom.ActiveBorderThickness = 1;
+            this.btnBookRoom.ActiveCornerRadius = 20;
+            this.btnBookRoom.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.ActiveForecolor = System.Drawing.Color.White;
+            this.btnBookRoom.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.BackColor = System.Drawing.Color.White;
+            this.btnBookRoom.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBookRoom.BackgroundImage")));
+            this.btnBookRoom.ButtonText = "Save Changes";
+            this.btnBookRoom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBookRoom.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBookRoom.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.IdleBorderThickness = 1;
+            this.btnBookRoom.IdleCornerRadius = 20;
+            this.btnBookRoom.IdleFillColor = System.Drawing.Color.White;
+            this.btnBookRoom.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnBookRoom.Location = new System.Drawing.Point(25, 218);
+            this.btnBookRoom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBookRoom.Name = "btnBookRoom";
+            this.btnBookRoom.Size = new System.Drawing.Size(203, 40);
+            this.btnBookRoom.TabIndex = 68;
+            this.btnBookRoom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnBookRoom.Click += new System.EventHandler(this.btnBookRoom_Click);
+            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -723,6 +725,25 @@
             this.pictureBox1.TabIndex = 55;
             this.pictureBox1.TabStop = false;
             // 
+            // txbPath
+            // 
+            this.txbPath.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.txbPath.BorderColorIdle = System.Drawing.Color.SeaGreen;
+            this.txbPath.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.txbPath.BorderThickness = 1;
+            this.txbPath.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txbPath.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbPath.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.txbPath.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txbPath.isPassword = false;
+            this.txbPath.Location = new System.Drawing.Point(32, 153);
+            this.txbPath.Margin = new System.Windows.Forms.Padding(4);
+            this.txbPath.MaxLength = 32767;
+            this.txbPath.Name = "txbPath";
+            this.txbPath.Size = new System.Drawing.Size(437, 29);
+            this.txbPath.TabIndex = 76;
+            this.txbPath.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // fProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -742,6 +763,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fProfile";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fProfile";
             this.groupBox3.ResumeLayout(false);
@@ -800,5 +822,6 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btnClose_;
         private Bunifu.Framework.UI.BunifuDatepicker dpkDateOfBirth;
         private MetroFramework.Controls.MetroComboBox cbSex;
+        private Bunifu.Framework.UI.BunifuMetroTextbox txbPath;
     }
 }

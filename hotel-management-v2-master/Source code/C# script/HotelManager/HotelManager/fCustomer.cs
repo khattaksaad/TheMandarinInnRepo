@@ -19,7 +19,6 @@ namespace HotelManager
             LoadFullCustomer(GetFullCustomer());
             comboBoxSex.SelectedIndex = 0;
             SaveCustomer.OverwritePrompt = true;
-            comboboxID.DisplayMember = "id";
             FormClosing += FCustomer_FormClosing;
             txbSearch.KeyPress += TxbSearch_KeyPress;
             dataGridViewCustomer.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F);
@@ -30,11 +29,10 @@ namespace HotelManager
         #region Load
         private void LoadFullCustomer(DataTable table)
         {
-            BindingSource source = new BindingSource();
-            source.DataSource = table;
-            dataGridViewCustomer.DataSource = source;
-            bindingCustomer.BindingSource = source;
-            comboboxID.DataSource = source;
+            bindingSourceCust.DataSource = table;
+            bindingSourceCust.ResetBindings(false);
+            dataGridViewCustomer.DataSource = bindingSourceCust;
+            dataGridViewCustomer.Refresh();
         }
         private void LoadFullCustomerType()
         {
@@ -98,13 +96,8 @@ namespace HotelManager
         {
             DialogResult result =MessageBox.Show( "Do you want to update information?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (result == DialogResult.OK)
-                if (CheckDate())
-                {
+
                     UpdateCustomer();
-                    comboboxID.Focus();
-                }
-                else
-                   MessageBox.Show( "Unknown error occurred", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -158,7 +151,6 @@ namespace HotelManager
                         LoadFullCustomer(GetFullCustomer());
                     else
                         BtnCancel_Click(null, null);
-                    comboboxID.SelectedIndex = dataGridViewCustomer.RowCount - 1;
                 }
                 else
                     MessageBox.Show( "Cannot add right now, please try later", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -170,11 +162,11 @@ namespace HotelManager
         }
         private void UpdateCustomer()
         {
-            if(comboboxID.Text == string.Empty)
-            {
-                MessageBox.Show( "Please provide all details first", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-            else
+            //if(comboboxID.Text == string.Empty)
+            //{
+            //    MessageBox.Show( "Please provide all details first", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //}
+            //else
             if (!CheckFillInText(new Control[] { txbPhoneNumber, txbFullName, txbIDCard, txbNationality, txbAddress, comboBoxCustomerType }))
             {
                 MessageBox.Show("Please provide all details first", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -197,7 +189,6 @@ namespace HotelManager
                             groupCustomer.Tag = customerNow;
                             int index = dataGridViewCustomer.SelectedRows[0].Index;
                             LoadFullCustomer(GetFullCustomer());
-                            comboboxID.SelectedIndex = index;
                         }
                         else
                             MessageBox.Show( "Something happened in the background, please try later", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -225,14 +216,13 @@ namespace HotelManager
             {
                 bindingNavigatorMoveFirstItem.Enabled = true;
                 bindingNavigatorMovePreviousItem.Enabled = true;
-                txbFullName.Text = row.Cells["colNameCustomer"].Value.ToString();
-                txbAddress.Text = row.Cells["colAddress"].Value.ToString();
-                txbIDCard.Text = row.Cells["colIDCard"].Value.ToString();
-                txbNationality.Text = row.Cells["colNationality"].Value.ToString();
-                txbPhoneNumber.Text = row.Cells["colPhone"].Value.ToString();
-                comboBoxCustomerType.SelectedIndex =(int) row.Cells["colIdCustomerType"].Value - 1;
-                comboBoxSex.SelectedItem = row.Cells["colSex"].Value;
-                datepickerDateOfBirth.Value = (DateTime)row.Cells["colDateOfBirth"].Value;
+                txbFullName.Text = row.Cells[colName.Name].Value.ToString();
+                txbAddress.Text = row.Cells[colAddress.Name].Value.ToString();
+                txbIDCard.Text = row.Cells[colCNIC.Name].Value.ToString();
+                txbNationality.Text = row.Cells[colNationality.Name].Value.ToString();
+                txbPhoneNumber.Text = row.Cells[colPhone.Name].Value.ToString();
+                comboBoxCustomerType.SelectedIndex =(int) row.Cells[colIdCustomerType.Name].Value - 1;
+                comboBoxSex.SelectedItem = row.Cells[colGender.Name].Value;
                 Customer customer = new Customer(((DataRowView) row.DataBoundItem).Row);
                 groupCustomer.Tag = customer;              
             }
@@ -251,17 +241,12 @@ namespace HotelManager
         {
             fStaff.Trim(new Bunifu.Framework.UI.BunifuMetroTextbox[] { txbAddress, txbFullName, txbIDCard });
             Customer customer = new Customer();
-            if (comboboxID.Text == string.Empty)
-                customer.Id = 0;
-            else
-                customer.Id = int.Parse(comboboxID.Text);
             customer.IdCard = txbIDCard.Text;
             int id = comboBoxCustomerType.SelectedIndex;
             customer.IdCustomerType = (int)((DataTable) comboBoxCustomerType.DataSource).Rows[id]["id"];
             customer.Name = txbFullName.Text;
             customer.Sex = comboBoxSex.Text;
             customer.PhoneNumber = txbPhoneNumber.Text;
-            customer.DateOfBirth = datepickerDateOfBirth.Value;
             customer.Nationality = txbNationality.Text;
             customer.Address = txbAddress.Text;
             return customer;
@@ -308,12 +293,6 @@ namespace HotelManager
         {
             if (!(char.IsNumber(e.KeyChar) || e.KeyChar == '\b'))
                 e.Handled = true;
-        }
-        private bool CheckDate()
-        {
-            if (DateTime.Now.Subtract(datepickerDateOfBirth.Value).Days <= 0)
-                return false;
-            else return true;
         }
 
         #endregion

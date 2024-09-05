@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -256,5 +257,10 @@ namespace HotelManager
             else MessageBox.Show("You do not have access.", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         }
-}
+
+        private void bbtnUploadDB_Click(object sender, EventArgs e)
+        {
+            GDriveUploadHelper.DoMagic(userName);
+        }
+    }
 }

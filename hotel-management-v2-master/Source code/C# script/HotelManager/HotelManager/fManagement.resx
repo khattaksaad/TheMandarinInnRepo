@@ -221,10 +221,10 @@
         r6fEJ011kUFMP9I/nk42gkM3fpC6P59PS/sfDtrVo+z0iLMAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="metroTileRegulations.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="metroTilePayment.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>456, 54</value>
   </metadata>
-  <data name="metroTileRegulations.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="metroTilePayment.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
         1wAAAdcBjJIIaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAArxSURBVHhe3ZsJ
@@ -277,10 +277,10 @@
         dAGyGtmLbEXoa9AchLak7f4NoN7oU382/TYDFl5q/D9sF8WI9FienwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="title.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="titleReports.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>468, 17</value>
   </metadata>
-  <data name="title.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="titleReports.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
         ugAAAboB6KsBBgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAATOSURBVHhe7Zjd
@@ -397,7 +397,7 @@
 </value>
   </data>
   <metadata name="metroTileManageProfile.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>996, 17</value>
+    <value>1074, 18</value>
   </metadata>
   <data name="metroTileManageProfile.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -436,10 +436,10 @@
         9/DMySs/0ks+tXXk3yl0+iENaUhDGkAeHv8DwAJuTOiLqScAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="titlePay.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="titleRoomService.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>903, 17</value>
   </metadata>
-  <data name="titlePay.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="titleRoomService.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
         1wAAAdcBjJIIaAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAbqSURBVHhe7Zt7
@@ -623,7 +623,7 @@
   <data name="metroTileShowAllBookedRooms.TileImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
-        WAAAAVgB328q4QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOfSURBVHhe7Zo7
+        UwAAAVMBVlwD6QAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAOfSURBVHhe7Zo7
         TFNRGMcZnEx8UYKTicbEODkZY3wkymCCRkOMiI+owCKDGuLioKshUSmPQYmgQigYY7BAG4sUsSjvW4RC
         bBsgLdTe2wLB8ioWKXyeW9MW2q9AKdf26hl+Q8/w/77/L6enS+MAIGwsFsscx3EQiwwMDORgO4cCPVwN
         KoAKoAKoAGx4LPC3BLhYloVYhAh4iO0cCvRwNRiGMRIgRknBdg4FergaZMi/L8BsNm8n36ksDIPBYNfr
@@ -644,8 +644,8 @@
   </data>
   <data name="panelLeft.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAKsAAAKeCAYAAADawOsuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAaqSURBVHhe7dJBDQAgDAAxFGFnohA9dFzSRx303DcLBbKS
+        iVBORw0KGgoAAAANSUhEUgAAAKsAAAJACAYAAADy9JZxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAW/SURBVHhe7dJBDQAgDAAxFGFnohA9dFzSRx303DcLBbKS
         ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
         ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
         ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
@@ -669,12 +669,8 @@
         ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
         ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
         ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
-        ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
-        ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
-        ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
-        ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKS
-        ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZshIx+wFa94MOF7i1
-        rwAAAABJRU5ErkJggg==
+        ISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmykiErGbKSISsZspIhKxmyEjH7AVmh
+        OakP2W4bAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="btnNavigationPanel.Iconimage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

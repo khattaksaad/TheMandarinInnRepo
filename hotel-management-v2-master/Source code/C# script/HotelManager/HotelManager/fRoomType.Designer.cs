@@ -41,6 +41,11 @@
             this.btnCancel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridViewRoomType = new System.Windows.Forms.DataGridView();
+            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLimitPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingCustomerType = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -69,11 +74,6 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.saveRoomType = new System.Windows.Forms.SaveFileDialog();
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.colID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLimitPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoomType)).BeginInit();
@@ -250,6 +250,51 @@
             this.dataGridViewRoomType.Size = new System.Drawing.Size(539, 488);
             this.dataGridViewRoomType.TabIndex = 28;
             this.dataGridViewRoomType.SelectionChanged += new System.EventHandler(this.DataGridViewRoomType_SelectionChanged);
+            // 
+            // colID
+            // 
+            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colID.DataPropertyName = "id";
+            this.colID.HeaderText = "Id";
+            this.colID.Name = "colID";
+            this.colID.ReadOnly = true;
+            this.colID.Width = 48;
+            // 
+            // colName
+            // 
+            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colName.DataPropertyName = "name";
+            this.colName.FillWeight = 90F;
+            this.colName.HeaderText = "Name";
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 77;
+            // 
+            // colLimitPerson
+            // 
+            this.colLimitPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colLimitPerson.DataPropertyName = "limitPerson";
+            this.colLimitPerson.HeaderText = "Total capacity";
+            this.colLimitPerson.Name = "colLimitPerson";
+            this.colLimitPerson.ReadOnly = true;
+            this.colLimitPerson.Visible = false;
+            this.colLimitPerson.Width = 127;
+            // 
+            // colPrice
+            // 
+            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPrice.DataPropertyName = "price_New";
+            this.colPrice.HeaderText = "Price";
+            this.colPrice.Name = "colPrice";
+            this.colPrice.ReadOnly = true;
+            // 
+            // col
+            // 
+            this.col.DataPropertyName = "price";
+            this.col.HeaderText = "price";
+            this.col.Name = "col";
+            this.col.ReadOnly = true;
+            this.col.Visible = false;
             // 
             // bindingCustomerType
             // 
@@ -450,6 +495,7 @@
             this.label2.Size = new System.Drawing.Size(202, 20);
             this.label2.TabIndex = 28;
             this.label2.Text = "Maximum number of people:";
+            this.label2.Visible = false;
             // 
             // groupRoomType
             // 
@@ -500,6 +546,7 @@
             this.txbLimitPerson.Size = new System.Drawing.Size(175, 29);
             this.txbLimitPerson.TabIndex = 29;
             this.txbLimitPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbLimitPerson.Visible = false;
             // 
             // groupBox2
             // 
@@ -612,51 +659,6 @@
             this.bunifuImageButton1.TabStop = false;
             this.bunifuImageButton1.Zoom = 10;
             this.bunifuImageButton1.Click += new System.EventHandler(this.BunifuImageButton1_Click);
-            // 
-            // colID
-            // 
-            this.colID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colID.DataPropertyName = "id";
-            this.colID.HeaderText = "Id";
-            this.colID.Name = "colID";
-            this.colID.ReadOnly = true;
-            this.colID.Width = 48;
-            // 
-            // colName
-            // 
-            this.colName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colName.DataPropertyName = "name";
-            this.colName.FillWeight = 90F;
-            this.colName.HeaderText = "Name";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 77;
-            // 
-            // colLimitPerson
-            // 
-            this.colLimitPerson.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colLimitPerson.DataPropertyName = "limitPerson";
-            this.colLimitPerson.HeaderText = "Total capacity";
-            this.colLimitPerson.Name = "colLimitPerson";
-            this.colLimitPerson.ReadOnly = true;
-            this.colLimitPerson.Visible = false;
-            this.colLimitPerson.Width = 127;
-            // 
-            // colPrice
-            // 
-            this.colPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPrice.DataPropertyName = "price_New";
-            this.colPrice.HeaderText = "Price";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            // 
-            // col
-            // 
-            this.col.DataPropertyName = "price";
-            this.col.HeaderText = "price";
-            this.col.Name = "col";
-            this.col.ReadOnly = true;
-            this.col.Visible = false;
             // 
             // fRoomType
             // 

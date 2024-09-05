@@ -20,7 +20,7 @@ namespace HotelManager.DTO
         private string address;
         private int phoneNumber;
         private DateTime startDay;
-
+        private string path;
         public string UserName { get => userName; set => userName = value; }
         public string DisplayName { get => displayName; set => displayName = value; }
         public string PassWord { get => passWord; set => passWord = value; }
@@ -31,6 +31,7 @@ namespace HotelManager.DTO
         public int PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         public DateTime StartDay { get => startDay; set => startDay = value; }
         public string IdCard { get => idCard; set => idCard = value; }
+        public string Path { get => path; set => path = value; }
         #endregion
 
         #region Constructor
@@ -60,6 +61,7 @@ namespace HotelManager.DTO
             this.StartDay = (DateTime)row["StartDay"];
             this.IdCard = (string)row["idCard"];
             this.PassWord = row["PassWord"].ToString();
+            this.Path = row["Path"].ToString();
 
         }
         #endregion

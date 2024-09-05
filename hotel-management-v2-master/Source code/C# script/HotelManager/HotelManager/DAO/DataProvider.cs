@@ -102,6 +102,27 @@ namespace HotelManager.DAO
             }
             private set => instance = value;
         }
+        public static string GetConnectionStringFromFile()
+        {
+            // Path to the file containing the connection string
+            string fileName = "connectionString.txt";
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, fileName);
+
+            try
+            {
+                // Read the connection string from the file
+                string connectionStringFromFile = File.ReadAllText(filePath);
+                //connectionStr = ConfigurationManager.ConnectionStrings["YourConnectionStringName"].ConnectionString;
+
+                // Remove any leading or trailing white spaces
+                //connectionStr = connectionStringFromFile.Trim()
+                return connectionStringFromFile.Trim();
+            }
+            catch (Exception ex)
+            {
+            }
+            return null;
+        }
         private DataProvider() { }
     }
 }

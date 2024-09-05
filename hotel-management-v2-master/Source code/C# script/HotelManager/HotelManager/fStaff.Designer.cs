@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fStaff));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fStaff));
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -91,7 +91,6 @@
             this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStartDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIDStaffType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridStaff)).BeginInit();
@@ -246,8 +245,7 @@
             this.colSex,
             this.colPhone,
             this.colStartDay,
-            this.colAddress,
-            this.colIDStaffType});
+            this.colAddress});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -390,6 +388,7 @@
             // 
             // groupStaff
             // 
+            this.groupStaff.Controls.Add(this.btnInsert);
             this.groupStaff.Controls.Add(this.datePickerStartDay);
             this.groupStaff.Controls.Add(this.label16);
             this.groupStaff.Controls.Add(this.label7);
@@ -401,7 +400,7 @@
             this.groupStaff.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupStaff.Location = new System.Drawing.Point(6, 215);
             this.groupStaff.Name = "groupStaff";
-            this.groupStaff.Size = new System.Drawing.Size(220, 209);
+            this.groupStaff.Size = new System.Drawing.Size(220, 257);
             this.groupStaff.TabIndex = 1;
             this.groupStaff.TabStop = false;
             this.groupStaff.Text = "Employee accounts";
@@ -498,6 +497,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txbAddress);
+            this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.txbPhoneNumber);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label11);
@@ -514,7 +514,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox2.Location = new System.Drawing.Point(231, 55);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(209, 369);
+            this.groupBox2.Size = new System.Drawing.Size(209, 417);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Staff information";
@@ -723,15 +723,13 @@
             // 
             this.groupBox4.Controls.Add(this.btnClose1);
             this.groupBox4.Controls.Add(this.bunifuThinButton21);
-            this.groupBox4.Controls.Add(this.btnInsert);
             this.groupBox4.Controls.Add(this.btnReset);
-            this.groupBox4.Controls.Add(this.btnUpdate);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox4.Location = new System.Drawing.Point(6, 426);
+            this.groupBox4.Location = new System.Drawing.Point(5, 478);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(435, 179);
+            this.groupBox4.Size = new System.Drawing.Size(435, 127);
             this.groupBox4.TabIndex = 45;
             this.groupBox4.TabStop = false;
             // 
@@ -753,7 +751,7 @@
             this.btnClose1.IdleFillColor = System.Drawing.Color.White;
             this.btnClose1.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnClose1.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose1.Location = new System.Drawing.Point(23, 128);
+            this.btnClose1.Location = new System.Drawing.Point(9, 75);
             this.btnClose1.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose1.Name = "btnClose1";
             this.btnClose1.Size = new System.Drawing.Size(175, 40);
@@ -771,7 +769,7 @@
             this.bunifuThinButton21.ActiveLineColor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton21.BackColor = System.Drawing.Color.White;
             this.bunifuThinButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuThinButton21.BackgroundImage")));
-            this.bunifuThinButton21.ButtonText = "Access rights";
+            this.bunifuThinButton21.ButtonText = "Manage Access Rights";
             this.bunifuThinButton21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bunifuThinButton21.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuThinButton21.ForeColor = System.Drawing.Color.SeaGreen;
@@ -780,7 +778,7 @@
             this.bunifuThinButton21.IdleFillColor = System.Drawing.Color.White;
             this.bunifuThinButton21.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.bunifuThinButton21.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.bunifuThinButton21.Location = new System.Drawing.Point(245, 75);
+            this.bunifuThinButton21.Location = new System.Drawing.Point(236, 27);
             this.bunifuThinButton21.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuThinButton21.Name = "bunifuThinButton21";
             this.bunifuThinButton21.Size = new System.Drawing.Size(175, 40);
@@ -796,9 +794,10 @@
             this.btnInsert.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnInsert.ActiveForecolor = System.Drawing.Color.White;
             this.btnInsert.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnInsert.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnInsert.BackColor = System.Drawing.Color.White;
             this.btnInsert.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnInsert.BackgroundImage")));
-            this.btnInsert.ButtonText = "Add Employee";
+            this.btnInsert.ButtonText = "Add New Employee";
             this.btnInsert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInsert.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInsert.ForeColor = System.Drawing.Color.SeaGreen;
@@ -807,10 +806,10 @@
             this.btnInsert.IdleFillColor = System.Drawing.Color.White;
             this.btnInsert.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnInsert.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnInsert.Location = new System.Drawing.Point(245, 22);
+            this.btnInsert.Location = new System.Drawing.Point(9, 206);
             this.btnInsert.Margin = new System.Windows.Forms.Padding(4);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(175, 40);
+            this.btnInsert.Size = new System.Drawing.Size(175, 44);
             this.btnInsert.TabIndex = 41;
             this.btnInsert.TabStop = false;
             this.btnInsert.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -834,7 +833,7 @@
             this.btnReset.IdleFillColor = System.Drawing.Color.White;
             this.btnReset.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnReset.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnReset.Location = new System.Drawing.Point(23, 75);
+            this.btnReset.Location = new System.Drawing.Point(9, 27);
             this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(175, 40);
@@ -850,9 +849,10 @@
             this.btnUpdate.ActiveFillColor = System.Drawing.Color.SeaGreen;
             this.btnUpdate.ActiveForecolor = System.Drawing.Color.White;
             this.btnUpdate.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnUpdate.BackColor = System.Drawing.Color.White;
             this.btnUpdate.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnUpdate.BackgroundImage")));
-            this.btnUpdate.ButtonText = "Update Employee";
+            this.btnUpdate.ButtonText = "Update Selected Employee";
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.SeaGreen;
@@ -861,10 +861,10 @@
             this.btnUpdate.IdleFillColor = System.Drawing.Color.White;
             this.btnUpdate.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnUpdate.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnUpdate.Location = new System.Drawing.Point(23, 22);
+            this.btnUpdate.Location = new System.Drawing.Point(10, 357);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(175, 40);
+            this.btnUpdate.Size = new System.Drawing.Size(175, 55);
             this.btnUpdate.TabIndex = 42;
             this.btnUpdate.TabStop = false;
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -905,39 +905,39 @@
             // 
             // colUserName
             // 
-            this.colUserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colUserName.DataPropertyName = "userName";
-            this.colUserName.HeaderText = "user name";
+            this.colUserName.HeaderText = "Login name";
             this.colUserName.Name = "colUserName";
             this.colUserName.ReadOnly = true;
+            this.colUserName.Width = 81;
             // 
             // colname
             // 
-            this.colname.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colname.DataPropertyName = "displayName";
+            this.colname.FillWeight = 20F;
             this.colname.HeaderText = "Name";
             this.colname.Name = "colname";
             this.colname.ReadOnly = true;
+            this.colname.Width = 82;
             // 
             // colNameStaffType
             // 
-            this.colNameStaffType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colNameStaffType.DataPropertyName = "name";
             this.colNameStaffType.HeaderText = "Type";
             this.colNameStaffType.Name = "colNameStaffType";
             this.colNameStaffType.ReadOnly = true;
+            this.colNameStaffType.Width = 81;
             // 
             // colIDCard
             // 
-            this.colIDCard.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colIDCard.DataPropertyName = "idCard";
             this.colIDCard.HeaderText = "CNIC";
             this.colIDCard.Name = "colIDCard";
             this.colIDCard.ReadOnly = true;
+            this.colIDCard.Width = 82;
             // 
             // colDateOfBirth
             // 
-            this.colDateOfBirth.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDateOfBirth.DataPropertyName = "dateOfBirth";
             this.colDateOfBirth.HeaderText = "DOB";
             this.colDateOfBirth.Name = "colDateOfBirth";
@@ -946,7 +946,6 @@
             // 
             // colSex
             // 
-            this.colSex.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colSex.DataPropertyName = "sex";
             this.colSex.HeaderText = "Gender";
             this.colSex.Name = "colSex";
@@ -955,35 +954,27 @@
             // 
             // colPhone
             // 
-            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colPhone.DataPropertyName = "phoneNumber";
             this.colPhone.HeaderText = "Phone";
             this.colPhone.Name = "colPhone";
             this.colPhone.ReadOnly = true;
+            this.colPhone.Width = 81;
             // 
             // colStartDay
             // 
-            this.colStartDay.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colStartDay.DataPropertyName = "startDay";
             this.colStartDay.HeaderText = "Date of Employment";
             this.colStartDay.Name = "colStartDay";
             this.colStartDay.ReadOnly = true;
+            this.colStartDay.Width = 82;
             // 
             // colAddress
             // 
-            this.colAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colAddress.DataPropertyName = "address";
             this.colAddress.HeaderText = "Address";
             this.colAddress.Name = "colAddress";
             this.colAddress.ReadOnly = true;
-            // 
-            // colIDStaffType
-            // 
-            this.colIDStaffType.DataPropertyName = "IDStaffType";
-            this.colIDStaffType.HeaderText = "";
-            this.colIDStaffType.Name = "colIDStaffType";
-            this.colIDStaffType.ReadOnly = true;
-            this.colIDStaffType.Visible = false;
+            this.colAddress.Width = 81;
             // 
             // fStaff
             // 
@@ -991,8 +982,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1027, 607);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.bunifuSeparator1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupStaff);
@@ -1087,6 +1078,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn colStartDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn colAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIDStaffType;
     }
 }
