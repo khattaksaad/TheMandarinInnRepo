@@ -113,13 +113,13 @@ namespace HotelManager
                             break;
                     }
                     if (check)
-                        MessageBox.Show( "Saved Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Saved Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     else
-                        MessageBox.Show( "Export Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Export Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch
                 {
-                    MessageBox.Show( "Export error (Install office)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Export error (Install office)", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -164,7 +164,7 @@ namespace HotelManager
                 bindingNavigatorMovePreviousItem.Enabled = true;
             }
         }
-        
+
         private void UpdateService()
         {
             if (comboboxID.Text == string.Empty)
@@ -348,5 +348,13 @@ namespace HotelManager
             BtnCancel_Click(sender, null);
         }
         #endregion
+
+        private void dataGridViewService_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewService.Columns["colDelete"].Index && !dataGridViewService.Rows[e.RowIndex].IsNewRow)
+            {
+                //delete the service
+            }
+        }
     }
 }

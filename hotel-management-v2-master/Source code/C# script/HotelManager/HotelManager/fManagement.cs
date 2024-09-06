@@ -21,6 +21,8 @@ namespace HotelManager
             this.userName = userName;
             InitializeComponent();
             fLoad();
+            AppLogger.Instance.LogError($"fManagement Loaded");
+
         }
         public bool IsAdmin()
         {

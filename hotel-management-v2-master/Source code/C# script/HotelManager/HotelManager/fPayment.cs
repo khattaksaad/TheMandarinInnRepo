@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
@@ -71,6 +72,8 @@ namespace HotelManager
             cbCustomers.ValueMember = "Id";
             cbCustomers.DisplayMember = "CompanyName";
             cbCustomers.SelectedValue = companyList.FirstOrDefault();
+            AppLogger.Instance.LogError($"fPayment Loaded");
+
         }
         private void LoadData()
         {
@@ -509,6 +512,12 @@ namespace HotelManager
         private void checkBoxPayment4Company_CheckedChanged(object sender, EventArgs e)
         {
             cbCustomers.Enabled = checkBoxPayment4Company.Checked;           
+        }
+
+        private void fPayment_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AppLogger.Instance.LogError($"fPayment Closing");
+
         }
     }
 }

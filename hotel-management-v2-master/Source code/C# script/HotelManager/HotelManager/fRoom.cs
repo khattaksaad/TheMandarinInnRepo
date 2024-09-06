@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using System;
 using System.Data;
 using System.Drawing;
@@ -321,6 +322,7 @@ namespace HotelManager
         private void FRoom_FormClosing(object sender, FormClosingEventArgs e)
         {
             BtnCancel_Click(sender, null);
+            AppLogger.Instance.LogError($"fRoom Closing");
         }
         #endregion
 

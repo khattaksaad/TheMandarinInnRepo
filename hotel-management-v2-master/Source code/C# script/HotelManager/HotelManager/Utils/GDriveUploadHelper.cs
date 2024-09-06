@@ -3,6 +3,7 @@ using Google.Apis.Drive.v3;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using HotelManager.DAO;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -50,44 +51,38 @@ namespace HotelManager.Utils
             // Specify an alternative directory (e.g., TempPath)
             string tempPath = StaticValues.GetPath4User(userName);  // You can customize this to any path
             string backuppath = BackupDatabase();
-            // Call the function to find the .mdf and .ldf files
-            //var databaseFiles = FindDatabaseFiles(currentDirectory);
-
-            //Output the result
-            
-
-
-            // Search for .mdf and .ldf files in the directory
-            //string[] databaseFiles = Directory.GetFiles(directoryPath, "*.mdf")
-            //                        .Concat(Directory.GetFiles(directoryPath, "*.ldf"))
-            //                        .ToArray();
-
-            //foreach (string filePath in backuppath)
-            //{
                 UploadFile(service, backuppath);
-            //}
         }
 
         static void UploadFile(DriveService service, string filePath)
         {
-            // Define file metadata
-            var fileMetadata = new Google.Apis.Drive.v3.Data.File()
-            {
-                Name = Path.GetFileName(filePath),
-                Parents = new List<string> { "1-At-XUex1GuHbvXeTvurhGCXSzxaXU_o" } // Replace with the ID of the folder shared with the service account
-            };
 
-            // Upload file
-            using (var stream = new FileStream(filePath, FileMode.Open))
+        AppLogger.Instance.LogInformation("UploadFile called");
+            try
             {
-                var request = service.Files.Create(fileMetadata, stream, GetMimeType(filePath));
-                request.Fields = "id";
-                var progress = request.Upload();
-                var file = request.ResponseBody;
-                //Console.WriteLine($"Uploaded {filePath} with File ID: {file.Id}");
-                MessageBox.Show($"Uploaded successfully");
+                // Define file metadata
+                var fileMetadata = new Google.Apis.Drive.v3.Data.File()
+                {
+                    Name = Path.GetFileName(filePath),
+                    Parents = new List<string> { "1-At-XUex1GuHbvXeTvurhGCXSzxaXU_o" } // Replace with the ID of the folder shared with the service account
+                };
+
+                // Upload file
+                using (var stream = new FileStream(filePath, FileMode.Open))
+                {
+                    var request = service.Files.Create(fileMetadata, stream, GetMimeType(filePath));
+                    request.Fields = "id";
+                    var progress = request.Upload();
+                    var file = request.ResponseBody;
+                    //Console.WriteLine($"Uploaded {filePath} with File ID: {file.Id}");
+                    MessageBox.Show("Information", "Uploaded successfully");
+                    AppLogger.Instance.LogInformation("Backup file uploaded successfully");
+                }
             }
-            int i = 0;
+            catch (Exception ex) {
+                AppLogger.Instance.LogError($"Following error occurred while trying to upload database backup to gdrive <{ex.Message}>");
+
+            }
         }
         static string GetMimeType(string fileName)
         {
@@ -100,30 +95,39 @@ namespace HotelManager.Utils
         }
         static string BackupDatabase()
         {
-            // Connection string to your SQL Server instance
-            string connectionString = DataProvider.GetConnectionStringFromFile();
-            // Regular expression to capture the value of initial catalog
-            string pattern = @"initial catalog\s*=\s*""([^""]+)""";
-
-            // Find the match using Regex
-            Match match = Regex.Match(connectionString, pattern, RegexOptions.IgnoreCase);
-            string dbName = match.Groups[1].Value;
-
+            AppLogger.Instance.LogInformation("Backup database called");
             string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss"); // Format date and time
             string backupFilePath = Path.Combine("C:\\Backup\\", $"TheMandarinInnDB_Backup_{timestamp}.bak");
-            // SQL command to backup the database
-            string query = $@"
+            try
+            {
+                // Connection string to your SQL Server instance
+                string connectionString = DataProvider.GetConnectionStringFromFile();
+                // Regular expression to capture the value of initial catalog
+                string pattern = @"initial catalog\s*=\s*""([^""]+)""";
+
+                // Find the match using Regex
+                Match match = Regex.Match(connectionString, pattern, RegexOptions.IgnoreCase);
+                string dbName = match.Groups[1].Value;
+
+                // SQL command to backup the database
+                string query = $@"
             BACKUP DATABASE [{dbName}] 
             TO DISK = '{backupFilePath}' 
             WITH INIT;
         ";
-            //string backUpPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, dbName);
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(query, connection);
-                connection.Open();
-                command.ExecuteNonQuery();
-                MessageBox.Show($"Database backed up successfully");
+                //string backUpPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, dbName);
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand command = new SqlCommand(query, connection);
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    AppLogger.Instance.LogInformation("Backup file created successfully");
+                    MessageBox.Show("Information","Database backed up successfully");
+                }
+            }
+            catch(Exception ex) {
+                AppLogger.Instance.LogError($"Following error occurred while trying to create database backup <{ex.Message}>");
+
             }
             return backupFilePath;
         }

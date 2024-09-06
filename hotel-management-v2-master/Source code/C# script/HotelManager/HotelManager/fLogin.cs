@@ -1,4 +1,5 @@
 ﻿using HotelManager.DAO;
+using HotelManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,8 +28,7 @@ namespace HotelManager
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"An error occurred: {ex.Message}");
-                File.WriteAllText("error_log.txt", ex.ToString());
+                AppLogger.Instance.LogError($"The following error occurred while trying to Login, error <{ex.Message}>");
             }
             return ret; 
         }
@@ -43,12 +43,16 @@ namespace HotelManager
             if (Login())
             {
                 this.Hide();
+                AppLogger.Instance.LogError($"Login Successful");
+
                 fManagement f = new fManagement(txbUserName.Text);
                 f.ShowDialog();
 
             }
             else
             {
+                AppLogger.Instance.LogError($"Incorrect credentials given, cant give access");
+
                 MessageBox.Show( "Incorrect credentials, cannot grant access!", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

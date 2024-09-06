@@ -29,14 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReceiveRoom));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fReceiveRoom));
             this.label2 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnCheckItem = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckInDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckOutDate1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BookingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookedForCustomersUIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.txbIDBookRoom = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -57,13 +64,6 @@
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnReceiveRoom = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
-            this.ColumnCheckItem = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomTypeNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckInDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckOutDate1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BookingDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -150,6 +150,53 @@
             this.dataGridView1.Size = new System.Drawing.Size(735, 517);
             this.dataGridView1.TabIndex = 49;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ColumnCheckItem
+            // 
+            this.ColumnCheckItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ColumnCheckItem.DataPropertyName = "IsChecked";
+            this.ColumnCheckItem.HeaderText = "";
+            this.ColumnCheckItem.MinimumWidth = 25;
+            this.ColumnCheckItem.Name = "ColumnCheckItem";
+            // 
+            // customerNameDataGridViewTextBoxColumn
+            // 
+            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
+            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Customer";
+            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
+            // 
+            // roomNameDataGridViewTextBoxColumn
+            // 
+            this.roomNameDataGridViewTextBoxColumn.DataPropertyName = "RoomName";
+            this.roomNameDataGridViewTextBoxColumn.HeaderText = "Room Name";
+            this.roomNameDataGridViewTextBoxColumn.Name = "roomNameDataGridViewTextBoxColumn";
+            // 
+            // roomTypeNameDataGridViewTextBoxColumn
+            // 
+            this.roomTypeNameDataGridViewTextBoxColumn.DataPropertyName = "RoomTypeName";
+            this.roomTypeNameDataGridViewTextBoxColumn.HeaderText = "Room Type";
+            this.roomTypeNameDataGridViewTextBoxColumn.Name = "roomTypeNameDataGridViewTextBoxColumn";
+            // 
+            // CheckInDate
+            // 
+            this.CheckInDate.DataPropertyName = "CheckInDate";
+            this.CheckInDate.HeaderText = "Check-In";
+            this.CheckInDate.Name = "CheckInDate";
+            // 
+            // CheckOutDate1
+            // 
+            this.CheckOutDate1.DataPropertyName = "CheckOutDate1";
+            dataGridViewCellStyle1.Format = "dd.MM.yyyy";
+            dataGridViewCellStyle1.NullValue = null;
+            this.CheckOutDate1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CheckOutDate1.HeaderText = "Check Out";
+            this.CheckOutDate1.Name = "CheckOutDate1";
+            // 
+            // BookingDate
+            // 
+            this.BookingDate.DataPropertyName = "BookingDate";
+            this.BookingDate.HeaderText = "Booking Date";
+            this.BookingDate.Name = "BookingDate";
             // 
             // bookedForCustomersUIBindingSource
             // 
@@ -494,53 +541,6 @@
             this.btnClose.Zoom = 10;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // ColumnCheckItem
-            // 
-            this.ColumnCheckItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ColumnCheckItem.DataPropertyName = "IsChecked";
-            this.ColumnCheckItem.HeaderText = "";
-            this.ColumnCheckItem.MinimumWidth = 25;
-            this.ColumnCheckItem.Name = "ColumnCheckItem";
-            // 
-            // customerNameDataGridViewTextBoxColumn
-            // 
-            this.customerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName";
-            this.customerNameDataGridViewTextBoxColumn.HeaderText = "Customer";
-            this.customerNameDataGridViewTextBoxColumn.Name = "customerNameDataGridViewTextBoxColumn";
-            // 
-            // roomNameDataGridViewTextBoxColumn
-            // 
-            this.roomNameDataGridViewTextBoxColumn.DataPropertyName = "RoomName";
-            this.roomNameDataGridViewTextBoxColumn.HeaderText = "Room Name";
-            this.roomNameDataGridViewTextBoxColumn.Name = "roomNameDataGridViewTextBoxColumn";
-            // 
-            // roomTypeNameDataGridViewTextBoxColumn
-            // 
-            this.roomTypeNameDataGridViewTextBoxColumn.DataPropertyName = "RoomTypeName";
-            this.roomTypeNameDataGridViewTextBoxColumn.HeaderText = "Room Type";
-            this.roomTypeNameDataGridViewTextBoxColumn.Name = "roomTypeNameDataGridViewTextBoxColumn";
-            // 
-            // CheckInDate
-            // 
-            this.CheckInDate.DataPropertyName = "CheckInDate";
-            this.CheckInDate.HeaderText = "Check-In";
-            this.CheckInDate.Name = "CheckInDate";
-            // 
-            // CheckOutDate1
-            // 
-            this.CheckOutDate1.DataPropertyName = "CheckOutDate1";
-            dataGridViewCellStyle1.Format = "dd.MM.yyyy";
-            dataGridViewCellStyle1.NullValue = null;
-            this.CheckOutDate1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.CheckOutDate1.HeaderText = "Check Out";
-            this.CheckOutDate1.Name = "CheckOutDate1";
-            // 
-            // BookingDate
-            // 
-            this.BookingDate.DataPropertyName = "BookingDate";
-            this.BookingDate.HeaderText = "Booking Date";
-            this.BookingDate.Name = "BookingDate";
-            // 
             // fReceiveRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -561,6 +561,7 @@
             this.Name = "fReceiveRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "fReceiveRoom";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fReceiveRoom_FormClosing);
             this.groupBox4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

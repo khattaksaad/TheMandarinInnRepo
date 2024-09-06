@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace HotelManager
         {
             InitializeComponent();
             LoadProfile(userName);
+            AppLogger.Instance.LogError($"fProfile Loaded");
         }
         string Password;
         public void LoadProfile(string username)
@@ -114,6 +116,12 @@ namespace HotelManager
         private void btnClose__Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void fProfile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AppLogger.Instance.LogError($"fProfile Closing");
+
         }
     }
 }

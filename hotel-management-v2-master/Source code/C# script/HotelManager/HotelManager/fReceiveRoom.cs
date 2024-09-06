@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
@@ -75,7 +76,8 @@ namespace HotelManager
             this.userName = userName;
             InitializeComponent();
             LoadData();
-          
+            AppLogger.Instance.LogError($"fReceiveRoom Loaded");
+
         }
         public void LoadData()
         {
@@ -280,6 +282,11 @@ namespace HotelManager
         private void groupBox6_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void fReceiveRoom_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            AppLogger.Instance.LogError($"fReceiveRoom Closing");
         }
     }
 }

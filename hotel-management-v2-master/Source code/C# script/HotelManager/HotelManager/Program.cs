@@ -17,15 +17,29 @@ namespace HotelManager
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new fAccess());
-            //check for updates first
-            //CheckForUpdatesAsync();
-            //Application.Run(new fPrintBill(1,19));
+            // Set up global exception handling
+            Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(GlobalExceptionHandler);
+            AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(GlobalUnhandledExceptionHandler);
             Application.Run(new fLogin());
         }
-        private static async void CheckForUpdatesAsync()
+
+        private static void GlobalExceptionHandler(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
-            await UpdateChecker.CheckForUpdates();
+            // Log the exception
+            AppLogger.Instance.LogError("Unhandled UI exception occurred.", e.Exception);
+
+            // Optionally show a message box or other user feedback
+            MessageBox.Show("An unexpected error occurred. The error has been logged.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private static void GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
+        {
+            // Log the exception
+            Exception exception = (Exception)e.ExceptionObject;
+            AppLogger.Instance.LogError("Unhandled non-UI exception occurred.", exception);
+
+            // Optionally handle the application exit
+            // Environment.Exit(1);
         }
     }
 }
