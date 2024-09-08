@@ -1,4 +1,5 @@
 ﻿using HotelManager.DAO;
+using HotelManager.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HotelManager.fUseService;
 
 namespace HotelManager
 {
@@ -27,15 +29,73 @@ namespace HotelManager
             lblDateCreate.Text = dateOfCreate;
             lblStaffSetUp.Text = AccountDAO.Instance.GetStaffSetUp(idBill).DisplayName;
         }
-        public fPrintBill(int idRoom,int idBill)
+        public fPrintBill(int idBooking, string customerName, string phoneNumber)
         {
             InitializeComponent();
-            ShowBillPreView(idBill);
-            ShowInfo(idBill);
-            lblIDBill.Text = idBill.ToString();
+
+            //ShowBillPreView(idBill);
+            ShowBill(idBooking);
+            this.lblCustomerName.Text = customerName;
+           this.lblPhoneNumber.Text = phoneNumber.ToString();
+            //lblIDBill.Text = idBill.ToString();
             lblDateCreate.Text = DateTime.Now.ToString();
-            lblStaffSetUp.Text = AccountDAO.Instance.GetStaffSetUp(idBill).DisplayName;
+            //lblStaffSetUp.Text = AccountDAO.Instance.GetStaffSetUp(idBill).DisplayName;
         }
+
+        public void ShowBill(int bookingId)
+        {
+            listViewServices.Items.Clear();
+            System.Data.DataTable dataTable = ChargeService2RoomDAO.Instance.GetAllServiceChargesForARoom(bookingId);
+            int _totalPrice = 0;
+            foreach (DataRow item in dataTable.Rows)
+            {
+                ListViewItem listViewItem = new ListViewItem(bookingId.ToString());
+                id++;
+
+                ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, item["Service Name"].ToString());
+                ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, ((int)item["Quantity"]).ToString());
+
+
+                _totalPrice = (int)item["Price"] * (int)item["Quantity"];
+                ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, _totalPrice.ToString());
+
+                listViewItem.SubItems.Add(subItem1);
+                listViewItem.SubItems.Add(subItem2);
+                listViewItem.SubItems.Add(subItem3);
+
+                listViewServices.Items.Add(listViewItem);
+            }
+
+        }
+        public void ShowBillRoom(int idRoom)
+        {
+            //bindingSourceRoomBill.DataSource = null;
+            //Room4GUI room = flowLayoutRooms.Tag as Room4GUI;
+            //if (room == null || room.BookingId <= 0) return;
+            ////DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
+            ////	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
+
+
+            //ShowBillRoonInView showBillRoonInView = new ShowBillRoonInView()
+            //{
+            //    RoomName = room.Room.Name.ToString(),
+            //    //ActualPricePerNight = (int)data["Actual Price Per Night"],
+            //    CheckInDate1 = room.CheckInDate,
+            //    CheckOutDate1 = room.CheckOutDate,
+            //    PriceChargedPerNight = room.PricePerNight
+            //};
+
+            //showBillRoonInView.TotalStayCharges4Room = room.Total4Room;
+            //totalPrice += room.Total4Room;
+            //bindingSourceRoomBill.DataSource = showBillRoonInView;
+            //bindingSourceRoomBill.ResetBindings(false);
+            //dataGridView1.Refresh();
+
+        }
+
+
+
+
         int id = 0;
         public void ShowBillPreView(int idBill)
         {

@@ -238,7 +238,7 @@ namespace HotelManager
             if (CheckAccess("fShowAllCurrentBookings"))
             {
                 this.Hide();
-                fShowAllCurrentBookings fShow = new fShowAllCurrentBookings();
+                fShowAllCurrentBookings fShow = new fShowAllCurrentBookings(userName);
                 fShow.ShowDialog();
                 this.Show();
             }

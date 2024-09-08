@@ -15,15 +15,38 @@ namespace HotelManager
 {
     public partial class fMethodOfPayment : Form
     {
+        public class Payment
+        {
+            int totalAmount;
+            int dueAmount;
+            int paidAmount;
+            int discount;
+            int surcharge;
+            string customerName;
+            string phoneNumber;
+            string bookingId;
 
-        public fMethodOfPayment(int amountDue, string customerName, string bookingId)
+            public int TotalAmount { get => totalAmount; set => totalAmount = value; }
+            public int DueAmount { get => dueAmount; set => dueAmount = value; }
+            public int PaidAmount { get => paidAmount; set => paidAmount = value; }
+            public int Discount { get => discount; set => discount = value; }
+            public int Surcharge { get => surcharge; set => surcharge = value; }
+            public string BookingId { get => bookingId; set => bookingId = value; }
+            public string CustomerName { get => customerName; set => customerName = value; }
+            public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
+        }
+        private Payment payment;
+        public fMethodOfPayment(Payment payment)
         {
 
             InitializeComponent();
             LoadFullRoomType();
-            txbBookingID.Text = bookingId.ToString();
-            txbCustomerName.Text = customerName;
-            txbTotalDueAmount.Text = amountDue.ToString();
+            this.payment = payment;
+            txbBookingID.Text = payment.BookingId.ToString();
+            txbCustomerName.Text = payment.CustomerName.ToString();
+            txbTotalDueAmount.Text =  ((payment.DueAmount + payment.Surcharge) - payment.Discount).ToString();
+            tbExtra.Text = payment.Surcharge.ToString();
+            tbDiscount.Text = payment.Discount.ToString();
         }
 
         private void LoadFullRoomType()
@@ -80,8 +103,11 @@ namespace HotelManager
             DialogResult result = MessageBox.Show("Do you want to mark the payment?", "Question", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (result == DialogResult.OK)
             {
-                int paymentDue = Convert.ToInt32(txbTotalDueAmount.Text);
                 int paymentPaid = Convert.ToInt32(txtAmountPaid.Text);
+                int discount = Convert.ToInt32(tbDiscount.Text);
+                int surcharge = Convert.ToInt32(tbExtra.Text);
+                int paymentDue = Convert.ToInt32(txbTotalDueAmount.Text);
+
                 //its a partial payment // statusBill:id = 3
                 int[] bookingIds = txbBookingID.Text.Trim().Split(',')
                             .Select(int.Parse)
@@ -92,7 +118,7 @@ namespace HotelManager
                     foreach(int bookingId in bookingIds)
                     {
 
-                        BillDAO.Instance.UpdateBillAsPayment(bookingId, paymentPaid,statusBill:3);
+                        BillDAO.Instance.UpdateBillAsPayment(bookingId, paymentPaid, discount, surcharge,statusBill:3);
                         BillDAO.Instance.InsertPayment(bookingId, paymentPaid, cbModeOfPayment.Text);
                     }
                 }
@@ -102,7 +128,7 @@ namespace HotelManager
                     foreach (int bookingId in bookingIds)
                     {
 
-                        BillDAO.Instance.UpdateBillAsPayment(bookingId, paymentPaid, statusBill: 2);
+                        BillDAO.Instance.UpdateBillAsPayment(bookingId, paymentPaid, discount, surcharge, statusBill: 2);
                         BillDAO.Instance.InsertPayment(bookingId, paymentPaid, cbModeOfPayment.Text);
                     }
 
@@ -128,6 +154,29 @@ namespace HotelManager
         {
                 if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                     e.Handled = true;
+        }
+
+        private void txbBookingID_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbCustomerName_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbTotalDueAmount_OnValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPrintBill_Click(object sender, EventArgs e)
+        {
+            fPrintBill fPrint = new fPrintBill(Convert.ToInt32(txbBookingID.Text.Trim()), payment.CustomerName, payment.PhoneNumber);
+            this.Hide();
+            fPrint.ShowDialog();
+            this.Show();
         }
     }
 }

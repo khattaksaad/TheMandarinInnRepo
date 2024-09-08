@@ -1,15 +1,41 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
+using static HotelManager.fUseService;
 
 namespace HotelManager
 {
     public partial class fService : Form
-    {
+
+    { 
+        public class Service4GUI
+        {
+            //Service.ID, Service.Name, Price, ServiceType.Name AS nameServiceType, IDServiceType
+            int id;
+            string name;
+            int price;
+            string serviceName;
+            int idServiceType;
+
+            public int IdServiceType { get => idServiceType; set => idServiceType = value; }
+            public string NameServiceType { get => serviceName; set => serviceName = value; }
+            public int Price { get => price; set => price = value; }
+            public string Name { get => name; set => name = value; }
+            public int Id { get => id; set => id = value; }
+            public Service4GUI(DataRow dataRow)
+            {
+                this.id = (int)dataRow["Id"];
+                this.name = (string)dataRow["Name"];
+                this.price = (int)dataRow["Price"];
+                this.serviceName = (string)dataRow["nameServiceType"];
+                this.idServiceType = (int)dataRow["IDServiceType"];
+            }
+        }
         #region Properties
         fServiceType _fServiceType;
         #endregion
@@ -35,12 +61,15 @@ namespace HotelManager
         #region Load
         private void LoadFullService(DataTable table)
         {
-            BindingSource source = new BindingSource();
             ChangePrice(table);
-            source.DataSource = table;
-            dataGridViewService.DataSource = source;
-            bindingService.BindingSource = source;
-            comboboxID.DataSource = source;
+            List<Service4GUI> services = new List<Service4GUI>();
+            foreach (DataRow dataRow in table.Rows)
+            {
+                services.Add(new Service4GUI(dataRow));
+            }
+            bindingSourceService.DataSource = services;
+            bindingSourceService.ResetBindings(false);
+            dataGridViewService.Refresh();
         }
         private void LoadFullServiceType()
         {
@@ -156,10 +185,9 @@ namespace HotelManager
             else
             {
                 txbName.Text = row.Cells["colName"].Value.ToString();
-                comboBoxServiceType.SelectedIndex = (int)row.Cells["colIdServiceType"].Value - 1;
-                txbPrice.Text = ((int)row.Cells[col.Name].Value).ToString();
-                Service room = new Service(((DataRowView)row.DataBoundItem).Row);
-                groupService.Tag = room;
+                comboBoxServiceType.SelectedIndex = (int)row.Cells["IdServiceType"].Value - 1;
+                int price = (int)row.Cells["colPrice"].Value;
+                txbPrice.Text = price.ToString();
                 bindingNavigatorMoveFirstItem.Enabled = true;
                 bindingNavigatorMovePreviousItem.Enabled = true;
             }
@@ -177,17 +205,10 @@ namespace HotelManager
             }
             else
             {
-                Service servicePre = groupService.Tag as Service;
                 try
                 {
                     Service serviceNow = GetServiceNow();
-                    if (serviceNow.Equals(servicePre))
-                    {
-                        MessageBox.Show("You have not changed the data", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                    else
-                    {
-                        bool check = ServiceDAO.Instance.UpdateService(serviceNow, servicePre);
+                        bool check = ServiceDAO.Instance.UpdateService(serviceNow.Id, serviceNow.Name, serviceNow.IdServiceType,serviceNow.Price);
                         if (check)
                         {
                             MessageBox.Show("Success", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -203,7 +224,6 @@ namespace HotelManager
                         }
                         else
                             MessageBox.Show("Service does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    }
                 }
                 catch
                 {
@@ -260,11 +280,11 @@ namespace HotelManager
         }
         private void ChangePrice(DataTable table)
         {
-            table.Columns.Add("price_New", typeof(string));
-            for (int i = 0; i < table.Rows.Count; i++)
-            {
-                table.Rows[i]["price_New"] = ((int)table.Rows[i]["price"]).ToString();
-            }
+            //table.Columns.Add("price_New", typeof(string));
+            //for (int i = 0; i < table.Rows.Count; i++)
+            //{
+            //    table.Rows[i]["price_New"] = ((int)table.Rows[i]["price"]).ToString();
+            //}
         }
         private string StringToInt(string text)
         {
@@ -353,7 +373,11 @@ namespace HotelManager
         {
             if (e.ColumnIndex == dataGridViewService.Columns["colDelete"].Index && !dataGridViewService.Rows[e.RowIndex].IsNewRow)
             {
-                //delete the service
+                Service4GUI service4GUI = dataGridViewService.Rows[e.RowIndex].DataBoundItem as Service4GUI;
+
+                if (service4GUI == null || service4GUI.Id <= 0) return;
+                ServiceDAO.Instance.DeleteService(service4GUI.Id);
+                dataGridViewService.Rows.RemoveAt(e.RowIndex);
             }
         }
     }

@@ -30,11 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPayment));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -49,6 +54,10 @@
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbExtra = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbDiscount = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label6 = new System.Windows.Forms.Label();
             this.checkBoxPayment4Company = new System.Windows.Forms.CheckBox();
             this.btnSearch4Customers = new Bunifu.Framework.UI.BunifuThinButton2();
             this.cbCustomers = new System.Windows.Forms.ComboBox();
@@ -75,11 +84,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.roomNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkInDate1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.checkOutDate1DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceChargedPerNightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalStayCharges4RoomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTotal = new System.Windows.Forms.DataGridView();
+            this.bindingSourceTotal = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.discountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.surchargeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paidAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dueAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.color3)).BeginInit();
@@ -94,6 +109,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTotal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTotal)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuDragControl1
@@ -118,7 +135,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox3.Location = new System.Drawing.Point(6, 51);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(360, 559);
+            this.groupBox3.Size = new System.Drawing.Size(360, 609);
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Room list";
@@ -207,7 +224,7 @@
             // 
             this.flowLayoutRooms.AutoScroll = true;
             this.flowLayoutRooms.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutRooms.Location = new System.Drawing.Point(3, 155);
+            this.flowLayoutRooms.Location = new System.Drawing.Point(3, 205);
             this.flowLayoutRooms.Name = "flowLayoutRooms";
             this.flowLayoutRooms.Size = new System.Drawing.Size(354, 401);
             this.flowLayoutRooms.TabIndex = 51;
@@ -219,7 +236,7 @@
             this.bunifuSeparator1.LineThickness = 1;
             this.bunifuSeparator1.Location = new System.Drawing.Point(6, 42);
             this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(1243, 10);
+            this.bunifuSeparator1.Size = new System.Drawing.Size(1393, 11);
             this.bunifuSeparator1.TabIndex = 33;
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
@@ -237,6 +254,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbExtra);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.tbDiscount);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.checkBoxPayment4Company);
             this.groupBox1.Controls.Add(this.btnSearch4Customers);
             this.groupBox1.Controls.Add(this.cbCustomers);
@@ -246,10 +267,74 @@
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox1.Location = new System.Drawing.Point(370, 51);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(236, 484);
+            this.groupBox1.Size = new System.Drawing.Size(236, 525);
             this.groupBox1.TabIndex = 34;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search by customer";
+            // 
+            // tbExtra
+            // 
+            this.tbExtra.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.tbExtra.BorderColorIdle = System.Drawing.Color.SeaGreen;
+            this.tbExtra.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.tbExtra.BorderThickness = 1;
+            this.tbExtra.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbExtra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbExtra.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbExtra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbExtra.isPassword = false;
+            this.tbExtra.Location = new System.Drawing.Point(10, 426);
+            this.tbExtra.Margin = new System.Windows.Forms.Padding(4);
+            this.tbExtra.MaxLength = 32767;
+            this.tbExtra.Name = "tbExtra";
+            this.tbExtra.Size = new System.Drawing.Size(214, 29);
+            this.tbExtra.TabIndex = 65;
+            this.tbExtra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbExtra.OnValueChanged += new System.EventHandler(this.tbExtra_OnValueChanged);
+            this.tbExtra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbExtra_KeyPress);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label5.Location = new System.Drawing.Point(6, 402);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 20);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Surcharge:";
+            // 
+            // tbDiscount
+            // 
+            this.tbDiscount.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.tbDiscount.BorderColorIdle = System.Drawing.Color.SeaGreen;
+            this.tbDiscount.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.tbDiscount.BorderThickness = 1;
+            this.tbDiscount.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbDiscount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbDiscount.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbDiscount.isPassword = false;
+            this.tbDiscount.Location = new System.Drawing.Point(10, 367);
+            this.tbDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDiscount.MaxLength = 32767;
+            this.tbDiscount.Name = "tbDiscount";
+            this.tbDiscount.Size = new System.Drawing.Size(214, 29);
+            this.tbDiscount.TabIndex = 63;
+            this.tbDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbDiscount.OnValueChanged += new System.EventHandler(this.tbDiscount_OnValueChanged);
+            this.tbDiscount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDiscount_KeyPress);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label6.Location = new System.Drawing.Point(6, 343);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 20);
+            this.label6.TabIndex = 64;
+            this.label6.Text = "Discount:";
             // 
             // checkBoxPayment4Company
             // 
@@ -292,7 +377,7 @@
             // 
             this.cbCustomers.Enabled = false;
             this.cbCustomers.FormattingEnabled = true;
-            this.cbCustomers.Location = new System.Drawing.Point(6, 74);
+            this.cbCustomers.Location = new System.Drawing.Point(10, 76);
             this.cbCustomers.Name = "cbCustomers";
             this.cbCustomers.Size = new System.Drawing.Size(214, 29);
             this.cbCustomers.TabIndex = 60;
@@ -316,7 +401,7 @@
             this.btnPay.IdleFillColor = System.Drawing.Color.White;
             this.btnPay.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnPay.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnPay.Location = new System.Drawing.Point(17, 436);
+            this.btnPay.Location = new System.Drawing.Point(17, 477);
             this.btnPay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPay.Name = "btnPay";
             this.btnPay.Size = new System.Drawing.Size(203, 40);
@@ -372,7 +457,7 @@
             this.groupBox5.Controls.Add(this.btnClose_);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox5.Location = new System.Drawing.Point(372, 541);
+            this.groupBox5.Location = new System.Drawing.Point(369, 594);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(236, 66);
             this.groupBox5.TabIndex = 50;
@@ -416,24 +501,26 @@
             this.txbTotalPrice.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txbTotalPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbTotalPrice.isPassword = false;
-            this.txbTotalPrice.Location = new System.Drawing.Point(1046, 581);
+            this.txbTotalPrice.Location = new System.Drawing.Point(1132, 15);
             this.txbTotalPrice.Margin = new System.Windows.Forms.Padding(4);
             this.txbTotalPrice.MaxLength = 32767;
             this.txbTotalPrice.Name = "txbTotalPrice";
             this.txbTotalPrice.Size = new System.Drawing.Size(203, 29);
             this.txbTotalPrice.TabIndex = 58;
             this.txbTotalPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbTotalPrice.Visible = false;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Crimson;
-            this.label7.Location = new System.Drawing.Point(945, 585);
+            this.label7.Location = new System.Drawing.Point(1031, 19);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 20);
             this.label7.TabIndex = 59;
             this.label7.Text = "Amount due:";
+            this.label7.Visible = false;
             // 
             // groupBoxBill
             // 
@@ -442,7 +529,7 @@
             this.groupBoxBill.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBoxBill.Location = new System.Drawing.Point(612, 206);
             this.groupBoxBill.Name = "groupBoxBill";
-            this.groupBoxBill.Size = new System.Drawing.Size(637, 363);
+            this.groupBoxBill.Size = new System.Drawing.Size(787, 391);
             this.groupBoxBill.TabIndex = 51;
             this.groupBoxBill.TabStop = false;
             this.groupBoxBill.Text = "Service bill";
@@ -455,7 +542,7 @@
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(3, 25);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(631, 335);
+            this.panel2.Size = new System.Drawing.Size(781, 363);
             this.panel2.TabIndex = 39;
             // 
             // listViewUseService
@@ -475,7 +562,7 @@
             this.listViewUseService.HideSelection = false;
             this.listViewUseService.Location = new System.Drawing.Point(0, 0);
             this.listViewUseService.Name = "listViewUseService";
-            this.listViewUseService.Size = new System.Drawing.Size(631, 335);
+            this.listViewUseService.Size = new System.Drawing.Size(781, 363);
             this.listViewUseService.TabIndex = 8;
             this.listViewUseService.UseCompatibleStateImageBehavior = false;
             this.listViewUseService.View = System.Windows.Forms.View.Details;
@@ -508,53 +595,53 @@
             // 
             this.dataGridViewBookRoom.AllowDrop = true;
             this.dataGridViewBookRoom.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            this.dataGridViewBookRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            this.dataGridViewBookRoom.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewBookRoom.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBookRoom.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.dataGridViewBookRoom.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewBookRoom.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBookRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBookRoom.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewBookRoom.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewBookRoom.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewBookRoom.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewBookRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewBookRoom.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewBookRoom.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewBookRoom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridViewBookRoom.Name = "dataGridViewBookRoom";
             this.dataGridViewBookRoom.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBookRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBookRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewBookRoom.RowHeadersVisible = false;
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewBookRoom.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewBookRoom.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewBookRoom.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewBookRoom.Size = new System.Drawing.Size(631, 335);
+            this.dataGridViewBookRoom.Size = new System.Drawing.Size(781, 363);
             this.dataGridViewBookRoom.StandardTab = true;
             this.dataGridViewBookRoom.TabIndex = 7;
             // 
@@ -568,7 +655,7 @@
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
             this.btnClose.ImageActive = null;
-            this.btnClose.Location = new System.Drawing.Point(1234, 6);
+            this.btnClose.Location = new System.Drawing.Point(1383, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(16, 16);
             this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -589,24 +676,26 @@
             this.txbPaid.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txbPaid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbPaid.isPassword = false;
-            this.txbPaid.Location = new System.Drawing.Point(720, 581);
+            this.txbPaid.Location = new System.Drawing.Point(797, 15);
             this.txbPaid.Margin = new System.Windows.Forms.Padding(4);
             this.txbPaid.MaxLength = 32767;
             this.txbPaid.Name = "txbPaid";
             this.txbPaid.Size = new System.Drawing.Size(203, 29);
             this.txbPaid.TabIndex = 60;
             this.txbPaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbPaid.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(614, 585);
+            this.label1.Location = new System.Drawing.Point(691, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(99, 20);
             this.label1.TabIndex = 61;
             this.label1.Text = "Amount paid:";
+            this.label1.Visible = false;
             // 
             // groupBox2
             // 
@@ -615,7 +704,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupBox2.Location = new System.Drawing.Point(612, 59);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(638, 145);
+            this.groupBox2.Size = new System.Drawing.Size(787, 145);
             this.groupBox2.TabIndex = 54;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Room bill";
@@ -625,13 +714,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.roomNameDataGridViewTextBoxColumn,
-            this.checkInDate1DataGridViewTextBoxColumn,
-            this.checkOutDate1DataGridViewTextBoxColumn,
-            this.priceChargedPerNightDataGridViewTextBoxColumn,
-            this.totalStayCharges4RoomDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
             this.dataGridView1.DataSource = this.bindingSourceRoomBill;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 18);
@@ -639,54 +729,133 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(632, 124);
+            this.dataGridView1.Size = new System.Drawing.Size(781, 124);
             this.dataGridView1.TabIndex = 61;
             // 
-            // roomNameDataGridViewTextBoxColumn
+            // dataGridViewTotal
             // 
-            this.roomNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.roomNameDataGridViewTextBoxColumn.DataPropertyName = "RoomName";
-            this.roomNameDataGridViewTextBoxColumn.HeaderText = "Room";
-            this.roomNameDataGridViewTextBoxColumn.Name = "roomNameDataGridViewTextBoxColumn";
-            this.roomNameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTotal.AllowUserToAddRows = false;
+            this.dataGridViewTotal.AllowUserToDeleteRows = false;
+            this.dataGridViewTotal.AutoGenerateColumns = false;
+            this.dataGridViewTotal.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewTotal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTotal.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.totalAmountDataGridViewTextBoxColumn,
+            this.discountDataGridViewTextBoxColumn,
+            this.surchargeDataGridViewTextBoxColumn,
+            this.paidAmountDataGridViewTextBoxColumn,
+            this.dueAmountDataGridViewTextBoxColumn});
+            this.dataGridViewTotal.DataSource = this.bindingSourceTotal;
+            this.dataGridViewTotal.Location = new System.Drawing.Point(615, 603);
+            this.dataGridViewTotal.Name = "dataGridViewTotal";
+            this.dataGridViewTotal.RowHeadersVisible = false;
+            this.dataGridViewTotal.Size = new System.Drawing.Size(784, 57);
+            this.dataGridViewTotal.TabIndex = 64;
             // 
-            // checkInDate1DataGridViewTextBoxColumn
+            // bindingSourceTotal
             // 
-            this.checkInDate1DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.checkInDate1DataGridViewTextBoxColumn.DataPropertyName = "CheckInDate1";
-            this.checkInDate1DataGridViewTextBoxColumn.HeaderText = "Check-In";
-            this.checkInDate1DataGridViewTextBoxColumn.Name = "checkInDate1DataGridViewTextBoxColumn";
-            this.checkInDate1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.bindingSourceTotal.DataSource = typeof(HotelManager.fPayment.PaymentTotal);
             // 
-            // checkOutDate1DataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.checkOutDate1DataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.checkOutDate1DataGridViewTextBoxColumn.DataPropertyName = "CheckOutDate1";
-            this.checkOutDate1DataGridViewTextBoxColumn.HeaderText = "Check Out";
-            this.checkOutDate1DataGridViewTextBoxColumn.Name = "checkOutDate1DataGridViewTextBoxColumn";
-            this.checkOutDate1DataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "RoomName";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Room";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // priceChargedPerNightDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.priceChargedPerNightDataGridViewTextBoxColumn.DataPropertyName = "PriceChargedPerNight";
-            this.priceChargedPerNightDataGridViewTextBoxColumn.HeaderText = "Per Night";
-            this.priceChargedPerNightDataGridViewTextBoxColumn.Name = "priceChargedPerNightDataGridViewTextBoxColumn";
-            this.priceChargedPerNightDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CheckInDate1";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CheckIn";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // totalStayCharges4RoomDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.totalStayCharges4RoomDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.totalStayCharges4RoomDataGridViewTextBoxColumn.DataPropertyName = "TotalStayCharges4Room";
-            this.totalStayCharges4RoomDataGridViewTextBoxColumn.HeaderText = "Total";
-            this.totalStayCharges4RoomDataGridViewTextBoxColumn.Name = "totalStayCharges4RoomDataGridViewTextBoxColumn";
-            this.totalStayCharges4RoomDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CheckOutDate1";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CheckOut";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "PriceChargedPerNight";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Charges Per Night";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // totalAmountDataGridViewTextBoxColumn
+            // 
+            this.totalAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.totalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount";
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
+            this.totalAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle16;
+            this.totalAmountDataGridViewTextBoxColumn.HeaderText = "Total";
+            this.totalAmountDataGridViewTextBoxColumn.Name = "totalAmountDataGridViewTextBoxColumn";
+            // 
+            // discountDataGridViewTextBoxColumn
+            // 
+            this.discountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black;
+            this.discountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle17;
+            this.discountDataGridViewTextBoxColumn.HeaderText = "Discount";
+            this.discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
+            // 
+            // surchargeDataGridViewTextBoxColumn
+            // 
+            this.surchargeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.surchargeDataGridViewTextBoxColumn.DataPropertyName = "Surcharge";
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Black;
+            this.surchargeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle18;
+            this.surchargeDataGridViewTextBoxColumn.HeaderText = "Surcharge";
+            this.surchargeDataGridViewTextBoxColumn.Name = "surchargeDataGridViewTextBoxColumn";
+            // 
+            // paidAmountDataGridViewTextBoxColumn
+            // 
+            this.paidAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.paidAmountDataGridViewTextBoxColumn.DataPropertyName = "PaidAmount";
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Green;
+            this.paidAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle19;
+            this.paidAmountDataGridViewTextBoxColumn.HeaderText = "Paid";
+            this.paidAmountDataGridViewTextBoxColumn.Name = "paidAmountDataGridViewTextBoxColumn";
+            // 
+            // dueAmountDataGridViewTextBoxColumn
+            // 
+            this.dueAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dueAmountDataGridViewTextBoxColumn.DataPropertyName = "DueAmount";
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Red;
+            this.dueAmountDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dueAmountDataGridViewTextBoxColumn.HeaderText = "Due";
+            this.dueAmountDataGridViewTextBoxColumn.Name = "dueAmountDataGridViewTextBoxColumn";
             // 
             // fPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1255, 615);
+            this.ClientSize = new System.Drawing.Size(1404, 696);
+            this.Controls.Add(this.dataGridViewTotal);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txbPaid);
             this.Controls.Add(this.label1);
@@ -722,6 +891,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTotal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTotal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -774,5 +945,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn checkOutDate1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceChargedPerNightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn totalStayCharges4RoomDataGridViewTextBoxColumn;
+        private Bunifu.Framework.UI.BunifuMetroTextbox tbExtra;
+        private System.Windows.Forms.Label label5;
+        private Bunifu.Framework.UI.BunifuMetroTextbox tbDiscount;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dataGridViewTotal;
+        private System.Windows.Forms.BindingSource bindingSourceTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn surchargeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paidAmountDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dueAmountDataGridViewTextBoxColumn;
     }
 }

@@ -14,8 +14,8 @@ namespace HotelManager.DAO
     {
         private static DataProvider instance;
         //@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\Application\Database\HotelManagement.mdf"";Integrated Security=True;"
-        private static string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;initial catalog=""C:\Users\skhan\Downloads\New folder\New folder\HotelManagement.mdf"";Integrated Security=True;";
-        //private static string connectionStr = "";
+        //private static string connectionStr = @"Data Source=(LocalDB)\MSSQLLocalDB;initial catalog=""C:\Users\skhan\Downloads\New folder\New folder\HotelManagement.mdf"";Integrated Security=True;";
+        private static string connectionStr = "";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();
@@ -92,7 +92,7 @@ namespace HotelManager.DAO
                         //connectionStr = ConfigurationManager.ConnectionStrings["YourConnectionStringName"].ConnectionString;
 
                         // Remove any leading or trailing white spaces
-                        //connectionStr = connectionStringFromFile.Trim();
+                        connectionStr = connectionStringFromFile.Trim();
                     }
                     catch (Exception ex)
                     {

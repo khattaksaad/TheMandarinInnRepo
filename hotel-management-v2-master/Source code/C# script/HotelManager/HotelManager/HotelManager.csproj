@@ -559,6 +559,7 @@
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="Utils\AppLogger.cs" />
     <Compile Include="Utils\StaticValues.cs" />
+    <Compile Include="Utils\ThermalPrinter.cs" />
     <Compile Include="Utils\UpdateChecker.cs" />
     <EmbeddedResource Include="fAbout.resx">
       <DependentUpon>fAbout.cs</DependentUpon>
@@ -682,7 +683,9 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\fAdvanceBooking.AdvanceRoomBooking4Grid.datasource" />
     <None Include="Properties\DataSources\fBookRoom4Self.RoomBooking4Grid.datasource" />
+    <None Include="Properties\DataSources\fPayment.PaymentTotal.datasource" />
     <None Include="Properties\DataSources\fReceiveRoom.BookedForCustomersUI.datasource" />
+    <None Include="Properties\DataSources\fService.Service4GUI.datasource" />
     <None Include="Properties\DataSources\fShowAllCurrentBookings.AdvanceBooking4View.datasource" />
     <None Include="Properties\DataSources\fShowAllCurrentBookings.RoomBooking4View.datasource" />
     <None Include="Properties\DataSources\fUseService.ServicesUsed4GUI.datasource" />

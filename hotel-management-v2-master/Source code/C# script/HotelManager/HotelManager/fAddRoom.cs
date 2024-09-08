@@ -30,7 +30,7 @@ namespace HotelManager
             if (table.Rows.Count > 0)
                 comboBoxRoomType.SelectedIndex = 0;
             txbPrice.DataBindings.Add("Text", comboBoxRoomType.DataSource, "price_New");
-            txbLimitPerson.DataBindings.Add(new Binding("Text", comboBoxRoomType.DataSource, "limitPerson"));
+            //txbLimitPerson.DataBindings.Add(new Binding("Text", comboBoxRoomType.DataSource, "limitPerson"));
         }
         private DataTable GetFullRoomType()
         {

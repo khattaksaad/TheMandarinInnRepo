@@ -218,6 +218,9 @@ namespace HotelManager
                                 InsertBillForCheckedOutRoom(item.BookingId, roomPrice);
                                 MessageBox.Show("Check out successful.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 LoadEmptyRoom((cbRoomType.SelectedItem as RoomType).Id);
+                                bookedForCustomersUIBindingSource.Clear();
+                                bookedForCustomersUIBindingSource.ResetBindings(false);
+                                dataGridView1.Refresh();
                             }
                             else
                                 MessageBox.Show("Check out failed.\nPlease re-enter.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -14,12 +14,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Windows.Forms;
+using static HotelManager.fMethodOfPayment;
 using static HotelManager.fUseService;
 
 namespace HotelManager
 {
     public partial class fPayment : Form
     {
+        public class PaymentTotal
+        {
+            int totalAmount;
+            int dueAmount;
+            int paidAmount;
+            int discount;
+            int surcharge;
+
+            public int TotalAmount { get => totalAmount; set => totalAmount = value; }
+            public int DueAmount { get => dueAmount; set => dueAmount = value; }
+            public int PaidAmount { get => paidAmount; set => paidAmount = value; }
+            public int Discount { get => discount; set => discount = value; }
+            public int Surcharge { get => surcharge; set => surcharge = value; }
+        }
         string staffSetUp;
         List<Company> companyList;
         List<Customer> customers;
@@ -218,7 +233,6 @@ namespace HotelManager
                 //BillDAO.Instance.UpdateRoomPrice(item.Id);
             }
         }
-
         private void Button_Click(object sender, EventArgs e)
         {
             bindingSourceRoomBill.DataSource = null;
@@ -249,6 +263,18 @@ namespace HotelManager
                 totalPaid = Convert.ToInt32(data.Rows[0]["AmountPaid"]);
             txbPaid.Text = totalPaid.ToString();
             txbTotalPrice.Text = (Convert.ToInt32(data.Rows[0]["TotalPrice"]) - totalPaid).ToString();
+
+            PaymentTotal payment = new PaymentTotal();
+            payment.PaidAmount = totalPaid;
+            payment.TotalAmount = Convert.ToInt32(data.Rows[0]["TotalPrice"]);
+            payment.Discount = Convert.ToInt32(data.Rows[0]["Discount"]);
+            payment.Surcharge = Convert.ToInt32(data.Rows[0]["Surcharge"]);
+            tbDiscount.Text = payment.Discount.ToString();
+            tbExtra.Text =  payment.Surcharge.ToString();
+            payment.DueAmount = (payment.TotalAmount + payment.Surcharge) - (payment.PaidAmount + payment.Discount);
+            bindingSourceTotal.DataSource = payment;
+            bindingSourceTotal.ResetBindings(false);
+            dataGridViewTotal.Refresh();
         }
 
         public bool IsExistsBill(int idRoom)
@@ -407,31 +433,55 @@ namespace HotelManager
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
                 e.Handled = true;
         }
-      
+
         private void btnAddService2Room_Click(object sender, EventArgs e)
         {
+            if (!(flowLayoutRooms.Tag is Room4GUI room))
+            {
+                MessageBox.Show("Please select a room first", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return;
+            }
             this.Hide();
             int totalDue = 0;
             string bookingId = "";
             string customerName = string.Empty;
+            string contactNumber = string.Empty;
             foreach (var item in roomsDisplayed)
             {
                 //totalDue += item.Total4Room;
                 bookingId += "," + item.BookingId;
-                if(customerName == string.Empty)
+                if (string.IsNullOrEmpty(contactNumber))
                 {
                     if (item.BookingType == 0)
                     {
                         customerName = customers.FirstOrDefault(f => f.Id == item.CustomerId)?.Name ?? string.Empty;
+                        contactNumber = customers.FirstOrDefault(f => f.Id == item.CustomerId)?.PhoneNumber ?? string.Empty;
                     }
                     else
                     {
                         customerName = companyList.FirstOrDefault(f => f.Id == item.CustomerId)?.CompanyName ?? string.Empty;
+                        contactNumber = companyList.FirstOrDefault(f => f.Id == item.CustomerId)?.PhoneNumber ?? string.Empty;
+
                     }
                 }
             }
-            fMethodOfPayment fMethodOfPayment = new fMethodOfPayment(Convert.ToInt32(txbTotalPrice.Text), customerName: customerName, bookingId.TrimStart(','));
+            int discount = Convert.ToInt32(tbDiscount.Text);
+            int surcharge = Convert.ToInt32(tbExtra.Text);
+            fMethodOfPayment fMethodOfPayment = new fMethodOfPayment(new fMethodOfPayment.Payment()            
+            { 
+                DueAmount = Convert.ToInt32(txbTotalPrice.Text), 
+                TotalAmount = totalPrice,
+                CustomerName = customerName,
+                PhoneNumber = contactNumber, 
+                BookingId = bookingId.TrimStart(','), 
+                Discount = discount,
+                Surcharge = surcharge        
+            });
             fMethodOfPayment.ShowDialog();
+            LoadData();
+            bindingSourceTotal.DataSource = null;
+            tbDiscount.Text = string.Empty;
+            tbExtra.Text = string.Empty;
             this.Show();
         }
 
@@ -517,6 +567,57 @@ namespace HotelManager
         private void fPayment_FormClosing(object sender, FormClosingEventArgs e)
         {
             AppLogger.Instance.LogError($"fPayment Closing");
+
+        }
+
+        private void tbDiscount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tbExtra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void tbDiscount_OnValueChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewTotal.Rows.Count <= 0) return;
+            PaymentTotal payment = dataGridViewTotal.Rows[0].DataBoundItem as PaymentTotal;
+
+            if (string.IsNullOrEmpty(tbDiscount.Text) || tbDiscount.Text.Count() == 0) {
+                payment.Discount = 0;
+            }
+            else
+            {
+                payment.Discount = Convert.ToInt32(tbDiscount.Text);
+            }
+            payment.DueAmount = (payment.TotalAmount + payment.Surcharge) - (payment.PaidAmount + payment.Discount);
+            bindingSourceTotal.DataSource = payment;
+            bindingSourceTotal.ResetBindings(false);
+            dataGridViewTotal.Refresh();
+
+        }
+
+        private void tbExtra_OnValueChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewTotal.Rows.Count <= 0) return;
+            PaymentTotal payment = dataGridViewTotal.Rows[0].DataBoundItem as PaymentTotal;
+            if (string.IsNullOrEmpty(tbExtra.Text) || tbExtra.Text.Count() == 0)
+            {
+                payment.Surcharge = 0;
+            }
+            else
+            {
+                payment.Surcharge = Convert.ToInt32(tbExtra.Text);
+            }
+
+            payment.DueAmount = (payment.TotalAmount + payment.Surcharge) - (payment.PaidAmount + payment.Discount);
+            bindingSourceTotal.DataSource = payment;
+            bindingSourceTotal.ResetBindings(false);
+            dataGridViewTotal.Refresh();
 
         }
     }

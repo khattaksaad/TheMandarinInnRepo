@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static HotelManager.fShowAllCurrentBookings;
+using static HotelManager.fUseService;
 
 namespace HotelManager
 {
@@ -22,12 +24,13 @@ namespace HotelManager
             private DateTime dateIn;
             private DateTime dateOut;
             private DateTime dateBookRoom;
-
+            private int advanceBookingId;
             public string RoomType { get => roomType; set => roomType = value; }
             public string CustomerName { get => customerName; set => customerName = value; }
             public DateTime DateIn { get => dateIn; set => dateIn = value; }
             public DateTime DateOut { get => dateOut; set => dateOut = value; }
             public DateTime DateBookRoom { get => dateBookRoom; set => dateBookRoom = value; }
+            public int AdvanceBookingId { get => advanceBookingId; set => advanceBookingId = value; }
         }
         public class RoomBooking4View
         {
@@ -51,8 +54,10 @@ namespace HotelManager
         List<Room> rooms = new List<Room>();
         List<Customer> customers = new List<Customer>();
         List<Company> companies = new List<Company>();
-        public fShowAllCurrentBookings()
+        string userName;
+        public fShowAllCurrentBookings(string userName)
         {
+            this.userName = userName;
             InitializeComponent();
             InitData();
         }
@@ -138,6 +143,7 @@ namespace HotelManager
                 advanceBooking4View.DateOut = (DateTime)dataRow["Check out date"];
                 advanceBooking4View.DateBookRoom = (DateTime)dataRow["DateBookRoom"];
                 advanceBooking4View.RoomType = dataRow["Room Type"].ToString();
+                advanceBooking4View.AdvanceBookingId = (int)dataRow["Id"];
                 aBookings.Add(advanceBooking4View);
             }
             advanceBookingsBindingSource.DataSource = aBookings;
@@ -180,6 +186,40 @@ namespace HotelManager
         private void btnClose__Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridViewRoom_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewRoom.Columns["colDelete"].Index && !dataGridViewRoom.Rows[e.RowIndex].IsNewRow)
+            {
+                DialogResult dr = MessageBox.Show("Do you really want to delete this booking?", "Stop", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No) return;
+                RoomBooking4View selectedRow = dataGridViewRoom.Rows[e.RowIndex].DataBoundItem as RoomBooking4View;
+                AppLogger.Instance.LogInformation($"Delete of booking <{selectedRow.ReservationId}> was initiated by <{userName}>");
+
+                if (selectedRow == null || selectedRow.ReservationId <= 0) return;
+                BookRoomDAO.Instance.DeleteBookRoom(selectedRow.ReservationId);
+                MessageBox.Show("Booking deleted");
+                dataGridViewRoom.Rows.RemoveAt(e.RowIndex);
+            }
+
+        }
+
+        private void dataGridViewAdvanceBookings_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridViewAdvanceBookings.Columns["colDeleteAB"].Index && !dataGridViewAdvanceBookings.Rows[e.RowIndex].IsNewRow)
+            {
+                DialogResult dr = MessageBox.Show("Do you really want to delete this advance booking?", "Stop", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No) return;
+                AdvanceBooking4View selectedRow = dataGridViewAdvanceBookings.Rows[e.RowIndex].DataBoundItem as AdvanceBooking4View;
+                AppLogger.Instance.LogInformation($"Delete of Advance booking <{selectedRow.AdvanceBookingId}> was initiated by <{userName}>");
+
+                if (selectedRow == null || selectedRow.AdvanceBookingId <= 0) return;
+                AdvanceBookingDAO.Instance.DeleteAdvanceBooking(selectedRow.AdvanceBookingId);
+                MessageBox.Show("Advance Booking deleted");
+                dataGridViewAdvanceBookings.Rows.RemoveAt(e.RowIndex);
+            }
+
         }
     }
 }

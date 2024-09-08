@@ -37,6 +37,10 @@
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnPay = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupRoom = new System.Windows.Forms.GroupBox();
+            this.tbExtra = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbDiscount = new Bunifu.Framework.UI.BunifuMetroTextbox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtAmountPaid = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label4 = new System.Windows.Forms.Label();
             this.txbBookingID = new Bunifu.Framework.UI.BunifuMetroTextbox();
@@ -48,6 +52,7 @@
             this.txbCustomerName = new Bunifu.Framework.UI.BunifuMetroTextbox();
             this.label15 = new System.Windows.Forms.Label();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btnPrintBill = new Bunifu.Framework.UI.BunifuThinButton2();
             this.groupBox1.SuspendLayout();
             this.groupRoom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -85,14 +90,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPrintBill);
             this.groupBox1.Controls.Add(this.btnClose_);
             this.groupBox1.Controls.Add(this.btnPay);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.groupBox1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.groupBox1.Location = new System.Drawing.Point(8, 353);
+            this.groupBox1.Location = new System.Drawing.Point(8, 474);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox1.Size = new System.Drawing.Size(448, 71);
+            this.groupBox1.Size = new System.Drawing.Size(448, 106);
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             // 
@@ -114,7 +120,7 @@
             this.btnClose_.IdleFillColor = System.Drawing.Color.White;
             this.btnClose_.IdleForecolor = System.Drawing.Color.SeaGreen;
             this.btnClose_.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btnClose_.Location = new System.Drawing.Point(246, 24);
+            this.btnClose_.Location = new System.Drawing.Point(21, 64);
             this.btnClose_.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClose_.Name = "btnClose_";
             this.btnClose_.Size = new System.Drawing.Size(175, 40);
@@ -150,6 +156,10 @@
             // 
             // groupRoom
             // 
+            this.groupRoom.Controls.Add(this.tbExtra);
+            this.groupRoom.Controls.Add(this.label7);
+            this.groupRoom.Controls.Add(this.tbDiscount);
+            this.groupRoom.Controls.Add(this.label5);
             this.groupRoom.Controls.Add(this.txtAmountPaid);
             this.groupRoom.Controls.Add(this.label4);
             this.groupRoom.Controls.Add(this.txbBookingID);
@@ -165,10 +175,74 @@
             this.groupRoom.ForeColor = System.Drawing.Color.SeaGreen;
             this.groupRoom.Location = new System.Drawing.Point(7, 56);
             this.groupRoom.Name = "groupRoom";
-            this.groupRoom.Size = new System.Drawing.Size(444, 302);
+            this.groupRoom.Size = new System.Drawing.Size(444, 422);
             this.groupRoom.TabIndex = 53;
             this.groupRoom.TabStop = false;
             this.groupRoom.Text = "Room information";
+            // 
+            // tbExtra
+            // 
+            this.tbExtra.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbExtra.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.tbExtra.BorderColorIdle = System.Drawing.Color.SeaGreen;
+            this.tbExtra.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.tbExtra.BorderThickness = 1;
+            this.tbExtra.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbExtra.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbExtra.Enabled = false;
+            this.tbExtra.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbExtra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbExtra.isPassword = false;
+            this.tbExtra.Location = new System.Drawing.Point(15, 265);
+            this.tbExtra.Margin = new System.Windows.Forms.Padding(4);
+            this.tbExtra.MaxLength = 32767;
+            this.tbExtra.Name = "tbExtra";
+            this.tbExtra.Size = new System.Drawing.Size(400, 29);
+            this.tbExtra.TabIndex = 54;
+            this.tbExtra.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label7.Location = new System.Drawing.Point(14, 245);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 20);
+            this.label7.TabIndex = 55;
+            this.label7.Text = "Surcharge:";
+            // 
+            // tbDiscount
+            // 
+            this.tbDiscount.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tbDiscount.BorderColorFocused = System.Drawing.Color.SeaGreen;
+            this.tbDiscount.BorderColorIdle = System.Drawing.Color.SeaGreen;
+            this.tbDiscount.BorderColorMouseHover = System.Drawing.Color.SeaGreen;
+            this.tbDiscount.BorderThickness = 1;
+            this.tbDiscount.characterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbDiscount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbDiscount.Enabled = false;
+            this.tbDiscount.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbDiscount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbDiscount.isPassword = false;
+            this.tbDiscount.Location = new System.Drawing.Point(15, 209);
+            this.tbDiscount.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDiscount.MaxLength = 32767;
+            this.tbDiscount.Name = "tbDiscount";
+            this.tbDiscount.Size = new System.Drawing.Size(400, 29);
+            this.tbDiscount.TabIndex = 52;
+            this.tbDiscount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.SeaGreen;
+            this.label5.Location = new System.Drawing.Point(14, 189);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 20);
+            this.label5.TabIndex = 53;
+            this.label5.Text = "Discount:";
             // 
             // txtAmountPaid
             // 
@@ -182,7 +256,7 @@
             this.txtAmountPaid.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmountPaid.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txtAmountPaid.isPassword = false;
-            this.txtAmountPaid.Location = new System.Drawing.Point(19, 191);
+            this.txtAmountPaid.Location = new System.Drawing.Point(15, 321);
             this.txtAmountPaid.Margin = new System.Windows.Forms.Padding(0);
             this.txtAmountPaid.MaxLength = 32767;
             this.txtAmountPaid.Name = "txtAmountPaid";
@@ -196,7 +270,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label4.Location = new System.Drawing.Point(18, 171);
+            this.label4.Location = new System.Drawing.Point(14, 301);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 20);
             this.label4.TabIndex = 50;
@@ -215,13 +289,14 @@
             this.txbBookingID.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbBookingID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbBookingID.isPassword = false;
-            this.txbBookingID.Location = new System.Drawing.Point(18, 41);
+            this.txbBookingID.Location = new System.Drawing.Point(15, 41);
             this.txbBookingID.Margin = new System.Windows.Forms.Padding(0);
             this.txbBookingID.MaxLength = 32767;
             this.txbBookingID.Name = "txbBookingID";
             this.txbBookingID.Size = new System.Drawing.Size(399, 29);
             this.txbBookingID.TabIndex = 49;
             this.txbBookingID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbBookingID.OnValueChanged += new System.EventHandler(this.txbBookingID_OnValueChanged);
             // 
             // txbTotalDueAmount
             // 
@@ -236,20 +311,21 @@
             this.txbTotalDueAmount.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTotalDueAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbTotalDueAmount.isPassword = false;
-            this.txbTotalDueAmount.Location = new System.Drawing.Point(19, 142);
+            this.txbTotalDueAmount.Location = new System.Drawing.Point(15, 153);
             this.txbTotalDueAmount.Margin = new System.Windows.Forms.Padding(0);
             this.txbTotalDueAmount.MaxLength = 32767;
             this.txbTotalDueAmount.Name = "txbTotalDueAmount";
             this.txbTotalDueAmount.Size = new System.Drawing.Size(399, 29);
             this.txbTotalDueAmount.TabIndex = 48;
             this.txbTotalDueAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbTotalDueAmount.OnValueChanged += new System.EventHandler(this.txbTotalDueAmount_OnValueChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label3.Location = new System.Drawing.Point(18, 224);
+            this.label3.Location = new System.Drawing.Point(14, 357);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 20);
             this.label3.TabIndex = 47;
@@ -266,9 +342,9 @@
             "Cash",
             "Bank transfer",
             "Cheque"});
-            this.cbModeOfPayment.Location = new System.Drawing.Point(19, 247);
+            this.cbModeOfPayment.Location = new System.Drawing.Point(15, 377);
             this.cbModeOfPayment.Name = "cbModeOfPayment";
-            this.cbModeOfPayment.Size = new System.Drawing.Size(399, 29);
+            this.cbModeOfPayment.Size = new System.Drawing.Size(403, 29);
             this.cbModeOfPayment.Style = MetroFramework.MetroColorStyle.Green;
             this.cbModeOfPayment.TabIndex = 46;
             this.cbModeOfPayment.UseSelectable = true;
@@ -278,7 +354,7 @@
             this.labelCustomerName.AutoSize = true;
             this.labelCustomerName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCustomerName.ForeColor = System.Drawing.Color.SeaGreen;
-            this.labelCustomerName.Location = new System.Drawing.Point(15, 73);
+            this.labelCustomerName.Location = new System.Drawing.Point(14, 77);
             this.labelCustomerName.Name = "labelCustomerName";
             this.labelCustomerName.Size = new System.Drawing.Size(116, 20);
             this.labelCustomerName.TabIndex = 45;
@@ -289,7 +365,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label20.Location = new System.Drawing.Point(14, 122);
+            this.label20.Location = new System.Drawing.Point(14, 133);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(129, 20);
             this.label20.TabIndex = 41;
@@ -308,13 +384,14 @@
             this.txbCustomerName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txbCustomerName.isPassword = false;
-            this.txbCustomerName.Location = new System.Drawing.Point(18, 93);
+            this.txbCustomerName.Location = new System.Drawing.Point(15, 97);
             this.txbCustomerName.Margin = new System.Windows.Forms.Padding(0);
             this.txbCustomerName.MaxLength = 32767;
             this.txbCustomerName.Name = "txbCustomerName";
             this.txbCustomerName.Size = new System.Drawing.Size(399, 29);
             this.txbCustomerName.TabIndex = 44;
             this.txbCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txbCustomerName.OnValueChanged += new System.EventHandler(this.txbCustomerName_OnValueChanged);
             // 
             // label15
             // 
@@ -342,12 +419,38 @@
             this.btnClose.Zoom = 10;
             this.btnClose.Click += new System.EventHandler(this.btnClose__Click);
             // 
+            // btnPrintBill
+            // 
+            this.btnPrintBill.ActiveBorderThickness = 1;
+            this.btnPrintBill.ActiveCornerRadius = 20;
+            this.btnPrintBill.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintBill.ActiveForecolor = System.Drawing.Color.White;
+            this.btnPrintBill.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintBill.BackColor = System.Drawing.Color.White;
+            this.btnPrintBill.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrintBill.BackgroundImage")));
+            this.btnPrintBill.ButtonText = "Print Bill";
+            this.btnPrintBill.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintBill.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrintBill.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintBill.IdleBorderThickness = 1;
+            this.btnPrintBill.IdleCornerRadius = 20;
+            this.btnPrintBill.IdleFillColor = System.Drawing.Color.White;
+            this.btnPrintBill.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btnPrintBill.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btnPrintBill.Location = new System.Drawing.Point(238, 24);
+            this.btnPrintBill.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPrintBill.Name = "btnPrintBill";
+            this.btnPrintBill.Size = new System.Drawing.Size(175, 40);
+            this.btnPrintBill.TabIndex = 52;
+            this.btnPrintBill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnPrintBill.Click += new System.EventHandler(this.btnPrintBill_Click);
+            // 
             // fMethodOfPayment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(460, 436);
+            this.ClientSize = new System.Drawing.Size(460, 592);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupRoom);
             this.Controls.Add(this.groupBox1);
@@ -387,5 +490,10 @@
         private MetroFramework.Controls.MetroComboBox cbModeOfPayment;
         private Bunifu.Framework.UI.BunifuMetroTextbox txtAmountPaid;
         private System.Windows.Forms.Label label4;
+        private Bunifu.Framework.UI.BunifuMetroTextbox tbExtra;
+        private System.Windows.Forms.Label label7;
+        private Bunifu.Framework.UI.BunifuMetroTextbox tbDiscount;
+        private System.Windows.Forms.Label label5;
+        private Bunifu.Framework.UI.BunifuThinButton2 btnPrintBill;
     }
 }

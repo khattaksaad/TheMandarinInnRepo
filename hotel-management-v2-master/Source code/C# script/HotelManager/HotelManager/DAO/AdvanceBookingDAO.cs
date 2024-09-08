@@ -53,7 +53,7 @@ namespace HotelManager.DAO
         }
         public bool DeleteAdvanceBooking(int id)
         {
-            string query = "USP_DeleteBookRoom @id";
+            string query = "USP_DeleteAdvanceBooking @id";
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { id }) > 0;
         }
         public static AdvanceBookingDAO Instance { get { if (instance == null) instance = new AdvanceBookingDAO();return instance; }

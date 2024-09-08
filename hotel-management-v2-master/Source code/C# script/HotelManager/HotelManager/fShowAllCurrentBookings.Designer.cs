@@ -30,9 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fShowAllCurrentBookings));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
             this.dataGridViewRoom = new System.Windows.Forms.DataGridView();
@@ -42,11 +44,6 @@
             this.tabPageCurrentBookings = new System.Windows.Forms.TabPage();
             this.tabPageAdvanceBookings = new System.Windows.Forms.TabPage();
             this.dataGridViewAdvanceBookings = new System.Windows.Forms.DataGridView();
-            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateBookRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.advanceBookingsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reservationIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +52,13 @@
             this.dateCheckInDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateCheckOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateBookRoomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDelete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.roomTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOut = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateBookRoom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDeleteAB = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.roomBooking4ViewBindingSource)).BeginInit();
@@ -111,29 +115,30 @@
             this.RoomType,
             this.dateCheckInDataGridViewTextBoxColumn,
             this.dateCheckOutDataGridViewTextBoxColumn,
-            this.dateBookRoomDataGridViewTextBoxColumn});
+            this.dateBookRoomDataGridViewTextBoxColumn,
+            this.colDelete});
             this.dataGridViewRoom.DataSource = this.roomBooking4ViewBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewRoom.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewRoom.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewRoom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewRoom.GridColor = System.Drawing.Color.White;
             this.dataGridViewRoom.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewRoom.Name = "dataGridViewRoom";
             this.dataGridViewRoom.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SeaGreen;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewRoom.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewRoom.RowHeadersVisible = false;
             this.dataGridViewRoom.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewRoom.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -141,6 +146,7 @@
             this.dataGridViewRoom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewRoom.Size = new System.Drawing.Size(919, 371);
             this.dataGridViewRoom.TabIndex = 65;
+            this.dataGridViewRoom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRoom_CellContentClick);
             this.dataGridViewRoom.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewRoom_CellFormatting);
             // 
             // roomBooking4ViewBindingSource
@@ -218,15 +224,16 @@
             this.roomTypeDataGridViewTextBoxColumn,
             this.DateIn,
             this.DateOut,
-            this.DateBookRoom});
+            this.DateBookRoom,
+            this.colDeleteAB});
             this.dataGridViewAdvanceBookings.DataSource = this.advanceBookingsBindingSource;
-            this.dataGridViewAdvanceBookings.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewAdvanceBookings.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewAdvanceBookings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewAdvanceBookings.GridColor = System.Drawing.Color.White;
             this.dataGridViewAdvanceBookings.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewAdvanceBookings.Name = "dataGridViewAdvanceBookings";
             this.dataGridViewAdvanceBookings.ReadOnly = true;
-            this.dataGridViewAdvanceBookings.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewAdvanceBookings.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewAdvanceBookings.RowHeadersVisible = false;
             this.dataGridViewAdvanceBookings.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.dataGridViewAdvanceBookings.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -234,45 +241,7 @@
             this.dataGridViewAdvanceBookings.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewAdvanceBookings.Size = new System.Drawing.Size(919, 371);
             this.dataGridViewAdvanceBookings.TabIndex = 0;
-            // 
-            // CustomerName
-            // 
-            this.CustomerName.DataPropertyName = "CustomerName";
-            this.CustomerName.HeaderText = "Customer";
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.ReadOnly = true;
-            // 
-            // roomTypeDataGridViewTextBoxColumn
-            // 
-            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
-            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
-            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // DateIn
-            // 
-            this.DateIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateIn.DataPropertyName = "DateIn";
-            this.DateIn.HeaderText = "Check-In";
-            this.DateIn.Name = "DateIn";
-            this.DateIn.ReadOnly = true;
-            // 
-            // DateOut
-            // 
-            this.DateOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateOut.DataPropertyName = "DateOut";
-            this.DateOut.HeaderText = "Check Out";
-            this.DateOut.Name = "DateOut";
-            this.DateOut.ReadOnly = true;
-            // 
-            // DateBookRoom
-            // 
-            this.DateBookRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.DateBookRoom.DataPropertyName = "DateBookRoom";
-            this.DateBookRoom.HeaderText = "Booked on";
-            this.DateBookRoom.Name = "DateBookRoom";
-            this.DateBookRoom.ReadOnly = true;
+            this.dataGridViewAdvanceBookings.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAdvanceBookings_CellContentClick);
             // 
             // advanceBookingsBindingSource
             // 
@@ -334,6 +303,70 @@
             this.dateBookRoomDataGridViewTextBoxColumn.Name = "dateBookRoomDataGridViewTextBoxColumn";
             this.dateBookRoomDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // colDelete
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.NullValue = "X";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.colDelete.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colDelete.HeaderText = "Remove";
+            this.colDelete.Name = "colDelete";
+            this.colDelete.ReadOnly = true;
+            // 
+            // CustomerName
+            // 
+            this.CustomerName.DataPropertyName = "CustomerName";
+            this.CustomerName.HeaderText = "Customer";
+            this.CustomerName.Name = "CustomerName";
+            this.CustomerName.ReadOnly = true;
+            // 
+            // roomTypeDataGridViewTextBoxColumn
+            // 
+            this.roomTypeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.roomTypeDataGridViewTextBoxColumn.DataPropertyName = "RoomType";
+            this.roomTypeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.roomTypeDataGridViewTextBoxColumn.Name = "roomTypeDataGridViewTextBoxColumn";
+            this.roomTypeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // DateIn
+            // 
+            this.DateIn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateIn.DataPropertyName = "DateIn";
+            this.DateIn.HeaderText = "Check-In";
+            this.DateIn.Name = "DateIn";
+            this.DateIn.ReadOnly = true;
+            // 
+            // DateOut
+            // 
+            this.DateOut.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateOut.DataPropertyName = "DateOut";
+            this.DateOut.HeaderText = "Check Out";
+            this.DateOut.Name = "DateOut";
+            this.DateOut.ReadOnly = true;
+            // 
+            // DateBookRoom
+            // 
+            this.DateBookRoom.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DateBookRoom.DataPropertyName = "DateBookRoom";
+            this.DateBookRoom.HeaderText = "Booked on";
+            this.DateBookRoom.Name = "DateBookRoom";
+            this.DateBookRoom.ReadOnly = true;
+            // 
+            // colDeleteAB
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle5.NullValue = "X";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
+            this.colDeleteAB.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colDeleteAB.HeaderText = "Remove";
+            this.colDeleteAB.Name = "colDeleteAB";
+            this.colDeleteAB.ReadOnly = true;
+            // 
             // fShowAllCurrentBookings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,11 +407,6 @@
         private System.Windows.Forms.TabPage tabPageAdvanceBookings;
         private System.Windows.Forms.DataGridView dataGridViewAdvanceBookings;
         private System.Windows.Forms.BindingSource advanceBookingsBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateIn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateOut;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateBookRoom;
         private System.Windows.Forms.DataGridViewTextBoxColumn reservationIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn roomDataGridViewTextBoxColumn;
@@ -386,5 +414,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateCheckInDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateCheckOutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateBookRoomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn colDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateOut;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateBookRoom;
+        private System.Windows.Forms.DataGridViewButtonColumn colDeleteAB;
     }
 }

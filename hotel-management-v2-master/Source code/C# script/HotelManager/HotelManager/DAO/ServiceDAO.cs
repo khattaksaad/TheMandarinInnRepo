@@ -44,6 +44,12 @@ namespace HotelManager.DAO
         {
             return UpdateService(serviceNow.Id, serviceNow.Name, serviceNow.IdServiceType, serviceNow.Price);
         }
+        internal bool DeleteService(int id)
+        {
+            string query = "DeleteService @serviceId";
+            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { id}) > 0;
+        }
+
         internal DataTable LoadFullService()
         {
             string query = "USP_LoadFullService";

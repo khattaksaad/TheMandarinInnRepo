@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -426,11 +427,13 @@ namespace HotelManager
                 //refresh the list
                 ShowBill(room.BookingId);
                 txbTotalPrice.Text = totalPrice.ToString();
-
+                ThermalReceiptPrinter thermalReceiptPrinter = new ThermalReceiptPrinter(room.Room.Name, cbService.Text.ToString(), (int)numericUpDownCount.Value);
+                thermalReceiptPrinter.PrintReceipt();
             }
             catch (Exception ex)
             {
-                throw;
+                AppLogger.Instance.LogError("Following exception occurred while trying to add service to room", ex);
+                MessageBox.Show("An error occurred, please try again later or contact support");
             }
         }
 

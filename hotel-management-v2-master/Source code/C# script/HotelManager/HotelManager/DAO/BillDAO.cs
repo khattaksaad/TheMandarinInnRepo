@@ -82,10 +82,10 @@ namespace HotelManager.DAO
             return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { idBill, discount }) > 0;
         }
         //[USP_UpdateBillAsPayment]
-        internal bool UpdateBillAsPayment(int bookingId, int amountPaid, int statusBill)
+        internal bool UpdateBillAsPayment(int bookingId, int amountPaid, int discount, int surcharge, int statusBill)
         {
-            string query = "USP_UpdateBillAsPayment @bookingId , @amountPaid , @statusBill";
-            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { bookingId, amountPaid, statusBill }) > 0;
+            string query = "USP_UpdateBillAsPayment @bookingId , @amountPaid , @discount , @surcharge , @statusBill";
+            return DataProvider.Instance.ExecuteNoneQuery(query, new object[] { bookingId, amountPaid, discount , surcharge, statusBill }) > 0;
         }
 
         /*    @BookingID INT,
