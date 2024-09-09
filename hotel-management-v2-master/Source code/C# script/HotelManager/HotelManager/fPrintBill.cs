@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HotelManager.fPayment;
 using static HotelManager.fUseService;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace HotelManager
 {
@@ -25,21 +28,19 @@ namespace HotelManager
         {
             ShowBillPreView(idBill);
             ShowInfo(idBill);
-            lblIDBill.Text = idBill.ToString();
-            lblDateCreate.Text = dateOfCreate;
-            lblStaffSetUp.Text = AccountDAO.Instance.GetStaffSetUp(idBill).DisplayName;
         }
-        public fPrintBill(int idBooking, string customerName, string phoneNumber)
+        public fPrintBill(int idBooking, string customerName, string phoneNumber, List<Room4GUI> rooms4GUI, string userName)
         {
             InitializeComponent();
 
             //ShowBillPreView(idBill);
             ShowBill(idBooking);
+            ShowBillRoom(rooms4GUI);
             this.lblCustomerName.Text = customerName;
-           this.lblPhoneNumber.Text = phoneNumber.ToString();
-            //lblIDBill.Text = idBill.ToString();
-            lblDateCreate.Text = DateTime.Now.ToString();
-            //lblStaffSetUp.Text = AccountDAO.Instance.GetStaffSetUp(idBill).DisplayName;
+            this.lblPhoneNumber.Text = phoneNumber.ToString();
+            this.lblDateCheckIn.Text = rooms4GUI.First().CheckInDate.ToShortDateString();
+            this.lblDateCheckOut.Text = rooms4GUI.First().CheckOutDate.ToShortDateString();
+            labelStaffName.Text = AccountDAO.Instance.LoadStaffInforByUserName(userName).DisplayName;
         }
 
         public void ShowBill(int bookingId)
@@ -67,30 +68,37 @@ namespace HotelManager
             }
 
         }
-        public void ShowBillRoom(int idRoom)
+        public void ShowBillRoom(List<Room4GUI> rooms)
         {
-            //bindingSourceRoomBill.DataSource = null;
-            //Room4GUI room = flowLayoutRooms.Tag as Room4GUI;
-            //if (room == null || room.BookingId <= 0) return;
-            ////DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
-            ////	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
+            listViewRooms.Items.Clear();
+            if (rooms == null || rooms.Count == 0) return;
+            DataTable dataTable = RoomTypeDAO.Instance.LoadFullRoomType();
+            List<RoomType> roomTypes = new List<RoomType>();
+            foreach (DataRow row in dataTable.Rows)
 
+            {
+                RoomType roomType = new RoomType(row);
+                roomTypes.Add(roomType);
+            }
+            //DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
+            //	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
 
-            //ShowBillRoonInView showBillRoonInView = new ShowBillRoonInView()
-            //{
-            //    RoomName = room.Room.Name.ToString(),
-            //    //ActualPricePerNight = (int)data["Actual Price Per Night"],
-            //    CheckInDate1 = room.CheckInDate,
-            //    CheckOutDate1 = room.CheckOutDate,
-            //    PriceChargedPerNight = room.PricePerNight
-            //};
+            foreach(Room4GUI room in rooms)
+            {
+                ListViewItem listViewItem = new ListViewItem(room.Room.Name.ToString());
+                id++;
+                string roomTypeName = roomTypes.FirstOrDefault(p => p.Id == room.Room.IdRoomType)?.Name??string.Empty;
+                ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, roomTypeName.ToString());
+                ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, room.PricePerNight.ToString());
+                ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, room.Total4Room.ToString());
 
-            //showBillRoonInView.TotalStayCharges4Room = room.Total4Room;
-            //totalPrice += room.Total4Room;
-            //bindingSourceRoomBill.DataSource = showBillRoonInView;
-            //bindingSourceRoomBill.ResetBindings(false);
-            //dataGridView1.Refresh();
+                listViewItem.SubItems.Add(subItem1);
+                listViewItem.SubItems.Add(subItem2);
+                listViewItem.SubItems.Add(subItem3);
 
+                listViewRooms.Items.Add(listViewItem);
+
+            }
         }
 
 
@@ -186,11 +194,18 @@ namespace HotelManager
             Graphics graphics = this.CreateGraphics();
             bitmap = new Bitmap(708, 647, graphics);
             Graphics _graphics = Graphics.FromImage(bitmap);
-            _graphics.CopyFromScreen(this.Location.X, this.Location.Y+28,0,0,new Size(708, 647));
-            bitmap.Save(Application.StartupPath+ @"\Bill.Png", ImageFormat.Png);
+            _graphics.CopyFromScreen(this.Location.X, this.Location.Y + 28, 0, 0, new Size(708, 647));
+            bitmap.Save(Application.StartupPath + @"\Bill.Png", ImageFormat.Png);
             bitmap = new Bitmap(Application.StartupPath + @"\Bill.Png");
             if (printDialog1.ShowDialog() == DialogResult.OK)
                 printDocument1.Print();
+
+
+            //DocumentPrinter printer = new DocumentPrinter();
+
+            //// To save the form as a PDF
+            //printer.SaveAsPdf(this, @"C:\data\Bill.pdf");
+
         }
     }
 }

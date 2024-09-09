@@ -64,6 +64,9 @@
     <ApplicationIcon>hotel.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.UI.WinForms.5.3.0\lib\net40\Bunifu.Licensing.dll</HintPath>
     </Reference>
@@ -186,6 +189,9 @@
     </Reference>
     <Reference Include="Google.Apis.Oauth2.v2, Version=1.68.0.1869, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Apis.Oauth2.v2.1.68.0.1869\lib\netstandard2.0\Google.Apis.Oauth2.v2.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.9.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.10\lib\net45\log4net.dll</HintPath>
@@ -555,6 +561,7 @@
     <Compile Include="Utils\CountryHelper.cs" />
     <Compile Include="Utils\DatabaseRestorer.cs" />
     <Compile Include="Utils\DirectoryHelper.cs" />
+    <Compile Include="Utils\DocumentPrinter.cs" />
     <Compile Include="Utils\GDriveUploadHelper.cs" />
     <Compile Include="Utils\Helper.cs" />
     <Compile Include="Utils\AppLogger.cs" />

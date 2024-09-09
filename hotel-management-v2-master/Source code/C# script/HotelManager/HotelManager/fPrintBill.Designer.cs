@@ -43,7 +43,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.bunifuSeparator2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.lblRoomPrice_ = new System.Windows.Forms.Label();
+            this.lblDateCheckOut = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.lblDateCheckIn = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -52,12 +52,7 @@
             this.lblCustomerName = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.lblDateCreate = new System.Windows.Forms.Label();
-            this.lblCustom = new System.Windows.Forms.Label();
-            this.lblStaffSetUp = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblIDBill = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -69,6 +64,8 @@
             this.btnClose_ = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnPrint = new Bunifu.Framework.UI.BunifuThinButton2();
             this.btnClose = new Bunifu.Framework.UI.BunifuImageButton();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelStaffName = new System.Windows.Forms.Label();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
@@ -94,10 +91,11 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.labelStaffName);
             this.groupBox6.Controls.Add(this.listViewRooms);
             this.groupBox6.Controls.Add(this.listViewServices);
             this.groupBox6.Controls.Add(this.bunifuSeparator2);
-            this.groupBox6.Controls.Add(this.lblRoomPrice_);
+            this.groupBox6.Controls.Add(this.lblDateCheckOut);
             this.groupBox6.Controls.Add(this.label18);
             this.groupBox6.Controls.Add(this.lblDateCheckIn);
             this.groupBox6.Controls.Add(this.label17);
@@ -106,12 +104,7 @@
             this.groupBox6.Controls.Add(this.lblCustomerName);
             this.groupBox6.Controls.Add(this.label9);
             this.groupBox6.Controls.Add(this.bunifuSeparator1);
-            this.groupBox6.Controls.Add(this.lblDateCreate);
-            this.groupBox6.Controls.Add(this.lblCustom);
-            this.groupBox6.Controls.Add(this.lblStaffSetUp);
             this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Controls.Add(this.lblIDBill);
-            this.groupBox6.Controls.Add(this.label6);
             this.groupBox6.Controls.Add(this.label5);
             this.groupBox6.Controls.Add(this.label4);
             this.groupBox6.Controls.Add(this.label3);
@@ -133,7 +126,8 @@
             this.listViewRooms.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader7,
             this.columnHeader8,
-            this.columnHeader9});
+            this.columnHeader9,
+            this.columnHeader10});
             this.listViewRooms.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.listViewRooms.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listViewRooms.FullRowSelect = true;
@@ -149,7 +143,7 @@
             // columnHeader7
             // 
             this.columnHeader7.Text = "RoomName";
-            this.columnHeader7.Width = 330;
+            this.columnHeader7.Width = 230;
             // 
             // columnHeader8
             // 
@@ -215,15 +209,15 @@
             this.bunifuSeparator2.Transparency = 255;
             this.bunifuSeparator2.Vertical = false;
             // 
-            // lblRoomPrice_
+            // lblDateCheckOut
             // 
-            this.lblRoomPrice_.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoomPrice_.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblRoomPrice_.Location = new System.Drawing.Point(462, 204);
-            this.lblRoomPrice_.Name = "lblRoomPrice_";
-            this.lblRoomPrice_.Size = new System.Drawing.Size(214, 17);
-            this.lblRoomPrice_.TabIndex = 92;
-            this.lblRoomPrice_.Text = "Mã hóa đơn";
+            this.lblDateCheckOut.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateCheckOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblDateCheckOut.Location = new System.Drawing.Point(462, 204);
+            this.lblDateCheckOut.Name = "lblDateCheckOut";
+            this.lblDateCheckOut.Size = new System.Drawing.Size(214, 17);
+            this.lblDateCheckOut.TabIndex = 92;
+            this.lblDateCheckOut.Text = "Check out";
             // 
             // label18
             // 
@@ -244,7 +238,7 @@
             this.lblDateCheckIn.Name = "lblDateCheckIn";
             this.lblDateCheckIn.Size = new System.Drawing.Size(214, 17);
             this.lblDateCheckIn.TabIndex = 90;
-            this.lblDateCheckIn.Text = "Mã hóa đơn";
+            this.lblDateCheckIn.Text = "Check in";
             // 
             // label17
             // 
@@ -265,7 +259,7 @@
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(183, 17);
             this.lblPhoneNumber.TabIndex = 80;
-            this.lblPhoneNumber.Text = "Mã hóa đơn";
+            this.lblPhoneNumber.Text = "Contact number";
             // 
             // label11
             // 
@@ -286,7 +280,7 @@
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(225, 17);
             this.lblCustomerName.TabIndex = 76;
-            this.lblCustomerName.Text = "Mã hóa đơn";
+            this.lblCustomerName.Text = "Customer Name";
             // 
             // label9
             // 
@@ -312,79 +306,27 @@
             this.bunifuSeparator1.Transparency = 255;
             this.bunifuSeparator1.Vertical = false;
             // 
-            // lblDateCreate
-            // 
-            this.lblDateCreate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDateCreate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblDateCreate.Location = new System.Drawing.Point(546, 149);
-            this.lblDateCreate.Name = "lblDateCreate";
-            this.lblDateCreate.Size = new System.Drawing.Size(130, 17);
-            this.lblDateCreate.TabIndex = 73;
-            this.lblDateCreate.Text = "Mã hóa đơn";
-            // 
-            // lblCustom
-            // 
-            this.lblCustom.AutoSize = true;
-            this.lblCustom.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblCustom.Location = new System.Drawing.Point(476, 149);
-            this.lblCustom.Name = "lblCustom";
-            this.lblCustom.Size = new System.Drawing.Size(64, 17);
-            this.lblCustom.TabIndex = 72;
-            this.lblCustom.Text = "Ngày lập:";
-            // 
-            // lblStaffSetUp
-            // 
-            this.lblStaffSetUp.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffSetUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblStaffSetUp.Location = new System.Drawing.Point(308, 149);
-            this.lblStaffSetUp.Name = "lblStaffSetUp";
-            this.lblStaffSetUp.Size = new System.Drawing.Size(160, 17);
-            this.lblStaffSetUp.TabIndex = 71;
-            this.lblStaffSetUp.Text = "Bill code";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label7.Location = new System.Drawing.Point(212, 149);
+            this.label7.Location = new System.Drawing.Point(19, 152);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 17);
             this.label7.TabIndex = 70;
             this.label7.Text = "Staff:";
-            // 
-            // lblIDBill
-            // 
-            this.lblIDBill.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIDBill.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblIDBill.Location = new System.Drawing.Point(119, 149);
-            this.lblIDBill.Name = "lblIDBill";
-            this.lblIDBill.Size = new System.Drawing.Size(83, 17);
-            this.lblIDBill.TabIndex = 69;
-            this.lblIDBill.Text = "Code";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label6.Location = new System.Drawing.Point(35, 149);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 17);
-            this.label6.TabIndex = 68;
-            this.label6.Text = "Code Bill:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label5.Location = new System.Drawing.Point(198, 121);
+            this.label5.Location = new System.Drawing.Point(233, 124);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(255, 25);
+            this.label5.Size = new System.Drawing.Size(178, 25);
             this.label5.TabIndex = 67;
-            this.label5.Text = "SERVICE PAYMENT INVOICE";
+            this.label5.Text = "PAYMENT INVOICE";
             // 
             // label4
             // 
@@ -414,15 +356,15 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(484, 37);
             this.label13.TabIndex = 64;
-            this.label13.Text = "▶ Address: The Mandarin Inn, Opposite to Pine Forest, Shahrah-e-Quaid-e-Azam Juti" +
-    "al, 15150 Gilgit, Pakistan";
+            this.label13.Text = "▶ Address: The Mandarin Inn, Opposite to Pine Forest, Shahrah-e-\r\n   Quaid-e-Azam" +
+    " Jutial, 15150 Gilgit, Pakistan";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label1.Location = new System.Drawing.Point(201, 16);
+            this.label1.Location = new System.Drawing.Point(213, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(225, 30);
             this.label1.TabIndex = 34;
@@ -434,7 +376,7 @@
             this.pictureBox2.Image = global::HotelManager.Properties.Resources.image_123650291;
             this.pictureBox2.Location = new System.Drawing.Point(31, 28);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(150, 106);
+            this.pictureBox2.Size = new System.Drawing.Size(135, 96);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 15;
             this.pictureBox2.TabStop = false;
@@ -517,6 +459,22 @@
             this.btnClose.Zoom = 10;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Total";
+            this.columnHeader10.Width = 130;
+            // 
+            // labelStaffName
+            // 
+            this.labelStaffName.AutoSize = true;
+            this.labelStaffName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStaffName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.labelStaffName.Location = new System.Drawing.Point(62, 151);
+            this.labelStaffName.Name = "labelStaffName";
+            this.labelStaffName.Size = new System.Drawing.Size(69, 17);
+            this.labelStaffName.TabIndex = 103;
+            this.labelStaffName.Text = "StaffName";
+            // 
             // fPrintBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,18 +512,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblDateCreate;
-        private System.Windows.Forms.Label lblCustom;
-        private System.Windows.Forms.Label lblStaffSetUp;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblIDBill;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
         private System.Windows.Forms.Label lblCustomerName;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblPhoneNumber;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblRoomPrice_;
+        private System.Windows.Forms.Label lblDateCheckOut;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label lblDateCheckIn;
         private System.Windows.Forms.Label label17;
@@ -583,5 +536,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Label labelStaffName;
     }
 }

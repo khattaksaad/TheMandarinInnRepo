@@ -21,6 +21,30 @@ namespace HotelManager
 {
     public partial class fPayment : Form
     {
+        public class Room4GUI
+        {
+            Room room;
+            int bookingId;
+            int total4Room;
+            int customerId;
+            DateTime checkInDate;
+            DateTime checkOutDate;
+            int pricePerNight;
+            int bookingType;
+            public Room4GUI()
+            {
+
+            }
+            public Room Room { get => room; set => room = value; }
+            public int BookingId { get => bookingId; set => bookingId = value; }
+            public int Total4Room { get => total4Room; set => total4Room = value; }
+            public int CustomerId { get => customerId; set => customerId = value; }
+            public DateTime CheckInDate { get => checkInDate; set => checkInDate = value; }
+            public DateTime CheckOutDate { get => checkOutDate; set => checkOutDate = value; }
+            public int PricePerNight { get => pricePerNight; set => pricePerNight = value; }
+            public int BookingType { get => bookingType; set => bookingType = value; }
+        }
+
         public class PaymentTotal
         {
             int totalAmount;
@@ -39,29 +63,6 @@ namespace HotelManager
         List<Company> companyList;
         List<Customer> customers;
         List<Room4GUI> roomsDisplayed;
-        private class Room4GUI
-        {
-            Room room;
-            int bookingId;
-            int total4Room;
-            int customerId;
-            DateTime checkInDate;
-            DateTime checkOutDate;
-            int pricePerNight;
-            int bookingType;
-            public Room4GUI()
-            {
-                
-            }
-            public Room Room { get => room; set => room = value; }
-            public int BookingId { get => bookingId; set => bookingId = value; }
-            public int Total4Room { get => total4Room; set => total4Room = value; }
-            public int CustomerId { get => customerId; set => customerId = value; }
-            public DateTime CheckInDate { get => checkInDate; set => checkInDate = value; }
-            public DateTime CheckOutDate { get => checkOutDate; set => checkOutDate = value; }
-            public int PricePerNight { get => pricePerNight; set => pricePerNight = value; }
-            public int BookingType { get => bookingType; set => bookingType = value; }
-        }
         public fPayment(string userName)
         {
             staffSetUp = userName;         
@@ -436,7 +437,8 @@ namespace HotelManager
 
         private void btnAddService2Room_Click(object sender, EventArgs e)
         {
-            if (!(flowLayoutRooms.Tag is Room4GUI room))
+            Room4GUI roomSelected = flowLayoutRooms.Tag as Room4GUI;
+            if (roomSelected == null)
             {
                 MessageBox.Show("Please select a room first", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
@@ -476,7 +478,7 @@ namespace HotelManager
                 BookingId = bookingId.TrimStart(','), 
                 Discount = discount,
                 Surcharge = surcharge        
-            });
+            }, new List<Room4GUI>() { roomSelected }, staffSetUp);
             fMethodOfPayment.ShowDialog();
             LoadData();
             bindingSourceTotal.DataSource = null;

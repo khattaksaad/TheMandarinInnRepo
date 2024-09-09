@@ -10,11 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static HotelManager.fPayment;
 
 namespace HotelManager
 {
     public partial class fMethodOfPayment : Form
     {
+        List<Room4GUI> room4GUIs;
+        string userName;
         public class Payment
         {
             int totalAmount;
@@ -36,7 +39,7 @@ namespace HotelManager
             public string PhoneNumber { get => phoneNumber; set => phoneNumber = value; }
         }
         private Payment payment;
-        public fMethodOfPayment(Payment payment)
+        public fMethodOfPayment(Payment payment, List<Room4GUI> rooms4GUI, string username)
         {
 
             InitializeComponent();
@@ -47,6 +50,8 @@ namespace HotelManager
             txbTotalDueAmount.Text =  ((payment.DueAmount + payment.Surcharge) - payment.Discount).ToString();
             tbExtra.Text = payment.Surcharge.ToString();
             tbDiscount.Text = payment.Discount.ToString();
+            room4GUIs = rooms4GUI;
+            userName = username;
         }
 
         private void LoadFullRoomType()
@@ -173,7 +178,7 @@ namespace HotelManager
 
         private void btnPrintBill_Click(object sender, EventArgs e)
         {
-            fPrintBill fPrint = new fPrintBill(Convert.ToInt32(txbBookingID.Text.Trim()), payment.CustomerName, payment.PhoneNumber);
+            fPrintBill fPrint = new fPrintBill(Convert.ToInt32(txbBookingID.Text.Trim()), payment.CustomerName, payment.PhoneNumber, room4GUIs, userName);
             this.Hide();
             fPrint.ShowDialog();
             this.Show();
