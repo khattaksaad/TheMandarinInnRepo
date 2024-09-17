@@ -69,16 +69,16 @@ namespace HotelManager
         #region Change Text
         private void BtnSeenBill_Click(object sender, EventArgs e)
         {
-            if (comboboxID.Text != string.Empty)
-            {
-                if (!txbStatusRoom.Text.Contains("Ch"))
-                {
-                    fPrintBill.SetPrintBill(int.Parse(comboboxID.Text), txbDateCreate.Text);
-                    fPrintBill.ShowDialog();
-                }
-                else
-                    MessageBox.Show("Unpaid invoice\nYou do not have access rights", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            //if (comboboxID.Text != string.Empty)
+            //{
+            //    if (!txbStatusRoom.Text.Contains("Ch"))
+            //    {
+            //        fPrintBill.SetPrintBill(int.Parse(comboboxID.Text), txbDateCreate.Text);
+            //        fPrintBill.ShowDialog();
+            //    }
+            //    else
+            //        MessageBox.Show("Unpaid invoice\nYou do not have access rights", "Stop", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
         }
         #endregion
 

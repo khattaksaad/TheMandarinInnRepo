@@ -178,7 +178,7 @@ namespace HotelManager
 
         private void btnPrintBill_Click(object sender, EventArgs e)
         {
-            fPrintBill fPrint = new fPrintBill(Convert.ToInt32(txbBookingID.Text.Trim()), payment.CustomerName, payment.PhoneNumber, room4GUIs, userName);
+            fPrintBill fPrint = new fPrintBill(Convert.ToInt32(txbBookingID.Text.Trim()), payment.CustomerName, payment.PhoneNumber, room4GUIs, userName, payment.Discount, payment.Surcharge);
             this.Hide();
             fPrint.ShowDialog();
             this.Show();

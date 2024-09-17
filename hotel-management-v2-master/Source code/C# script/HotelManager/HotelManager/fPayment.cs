@@ -87,7 +87,7 @@ namespace HotelManager
             cbCustomers.DataSource = companyList;
             cbCustomers.ValueMember = "Id";
             cbCustomers.DisplayMember = "CompanyName";
-            cbCustomers.SelectedValue = companyList.FirstOrDefault();
+            cbCustomers.SelectedValue = companyList.FirstOrDefault() ?? new Company() { };
             AppLogger.Instance.LogError($"fPayment Loaded");
 
         }

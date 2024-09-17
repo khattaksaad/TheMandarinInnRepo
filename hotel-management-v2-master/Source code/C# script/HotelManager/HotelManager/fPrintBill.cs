@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -20,159 +21,128 @@ namespace HotelManager
 {
     public partial class fPrintBill : Form
     {
+        class printBillHelper
+        {
+            Room room;
+            int bookingId;
+
+            public Room Room { get => room; set => room = value; }
+            public int BookingId { get => bookingId; set => bookingId = value; }
+        }
+
+        int total = 0;
+        List<printBillHelper> roomsBooked;
         public fPrintBill()
         {
             InitializeComponent();
         }
-        public void SetPrintBill(int idBill, string dateOfCreate)
-        {
-            ShowBillPreView(idBill);
-            ShowInfo(idBill);
-        }
-        public fPrintBill(int idBooking, string customerName, string phoneNumber, List<Room4GUI> rooms4GUI, string userName)
+        public fPrintBill(int idBooking, string customerName, string phoneNumber, List<Room4GUI> rooms4GUI, string userName, int discount, int surcharge)
         {
             InitializeComponent();
 
             //ShowBillPreView(idBill);
-            ShowBill(idBooking);
             ShowBillRoom(rooms4GUI);
+            ShowBill(idBooking);
             this.lblCustomerName.Text = customerName;
             this.lblPhoneNumber.Text = phoneNumber.ToString();
             this.lblDateCheckIn.Text = rooms4GUI.First().CheckInDate.ToShortDateString();
             this.lblDateCheckOut.Text = rooms4GUI.First().CheckOutDate.ToShortDateString();
+            this.labelSurcharge.Text = surcharge.ToString();
+            total = (total  + surcharge)  - discount;
+            this.labelGTotalText.Text = total.ToString();
+            labelDiscount.Text = discount.ToString();
             labelStaffName.Text = AccountDAO.Instance.LoadStaffInforByUserName(userName).DisplayName;
         }
 
         public void ShowBill(int bookingId)
         {
-            listViewServices.Items.Clear();
-            System.Data.DataTable dataTable = ChargeService2RoomDAO.Instance.GetAllServiceChargesForARoom(bookingId);
-            int _totalPrice = 0;
-            foreach (DataRow item in dataTable.Rows)
+            AppLogger.Instance.LogInformation($"fPrintBill - ShowBill({bookingId}) is called");
+            try
             {
-                ListViewItem listViewItem = new ListViewItem(bookingId.ToString());
-                id++;
+                listViewServices.Items.Clear();
+                System.Data.DataTable dataTable = ChargeService2RoomDAO.Instance.GetAllServiceChargesForARoom(bookingId);
+                int _totalPrice = 0;
+                foreach (DataRow item in dataTable.Rows)
+                {
+                    string roomName = roomsBooked.First(p => p.BookingId == bookingId)?.Room.Name ?? string.Empty;
+                    ListViewItem listViewItem = new ListViewItem(roomName.ToString());
 
-                ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, item["Service Name"].ToString());
-                ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, ((int)item["Quantity"]).ToString());
+                    ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, item["Service Name"].ToString());
+                    ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, ((int)item["Quantity"]).ToString());
 
 
-                _totalPrice = (int)item["Price"] * (int)item["Quantity"];
-                ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, _totalPrice.ToString());
+                    _totalPrice = (int)item["Price"] * (int)item["Quantity"];
+                    total += _totalPrice;
+                    ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, _totalPrice.ToString());
 
-                listViewItem.SubItems.Add(subItem1);
-                listViewItem.SubItems.Add(subItem2);
-                listViewItem.SubItems.Add(subItem3);
+                    listViewItem.SubItems.Add(subItem1);
+                    listViewItem.SubItems.Add(subItem2);
+                    listViewItem.SubItems.Add(subItem3);
 
-                listViewServices.Items.Add(listViewItem);
+                    listViewServices.Items.Add(listViewItem);
+                }
+            }
+            catch (Exception ex)
+            {
+                AppLogger.Instance.LogError($"fPrintBill - ShowBill, following exception occurred ", ex);
+
             }
 
         }
         public void ShowBillRoom(List<Room4GUI> rooms)
         {
-            listViewRooms.Items.Clear();
-            if (rooms == null || rooms.Count == 0) return;
-            DataTable dataTable = RoomTypeDAO.Instance.LoadFullRoomType();
-            List<RoomType> roomTypes = new List<RoomType>();
-            foreach (DataRow row in dataTable.Rows)
-
+            try
             {
-                RoomType roomType = new RoomType(row);
-                roomTypes.Add(roomType);
+                AppLogger.Instance.LogInformation($"fPrintBill - ShowBillRoom() is called");
+
+                listViewRooms.Items.Clear();
+                if (rooms == null || rooms.Count == 0) return;
+                DataTable dataTable = RoomTypeDAO.Instance.LoadFullRoomType();
+                List<RoomType> roomTypes = new List<RoomType>();
+                roomsBooked = new List<printBillHelper>();
+                foreach (DataRow row in dataTable.Rows)
+
+                {
+                    RoomType roomType = new RoomType(row);
+                    roomTypes.Add(roomType);
+                }
+                //DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
+                //	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
+
+                foreach (Room4GUI room in rooms)
+                {
+                    
+                    ListViewItem listViewItem = new ListViewItem(room.Room.Name.ToString());
+                    string roomTypeName = roomTypes.FirstOrDefault(p => p.Id == room.Room.IdRoomType)?.Name ?? string.Empty;
+                    int actualPricePerNight = roomTypes.FirstOrDefault(p => p.Id == room.Room.IdRoomType)?.Price ?? 0;
+                    ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, roomTypeName.ToString());
+
+                    ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, actualPricePerNight.ToString());
+
+                    ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, room.PricePerNight.ToString());
+                    ListViewItem.ListViewSubItem subItem4 = new ListViewItem.ListViewSubItem(listViewItem, room.Total4Room.ToString());
+                    total += room.Total4Room;
+                    listViewItem.SubItems.Add(subItem1);
+                    listViewItem.SubItems.Add(subItem2);
+                    listViewItem.SubItems.Add(subItem3);
+                    listViewItem.SubItems.Add(subItem4);
+
+                    roomsBooked.Add(new printBillHelper() { Room = room.Room, BookingId = room.BookingId });
+                    listViewRooms.Items.Add(listViewItem);
+
+                }
             }
-            //DataRow data = BillDAO.Instance.ShowBillRoom(idRoom);
-            //	select A.Name RoomName,D.Price [Price Per Night] ,C.DateCheckIn [Check-in Date],B.CheckOutDate as [Check-out Date]  ,E.RoomPrice [Bill Room price],E.Surcharge [Surcharge]
-
-            foreach(Room4GUI room in rooms)
+            catch (Exception ex)
             {
-                ListViewItem listViewItem = new ListViewItem(room.Room.Name.ToString());
-                id++;
-                string roomTypeName = roomTypes.FirstOrDefault(p => p.Id == room.Room.IdRoomType)?.Name??string.Empty;
-                ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, roomTypeName.ToString());
-                ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, room.PricePerNight.ToString());
-                ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, room.Total4Room.ToString());
-
-                listViewItem.SubItems.Add(subItem1);
-                listViewItem.SubItems.Add(subItem2);
-                listViewItem.SubItems.Add(subItem3);
-
-                listViewRooms.Items.Add(listViewItem);
+                AppLogger.Instance.LogError($"fPrintBill - ShowBillRoom, following exception occurred ", ex);
 
             }
         }
 
 
-
-
-        int id = 0;
-        public void ShowBillPreView(int idBill)
-        {
-        //    listViewUseService.Items.Clear();
-        //    DataTable dataTable = BillDAO.Instance.ShowBillPreView(idBill);
-        //    int _totalPrice = 0;
-        //    foreach (DataRow item in dataTable.Rows)
-        //    {
-        //        ListViewItem listViewItem = new ListViewItem(id.ToString());
-        //        id++;
-
-        //        ListViewItem.ListViewSubItem subItem1 = new ListViewItem.ListViewSubItem(listViewItem, item["Tên dịch vụ"].ToString());
-        //        ListViewItem.ListViewSubItem subItem2 = new ListViewItem.ListViewSubItem(listViewItem, ((int)item["Đơn giá"]).ToString());
-        //        ListViewItem.ListViewSubItem subItem3 = new ListViewItem.ListViewSubItem(listViewItem, ((int)item["Số lượng"]).ToString());
-        //        ListViewItem.ListViewSubItem subItem4 = new ListViewItem.ListViewSubItem(listViewItem, ((int)item["Thành tiền"]).ToString());
-
-
-        //        _totalPrice += (int)item["Thành tiền"];
-
-        //        listViewItem.SubItems.Add(subItem1);
-        //        listViewItem.SubItems.Add(subItem2);
-        //        listViewItem.SubItems.Add(subItem3);
-        //        listViewItem.SubItems.Add(subItem4);
-
-        //        listViewUseService.Items.Add(listViewItem);
-        //    }
-
-        //    ListViewItem listViewItemTotalPrice = new ListViewItem();
-        //    ListViewItem.ListViewSubItem subItemTotalPrice = new ListViewItem.ListViewSubItem(listViewItemTotalPrice, _totalPrice.ToString());
-        //    ListViewItem.ListViewSubItem _subItem1 = new ListViewItem.ListViewSubItem(listViewItemTotalPrice, "");
-        //    ListViewItem.ListViewSubItem _subItem2 = new ListViewItem.ListViewSubItem(listViewItemTotalPrice, "");
-        //    ListViewItem.ListViewSubItem _subItem3 = new ListViewItem.ListViewSubItem(listViewItemTotalPrice, "");
-        //    listViewItemTotalPrice.SubItems.Add(_subItem1);
-        //    listViewItemTotalPrice.SubItems.Add(_subItem2);
-        //    listViewItemTotalPrice.SubItems.Add(_subItem3);
-        //    listViewItemTotalPrice.SubItems.Add(subItemTotalPrice);
-        //    listViewUseService.Items.Add(listViewItemTotalPrice);
-
-            id = 1;
-        }
         public bool IsExistsBill(int idRoom)
         {
             return BillDAO.Instance.IsExistsBill(idRoom);
-        }
-        public void ShowInfo(int idBill)
-        {
-        //    string query = "USP_ShowBillInfo @idBill";
-        //    DataRow data = DataProvider.Instance.ExecuteQuery(query, new object[] { idBill }).Rows[0];
-        //    lblCustomerName.Text = data["HoTen"].ToString();
-        //    lblIDCard.Text = data["CMND"].ToString();
-        //    lblPhoneNumber.Text = ((int)data["SDT"]).ToString();
-        //    lblCustomerTypeName.Text = data["LoaiKH"].ToString();
-        //    lblAddress.Text = data["DiaChi"].ToString();
-        //    lblNationality.Text= data["QuocTich"].ToString();
-        //    lblRoomName.Text= data["TenPhong"].ToString();
-        //    lblRoomTypeName.Text= data["LoaiPhong"].ToString();
-        //    lblRoomPrice_.Text=((int)data["DonGia"]).ToString();
-        //    lblDateCheckIn.Text=((DateTime)data["NgayDen"]).ToString().Split(' ')[0];
-        //    DateTime dateCheckIn= (DateTime)data["NgayDen"];
-        //    DateTime dateCheckOut = (DateTime)data["NgayDi"];
-        //    int days = dateCheckOut.Subtract(dateCheckIn).Days;
-        //    lblDays.Text = days.ToString();
-        //    lblPeoples.Text = RoomDAO.Instance.GetPeople(idBill).ToString();
-        //    lblSurcharge.Text= ((int)data["PhuThu"]).ToString();
-        //    lblServicePrice.Text= ((int)data["TienDichVu"]).ToString();
-        //    lblRoomPrice.Text= ((int)data["TienPhong"]).ToString();
-        //    lblTotalPrice.Text= ((int)data["ThanhTien"]).ToString();
-        //    lblFinalPrice.Text= ((int)data["ThanhTien"]*((100-(int)data["GiamGia"])/100.0)).ToString();
-        //    lblDiscount.Text= ((int)data["GiamGia"]).ToString()+" %";
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -191,21 +161,56 @@ namespace HotelManager
         Bitmap bitmap;
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Graphics graphics = this.CreateGraphics();
-            bitmap = new Bitmap(708, 647, graphics);
-            Graphics _graphics = Graphics.FromImage(bitmap);
-            _graphics.CopyFromScreen(this.Location.X, this.Location.Y + 28, 0, 0, new Size(708, 647));
-            bitmap.Save(Application.StartupPath + @"\Bill.Png", ImageFormat.Png);
-            bitmap = new Bitmap(Application.StartupPath + @"\Bill.Png");
-            if (printDialog1.ShowDialog() == DialogResult.OK)
-                printDocument1.Print();
+            try
+            {
+                AppLogger.Instance.LogInformation($"fPrintBill - btnPrint_Click is called");
+                //printDocument1.PrintPage += new PrintPageEventHandler(PrintPage);
+                Graphics graphics = this.CreateGraphics();
+                bitmap = new Bitmap(708, 695, graphics);
+                Graphics _graphics = Graphics.FromImage(bitmap);
+                _graphics.CopyFromScreen(this.Location.X, this.Location.Y + 28, 0, 0, new Size(708, 695));
+                AppLogger.Instance.LogInformation($"fPrintBill - btnPrint_Click saving bitmap");
 
+                bitmap.Save(Application.StartupPath + @"\Bill.Png", ImageFormat.Png);
+                AppLogger.Instance.LogInformation($"fPrintBill - btnPrint_Click bitmap saved");
 
-            //DocumentPrinter printer = new DocumentPrinter();
+                bitmap = new Bitmap(Application.StartupPath + @"\Bill.Png");
+                if (printDialog1.ShowDialog() == DialogResult.OK)
+                    printDocument1.Print();
+                AppLogger.Instance.LogInformation($"fPrintBill - btnPrint_Click printDocument1.Print() has been printed");
+                DialogResult = MessageBox.Show("Receipt has been printed", "Print Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(DialogResult == DialogResult.OK)
+                {
+                    this.Close();
+                }
+            }
+            catch (Exception ex) {
+                AppLogger.Instance.LogError($"fPrintBill - btnPrint_Click, following exception occurred ", ex);
 
-            //// To save the form as a PDF
-            //printer.SaveAsPdf(this, @"C:\data\Bill.pdf");
-
+            }
         }
+        private void PrintPage(object sender, PrintPageEventArgs e)
+        {
+            // Set high-quality rendering options
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            e.Graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            e.Graphics.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+
+            // Get the printer's DPI
+            float printerDpiX = e.Graphics.DpiX;
+            float printerDpiY = e.Graphics.DpiY;
+
+            // Calculate the scale factor
+            float scaleX = printerDpiX / bitmap.HorizontalResolution;
+            float scaleY = printerDpiY / bitmap.VerticalResolution;
+
+            // Scale the bitmap
+            int scaledWidth = (int)(bitmap.Width * scaleX);
+            int scaledHeight = (int)(bitmap.Height * scaleY);
+
+            // Print the bitmap
+            e.Graphics.DrawImage(bitmap, 0, 0, scaledWidth, scaledHeight);
+        }
+
     }
 }

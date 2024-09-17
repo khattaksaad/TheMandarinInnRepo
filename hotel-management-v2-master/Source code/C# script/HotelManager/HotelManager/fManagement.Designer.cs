@@ -299,9 +299,9 @@
             this.label2.ForeColor = System.Drawing.Color.SeaGreen;
             this.label2.Location = new System.Drawing.Point(23, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(428, 37);
+            this.label2.Size = new System.Drawing.Size(225, 37);
             this.label2.TabIndex = 21;
-            this.label2.Text = "The Mandarin Inn - Hotel Manager";
+            this.label2.Text = "The Mandarin Inn";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnClose
@@ -416,6 +416,7 @@
             this.bbtnUploadDB.ButtonText = "Upload Database";
             this.bbtnUploadDB.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bbtnUploadDB.DisabledColor = System.Drawing.Color.Gray;
+            this.bbtnUploadDB.Enabled = false;
             this.bbtnUploadDB.Iconcolor = System.Drawing.Color.Transparent;
             this.bbtnUploadDB.Iconimage = global::HotelManager.Properties.Resources.database__2_;
             this.bbtnUploadDB.Iconimage_right = null;

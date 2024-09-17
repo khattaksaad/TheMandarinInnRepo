@@ -1,5 +1,6 @@
 ﻿using HotelManager.DAO;
 using HotelManager.DTO;
+using HotelManager.Utils;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -190,6 +191,8 @@ namespace HotelManager
         }
         private void btnBookRoom_Click(object sender, EventArgs e)
         {
+            AppLogger.Instance.LogInformation($"fBookRoom4Self - btnBookRoom_Click");
+
             if (MessageBox.Show("Would you like to make a reservation?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (txbIDCard.Text != String.Empty && txbFullName.Text != String.Empty && txbAddress.Text != String.Empty && txbPhoneNumber.Text != String.Empty && cbNationality.Text != String.Empty)
@@ -197,6 +200,8 @@ namespace HotelManager
                     if (!IsIdCardExists(txbIDCard.Text))
                     {
                         int idCustomerType = (cbCustomerType.SelectedItem as CustomerType).Id;
+                        AppLogger.Instance.LogInformation($"fBookRoom4Self - InsertCustomer called");
+
                         InsertCustomer(txbIDCard.Text, txbFullName.Text, idCustomerType, dpkDateOfBirth.Value, txbAddress.Text, txbPhoneNumber.Text, txbCity.Text, txbEmail.Text, cbSex.Text, cbNationality.Text);
                     }
                     //now add all bookings
@@ -205,8 +210,12 @@ namespace HotelManager
                     {
                         RoomBooking4Grid room = item as RoomBooking4Grid;
                         if(room == null || room.RoomId == null) continue;
+                        AppLogger.Instance.LogInformation($"fBookRoom4Self - InsertBookRoom called");
+
                         InsertBookRoom(Convert.ToInt32(room.RoomId), CustomerDAO.Instance.GetInfoByIdCard(txbIDCard.Text).Id, room.RoomTypeId, bookingType:0, room.RoomName, dpkDateCheckIn.Value, dpkDateCheckOut.Value, DateTime.Now,(int)room.Price4Booking, this.userName);
                     }
+                    AppLogger.Instance.LogInformation($"fBookRoom4Self - Booking successful");
+
                     MessageBox.Show("Booking successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClearData();
                     //LoadListBookRoom();

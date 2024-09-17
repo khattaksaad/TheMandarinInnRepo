@@ -17,7 +17,7 @@ namespace HotelManager.DAO
 
         public DataTable GetAllServiceChargesForARoom(int reservationId)
         {
-            string query = "[USP_GetCharges2Room] @@idBookRoom";
+            string query = "[USP_GetCharges2Room] @idBookRoom";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { reservationId });
         }
 
